@@ -16,6 +16,10 @@ class NewsController extends Controller
 {
     //
 
+    public function index()
+    {
+        return view("client.Home");
+    }
     public function search(Request $request)
     {
         $searchTerm = $request->get('term');

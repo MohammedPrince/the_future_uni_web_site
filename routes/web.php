@@ -107,6 +107,10 @@ Route::get('/register', [UserController::class, "register" ]);
 
 Route::middleware(['web', 'visitor'])->group(function () {
     
+    Route::get('/', function () {
+        return view('client.Home');
+    });
+
     Route::get('/Home', function () {
         return view('client.Home');
     });
@@ -158,14 +162,15 @@ Route::middleware(['web', 'visitor'])->group(function () {
 });
 
 
-Route::get('/search', [NewsController::class, 'search']);
+Route::get('/', [NewsController::class, "NewsAndEvents" ]);
+Route::get('/', [NewsController::class, "viewNews" ]);
 
 Route::get('/Home', [NewsController::class, "viewNews" ]);
 // Route::get('/Home', [EventsController::class, "viewEvents" ]);
 Route::get('/Event-Details/{event}', [EventsController::class, "eventDetails" ]);
 Route::get('/News-Details/{news}', [NewsController::class, "newsDetails" ]);
 Route::get('/News-and-Events', [NewsController::class, "NewsAndEvents" ]);
-
+Route::get('/search', [NewsController::class, 'search']);
 Route::get('/Facts-Figures', [ChartController::class, 'barChart']);
 
 
