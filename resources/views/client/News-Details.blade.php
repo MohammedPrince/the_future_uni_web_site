@@ -56,7 +56,6 @@
                     </div>
                 </div>
 
-
                 <div class="col-sm-8 col-md-5 col-lg-4 col-xl-3 offset-xl-1 offset-0 pl-xl-0 sidebar">
 
                     <div class="widget">

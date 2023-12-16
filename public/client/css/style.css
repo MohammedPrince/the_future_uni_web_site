@@ -2555,7 +2555,6 @@ a.bg-info:hover {
 }
 
 
-
 .bg-warning {
     background-color: #ffc107
 }
@@ -2573,3 +2572,18 @@ a.bg-danger:focus,
 a.bg-danger:hover {
     background-color: #e4b9b9
 }
+
+/* Carousel Style */
+
+.owl-carousel .item {
+    height: 250px;
+	width: 250px;
+    background: #ccc;
+    padding: 10rem;
+  }
+  .owl-carousel .item h4 {
+
+    color: #FFF;
+    font-weight: 400;
+    margin-top: 0rem;
+   }

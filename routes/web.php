@@ -127,6 +127,14 @@ Route::middleware(['web', 'visitor'])->group(function () {
         return view('client.Fu-Linkages');
     });
     
+    Route::get('/Fu-Journal', function () {
+        return view('client.Fu-Journal');
+    });
+
+    Route::get('/Fu-Historical-Gallery', function () {
+        return view('client.Fu-Historical-Gallery');
+    });
+
     Route::get('/Undergraduate-Admission', function () {
         return view('client.Undergraduate-Admission');
     });

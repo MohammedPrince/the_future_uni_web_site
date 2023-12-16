@@ -5,9 +5,43 @@
  ------------------------------------ 
  ====================================*/
 
-
-
 'use strict';
+
+if (window.location.href.indexOf("/Fu-Historical-Gallery") > -1) {
+
+var swiper = new Swiper(".mySwiper", {
+	cssMode: true,
+	navigation: {
+	  nextEl: ".swiper-button-next",
+	  prevEl: ".swiper-button-prev",
+	},
+	pagination: {
+	  el: ".swiper-pagination",
+	},
+	mousewheel: true,
+	keyboard: true,
+  });
+
+  jQuery(document).ready(function($){
+    $('.owl-carousel').owlCarousel({
+      loop:true,
+      margin:10,
+      nav:true,
+      responsive:{
+        0:{
+          items:1
+        },
+        600:{
+          items:3
+        },
+        1000:{
+          items:5
+        }
+      }
+    })
+  })
+
+ }
 
 
 $(document).ready(function() {

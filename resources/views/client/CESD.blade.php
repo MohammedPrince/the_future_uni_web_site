@@ -21,7 +21,7 @@
                     <p>
                     <blockquote class="text-center" style="background-color: whitesmoke;">
                         <span style="font-size: 19px;">
-                             Centre for E-Learning and Software Development <strong>CESD</strong>
+                             Centre of E-Learning and Software Development <strong>CESD</strong>
                         </span>
                     </blockquote>
                     </p>
@@ -29,7 +29,7 @@
                     <div class="hr-sect new4"><span>About</span></div>
 
                     <p style="font-size: 16px;">
-                        CESD (Centre for E-Learning and Software Development) is responsible for developing and managing multimedia E-learning Contents and development of other software systems. It will also be doing research and development for Learning Management System (LMS) and Learning Content Management System (LCMS). We are using mainly open source technologies for developing our E-University applications. 
+                        CESD (Centre of E-Learning and Software Development) is responsible for developing and managing multimedia E-learning Contents and development of other software systems. It will also be doing research and development for Learning Management System (LMS) and Learning Content Management System (LCMS). We are using mainly open source technologies for developing our E-University applications. 
                         We are developing educational technologies for future which can be used in any educational institutes in Sudan, Middle East and Africa.
                     </p>
 

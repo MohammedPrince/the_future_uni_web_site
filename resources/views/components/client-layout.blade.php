@@ -37,6 +37,13 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 	@endif
 
+	@if ( (Request::is('Fu-Historical-Gallery')) ) 
+
+	<link rel="stylesheet" href="/client/css/swiper-bundle.min.css"/>
+	<script src="/client/js/swiper-bundle.min.js"></script>
+   
+		@endif
+
 	</head>
 
 <body>
@@ -98,13 +105,17 @@
 
 			<ul class="main-menu">
 				<li class="@if ( Request::is('Home') )  active @endif"><a href="/Home">Home</a></li>
-				<li class="@if ( (Request::is('About-FU')) || (Request::is('Fu-Linkages')) || (Request::is('Facts-Figures')) )   active @endif ">
+				<li class="@if ( (Request::is('About-FU')) || (Request::is('Fu-Linkages')) || 
+				(Request::is('Facts-Figures')) || (Request::is('Fu-Historical-Gallery')) )   active @endif ">
 					<a href="/About-FU" class="sub-menu-arrow">About FU</a>
 					<ul class="sub-main-menu">
-						<li><a href="/About-FU">History</a></li>
+						<li><a href="/About-FU">Fu History</a></li>
 						<li><a href="/About-FU#WhyFutureUniversiy">Why Future University</a></li>
 						<li><a href="/Facts-Figures">FU Facts & Figures</a></li>
 						<li><a href="/Fu-Linkages">FU Linkages</a></li>
+						<li><a href="/Fu-Historical-Gallery">FU Historical Gallery</a></li>
+
+						
 					</ul>
 				</li>
 				{{-- Request::segment(3) =='' &&  --}}
@@ -126,12 +137,12 @@
 						<li><a href="#">Scholarships</a></li>
 					</ul>
 				</li>
-				<li>
+				<li class="@if ( (Request::is('Fu-Journal')) )  active @endif ">
 					<a href="#" class="sub-menu-arrow">Research & Publications</a>
 					<ul class="sub-main-menu">
-						<li><a href="#">The Technology Horizon Journal</a></li>
-						<li><a href="#">Research Centers</a></li>
-						<li><a href="#">Publications</a></li>
+					
+						<li><a href="/Fu-Journal">FU Journal</a></li>
+						<li><a href="https://thj.fu.edu.sd/" target="_blank">The Technology Horizon Journal</a></li>
 					</ul>
 				</li>
 				<li class="@if ( (Request::is('CESD')) || (Request::is('CTS'))  || (Request::is('IRDC')))   active @endif ">
@@ -167,7 +178,7 @@
 						<ul>
 							<li><a href="/Home">Home</a></li>
 							<li><a href="/About-FU">About FU</a></li>
-							<li><a href="/about#WhyFutureUniversiy">Why FU ?</a></li>
+							<li><a href="/About-FU#WhyFutureUniversiy">Why FU ?</a></li>
 							<li><a href="/Undergraduate-Programs">Undergraduate</a></li>
 							<li><a href="/Postgraduates-Programs">Postgraduates </a></li>
 						

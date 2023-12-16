@@ -77,16 +77,13 @@
 								{{ Str::words($news->event_desc, 3, '...') }}
 							<span><a href="/News-Details/{{$news->id}}" style="color:#d1291f; font-size:16px;" >Read More</a></span>
 							</p>
-							
 						</div>
 					</div>
-
 					@endforeach
 					
-					
-					
+	
 				<div class="site-pageination">
-					{{$events->links()}}
+					{{ $events->links() }}
 				</div>
 					@endif
 
