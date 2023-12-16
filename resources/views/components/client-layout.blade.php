@@ -102,7 +102,6 @@
 				{{-- <a href><i class="fa fa-phone"></i></a>
 				<a href><i class="fa fa-shopping-cart"></i></a> --}}
 			</div>
-
 			<ul class="main-menu">
 				<li class="@if ( Request::is('Home') )  active @endif"><a href="/Home">Home</a></li>
 				<li class="@if ( (Request::is('About-FU')) || (Request::is('Fu-Linkages')) || 
@@ -114,8 +113,6 @@
 						<li><a href="/Facts-Figures">FU Facts & Figures</a></li>
 						<li><a href="/Fu-Linkages">FU Linkages</a></li>
 						<li><a href="/Fu-Historical-Gallery">FU Historical Gallery</a></li>
-
-						
 					</ul>
 				</li>
 				{{-- Request::segment(3) =='' &&  --}}
