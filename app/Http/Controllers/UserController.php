@@ -91,6 +91,11 @@ class UserController extends Controller
         return view("admin.edit_user" , ['user' => $user,'action' => 'edit']);
     }
 
+    public function user_profile(){
+
+        $user = auth()->user();
+        return view("admin.profile" , ['user' => $user]);
+    }
     public function editUser(Request $request , User $user){
 
         $validate = Validator::make($request->all(), [
@@ -169,7 +174,6 @@ class UserController extends Controller
             }
         }
     }
-
     public function logout(){
         $user_name = auth()->user()->username;
 

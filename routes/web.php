@@ -49,7 +49,7 @@ Route::get('/add_user/{user}/delete/', [UserController::class, "deleteUser" ]);
 Route::put('/edit_user/{user}', [UserController::class, "editUser" ]);
 Route::get('/add_user', [UserController::class, "showUser" ]);
 Route::get('/add_user/{user:id}/edit', [UserController::class, "showUser" ]);
-
+Route::get('/profile', [UserController::class, "user_profile" ]);
 
 //Event Routes  middleware and controllers //
 Route::post('/add_event', [EventsController::class, "addEvent" ]);
