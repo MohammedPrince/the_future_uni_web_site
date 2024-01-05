@@ -18,6 +18,7 @@
 	<link rel="stylesheet" href="/client/css/magnific-popup.css" />
 	<link rel="stylesheet" href="/client/css/animate.css" />
 	<link rel="stylesheet" href="/client/css/owl.carousel.css" />
+	<link rel="stylesheet" href="/client/css/owl.theme.default.min.css">
 	<link rel="stylesheet" href="/client/css/style.css" />
 	
 	<!--[if lt IE 9]>
@@ -37,7 +38,7 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 	@endif
 
-	@if ( (Request::is('Fu-Historical-Gallery')) ) 
+	@if ( (Request::is('Fu-Historical-Gallery')) || (Request::is('Students-Gallery')  ) )
 
 	<link rel="stylesheet" href="/client/css/swiper-bundle.min.css"/>
 	<script src="/client/js/swiper-bundle.min.js"></script>
@@ -134,6 +135,15 @@
 						<li><a href="#">Scholarships</a></li>
 					</ul>
 				</li>
+
+				<li class="@if ( (Request::is('Student-Affairs')) || (Request::is('Students-Gallery')) )   active @endif ">
+					<a href="#" class="sub-menu-arrow">Students</a>
+					<ul class="sub-main-menu">
+						<li><a href="/Student-Affairs">FU Student Affairs</a></li>
+						<li><a href="/Students-Gallery">Students Gallery</a></li>
+					</ul>
+				</li>
+
 				<li class="@if ( (Request::is('Fu-Journal')) )  active @endif ">
 					<a href="#" class="sub-menu-arrow">Research & Publications</a>
 					<ul class="sub-main-menu">
@@ -162,7 +172,7 @@
 
 				<div class="col-sm-6 col-lg-3 footer-widget">
 					<div class="about-widget">
-						<img src="/client/img/fu_logo.png" alt="The Future University" width="80px" height="80px">
+						<img src="/client/img/fu_logo.png" alt="The Future University" width="80px" height="80px" loading="lazy">
 						<p>The Future University is an institution of higher learning committed in producing well - rounded professionals who will be responsible in providing quality 
 							of life in the society.</p>
 						

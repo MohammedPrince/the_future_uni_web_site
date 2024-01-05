@@ -135,6 +135,15 @@ Route::middleware(['web', 'visitor'])->group(function () {
         return view('client.Fu-Historical-Gallery');
     });
 
+
+    Route::get('/Student-Affairs', function () {
+        return view('client.Student-Affairs');
+    });
+
+    Route::get('/Students-Gallery', function () {
+        return view('client.Students-Gallery');
+    });
+
     Route::get('/Undergraduate-Admission', function () {
         return view('client.Undergraduate-Admission');
     });

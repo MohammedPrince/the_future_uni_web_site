@@ -7,7 +7,9 @@
 
 'use strict';
 
-if (window.location.href.indexOf("/Fu-Historical-Gallery") > -1) {
+if ( window.location.href.indexOf("/Fu-Historical-Gallery") > -1 || window.location.href.indexOf("/Students-Gallery") > -1 ){
+
+	
 
 var swiper = new Swiper(".mySwiper", {
 	cssMode: true,
@@ -22,7 +24,9 @@ var swiper = new Swiper(".mySwiper", {
 	keyboard: true,
   });
 
-  jQuery(document).ready(function($){
+ }
+
+   jQuery(document).ready(function($){
     $('.owl-carousel').owlCarousel({
       loop:true,
       margin:10,
@@ -40,8 +44,6 @@ var swiper = new Swiper(".mySwiper", {
       }
     })
   })
-
- }
 
 
 $(document).ready(function() {

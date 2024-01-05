@@ -23,7 +23,7 @@
                         </blockquote>
                         </p>
 
-                        <div class="hr-sect new4"><span>About Journal</span></div>
+                        <div class="hr-sect new4"><span>The Gallery</span></div>
 
                         <p style="font-size: 16px;">
 

@@ -160,7 +160,7 @@
 
 				<div class="col" style="background-color: rgba(255, 255, 255, 0.51);">
 					<div class="hr-sect new6"><img src="/client/img/main_imgs/faculites/engineering.jpg" height="100px"
-							width="100px" alt=""><span></span></div>
+							width="100px" alt="" loading="lazy"><span></span></div>
 					<p style="color: black;">
 					
 						<div id="ENG" class="tabcontent">
@@ -179,7 +179,7 @@
 
 				<div class="col" style="background-color: rgba(255, 255, 255, 0.51);">
 					<div class="hr-sect new6"><img src="/client/img/main_imgs/faculites/it.jpg" height="100px"
-							width="100px" alt=""><span></span></div>
+							width="100px" alt="" loading="lazy"><span></span></div>
 					<p style="color: black;">
 					
 						<div id="IT" class="tabcontent">
@@ -196,7 +196,7 @@
 
 				<div class="col" style="background-color: rgba(255, 255, 255, 0.51);">
 					<div class="hr-sect new6"><img src="/client/img/main_imgs/faculites/cs.jpg" height="100px"
-							width="100px" alt=""><span></span></div>
+							width="100px" alt="" loading="lazy"><span></span></div>
 					<p style="color: black;">
 					
 						<div id="SCI" class="tabcontent">
@@ -212,7 +212,7 @@
 
 				<div class="col" style="background-color: rgba(255, 255, 255, 0.51);" >
 					<div class="hr-sect new6"><img src="/client/img/main_imgs/faculites/tcom.jpg" height="100px"
-							width="100px" alt=""><span></span></div>
+							width="100px" alt="" loading="lazy"><span></span></div>
 					<p style="color: black;">
 					
 						<div id="TCOM" class="tabcontent">
@@ -236,7 +236,7 @@
 
 				<div class="col" style="background-color: rgba(255, 255, 255, 0.51);" >
 					<div class="hr-sect new6"><img src="/client/img/main_imgs/faculites/arch.jpg" height="100px"
-							width="100px" alt=""><span></span></div>
+							width="100px" alt="" loading="lazy"><span></span></div>
 					<p style="color: black;">
 					
 						<div id="ARCH" class="tabcontent">
@@ -251,7 +251,7 @@
 
 				<div class="col" style="background-color: rgba(255, 255, 255, 0.51);" >
 					<div class="hr-sect new6"><img src="/client/img/main_imgs/faculites/fad.jpg" height="100px"
-							width="100px" alt=""><span></span></div>
+							width="100px" alt="" loading="lazy"><span></span></div>
 					<p style="color: black;">
 					
 						<div id="FAD" class="tabcontent">
@@ -268,7 +268,7 @@
 
 				<div class="col" style="background-color: rgba(255, 255, 255, 0.51);" >
 					<div class="hr-sect new6"><img src="/client/img/main_imgs/faculites/geo.jpg" height="100px"
-							width="100px" alt=""><span></span></div>
+							width="100px" alt="" loading="lazy"><span></span></div>
 					<p style="color: black;">
 					
 						<div id="GIS" class="tabcontent">
@@ -293,7 +293,7 @@
 
 				<div class="col" style="background-color: rgba(255, 255, 255, 0.51);" >
 					<div class="hr-sect new6"><img src="/client/img/main_imgs/faculites/ba.jpg" height="100px"
-							width="100px" alt=""><span></span></div>
+							width="100px" alt="" loading="lazy"><span></span></div>
 					<p style="color: black;">
 					
 						<div id="BA" class="tabcontent">
@@ -309,7 +309,7 @@
 
 				<div class="col" style="background-color: rgba(255, 255, 255, 0.51);" >
 					<div class="hr-sect new6"><img src="/client/img/main_imgs/faculites/post.jpg" height="100px"
-							width="100px" alt=""><span></span></div>
+							width="100px" alt="" loading="lazy"><span></span></div>
 					<p style="color: black;">
 					
 						<div id="POST" class="tabcontent">
@@ -413,7 +413,7 @@
                                     <h4>Graduates</h4>
                                 </div>
                                 <div class="desc-wrap">
-                                    <img src="/client/img/main_imgs/general/graduatesII.png" class="circle">
+                                    <img src="/client/img/main_imgs/general/graduatesII.png" class="circle" loading="lazy">
                                     <div class="title">
                                         <h4>5000+</h4>
                                     </div>
@@ -427,7 +427,7 @@
                                     <h4>Programs</h4>
                                 </div>
                                 <div class="desc-wrap">
-                                    <img src="/client/img/main_imgs/general/fav.png" class="circle">
+                                    <img src="/client/img/main_imgs/general/fav.png" class="circle" loading="lazy">
                                     <div class="title">
                                         <h4>35</h4>
                                     </div>
@@ -441,7 +441,7 @@
                                     <h4>Established</h4>
                                 </div>
                                 <div class="desc-wrap">
-                                    <img src="/client/img/main_imgs/general/established.png" class="circle">
+                                    <img src="/client/img/main_imgs/general/established.png" class="circle" loading="lazy">
                                     <div class="title">
                                         <h4>1991</h4>
                                     </div>
@@ -455,7 +455,7 @@
                                     <h4>Students</h4>
                                 </div>
                                 <div class="desc-wrap">
-                                    <img src="/client/img/main_imgs/general/students.png" class="circle">
+                                    <img src="/client/img/main_imgs/general/students.png" class="circle" loading="lazy">
                                     <div class="title">
                                         <h4>3000+</h4>
                                     </div>
@@ -483,7 +483,7 @@
 
                         <div class="col" style="background-color: rgba(255, 255, 255, 0.51);" >
                             <div class="hr-sect new6"><img src="/client/img/main_imgs/centers/cesd.png" height="150px"
-                                    width="150px" alt=""><span></span></div>
+                                    width="150px" alt="" loading="lazy"><span></span></div>
                             <p style="color: black;">
                             <p class="text-center"><strong>Center of E-Learning and Software Development<br>CESD</strong></p>
                             CESD is responsible for developing and managing multimedia E-learning Contents and development of other software systems. 
@@ -497,7 +497,7 @@
 
                         <div class="col" style="background-color: rgba(255, 255, 255, 0.51);">
                             <div class="hr-sect new6"><img src="/client/img/main_imgs/centers/cesd.png" height="150px"
-                                    width="150px" alt=""><span></span></div>
+                                    width="150px" alt="" loading="lazy"><span></span></div>
                             <p style="color: black;">
                             <p class="text-center"><strong>Center of Technological Services<br>CTS</strong></p>
                             The Center of Technological Services provides specialized technical services for all faculties, 
@@ -511,7 +511,7 @@
 
                         <div class="col" style="background-color: rgba(255, 255, 255, 0.51);">
                             <div class="hr-sect new6"><img src="/client/img/main_imgs/centers/cesd.png" height="150px"
-                                    width="150px" alt=""><span></span></div>
+                                    width="150px" alt="" loading="lazy"><span></span></div>
                             <p style="color: black;">
                             <p class="text-center"><strong>Innovation Research and Development Center<br>IRDC</strong></p>
 
@@ -604,7 +604,7 @@
                         <div class="event-thumb">
 
                             @foreach (array_slice(explode(',', $news->news_imgs), 0, 1) as $image)
-                                <img src="/storage/news_imgs/{{ $image }}" alt="Futrue Uinversity">
+                                <img src="/storage/news_imgs/{{ $image }}" alt="Futrue Uinversity" loading="lazy">
                             @endforeach
 
                             <div class="event-date">
@@ -645,7 +645,7 @@
          
                          <div class="col">
                              <div class="col" style="background-color: rgba(255, 255, 255, 0.51);">
-                                 <img src="/client/img/main_imgs/members/nottingham_university.png" height="150px" width="150px" alt="">
+                                 <img src="/client/img/main_imgs/members/nottingham_university.png" height="150px" width="150px" alt="" loading="lazy">
                                 
                                 <a href="https://www.nottingham.ac.uk/" target="_blank"><h6 class="text-center" style="margin-top: 10px"><strong>University of Nottingham</strong></h6></a>
                                 
@@ -653,7 +653,7 @@
                          </div>
                          <div class="col">
                              <div class="col" style="background-color: rgba(255, 255, 255, 0.51);">
-                                 <img src="/client/img/main_imgs/members/University_of_Turin.png" height="150px" width="150px" alt="">
+                                 <img src="/client/img/main_imgs/members/University_of_Turin.png" height="150px" width="150px" alt="" loading="lazy">
                                 
                                  <a href="https://en.unito.it/" target="_blank"><h6 class="text-center" style="margin-top: 10px"><strong>University of Turin</strong></h6></a>
                                 
@@ -661,7 +661,7 @@
                          </div>
                          <div class="col">
                              <div class="col" style="background-color: rgba(255, 255, 255, 0.51);">
-                                 <img src="/client/img/main_imgs/members/Pennsylvania_University.png" height="150px" width="150px" alt="">
+                                 <img src="/client/img/main_imgs/members/Pennsylvania_University.png" height="150px" width="150px" alt="" loading="lazy">
                                 
                                  <a href="https://www.psu.edu/" target="_blank"><h6 class="text-center" style="margin-top: 10px"><strong>Pennsylvania State University</strong></h6></a>
                                 
@@ -669,7 +669,7 @@
                          </div>
                          <div class="col">
                              <div class="col" style="background-color: rgba(255, 255, 255, 0.51);">
-                                 <img src="/client/img/main_imgs/members/jhon.png" height="150px" width="150px" alt="">
+                                 <img src="/client/img/main_imgs/members/jhon.png" height="150px" width="150px" alt="" loading="lazy">
                                 
                                  <a href="https://www.jhu.edu/" target="_blank"><h6 class="text-center" style="margin-top: 10px"><strong>Johns Hopkins University</strong></h6></a>
                                 
@@ -677,7 +677,7 @@
                          </div>
                          <div class="col">
                              <div class="col" style="background-color: rgba(255, 255, 255, 0.51);">
-                                 <img src="/client/img/main_imgs/members/boston_uni.png" height="150px" width="150px" alt="">
+                                 <img src="/client/img/main_imgs/members/boston_uni.png" height="150px" width="150px" alt="" loading="lazy">
                                 
                                  <a href="https://www.bu.edu/" target="_blank"><h6 class="text-center" style="margin-top: 10px"><strong>Boston University</strong></h6></a>
                                 
@@ -685,7 +685,7 @@
                          </div>
                          <div class="col">
                              <div class="col" style="background-color: rgba(255, 255, 255, 0.51);">
-                                 <img src="/client/img/main_imgs/members/uni_of_ini.png" height="150px" width="150px" alt="">
+                                 <img src="/client/img/main_imgs/members/uni_of_ini.png" height="150px" width="150px" alt="" loading="lazy">
                                 
                                  <a href="https://www.uii.ac.id/" target="_blank"><h6 class="text-center" style="margin-top: 10px"><strong>Universitas Islam Indonesia</strong></h6></a>
                                 

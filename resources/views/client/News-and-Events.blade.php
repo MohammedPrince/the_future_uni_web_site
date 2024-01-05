@@ -59,23 +59,23 @@
 
 					<h5>Fu News</h5><p></p>
 
-					@foreach ($news as $news)
+					@foreach ($news as $newz)
 
 					<div class="post-item">
-						@foreach (array_slice(explode(',', $news->news_imgs ), 0,1)  as $image)
+						@foreach (array_slice(explode(',', $newz->news_imgs ), 0,1)  as $image)
 						<div class="post-thumb set-bg" data-setbg="/storage/news_imgs/{{$image}}"></div>
 						@endforeach
 						<div class="post-content">
-							<h3><a href="/News-Details/{{ $news->id }}">{{ $news->news_title }}</a></h3>
+							<h3><a href="/News-Details/{{ $newz->id }}">{{ $newz->news_title }}</a></h3>
 
 							<div class="post-meta">
-								<span><i class="fa fa-calendar-o"></i> {{ $news->news_date }}</span>
+								<span><i class="fa fa-calendar-o"></i> {{ $newz->news_date }}</span>
 								<span><i class="fa fa-home"></i> The Future University</span>
 							</div>
 
 							<p style="font-size:17px;">
-								{{ Str::words($news->event_desc, 3, '...') }}
-							<span><a href="/News-Details/{{$news->id}}" style="color:#d1291f; font-size:16px;" >Read More</a></span>
+								{{ Str::words($newz->event_desc, 3, '...') }}
+							<span><a href="/News-Details/{{$newz->id}}" style="color:#d1291f; font-size:16px;" >Read More</a></span>
 							</p>
 						</div>
 					</div>
@@ -83,7 +83,7 @@
 					
 	
 				<div class="site-pageination">
-					{{ $events->links() }}
+					{{ $news->links() }}
 				</div>
 					@endif
 

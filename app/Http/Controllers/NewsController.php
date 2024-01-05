@@ -79,8 +79,8 @@ class NewsController extends Controller
        if (News::getNews()!= null ){
 
         $news_value = true ;
-        $news = News::getNews() ;
-
+        //$news = News::getNews() ;
+        $news = News::paginate(2);
     
        }
 
