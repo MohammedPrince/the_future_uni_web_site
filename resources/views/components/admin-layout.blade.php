@@ -16,14 +16,14 @@
         content="">
 
     <link rel="preconnect" href="https://fonts.gstatic.com/">
-    <link rel="shortcut icon" href="/admin/img/logos/logo.png" />
+    <link rel="shortcut icon" href="{{URL::to('/public')}}/admin/img/logos/logo.png" />
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/easymde/dist/easymde.min.css">
 
     <title>Fu Website Managment</title>
-    <link href="/admin/css/app.css" rel="stylesheet">
-    <link href="/admin/css/light.css" rel="stylesheet">
-    <link href="/admin/css/alerts.css" rel="stylesheet">
+    <link href="{{URL::to('/public')}}/admin/css/app.css" rel="stylesheet">
+    <link href="{{URL::to('/public')}}/admin/css/light.css" rel="stylesheet">
+    <link href="{{URL::to('/public')}}/admin/css/alerts.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&amp;display=swap" rel="stylesheet">
 
 </head>
@@ -66,12 +66,12 @@
 
                   
                     <li class="sidebar-header">
-                        Tools & Components
+                        page divider
                     </li>
 
                     <li class="sidebar-item">
-                        <a class='sidebar-link' href='ui-buttons.html'>
-                            <i class="align-middle" data-feather="square"></i> <span class="align-middle">Buttons</span>
+                        <a class='sidebar-link' href='#'>
+                            <i class="align-middle" data-feather="cart"></i> <span class="align-middle">Test</span>
                         </a>
                     </li>
                 </ul>
@@ -155,8 +155,8 @@
                 element: document.getElementById('markdown-editor')});
         </script>
     <script src="https://code.jquery.com/jquery-3.7.0.js" ></script>
-    <script src="/admin/js/app.js"></script>
-    <script src="/admin/js/datatables.js"></script>
+    <script src="{{URL::to('/public')}}/admin/js/app.js"></script>
+    <script src="{{URL::to('/public')}}/admin/js/datatables.js"></script>
     
    
     <script>

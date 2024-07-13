@@ -8,18 +8,20 @@
 	<meta name="keywords" content="event, unica, creative, html">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-	<link href="/client/img/fu_logo.png" rel="shortcut icon" />
+	<link href="{{URL::to('/public')}}/client/img/fu_logo.png" rel="shortcut icon" />
 
 	<link href="https://fonts.googleapis.com/css?family=Rubik:400,400i,500,500i,700,700i" rel="stylesheet">
 
-	<link rel="stylesheet" href="/client/css/bootstrap.min.css" />
-	<link rel="stylesheet" href="/client/css/font-awesome.min.css" />
-	<link rel="stylesheet" href="/client/css/themify-icons.css" />
-	<link rel="stylesheet" href="/client/css/magnific-popup.css" />
-	<link rel="stylesheet" href="/client/css/animate.css" />
-	<link rel="stylesheet" href="/client/css/owl.carousel.css" />
-	<link rel="stylesheet" href="/client/css/owl.theme.default.min.css">
-	<link rel="stylesheet" href="/client/css/style.css" />
+	<link rel="stylesheet" href="{{URL::to('/public')}}/client/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="{{URL::to('/public')}}/client/css/font-awesome.min.css" />
+	<link rel="stylesheet" href="{{URL::to('/public')}}/client/css/themify-icons.css" />
+	<link rel="stylesheet" href="{{URL::to('/public')}}/client/css/magnific-popup.css" />
+	<link rel="stylesheet" href="{{URL::to('/public')}}/client/css/animate.css" />
+	<link rel="stylesheet" href="{{URL::to('/public')}}/client/css/owl.carousel.css" />
+	<link rel="stylesheet" href="{{URL::to('/public')}}/client/css/owl.theme.default.min.css">
+	<link rel="stylesheet" href="{{URL::to('/public')}}/client/css/style.css" />
+
+
 	
 	<!--[if lt IE 9]>
 	  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -40,8 +42,8 @@
 
 	@if ( (Request::is('Fu-Historical-Gallery')) || (Request::is('Students-Gallery')  ) )
 
-	<link rel="stylesheet" href="/client/css/swiper-bundle.min.css"/>
-	<script src="/client/js/swiper-bundle.min.js"></script>
+	<link rel="stylesheet" href="{{URL::to('/public')}}/client/css/swiper-bundle.min.css"/>
+	<script src="{{URL::to('/public')}}/client/js/swiper-bundle.min.js"></script>
    
 		@endif
 
@@ -56,7 +58,7 @@
 	<header class="header-section">
 		<div class="container">
 
-			<a href="/Home" class="site-logo"><img src="/client/img/fu_logo.png" height="100px" width="100px" alt></a>
+			<a href="/Home" class="site-logo"><img src="{{URL::to('/public')}}/client/img/fu_logo.png" height="100px" width="100px" alt></a>
 			<div class="nav-switch">
 				<i class="fa fa-bars"></i>
 			</div>
@@ -104,7 +106,7 @@
 				<a href><i class="fa fa-shopping-cart"></i></a> --}}
 			</div>
 			<ul class="main-menu">
-				<li class="@if ( Request::is('Home') )  active @endif"><a href="/Home">Home</a></li>
+				<li class="@if ( Request::is('/Home') )  active @endif"><a href="{{ route('Home') }}">Home</a></li>
 				<li class="@if ( (Request::is('About-FU')) || (Request::is('Fu-Linkages')) || 
 				(Request::is('Facts-Figures')) || (Request::is('Fu-Historical-Gallery')) )   active @endif ">
 					<a href="/About-FU" class="sub-menu-arrow">About FU</a>
@@ -271,12 +273,12 @@
 
 
 	
-	<script src="/client/js/jquery-3.2.1.min.js"></script>
-	<script src="/client/js/owl.carousel.min.js"></script>
-	<script src="/client/js/jquery.countdown.js"></script>
-	<script src="/client/js/masonry.pkgd.min.js"></script>
-	<script src="/client/js/magnific-popup.min.js"></script>
-	<script src="/client/js/main.js"></script>
+	<script src="{{URL::to('/public')}}/client/js/jquery-3.2.1.min.js"></script>
+	<script src="{{URL::to('/public')}}/client/js/owl.carousel.min.js"></script>
+	<script src="{{URL::to('/public')}}/client/js/jquery.countdown.js"></script>
+	<script src="{{URL::to('/public')}}/client/js/masonry.pkgd.min.js"></script>
+	<script src="{{URL::to('/public')}}/client/js/magnific-popup.min.js"></script>
+	<script src="{{URL::to('/public')}}/client/js/main.js"></script>
 
 
 	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>

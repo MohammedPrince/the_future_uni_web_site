@@ -589,47 +589,7 @@
     </section>
 
 
-    @if ($news_value)
-
-    <section class="event-section" >
-        <div class="container">
-            <div class="section-title text-center">
-                <h3>Future University News</h3>
-                <p>follow the latest news and updates in FU...</p>
-            </div>
-            <div class="row">
-
-                @foreach ($news as $news)
-                    <div class="col-md-6 event-item">
-                        <div class="event-thumb">
-
-                            @foreach (array_slice(explode(',', $news->news_imgs), 0, 1) as $image)
-                                <img src="/storage/news_imgs/{{ $image }}" alt="Futrue Uinversity" loading="lazy">
-                            @endforeach
-
-                            <div class="event-date">
-                                <span> {{ $news->news_date }} </span>
-                            </div>
-                        </div>
-                        <div class="event-info">
-                            <h4>{{ $news->news_title }}</h4>
-                            <p><i class="fa fa-map-marker"></i> The Future University</p>
-                            <div class="card">
-                                <p style="font-size: 17px;">
-                                    
-                                    {!! Str::words($news->news_desc, 20, ' ...') !!}
-
-                                    {{-- <span class="text" style="font-size: 16px;">{!! Str::words($event->event_desc, 5, ' ...') !!}</span> --}}
-                                </p>
-                                <a href="/News-Details/{{ $news->id }}" style="color:#ef7e22;" target="_blank">Read More - المزيد</a>
-                            </div>
-                        </div>
-                    </div>
-                @endforeach
-            </div>
-        </div>
-    </section>
-    @endif
+   
 
     <section class="team-section spad">
 
