@@ -2,7 +2,7 @@
 @section('main-client-content')
     <div class="site-breadcrumb">
         <div class="container">
-            <a href="/Home"><i class="fa fa-home"></i> Home</a> <i class="fa fa-angle-right"></i>
+            <a href="Home"><i class="fa fa-home"></i> Home</a> <i class="fa fa-angle-right"></i>
             <span style="color: #d1291f;">News Details</span>
         </div>
     </div>
@@ -15,7 +15,7 @@
                     <div class="post-item post-details">
 
                         @foreach (array_slice(explode(',', $news->news_imgs), 0, 1) as $image)
-                            <img src="/storage/news_imgs/{{ $image }}" alt="Futrue Uinversity">
+                            <img src="./public/storage/news_imgs/{{ $image }}" alt="Futrue Uinversity">
                         @endforeach
 
                         <div class="post-content">
@@ -43,7 +43,7 @@
                                 <div class="hero-slider owl-carousel">
 
                                     @foreach (explode(',', $news->news_imgs) as $news_image)
-                                        <div class="hs-item set-bg" data-setbg="/storage/news_imgs/{{ $news_image }}">
+                                        <div class="hs-item set-bg" data-setbg="/public/storage/news_imgs/{{ $news_image }}">
                                         </div>
                                     @endforeach
 
@@ -79,11 +79,11 @@
 
                                         @foreach (array_slice(explode(',', $event_result->event_imgs), 0, 1) as $image)
                                             <div class="rp-thumb set-bg"
-                                                data-setbg="/storage/event_imgs/{{ $image }}"></div>
+                                                data-setbg="./public/storage/event_imgs/{{ $image }}"></div>
                                         @endforeach
 
                                         <div class="rp-content">
-                                            <h6 style="font-size: 19px"><a href="/Event-Details/{{ $event_result->id }}"
+                                            <h6 style="font-size: 19px"><a href="./Event-Details/{{ $event_result->id }}"
                                                     style="color:black">
                                                     {{ $event_result->event_title }}</a></h6>
                                             <p><i class="fa fa-calendar-o"></i>

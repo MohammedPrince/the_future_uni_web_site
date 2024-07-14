@@ -42,7 +42,7 @@
 
                                     <div class="card">
 
-                                        <form action="/edit_user/{{$user->id}}" method="POST">
+                                        <form action="edit_user/{{$user->id}}" method="POST">
                                             @csrf
                                             @method('PUT')
                                             <div class="card-header">

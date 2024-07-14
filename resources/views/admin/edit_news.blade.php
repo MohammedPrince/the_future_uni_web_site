@@ -40,7 +40,7 @@
 
                                     <div class="card">
 
-                                        <form action="/edit_news/{{ $news->id }}" method="POST" enctype="multipart/form-data">
+                                        <form action="edit_news/{{ $news->id }}" method="POST" enctype="multipart/form-data">
                                             @csrf
                                             <div class="card-header">
                                                 <h5 class="card-title mb-0">Title</h5>

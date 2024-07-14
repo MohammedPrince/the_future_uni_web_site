@@ -3,7 +3,7 @@
 
     <div class="site-breadcrumb">
         <div class="container">
-            <a href="/Home"><i class="fa fa-home"></i> Home</a> <i class="fa fa-angle-right"></i>
+            <a href="Home"><i class="fa fa-home"></i> Home</a> <i class="fa fa-angle-right"></i>
             <span style="color: #d1291f;">Fu Facts & Figures</span>
         </div>
     </div>

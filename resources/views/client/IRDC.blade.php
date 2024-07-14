@@ -84,7 +84,7 @@
                                     <div class="ts-item">
                                         <div class="row">
                                             <div class="col-md-3">
-                                                <div class="ts-author-pic set-bg" data-setbg="/client/img/main_imgs/members/dr_khalid.jpg"></div>
+                                                <div class="ts-author-pic set-bg" data-setbg="/public/client/img/main_imgs/members/dr_khalid.jpg"></div>
                                             </div>
                                             <div class="col-md-9 ts-text">
                                                 <p></p><p></p><p></p><br>
@@ -103,7 +103,7 @@
                                     <div class="ts-item">
                                         <div class="row">
                                             <div class="col-md-3">
-                                                <div class="ts-author-pic set-bg" data-setbg="/client/img/main_imgs/members/"></div>
+                                                <div class="ts-author-pic set-bg" data-setbg="/public/client/img/main_imgs/members/"></div>
                                             </div>
                                             <div class="col-md-9 ts-text">
                                                 <p></p><p></p><p></p><br>
@@ -122,7 +122,7 @@
                                     <div class="ts-item">
                                         <div class="row">
                                             <div class="col-md-3">
-                                                <div class="ts-author-pic set-bg" data-setbg="/client/img/main_imgs/members/"></div>
+                                                <div class="ts-author-pic set-bg" data-setbg="/public/client/img/main_imgs/members/"></div>
                                             </div>
                                             <div class="col-md-9 ts-text">
                                                 <p></p><p></p><p></p><br>

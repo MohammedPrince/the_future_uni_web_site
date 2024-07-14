@@ -18,18 +18,18 @@
                 <div class="post-content">
                     <p></p>
 
-                    <p>
+                    <!--<p>
                     <blockquote class="text-center" style="background-color: whitesmoke;">
                         <span style="font-size: 19px;">
                             Center of Technological Services <strong>CTS</strong>
                         </span>
                     </blockquote>
-                    </p>
+                    </p>-->
 
                     <div class="hr-sect new4"><span>About</span></div>
 
                     <p style="font-size: 16px;">
-                        The Center of Technological Services provides specialized technical services for all faculties, departments, units, professors and students inside the university.
+                    The Center of Technical Services (CTS) is a dedicated hub of expertise in providing comprehensive technical support and solutions. With a diverse team of skilled professionals, we deliver reliable and efficient services, ranging from troubleshooting and maintenance to system integration and optimization. Our goal is to empower organizations with seamless technical operations and ensure their success.
                     </p>
 
                     <hr class="new4">
@@ -45,12 +45,7 @@
                                     </div>
                                     <div class="desc-wrap">
                                         <p>
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                                            Sed pellentesque leo et dolor aliquam, ut tincidunt lectus dapibus. 
-                                            Nullam id urna eget nulla rhoncus posuere. Etiam suscipit mauris at nibh tempus, 
-                                            non semper ligula pharetra. Sed in arcu nec nisi sodales tempor. 
-                                            Quisque tincidunt urna in feugiat lacinia. Aliquam id dictum enim. 
-                                            Pellentesque justo sapien, egestas eget tincidunt ac, efficitur quis neque.
+                                        To provide exceptional technical services and support to empower organizations with reliable and efficient technology solutions. We strive to enhance operational efficiency, productivity, and customer satisfaction by delivering innovative and customized technical services tailored to meet the unique needs of our clients.
                                         </p>
                                     </div>
                                 </div>
@@ -62,17 +57,59 @@
                                     </div>
                                     <div class="desc-wrap">
                                         <p>
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                                            Sed pellentesque leo et dolor aliquam, ut tincidunt lectus dapibus. 
-                                            Nullam id urna eget nulla rhoncus posuere. Etiam suscipit mauris at nibh tempus, 
-                                            non semper ligula pharetra. Sed in arcu nec nisi sodales tempor. 
-                                            Quisque tincidunt urna in feugiat lacinia. Aliquam id dictum enim. 
-                                            Pellentesque justo sapien, egestas eget tincidunt ac, efficitur quis neque.
+                                        To be the leading provider of technical services, renowned for our expertise, reliability, and customer-centric approach. We aim to continuously innovate and adapt to emerging technologies, ensuring our clients stay ahead in a rapidly evolving digital landscape. Through our services, we envision enabling organizations to achieve their goals and excel in their respective industries.
                                         </p>
                                     </div>
                                 </div>
                             </div>
                         </div>
+
+
+                        <section class="skills aos-init aos-animate" data-aos="fade-up">
+                            <div class="container">
+                      
+                                <p></p>
+                                <div class="hr-sect new6"><span>Services</span></div>
+                                <p></p>
+                      
+                              <div class="skills-content">
+                      
+                                <div class="progress">
+                                  <div class="progress-bar bg-success" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%;">
+                                    <span class="skill">Electronic Maintenance<i class="val">100%</i></span>
+                                  </div>
+                                </div>
+                      
+                                <div class="progress">
+                                  <div class="progress-bar bg-info" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width: 100%;">
+                                    <span class="skill">Network Management <i class="val">100%</i></span>
+                                  </div>
+                                </div>
+                      
+                                <div class="progress">
+                                  <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 100%;">
+                                    <span class="skill">CCTV <i class="val">100%</i></span>
+                                  </div>
+                                </div>
+                      
+                                <div class="progress">
+                                  <div class="progress-bar bg-danger" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100" style="width: 100%;">
+                                    <span class="skill">Electronic Gates <i class="val">100%</i></span>
+                                  </div>
+                                </div>
+                      
+                                <div class="progress">
+                                  <div class="progress-bar bg-dark" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 100%;">
+                                    <span class="skill">BPX Exchange and Telephone System <i class="val">100%</i></span>
+                                  </div>
+                                </div>
+                      
+                              </div>
+                      
+                            </div>
+                          </section>
+
+                        <div class="row">
 
                         <p><div class="hr-sect new6"><span>CTS Team</span></div></p>
 
@@ -91,7 +128,7 @@
                                             </div>
                                             <div class="col-md-9 ts-text">
                                                 <p></p><p></p><p></p><br>
-                                                <h5>Dr. Khalid Sheikhidris Mohamed</h5>
+                                                <h5>Se. Dr. Khalid Sheikhidris Mohamed</h5>
                                                 <span>CTS Director</span>
                                                 <div class="about-widget">
                                                 <div class="social pt-1">
@@ -110,7 +147,7 @@
                                             </div>
                                             <div class="col-md-9 ts-text">
                                                 <p></p><p></p><p></p><br>
-                                                <h5>Mr. Motaz Abdelmonem</h5>
+                                                <h5>Mr. Mutaz Abdelmonem</h5>
                                                 <span>Junior Maintenance & Technical Support Engineer</span>
                                                 <div class="about-widget">
                                                 <div class="social pt-1">
@@ -195,12 +232,30 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="ts-item">
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                <div class="ts-author-pic set-bg" data-setbg="/client/img/main_imgs/members/"></div>
+                                            </div>
+                                            <div class="col-md-9 ts-text">
+                                                <p></p><p></p><p></p><br>
+                                                <h5>Mr. Bahaa A. Mutaal</h5>
+                                                <span>Junior Maintenance & Technical Support Engineer</span>
+                                                <div class="about-widget">
+                                                <div class="social pt-1">
+                                                    <a href="mailto:bahaa.mutaal@fu.edu.sd" style="color: #ef7e22"><i class="fa fa-envelope"></i> asmaa_aamir@fu.edu.sd</a>
+                                                </div>
+                                                </div>
+                                                <br><br>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </section>
 
 
-                        <p><div class="hr-sect new6"><span>CTS Labs & Units</span></div></p>
+                        <!-- <p><div class="hr-sect new6"><span>CTS Labs & Units</span></div></p>
                         <p></p>
                         <div class="row text-center">
                             <div class="col" style="background-color: rgba(170, 167, 158, 0.51);">
@@ -234,7 +289,7 @@
                                 </p>
                             </div>
 
-                        </div>
+                        </div>-->
 
                       </div>
                     <p></p>

@@ -41,7 +41,7 @@
                             <div class="feature">
 
                                 <div class="circle" style="width: 250px; height: 250px; ">
-                                    <img src="/client/img/main_imgs/members/Dr.Ghazali-THJ.png"
+                                    <img src="/public/client/img/main_imgs/members/Dr.Ghazali-THJ.png"
                                         alt="Kawther-Abuelnaja">
                                 </div>
                                 <span>
@@ -65,7 +65,7 @@
                                             <div class="col" style="background-color: rgba(255, 255, 255, 0.51);">
 
                                                 <div class="circle" style="width: 200px; height: 200px; ">
-                                                    <img src="/client/img/main_imgs/members/capuno.jpg" alt="">
+                                                    <img src="/public/client/img/main_imgs/members/capuno.jpg" alt="">
                                                 </div>
                                               
                                                 <h6 class="text-center" style="margin-top: 10px"><strong>Dr. Emmalyn Capuno</strong></h6>
@@ -79,7 +79,7 @@
                                             <div class="col" style="background-color: rgba(255, 255, 255, 0.51);">
 
                                                 <div class="circle" style="width: 200px; height: 200px; ">
-                                                    <img src="/client/img/main_imgs/members/dr_isam.png" alt="">
+                                                    <img src="/public/client/img/main_imgs/members/dr_isam.png" alt="">
                                                 </div>
                                                
                                                 <h6 class="text-center" style="margin-top: 10px"><strong>Dr. Isameldin M. Khair</strong></h6>
@@ -92,7 +92,7 @@
                                             <div class="col" style="background-color: rgba(255, 255, 255, 0.51);">
 
                                                 <div class="circle" style="width: 200px; height: 200px; ">
-                                                    <img src="/client/img/main_imgs/members/dr_salih.png" alt="">
+                                                    <img src="/public/client/img/main_imgs/members/dr_salih.png" alt="">
                                                 </div>
                                                
                                                 <h6 class="text-center" style="margin-top: 10px"><strong>Dr. Saleih Dafalla</strong></h6>

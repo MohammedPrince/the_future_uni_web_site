@@ -3,7 +3,7 @@
     <div class="site-breadcrumb">
         <div class="container">
             <a href="/Home"><i class="fa fa-home"></i> Home</a> <i class="fa fa-angle-right"></i>
-            <span style="color: #d1291f;">FU Student Affairs</span>
+            <span style="color: #d1291f;">Student Affairs</span>
         </div>
     </div>
 
@@ -16,67 +16,77 @@
                     <div class="post-content">
                         <p></p>
 
-                        <p>
+                        <div class="hr-sect new4"><span>About</span></div>
+
+                        <p style="font-size: 16px;">
+                                The Office of Student Affairs is responsible for enhancing student growth and development
+                                and providing a range of support services to the students for their emotional, personal,
+                                physical, psychological well-being.
+                        </p>
+                        <hr class="new4">
+
+                        <!--<p>
                         <blockquote class="text-center" style="background-color: whitesmoke;">
+
                             <span style="font-size: 18px;">
                                 The Office of Student Affairs is responsible for enhance student growth and development
                                 and provides a range of support services to the students for their emotional, personal,
                                 physical, psychological well-being.
                             </span>
                         </blockquote>
-                        </p>
+                        </p> -->
 
-                        <div class="hr-sect new4"><span>Student Affairs</span></div>
+                        <!-- <div class="hr-sect new4"><span>Student Affairs</span></div> -->
 
 
 
                         <div class="container">
-                            <div class="feature">
+                            <!-- <div class="feature">
 
                                 <div class="circle" style="width: 250px; height: 250px; ">
-                                    <img src="/client/img/main_imgs/members/Dr.Nafisa.jpg" alt="">
+                                    <img src="/public/client/img/main_imgs/members/Dr.Nafisa.jpg" alt="">
                                 </div>
                                 <span>
                                     <p class="image-text"><strong>Dr. Nafisa</strong></p>
                                     <p class="image-text">Dean - Student Affairs</p>
                                 </span>
 
-                            </div>
+                            </div> -->
 
                             <div class="row text-center">
 
                                 <div class="col" style="background-color: rgba(204,102,51,0.53);">
                                     <div class="hr-sect new6"><span>Counselling</span></div>
                                     <p style="color: black;">
-                                        The Student Counseling and psychological office offers free and strictly
-                                        confidential counseling to all FU students who may be struggling with personal
+                                        Offers free and strictly
+                                        confidential counseling sessions to all students who may be struggling with personal
                                         issues,
-                                        relationship issues, or who are experiencing depression, anxiety, or stress-related
-                                        health problems in the campus.
+                                        depression, anxiety, or stress-related
+                                        health problems.
                                     </p>
                                 </div>
                                 <div class="col" style="background-color: rgba(170, 167, 158, 0.51);">
-                                    <div class="hr-sect new6"><span>Cultural Activity</span></div>
+                                    <div class="hr-sect new6"><span>Cultural Activities</span></div>
                                     <p style="color: black;">
-                                        The office is constantly providing advice to students to avail of the full range of
+                                        Provides advice to students to avail of the full range of
                                         cultural and fine arts
-                                        opportunities at the Future University.
+                                        opportunities at the University.
                                     </p>
                                 </div>
                                 <div class="col" style="background-color: rgba(51,153,204,0.51);">
                                     <div class="hr-sect new6"><span>Sports</span></div>
                                     <p style="color: black;">
-                                        The Sport office provides the opportunity for students to enjoy and to participate
-                                        in sports and exercise to achieve a healthier lifestyle,
-                                        develop new skills, and to maintain or improve their sporting talents.
+                                        Provides the opportunity for students to enjoy and to participate
+                                        in various sports to get a healthier lifestyle,
+                                        develop new skills, and improve their sport talents.
                                     </p>
                                 </div>
                                 <div class="col" style="background-color: rgba(204,153,51,0.51);">
-                                    <div class="hr-sect new6"><span>Scientific Trip</span></div>
+                                    <div class="hr-sect new6"><span>Scientific Trips</span></div>
                                     <p style="color: black;">
-                                        Students can take advantage of the wide links and cooperation agreements with
-                                        international universities for student exchange and training.
-                                        Our alliance includes national, regional, Asian, and European Centers of excellence.
+                                        Students can utilize linkages, partnerships, MoU agreements with
+                                        international universities to participate in exchange and training programs.
+                                        
                                     </p>
                                 </div>
                             </div>
@@ -88,56 +98,42 @@
                         <div class="container">
 
 
-                            <div class="hr-sect new4"><span>International Orientation Program</span></div>
+                            <div class="hr-sect new4"><span>Exchange Programs</span></div>
 
                             <p>
                             <blockquote class="text-center" style="background-color: whitesmoke;">
                                 <span style="font-size: 18px;">
-                                    We have a thriving academic community of more than 2,000 students, including almost 10
-                                    to 15% students from all over the world.
-                                    Right now, we have students from Africa, Asia and the Middle East on campus.
-                                    This rich mix of nationalities and cultural backgrounds gives the university a truly
-                                    international and cosmopolitan feel.
+                                Exchange programs offer students and professionals the opportunity to immerse themselves in a different culture, broaden their horizons, and gain valuable international experience. These programs facilitate academic, cultural, and professional exchanges between institutions and individuals worldwide. By fostering cross-cultural understanding and promoting global collaboration, exchange programs contribute to personal growth, intercultural competence, and a more interconnected world.
                                 </span>
                             </blockquote>
                             </p>
 
                             <div class="hr-sect new4"><span>Orientation</span></div>
 
+                            <div style="text-align: justify;">
+
                             <p style="font-size: 16px;color:black;">
 
                                 The orientation program is held during the week before the start of term to give student a
                                 chance to settle into life at the university. During the orientation,
-                                a student will see where he will be studying, meet university staff, find accommodation, and
-                                makenew friends. <br>
+                                a student will see where he / she will be studying, meet university staff, and
+                                make new friends. <br>
 
                                 <li>Advice on accommodation, immigration, health, finance, travel and social activities is
-                                    also given.</li>
+                                    also given (international students).</li>
                                 <li>Free english and mathematics crash courses are provided before the regular semester
                                     begins.</li><br>
 
-                                Students can also get specialist advice and support from our student support, visa support
+                                Students can also get special adviced and support from our student support, visa support
                                 and information on finance and accommodation.
                                 International student can join other international students in the International Students'
                                 Society, in different clubs and organizations on campus.
-
-                            </p>
-
-
-                            <div class="hr-sect new4"><span>Academic Orientation</span></div>
-
-                            <p>
-                            <blockquote class="text-center" style="background-color: whitesmoke;">
-                                <span style="font-size: 18px;">
-                                    The university provides an academic orientation program for all students new to the
-                                    University a month prior to the beginning of their first semester.
-                                    This is a great chance for them to familiarize themselves with the campus and the campus
-                                    lifestyle.
-                                </span>
-                            </blockquote>
-                            </p>
-
-                            <hr class="new4">
+                                <br>
+                                The university provides an academic orientation program for all students new to the
+                                University a month prior to the beginning of their first semester.
+                                This is a great chance for them to familiarize themselves with the campus and the campus
+                                lifestyle.
+                                <br><br>
 
                             <li>Each Faculty/academic center offers an orientation program, where students are welcomed and
                                 introduced to the program of study.</li>
@@ -148,6 +144,9 @@
                             <li>The Faculty of Basic Studies also provides Crash Courses for Mathematics and English to the
                                 incoming students prior to the start of semester.</li>
 
+
+                                </p>
+                                </div>
                         </div>
 
                     </div>

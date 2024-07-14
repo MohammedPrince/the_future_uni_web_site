@@ -10,6 +10,8 @@ use App\Models\MainApp;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Crypt;
+
 use Intervention\Image\Facades\Image;
 
 class NewsController extends Controller

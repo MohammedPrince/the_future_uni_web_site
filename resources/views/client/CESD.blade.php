@@ -18,19 +18,18 @@
                 <div class="post-content">
                     <p></p>
 
-                    <p>
+                    <!-- <p>
                     <blockquote class="text-center" style="background-color: whitesmoke;">
                         <span style="font-size: 19px;">
                              Centre of E-Learning and Software Development <strong>CESD</strong>
                         </span>
                     </blockquote>
-                    </p>
+                    </p> -->
 
                     <div class="hr-sect new4"><span>About</span></div>
-
-                    <p style="font-size: 16px;">
-                        CESD (Centre of E-Learning and Software Development) is responsible for developing and managing multimedia E-learning Contents and development of other software systems. It will also be doing research and development for Learning Management System (LMS) and Learning Content Management System (LCMS). We are using mainly open source technologies for developing our E-University applications. 
-                        We are developing educational technologies for future which can be used in any educational institutes in Sudan, Middle East and Africa.
+                    
+                    <p style="font-size: 16px; text-align: justify;">
+                    The Centre of E-Learning and Software Development (CESD) is focused on advancing e-learning technologies and develop innovative software solutions, design immersive learning environments, and conduct research to transform education. Our expertise empowers students and organizations to thrive in the digital era.
                     </p>
 
                     <hr class="new4">
@@ -44,11 +43,9 @@
                                     <div class="title">
                                         <h4>MISSION</h4>
                                     </div>
-                                    <div class="desc-wrap">
-                                        <p>
-                                            The Future University creates an atmosphere conducive to academic activities by providing scientific and 
-                                            technological programs; and to equip the students, parents, 
-                                            the academic community and the society with the ability to contribute to the innovation and research in the sciences and technology.
+                                    <div class="desc-wrap" >
+                                        <p style="text-align: justify;"> 
+                                            To revolutionize education through the power of technology. We strive to create innovative e-learning solutions and software applications that enhance learning experiences, empower learners, and promote lifelong learning. By bridging the gap between education and technology, we aim to foster knowledge, skills, and personal growth in individuals and communities
                                         </p>
                                     </div>
                                 </div>
@@ -59,9 +56,8 @@
                                         <h4>VISION</h4>
                                     </div>
                                     <div class="desc-wrap">
-                                        <p>
-                                            The Future University shall be a technology-driven institution dedicated in the development of responsible intellectuals who are empowered, 
-                                            technologically equipped, life-long learners and morally-upright to face the challenges of the dynamic world.
+                                        <p style="text-align: justify;">
+                                        To be a global leader in e-learning and software development, driving the future of education. We envision a world where technology seamlessly integrates with learning, enabling personalized, accessible, and engaging educational experiences. Through our innovative solutions, we aspire to empower learners, educators, and organizations to unlock their full potential and thrive in the digital age.
                                         </p>
                                     </div>
                                 </div>
@@ -81,7 +77,7 @@
                                     <div class="ts-item">
                                         <div class="row">
                                             <div class="col-md-3">
-                                                <div class="ts-author-pic set-bg" data-setbg="/client/img/main_imgs/members/mave.jpg"></div>
+                                                <div class="ts-author-pic set-bg" data-setbg="public/client/img/main_imgs/members/mave.jpg"></div>
                                             </div>
                                             <div class="col-md-9 ts-text">
                                                 <p></p><p></p><p></p><br>
@@ -100,7 +96,7 @@
                                     <div class="ts-item">
                                         <div class="row">
                                             <div class="col-md-3">
-                                                <div class="ts-author-pic set-bg" data-setbg="/client/img/main_imgs/members/"></div>
+                                                <div class="ts-author-pic set-bg" data-setbg="public/client/img/main_imgs/members/"></div>
                                             </div>
                                             <div class="col-md-9 ts-text">
                                                 <p></p><p></p><p></p><br>
@@ -119,11 +115,11 @@
                                     <div class="ts-item">
                                         <div class="row">
                                             <div class="col-md-3">
-                                                <div class="ts-author-pic set-bg" data-setbg="/client/img/main_imgs/members/"></div>
+                                                <div class="ts-author-pic set-bg" data-setbg="public/client/img/main_imgs/members/"></div>
                                             </div>
                                             <div class="col-md-9 ts-text">
                                                 <p></p><p></p><p></p><br>
-                                                <h5>Mr. Nader Najeb</h5>
+                                                <h5>Mr. Nader Nageeb</h5>
                                                 <span>Senior Software Develope</span>
                                                 <div class="about-widget">
                                                 <div class="social pt-1">
@@ -138,7 +134,7 @@
                                     <div class="ts-item">
                                         <div class="row">
                                             <div class="col-md-3">
-                                                <div class="ts-author-pic set-bg" data-setbg="/client/img/main_imgs/members/"></div>
+                                                <div class="ts-author-pic set-bg" data-setbg="public/client/img/main_imgs/members/"></div>
                                             </div>
                                             <div class="col-md-9 ts-text">
                                                 <p></p><p></p><p></p><br>
@@ -156,7 +152,7 @@
                                     <div class="ts-item">
                                         <div class="row">
                                             <div class="col-md-3">
-                                                <div class="ts-author-pic set-bg" data-setbg="/client/img/main_imgs/members/"></div>
+                                                <div class="ts-author-pic set-bg" data-setbg="public/client/img/main_imgs/members/"></div>
                                             </div>
                                             <div class="col-md-9 ts-text">
                                                 <p></p><p></p><p></p><br>
@@ -174,7 +170,7 @@
                                     <div class="ts-item">
                                         <div class="row">
                                             <div class="col-md-3">
-                                                <div class="ts-author-pic set-bg" data-setbg="/client/img/main_imgs/members/"></div>
+                                                <div class="ts-author-pic set-bg" data-setbg="public/client/img/main_imgs/members/"></div>
                                             </div>
                                             <div class="col-md-9 ts-text">
                                                 <p></p><p></p><p></p><br>
@@ -197,38 +193,38 @@
                             <div class="container">
                       
                                 <p></p>
-                                <div class="hr-sect new6"><span>Key points</span></div>
+                                <div class="hr-sect new6"><span>Services</span></div>
                                 <p></p>
                       
                               <div class="skills-content">
                       
                                 <div class="progress">
                                   <div class="progress-bar bg-success" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%;">
-                                    <span class="skill">-   Web Applications<i class="val">100%</i></span>
+                                    <span class="skill">Web Applications<i class="val">100%</i></span>
                                   </div>
                                 </div>
                       
                                 <div class="progress">
-                                  <div class="progress-bar bg-info" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width: 90%;">
-                                    <span class="skill">-   Mobile Apps <i class="val">90%</i></span>
+                                  <div class="progress-bar bg-info" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width: 100%;">
+                                    <span class="skill">Mobile Apps <i class="val">100%</i></span>
                                   </div>
                                 </div>
                       
                                 <div class="progress">
-                                  <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%;">
-                                    <span class="skill">-	System Analysis & Design <i class="val">75%</i></span>
+                                  <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 100%;">
+                                    <span class="skill">System Analysis & Design <i class="val">100%</i></span>
                                   </div>
                                 </div>
                       
                                 <div class="progress">
-                                  <div class="progress-bar bg-danger" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100" style="width: 55%;">
-                                    <span class="skill">-	System Administration<i class="val">60%</i></span>
+                                  <div class="progress-bar bg-danger" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100" style="width: 100%;">
+                                    <span class="skill">System Administration<i class="val">100%</i></span>
                                   </div>
                                 </div>
                       
                                 <div class="progress">
-                                  <div class="progress-bar bg-dark" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 45%;">
-                                    <span class="skill">-   Technical Support <i class="val">55%</i></span>
+                                  <div class="progress-bar bg-dark" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 100%;">
+                                    <span class="skill">Technical Support <i class="val">100%</i></span>
                                   </div>
                                 </div>
                       
@@ -241,7 +237,7 @@
 
                           
 
-                            <div class="col" >
+                            <!-- <div class="col" >
                                 <p></p>
                                 <div class="hr-sect new6"><span>Our Applications</span></div>
                                 <p></p>
@@ -319,7 +315,8 @@
                                       </tr>
                                     </tbody>
                                   </table>
-                            </div>
+                            </div> -->
+
                           </div>
                       </div>
                     <p></p>

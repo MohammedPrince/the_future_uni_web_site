@@ -16,7 +16,7 @@
                     <div class="post-content">
                         <p></p>
 
-                        <p>
+                        <!-- <p>
                         <blockquote class="text-center" style="background-color: whitesmoke;">
                             <span style="font-size: 18px;">
                                 The Future University Post Graduate Studies offers a world class graduate education that is
@@ -25,24 +25,24 @@
                                 by the experts in their respective fields.
                             </span>
                         </blockquote>
-                        </p>
+                        </p> -->
 
                         <hr class="new4">
 
                         <div class="container">
 
 
-                            <div class="feature">
+                            <!-- <div class="feature">
 
                                 <div class="circle" style="width: 250px; height: 250px; ">
-                                    <img src="/client/img/main_imgs/faculites/post.jpg" alt="">
+                                    <img src="./public/client/img/main_imgs/faculites/post.jpg" alt="">
                                 </div>
                                 <span>
                                     <p class="image-text"><strong>Dr. Test Test Test-Test </strong></p>
                                     <p class="image-text">Head of Postgraduate Faculty</p>
                                 </span>
 
-                            </div>
+                            </div> -->
 
                             <div class="hr-sect new6"><span>Future University Postgraduates Programs</span></div>
                             <p></p>
@@ -70,12 +70,12 @@
 
                                 <div class="col tabcontent" style="background-color: rgba(255, 255, 255, 0.51);"
                                     id="Business Administration">
-                                    <div class="hr-sect new6"><img src="/client/img/main_imgs/faculites/post.jpg"
-                                            height="150px" width="150px" alt="Computer Sci"><span></span></div>
-                                    <p style="color: black; text-align: justify;">
+                                    <!-- <div class="hr-sect new6"><img src="./public/client/img/main_imgs/faculites/post.jpg"
+                                            height="150px" width="150px" alt="Computer Sci"><span></span></div> -->
+                                    
                                     <p class="text-center"><strong>Master of Business Administration (MBA)</strong></p>
                                     <b>Description: </b>
-
+                                    <p style="color: black; text-align: justify;">
                                     In today's business world, the need to incorporate information technology into the
                                     organization is a must in order to survive and succeed. The Future University recognizes
                                     the need to be responsive according to these changes and demands, both locally and
@@ -94,7 +94,7 @@
                                         <li>With specialization courses in General Management</li>
                                         <li>With specialization courses in Engineering Management</li>
                                         <li>With specialization courses in Telecommunication Management</li><br>
-
+                                        <p style="color: black; text-align: justify;">
                                         The MBA program gives such an advantage by preparing the graduate students to
                                         manage their business needs. The MBA program will provide graduate students with a
                                         unique blend of managerial,
@@ -108,10 +108,10 @@
                                         manager by learning to integrate and
                                         align organizational processes and systems, and motivate people to meet today's
                                         critical challenges and goals.
-
+                                        </p>
                                         <hr>
                                         <b>Phlosophy Of The Program</b><br>
-
+                                        <p style="color: black; text-align: justify;">
                                         The Master of Business Administration (MBA) of Future University is distinctive in
                                         design.
                                         The curriculum sequence is carefully crafted to create classes grounded in
@@ -128,14 +128,14 @@
                                         behavior,
                                         and project management to develop the specific social skills needed in a team-based
                                         organizational environment.
-
+                                    </p>
                                         <hr>
                                         <b>Aims Of The Program</b><br>
                                         The MBA degree at Future University is designed to cultivate the leadership and the
                                         decision making skills necessary
                                         to tackle the challenges of today's global businesses. More importantly, it aims for
                                         the following: <br>
-
+                                        <p style="color: black; text-align: justify;">
                                         <li>To provide students with the required tools for decision-making and data
                                             analysis and to teach students how to use statistical methodology in applying
                                             these techniques to actual business situations.</li>
@@ -148,16 +148,17 @@
                                             today's business operations for productivity and performance.</li>
                                         <li>To engender a global perspective in all students.</li>
                                         <li>To develop each student's strategic thinking.</li>
-
+                                        </p>
                                         <hr>
                                         <b>Career Opportunities</b><br>
+                                        <p style="color: black; text-align: justify;">
                                         The MBA prepares career-oriented adults and professionals in the wide areas of
                                         business and administration. The degree program equips students with the skills and
                                         knowledge and practical experience needed to facilitate these changes and to build a
                                         solid foundation for their career development.
                                         After satisfactorily completing all the requirements leading to a MBA degree,
                                         students may qualify for but not limited to the following fields: <br>
-
+                                        </p>
                                         <li>Management Consulting</li>
                                         <li>Financial Services</li>
                                         <li>Marketing</li>
@@ -181,6 +182,7 @@
 
                                         <hr>
                                         <b>Program Structure</b><br>
+                                        <p style="color: black; text-align: justify;">
                                         The MBA program is structured into 3 components where the core part is comprised of
                                         eight (8) courses,
                                         the specialization part is comprised of five (5) courses and the last semester
@@ -195,7 +197,7 @@
                                         required to be taken prior to
                                         taking the above mentioned course types. The additional 5 courses will be
                                         distributed over the first two (2) semesters. <br><br>
-
+                                        </p>
 
                                     <table class="table table-bordered table-hover">
                                         <tbody>
@@ -284,13 +286,13 @@
 
                                 <div class="col tabcontent" style="background-color: rgba(255, 255, 255, 0.51);"
                                     id="Information Technology">
-                                    <div class="hr-sect new6"><img src="/client/img/main_imgs/faculites/post.jpg"
-                                            height="150px" width="150px" alt="Computer Sci"><span></span></div>
+                                    <!-- <div class="hr-sect new6"><img src="./public/client/img/main_imgs/faculites/post.jpg"
+                                            height="150px" width="150px" alt="Computer Sci"><span></span></div> -->
                                     <p style="color: black; text-align: justify;">
                                     <p class="text-center"><strong>Master of Science in Information Systems (MSIS)</strong>
                                     </p>
                                     <b>Description: </b>
-
+                                    <p style="color: black; text-align: justify;">
                                     The 21st century is characterized by exciting new opportunities provided by information
                                     technology and by the myriad of changes that
                                     information technology is bringing to organizations. The Future University recognizes
@@ -324,11 +326,13 @@
                                     research.
 
                                     </p>
+                                    </p>
+
                                     <p>
 
                                         <hr>
                                         <b>Phlosophy Of The Program</b><br>
-
+                                        <p style="color: black; text-align: justify;">
                                         The Master of Science in Information Systems(MSIS) is an interdisciplinary degree
                                         program designed to provide studies in
                                         strategic information management, knowledge management, usability, business
@@ -352,16 +356,17 @@
                                         leadership positions and expand their impact on the business operations,
                                         bringing together the components for a successful leadership position within today's
                                         organizations.
-
+                                        </p>
                                         <hr>
                                         <b>Aims Of The Program</b><br>
+                                        <p style="color: black; text-align: justify;">
                                         The Master of Science in Information Systems (MSIS) program aims to educate IS
                                         managers and professionals who possess technical and management knowledge for
                                         designing, developing and managing systems. It provides a transformational
                                         experience
                                         in integrating the technological and managerial sides of IS. On completion of this
                                         program, students will acquire: <br>
-
+                                        </p>
                                         <li>The current knowledge in selected areas of IS management (namely, IS enterprise
                                             management, knowledge and information management, Internet and Web technologies,
                                             business analytics, and/or health informatics).</li>
@@ -378,6 +383,7 @@
 
                                         <hr>
                                         <b>Career Opportunities</b><br>
+                                        <p style="color: black; text-align: justify;">
                                         The MSIS prepares career-oriented adults and professionals in the areas of IS
                                         leadership, programming, development, and engineering. The degree program equips
                                         students with the skills and knowledge and practical experience needed to facilitate
@@ -395,6 +401,7 @@
                                         satisfactorily completing all the requirements leading to a MSIS degree,
                                         students may qualify for but not limited to the following entry level positions:
                                         <br>
+                                        </p>
 
                                         <li>Advancement in current job Systems integrator.</li>
                                         <li>Promotion within IS management Specialist (Technical, Web).</li>
@@ -533,8 +540,8 @@
 
                                 <div class="col tabcontent" style="background-color: rgba(255, 255, 255, 0.51);"
                                     id="Engineering">
-                                    <div class="hr-sect new6"><img src="/client/img/main_imgs/faculites/post.jpg"
-                                            height="150px" width="150px" alt="POST"><span></span></div>
+                                    <!-- <div class="hr-sect new6"><img src="./public/client/img/main_imgs/faculites/post.jpg"
+                                            height="150px" width="150px" alt="POST"><span></span></div> -->
                                     <p style="color: black; text-align: justify;">
                                     <p class="text-center"><strong>Master of Science in Computer Engineering</strong>
                                     </p>
@@ -553,6 +560,7 @@
                                     <p>
                                         <hr>
                                         <b>Aims Of The Program</b><br>
+                                        <p style="color: black; text-align: justify;">
                                         The aims of the program are to provide opportunities for suitably qualified persons
                                         to acquire skills and expertise necessary to undertake research and development in
                                         the field of computer engineering. The courses in the MSc Computer Engineering with
@@ -658,7 +666,7 @@
                                         <li>Employ a systematic process in gathering, analyzing, interpreting, and
                                             communicating knowledge.</li>
                                         <li>Generate ideas that contribute to the advancement of Embedded System.</li>
-
+                                        </p>
                                         <hr><br>
 
 
@@ -723,13 +731,13 @@
 
                                 <div class="col tabcontent" style="background-color: rgba(255, 255, 255, 0.51);"
                                     id="Telecommunication & Space Technology">
-                                    <div class="hr-sect new6"><img src="/client/img/main_imgs/faculites/post.jpg"
-                                            height="150px" width="150px" alt="Computer Sci"><span></span></div>
-                                    <p style="color: black; text-align: justify;">
+                                    <!-- <div class="hr-sect new6"><img src="./public/client/img/main_imgs/faculites/post.jpg"
+                                            height="150px" width="150px" alt="Computer Sci"><span></span></div> -->
+                                    
                                     <p class="text-center"><strong>Masters on Communication Networks Engineering
                                             (MCNE)</strong></p>
                                     <b>Description: </b>
-
+                                    <p style="color: black; text-align: justify;">
                                     Masters on Communication Networks Engineering (MCNE) is focused on the provisioning of
                                     competence across Telecommunications Engineering and Computer Science, taking into
                                     account tecno-economic aspects and services supported by the networks. In the first
@@ -767,6 +775,7 @@
 
                                         <hr> <br>
                                         <b>Learning Outcomes</b><br>
+                                        <p style="color: black; text-align: justify;">
                                         We prepare our post graduates for a professional career and for academic research.
                                         The emphasis of the program is on both theoretical and practical techniques for the
                                         design and development of Communication Networks, enabling the post graduates to
@@ -781,7 +790,7 @@
                                         knowledge, from Electronics and computing systems through to communication
                                         engineering for broadband communication. <br>
 
-
+                                        </p>
                                         <hr>
                                         <b>Career Opportunities</b><br>
                                         A wide range of career opportunities in the post graduate Doctorate that specialized
@@ -815,8 +824,8 @@
 
                                 <div class="col tabcontent" style="background-color: rgba(255, 255, 255, 0.51);"
                                     id="Computer Science">
-                                    <div class="hr-sect new6"><img src="/client/img/main_imgs/faculites/post.jpg"
-                                            height="150px" width="150px" alt="Computer Sci"><span></span></div>
+                                    <!-- <div class="hr-sect new6"><img src="./public/client/img/main_imgs/faculites/post.jpg"
+                                            height="150px" width="150px" alt="Computer Sci"><span></span></div> -->
                                     <p style="color: black; text-align: justify;">
                                     <p class="text-center"><strong>Master of Science in Computer Science Degree
                                             Program</strong></p>
@@ -835,7 +844,7 @@
                                     <p>
                                         <hr>
                                         <b>Aims Of The Program</b><br>
-
+                                        <p style="color: black; text-align: justify;">
                                         The aims of the program are to provide opportunities for suitably qualified persons
                                         to acquire skills and expertise necessary to undertake research and development in
                                         the field of computer science. The courses in the MSc Computer Science with
@@ -951,8 +960,8 @@
 
                                 <div class="col tabcontent" style="background-color: rgba(255, 255, 255, 0.51);"
                                     id="Architecture">
-                                    <div class="hr-sect new6"><img src="/client/img/main_imgs/faculites/post.jpg"
-                                            height="150px" width="150px" alt="Computer Sci"><span></span></div>
+                                    <!-- <div class="hr-sect new6"><img src="./public/client/img/main_imgs/faculites/post.jpg"
+                                            height="150px" width="150px" alt="Computer Sci"><span></span></div> -->
                                     <p style="color: black; text-align: justify;">
                                     <p class="text-center"><strong>Master of Landscape Architecture</strong></p>
                                     <b>Description: </b>
@@ -981,7 +990,7 @@
                                     <p>
                                         <hr>
                                         <b>Career Opportunities</b><br>
-
+                                        <p style="color: black; text-align: justify;">
                                         Employment opportunities for Landscape Architects are expected to grow at a faster
                                         than average rate for all occupations through coming years. Public interest in
                                         improving quality of life, historic preservation, and conservation-oriented
@@ -994,16 +1003,20 @@
                                         Landscape Architects who have strong technical skills such as computer design, good
                                         communication skills, and some knowledge of environmental codes and regulations.<br>
 
-
+                                        </p>
 
                                         <hr> <br>
                                         <b>Advance Prospects</b><br>
+                                        <p style="color: black; text-align: justify;">
                                         Landscape Architects begin their careers as junior designers or apprentice
                                         designers. The typical advancement path, after several years experience, is to
                                         intermediate designer, senior designer, or project manager. Some Landscape
                                         Architects will become principals in the firms where they work. Others start their
                                         own landscape design and consulting firms. Nearly one in four Landscape Architects
-                                        are self-employed.<br>
+                                        are self-employed.
+                                        </p>
+                                        
+                                        <br>
 
                                         <hr>
 

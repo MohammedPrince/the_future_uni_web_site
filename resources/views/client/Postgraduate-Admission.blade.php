@@ -8,16 +8,75 @@
         </div>
     </div>
 
-    <section class="about-section">
+    <section class="enroll-section overlay">
+        </br>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-5">
+                    <div class="section-title text-white">
+                        <h3>Enrollment Process</h3>
+                        <p>Below are the steps to join us ...</p>
+                    </div>
+                    <div class="enroll-list text-white">
+                        <div class="enroll-list-item">
+                            <span>1</span>
+                            <h5>Ministry of the higher education application </h5>
+                            <p>Apply to admission system at the Ministry of the higher education  <strong><a
+                                        href="https://admission.gov.sd" target="_blank">PORTAL</a></strong></p>
+                        </div>
+                        <div class="enroll-list-item">
+                            <span>2</span>
+                            <h5>Admission & Registration</h5>
+                            <p>Visit the addmission and registration office to complete the admission process.</p>
+                        </div>
+                        <div class="enroll-list-item">
+                            <span>3</span>
+                            <h5>Future University ODMS</h5>
+                            <p>Fill in the application form using online addmission system <strong><a
+                                        href="https://odms.fu.edu.sd" target="_blank">(ODMS)</a> </strong></p>
+                        </div>
+                        <div class="enroll-list-item">
+                            <span>4</span>
+                            <h5>Track Your Application</h5>
+                            <p>Track the progress of your application in <strong><a href="https://odms.fu.edu.sd"
+                                        target="_blank">(ODMS)</a></strong> using your ministry number, and proceed with next
+                                steps.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-7">
+                    <!-- Content for the second row goes here -->
+                    </br>
+                    <div class="enroll-list text-white">
+                        <div class="enroll-list-item">
+                            <span>5</span>
+                            <h5>Interviews</h5>
+                            <p>Meet with the Future University Registrar, deans of student affairs, and your faculty dean for short interviews.</p>
+                        </div>
+                        <div class="enroll-list-item">
+                            <span>6</span>
+                            <h5>Complete the Payments</h5>
+                            <p>Pay your tuition and registration fees in Faisal Islamic Bank or Khartoum bank via the mobile banking applications.
+                            </p>
+                        </div>
+                        <div class="enroll-list-item">
+                            <span>7</span>
+                            <h5>Student ID card</h5>
+                            <p>Obtain your student ID card form the ID card office.</p>
+                        </div>
+                        <div class="enroll-list-item">
+                            <span>8</span>
+                            <h5>Welcome to the Future University</h5>
+                            <p>You are now part of our family.</p>
+                        </div>
 
-		<div class="container">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-			<div class="post-item post-details" style="padding-top: 0px;">
-				<div class="section-title ">
-					<div class="post-content">
-						<p></p>
-
-						<p>
+						<!-- <p>
 						<blockquote class="text-center" style="background-color: whitesmoke;">
 							<span style="font-size: 18px;">
 								The office of the postgraduate studies program is responsible for admission and registration.
@@ -42,7 +101,7 @@
 							<div class="feature">
 								
 									<div class="circle" style="width: 250px; height: 250px; ">
-										<img src="/client/img/main_imgs/members/Ust.-Kawther-Abuelnaja.jpg" alt="Kawther-Abuelnaja" >
+										<img src="/public/client/img/main_imgs/members/Ust.-Kawther-Abuelnaja.jpg" alt="Kawther-Abuelnaja" >
 									</div>
 								  <span>
 									<p class="image-text"><strong>Dr. Test Test Test-Test </strong></p>
@@ -93,7 +152,7 @@
 								</div>
 							  </div>
 							
-						  </div>
+						  </div> -->
 
 
 						  <p></p>
@@ -103,7 +162,7 @@
 							<div class="row text-center">
 
 								<div class="col" style="background-color: rgba(255, 255, 255, 0.53);">
-									<a href="/Postgraduates-Programs" ><button class="modal-button" >Postgraduates Programs</button></a>
+									<a href="Postgraduates-Programs" ><button class="modal-button" >Postgraduates Programs</button></a>
 								</div>
 
 							</div>
@@ -116,23 +175,23 @@
 							<p></p>
 							<div class="row text-center">
 								<div class="col" style="background-color: rgba(204,102,51,0.53);">
-									<a href="/storage/documents/general/fu_post_admission_registration.pdf" target="_blank"><button class="modal-button" >Admission & Registration</button></a>
+									<a href="public/storage/documents/general/fu_post_admission_registration.pdf" target="_blank"><button class="modal-button" >Admission & Registration</button></a>
 								</div>
 								<div class="col" style="background-color: rgba(204,102,51,0.53);">
-									<a href="/storage/documents/general/fu_post_finaldisscussion.pdf" target="_blank"><button class="modal-button" >Final Discussion</button></a>
+									<a href="public/storage/documents/general/fu_post_finaldisscussion.pdf" target="_blank"><button class="modal-button" >Final Discussion</button></a>
 								</div>
 								<div class="col" style="background-color: rgba(204,102,51,0.53);">
-									<a href="/storage/documents/general/fu_post_correction.pdf" target="_blank"><button class="modal-button" >Correction Approval</button></a>
+									<a href="public/storage/documents/general/fu_post_correction.pdf" target="_blank"><button class="modal-button" >Correction Approval</button></a>
 								</div>
 								<div class="col" style="background-color: rgba(204,102,51,0.53);">
-									<a href="/storage/documents/general/fu_post_freez.pdf" target="_blank"></a><button class="modal-button" > Semester Freezing </button></a>
+									<a href="public/storage/documents/general/fu_post_freez.pdf" target="_blank"></a><button class="modal-button" > Semester Freezing </button></a>
 								</div>
 
 								<div class="col" style="background-color: rgba(204,102,51,0.53);">
-									<a href="/storage/documents/general/fu_post_re-registration.pdf" target="_blank"><button class="modal-button" >SEM Re-registration</button></a>
+									<a href="public/storage/documents/general/fu_post_re-registration.pdf" target="_blank"><button class="modal-button" >SEM Re-registration</button></a>
 								</div>
 								<div class="col" style="background-color: rgba(204,102,51,0.53);">
-									<a href="/storage/documents/general/fu_post_re-study.pdf" target="_blank"><button class="modal-button" >Restudy Courses</button></a>
+									<a href="public/storage/documents/general/fu_post_re-study.pdf" target="_blank"><button class="modal-button" >Restudy Courses</button></a>
 								</div>
 							</div>
 

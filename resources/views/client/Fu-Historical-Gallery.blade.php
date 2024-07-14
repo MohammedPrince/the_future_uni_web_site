@@ -53,51 +53,51 @@
                                         <div class="swiper-wrapper">
                                             <div class="swiper-slide">
                                                 <img class="object-cover w-full h-96"
-                                                    src="/client/img/main_imgs/gallery/fu_festival/1.jpg" alt="image" />
+                                                    src="public/client/img/main_imgs/gallery/fu_festival/1.jpg" alt="image" />
                                             </div>
                                             <div class="swiper-slide">
                                                 <img class="object-cover w-full h-96"
-                                                    src="/client/img/main_imgs/gallery/fu_festival/2.jpg" alt="image" />
+                                                    src="public/client/img/main_imgs/gallery/fu_festival/2.jpg" alt="image" />
                                             </div>
                                             <div class="swiper-slide">
                                                 <img class="object-cover w-full h-96"
-                                                    src="/client/img/main_imgs/gallery/fu_festival/3.jpg" alt="image" />
+                                                    src="public/client/img/main_imgs/gallery/fu_festival/3.jpg" alt="image" />
                                             </div>
                                             <div class="swiper-slide">
                                                 <img class="object-cover w-full h-96"
-                                                    src="/client/img/main_imgs/gallery/fu_festival/4.jpg" alt="image" />
+                                                    src="public/client/img/main_imgs/gallery/fu_festival/4.jpg" alt="image" />
                                             </div>
                                             <div class="swiper-slide">
                                                 <img class="object-cover w-full h-96"
-                                                    src="/client/img/main_imgs/gallery/fu_festival/5.jpg" alt="image" />
+                                                    src="public/client/img/main_imgs/gallery/fu_festival/5.jpg" alt="image" />
                                             </div>
                                             <div class="swiper-slide">
                                                 <img class="object-cover w-full h-96"
-                                                    src="/client/img/main_imgs/gallery/fu_festival/6.jpg" alt="image" />
+                                                    src="public/client/img/main_imgs/gallery/fu_festival/6.jpg" alt="image" />
                                             </div>
                                             <div class="swiper-slide">
                                                 <img class="object-cover w-full h-96"
-                                                    src="/client/img/main_imgs/gallery/fu_festival/7.jpg" alt="image" />
+                                                    src="public/client/img/main_imgs/gallery/fu_festival/7.jpg" alt="image" />
                                             </div>
                                             <div class="swiper-slide">
                                                 <img class="object-cover w-full h-96"
-                                                    src="/client/img/main_imgs/gallery/fu_festival/8.jpg" alt="image" />
+                                                    src="public/client/img/main_imgs/gallery/fu_festival/8.jpg" alt="image" />
                                             </div>
                                             <div class="swiper-slide">
                                                 <img class="object-cover w-full h-96"
-                                                    src="/client/img/main_imgs/gallery/fu_festival/9.jpg" alt="image" />
+                                                    src="public/client/img/main_imgs/gallery/fu_festival/9.jpg" alt="image" />
                                             </div>
                                             <div class="swiper-slide">
                                                 <img class="object-cover w-full h-96"
-                                                    src="/client/img/main_imgs/gallery/fu_festival/10.jpg" alt="image" />
+                                                    src="public/client/img/main_imgs/gallery/fu_festival/10.jpg" alt="image" />
                                             </div>
                                             <div class="swiper-slide">
                                                 <img class="object-cover w-full h-96"
-                                                    src="/client/img/main_imgs/gallery/fu_festival/11.jpg" alt="image" />
+                                                    src="public/client/img/main_imgs/gallery/fu_festival/11.jpg" alt="image" />
                                             </div>
                                             <div class="swiper-slide">
                                                 <img class="object-cover w-full h-96"
-                                                    src="/client/img/main_imgs/gallery/fu_festival/12.jpg" alt="image" />
+                                                    src="public/client/img/main_imgs/gallery/fu_festival/12.jpg" alt="image" />
                                             </div>
                                         </div>
 
@@ -121,51 +121,51 @@
                                         <div class="swiper-wrapper">
                                             <div class="swiper-slide">
                                                 <img class="object-cover w-full h-96"
-                                                    src="/client/img/main_imgs/gallery/Matrin-Luther-King/12.jpg" alt="image" />
+                                                    src="public/client/img/main_imgs/gallery/Matrin-Luther-King/12.jpg" alt="image" />
                                             </div>
                                             <div class="swiper-slide">
                                                 <img class="object-cover w-full h-96"
-                                                    src="/client/img/main_imgs/gallery/Matrin-Luther-King/2.jpg" alt="image" />
+                                                    src="public/client/img/main_imgs/gallery/Matrin-Luther-King/2.jpg" alt="image" />
                                             </div>
                                             <div class="swiper-slide">
                                                 <img class="object-cover w-full h-96"
-                                                    src="/client/img/main_imgs/gallery/Matrin-Luther-King/3.jpg" alt="image" />
+                                                    src="public/client/img/main_imgs/gallery/Matrin-Luther-King/3.jpg" alt="image" />
                                             </div>
                                             <div class="swiper-slide">
                                                 <img class="object-cover w-full h-96"
-                                                    src="/client/img/main_imgs/gallery/Matrin-Luther-King/4.jpg" alt="image" />
+                                                    src="public/client/img/main_imgs/gallery/Matrin-Luther-King/4.jpg" alt="image" />
                                             </div>
                                             <div class="swiper-slide">
                                                 <img class="object-cover w-full h-96"
-                                                    src="/client/img/main_imgs/gallery/Matrin-Luther-King/5.jpg" alt="image" />
+                                                    src="public/client/img/main_imgs/gallery/Matrin-Luther-King/5.jpg" alt="image" />
                                             </div>
                                             <div class="swiper-slide">
                                                 <img class="object-cover w-full h-96"
-                                                    src="/client/img/main_imgs/gallery/Matrin-Luther-King/6.jpg" alt="image" />
+                                                    src="public/client/img/main_imgs/gallery/Matrin-Luther-King/6.jpg" alt="image" />
                                             </div>
                                             <div class="swiper-slide">
                                                 <img class="object-cover w-full h-96"
-                                                    src="/client/img/main_imgs/gallery/Matrin-Luther-King/7.jpg" alt="image" />
+                                                    src="public/client/img/main_imgs/gallery/Matrin-Luther-King/7.jpg" alt="image" />
                                             </div>
                                             <div class="swiper-slide">
                                                 <img class="object-cover w-full h-96"
-                                                    src="/client/img/main_imgs/gallery/Matrin-Luther-King/8.jpg" alt="image" />
+                                                    src="public/client/img/main_imgs/gallery/Matrin-Luther-King/8.jpg" alt="image" />
                                             </div>
                                             <div class="swiper-slide">
                                                 <img class="object-cover w-full h-96"
-                                                    src="/client/img/main_imgs/gallery/Matrin-Luther-King/9.jpg" alt="image" />
+                                                    src="public/client/img/main_imgs/gallery/Matrin-Luther-King/9.jpg" alt="image" />
                                             </div>
                                             <div class="swiper-slide">
                                                 <img class="object-cover w-full h-96"
-                                                    src="/client/img/main_imgs/gallery/Matrin-Luther-King/10.jpg" alt="image" />
+                                                    src="public/client/img/main_imgs/gallery/Matrin-Luther-King/10.jpg" alt="image" />
                                             </div>
                                             <div class="swiper-slide">
                                                 <img class="object-cover w-full h-96"
-                                                    src="/client/img/main_imgs/gallery/Matrin-Luther-King/11.jpg" alt="image" />
+                                                    src="public/client/img/main_imgs/gallery/Matrin-Luther-King/11.jpg" alt="image" />
                                             </div>
                                             <div class="swiper-slide">
                                                 <img class="object-cover w-full h-96"
-                                                    src="/client/img/main_imgs/gallery/Matrin-Luther-King/1.jpg" alt="image" />
+                                                    src="public/client/img/main_imgs/gallery/Matrin-Luther-King/1.jpg" alt="image" />
                                             </div>
 
                                         </div>
@@ -190,51 +190,51 @@
                                         <div class="swiper-wrapper">
                                             <div class="swiper-slide">
                                                 <img class="object-cover w-full h-96"
-                                                    src="/client/img/main_imgs/gallery/Fu-Forum/1.jpg" alt="image" />
+                                                    src="public/client/img/main_imgs/gallery/Fu-Forum/1.jpg" alt="image" />
                                             </div>
                                             <div class="swiper-slide">
                                                 <img class="object-cover w-full h-96"
-                                                    src="/client/img/main_imgs/gallery/Fu-Forum/2.jpg" alt="image" />
+                                                    src="public/client/img/main_imgs/gallery/Fu-Forum/2.jpg" alt="image" />
                                             </div>
                                             <div class="swiper-slide">
                                                 <img class="object-cover w-full h-96"
-                                                    src="/client/img/main_imgs/gallery/Fu-Forum/3.jpg" alt="image" />
+                                                    src="public/client/img/main_imgs/gallery/Fu-Forum/3.jpg" alt="image" />
                                             </div>
                                             <div class="swiper-slide">
                                                 <img class="object-cover w-full h-96"
-                                                    src="/client/img/main_imgs/gallery/Fu-Forum/4.jpg" alt="image" />
+                                                    src="public/client/img/main_imgs/gallery/Fu-Forum/4.jpg" alt="image" />
                                             </div>
                                             <div class="swiper-slide">
                                                 <img class="object-cover w-full h-96"
-                                                    src="/client/img/main_imgs/gallery/Fu-Forum/5.jpg" alt="image" />
+                                                    src="public/client/img/main_imgs/gallery/Fu-Forum/5.jpg" alt="image" />
                                             </div>
                                             <div class="swiper-slide">
                                                 <img class="object-cover w-full h-96"
-                                                    src="/client/img/main_imgs/gallery/Fu-Forum/6.jpg" alt="image" />
+                                                    src="public/client/img/main_imgs/gallery/Fu-Forum/6.jpg" alt="image" />
                                             </div>
                                             <div class="swiper-slide">
                                                 <img class="object-cover w-full h-96"
-                                                    src="/client/img/main_imgs/gallery/Fu-Forum/7.jpg" alt="image" />
+                                                    src="public/client/img/main_imgs/gallery/Fu-Forum/7.jpg" alt="image" />
                                             </div>
                                             <div class="swiper-slide">
                                                 <img class="object-cover w-full h-96"
-                                                    src="/client/img/main_imgs/gallery/Fu-Forum/8.jpg" alt="image" />
+                                                    src="public/client/img/main_imgs/gallery/Fu-Forum/8.jpg" alt="image" />
                                             </div>
                                             <div class="swiper-slide">
                                                 <img class="object-cover w-full h-96"
-                                                    src="/client/img/main_imgs/gallery/Fu-Forum/9.jpg" alt="image" />
+                                                    src="public/client/img/main_imgs/gallery/Fu-Forum/9.jpg" alt="image" />
                                             </div>
                                             <div class="swiper-slide">
                                                 <img class="object-cover w-full h-96"
-                                                    src="/client/img/main_imgs/gallery/Fu-Forum/10.jpg" alt="image" />
+                                                    src="public/client/img/main_imgs/gallery/Fu-Forum/10.jpg" alt="image" />
                                             </div>
                                             <div class="swiper-slide">
                                                 <img class="object-cover w-full h-96"
-                                                    src="/client/img/main_imgs/gallery/Fu-Forum/11.jpg" alt="image" />
+                                                    src="public/client/img/main_imgs/gallery/Fu-Forum/11.jpg" alt="image" />
                                             </div>
                                             <div class="swiper-slide">
                                                 <img class="object-cover w-full h-96"
-                                                    src="/client/img/main_imgs/gallery/Fu-Forum/12.jpg" alt="image" />
+                                                    src="public/client/img/main_imgs/gallery/Fu-Forum/12.jpg" alt="image" />
                                             </div>
 
                                         </div>
@@ -259,35 +259,35 @@
                                         <div class="swiper-wrapper">
                                             <div class="swiper-slide">
                                                 <img class="object-cover w-full h-96"
-                                                    src="/client/img/main_imgs/gallery/Fu-Korean-Visit/1.jpg" alt="image" />
+                                                    src="public/client/img/main_imgs/gallery/Fu-Korean-Visit/1.jpg" alt="image" />
                                             </div>
                                             <div class="swiper-slide">
                                                 <img class="object-cover w-full h-96"
-                                                    src="/client/img/main_imgs/gallery/Fu-Korean-Visit/2.jpg" alt="image" />
+                                                    src="public/client/img/main_imgs/gallery/Fu-Korean-Visit/2.jpg" alt="image" />
                                             </div>
                                             <div class="swiper-slide">
                                                 <img class="object-cover w-full h-96"
-                                                    src="/client/img/main_imgs/gallery/Fu-Korean-Visit/3.jpg" alt="image" />
+                                                    src="public/client/img/main_imgs/gallery/Fu-Korean-Visit/3.jpg" alt="image" />
                                             </div>
                                             <div class="swiper-slide">
                                                 <img class="object-cover w-full h-96"
-                                                    src="/client/img/main_imgs/gallery/Fu-Korean-Visit/4.jpg" alt="image" />
+                                                    src="public/client/img/main_imgs/gallery/Fu-Korean-Visit/4.jpg" alt="image" />
                                             </div>
                                             <div class="swiper-slide">
                                                 <img class="object-cover w-full h-96"
-                                                    src="/client/img/main_imgs/gallery/Fu-Korean-Visit/5.jpg" alt="image" />
+                                                    src="public/client/img/main_imgs/gallery/Fu-Korean-Visit/5.jpg" alt="image" />
                                             </div>
                                             <div class="swiper-slide">
                                                 <img class="object-cover w-full h-96"
-                                                    src="/client/img/main_imgs/gallery/Fu-Korean-Visit/6.jpg" alt="image" />
+                                                    src="public/client/img/main_imgs/gallery/Fu-Korean-Visit/6.jpg" alt="image" />
                                             </div>
                                             <div class="swiper-slide">
                                                 <img class="object-cover w-full h-96"
-                                                    src="/client/img/main_imgs/gallery/Fu-Korean-Visit/7.jpg" alt="image" />
+                                                    src="public/client/img/main_imgs/gallery/Fu-Korean-Visit/7.jpg" alt="image" />
                                             </div>
                                             <div class="swiper-slide">
                                                 <img class="object-cover w-full h-96"
-                                                    src="/client/img/main_imgs/gallery/Fu-Korean-Visit/8.jpg" alt="image" />
+                                                    src="public/client/img/main_imgs/gallery/Fu-Korean-Visit/8.jpg" alt="image" />
                                             </div>
                                         
                                         </div>
@@ -312,43 +312,43 @@
                                         <div class="swiper-wrapper">
                                             <div class="swiper-slide">
                                                 <img class="object-cover w-full h-96"
-                                                    src="/client/img/main_imgs/gallery/Astronaut-Visit/1.jpg" alt="image" />
+                                                    src="public/client/img/main_imgs/gallery/Astronaut-Visit/1.jpg" alt="image" />
                                             </div>
                                             <div class="swiper-slide">
                                                 <img class="object-cover w-full h-96"
-                                                    src="/client/img/main_imgs/gallery/Astronaut-Visit/2.jpg" alt="image" />
+                                                    src="public/client/img/main_imgs/gallery/Astronaut-Visit/2.jpg" alt="image" />
                                             </div>
                                             <div class="swiper-slide">
                                                 <img class="object-cover w-full h-96"
-                                                    src="/client/img/main_imgs/gallery/Astronaut-Visit/3.jpg" alt="image" />
+                                                    src="public/client/img/main_imgs/gallery/Astronaut-Visit/3.jpg" alt="image" />
                                             </div>
                                             <div class="swiper-slide">
                                                 <img class="object-cover w-full h-96"
-                                                    src="/client/img/main_imgs/gallery/Astronaut-Visit/4.jpg" alt="image" />
+                                                    src="public/client/img/main_imgs/gallery/Astronaut-Visit/4.jpg" alt="image" />
                                             </div>
                                             <div class="swiper-slide">
                                                 <img class="object-cover w-full h-96"
-                                                    src="/client/img/main_imgs/gallery/Astronaut-Visit/5.jpg" alt="image" />
+                                                    src="public/client/img/main_imgs/gallery/Astronaut-Visit/5.jpg" alt="image" />
                                             </div>
                                             <div class="swiper-slide">
                                                 <img class="object-cover w-full h-96"
-                                                    src="/client/img/main_imgs/gallery/Astronaut-Visit/6.jpg" alt="image" />
+                                                    src="public/client/img/main_imgs/gallery/Astronaut-Visit/6.jpg" alt="image" />
                                             </div>
                                             <div class="swiper-slide">
                                                 <img class="object-cover w-full h-96"
-                                                    src="/client/img/main_imgs/gallery/Astronaut-Visit/7.jpg" alt="image" />
+                                                    src="public/client/img/main_imgs/gallery/Astronaut-Visit/7.jpg" alt="image" />
                                             </div>
                                             <div class="swiper-slide">
                                                 <img class="object-cover w-full h-96"
-                                                    src="/client/img/main_imgs/gallery/Astronaut-Visit/8.jpg" alt="image" />
+                                                    src="public/client/img/main_imgs/gallery/Astronaut-Visit/8.jpg" alt="image" />
                                             </div>
                                             <div class="swiper-slide">
                                                 <img class="object-cover w-full h-96"
-                                                    src="/client/img/main_imgs/gallery/Astronaut-Visit/9.jpg" alt="image" />
+                                                    src="public/client/img/main_imgs/gallery/Astronaut-Visit/9.jpg" alt="image" />
                                             </div>
                                             <div class="swiper-slide">
                                                 <img class="object-cover w-full h-96"
-                                                    src="/client/img/main_imgs/gallery/Astronaut-Visit/10.jpg" alt="image" />
+                                                    src="public/client/img/main_imgs/gallery/Astronaut-Visit/10.jpg" alt="image" />
                                             </div>
                                         
                                         </div>
