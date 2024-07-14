@@ -520,6 +520,7 @@
                         <p></p>
                         <p>As the present academic year comes to an end, we start the preparation to welcome the new
                             students for the new academic year 2022/2023.</p>
+                            students for the new academic year 2022/2023.</p>
                         <p>This occasion gives me the opportunity to congratulate the graduates of all departments and wish
                             them a successful career in their professional life.
                             I also welcome those who decided to continue with their postgraduate studies at the University.
@@ -544,6 +545,7 @@
                             our aim is to be among the ten top sudanese university by the end of the next academic year.</p>
 
                         <p>GOOD LUCK!</br>
+                            Dr. Ghassan Abubaker Mustafa</br>
                             Dr. Ghassan Abubaker Mustafa</br>
                             The President</p>
                     </div>

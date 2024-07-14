@@ -83,12 +83,12 @@
                     </li>
                   
                     <li class="sidebar-header">
-                        Tools & Components
+                        page divider
                     </li>
 
                     <li class="sidebar-item">
-                        <a class='sidebar-link' href='ui-buttons.html'>
-                            <i class="align-middle" data-feather="square"></i> <span class="align-middle">Buttons</span>
+                        <a class='sidebar-link' href='#'>
+                            <i class="align-middle" data-feather="cart"></i> <span class="align-middle">Test</span>
                         </a>
                     </li>
                 </ul>
@@ -98,12 +98,14 @@
         <div class="main">
             <nav class="navbar navbar-expand navbar-light navbar-bg">
 
+
                 <a class="sidebar-toggle js-sidebar-toggle">
                     <i class="hamburger align-self-center"></i>
                 </a>
 
                 <div class="navbar-collapse collapse">
                     <ul class="navbar-nav navbar-align">
+                       
                        
                         <li class="nav-item dropdown">
                             <a class="nav-icon dropdown-toggle d-inline-block d-sm-none" href="#"
@@ -119,6 +121,7 @@
                             <div class="dropdown-menu dropdown-menu-end">
                                 <a class='dropdown-item' href='profile'><i class="align-middle me-1"
                                         data-feather="user"></i> Profile</a>
+                               
                                
                                 <div class="dropdown-divider"></div>
                                

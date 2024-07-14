@@ -44,7 +44,7 @@ Route::middleware(['adminType'])->group(function () {
     Route::get('/add_event', function () {
         return view('admin.add_events');
     });
-    
+
     Route::get('/add_news', function () {
         return view('admin.add_news');
     });
@@ -69,13 +69,13 @@ Route::get('/new_edit_user/{id}/edit/', [UserController::class, "newPage" ]);
 
 // 
 
-//Event Routes  middleware and controllers //
-Route::post('/add_event', [EventsController::class, "addEvent" ]);
-Route::get('/add_event', [EventsController::class, "showEvents" ]);
-Route::get('/add_event/{event}/delete/', [EventsController::class, "deleteEvent" ]);
-Route::get('/add_event/{event}/status/{event_status}', [EventsController::class, "eventStatus" ]);
-Route::get('/edit_event/{event}/edit/', [EventsController::class, "showEditForm" ]);
-Route::post('/edit_event/{event}', [EventsController::class, "editEvent" ]);
+    //Event Routes  middleware and controllers //
+    Route::post('/add_event', [EventsController::class, "addEvent"]);
+    Route::get('/add_event', [EventsController::class, "showEvents"]);
+    Route::get('/add_event/{event}/delete/', [EventsController::class, "deleteEvent"]);
+    Route::get('/add_event/{event}/status/{event_status}', [EventsController::class, "eventStatus"]);
+    Route::get('/edit_event/{event}/edit/', [EventsController::class, "showEditForm"]);
+    Route::post('/edit_event/{event}', [EventsController::class, "editEvent"]);
 
 //News Routes  middleware and controllers //
 Route::post('/add_news', [NewsController::class, "addNews" ]);
@@ -126,41 +126,42 @@ Route::middleware(['mustBeLoggedIn'])->group(function () {
     Route::get('/add_event', function () {
         return view('admin.add_events');
     });
-    
+
     Route::get('/add_news', function () {
         return view('admin.add_news');
     });
 
-//Event Routes  middleware and controllers //
-Route::post('/add_event', [EventsController::class, "addEvent" ]);
-Route::get('/add_event', [EventsController::class, "showEvents" ]);
-Route::get('/add_event/{event}/delete/', [EventsController::class, "deleteEvent" ]);
-Route::get('/add_event/{event}/status/{event_status}', [EventsController::class, "eventStatus" ]);
-Route::get('/edit_event/{event}/edit/', [EventsController::class, "showEditForm" ]);
-Route::post('/edit_event/{event}', [EventsController::class, "editEvent" ]);
+    //Event Routes  middleware and controllers //
+    Route::post('/add_event', [EventsController::class, "addEvent"]);
+    Route::get('/add_event', [EventsController::class, "showEvents"]);
+    Route::get('/add_event/{event}/delete/', [EventsController::class, "deleteEvent"]);
+    Route::get('/add_event/{event}/status/{event_status}', [EventsController::class, "eventStatus"]);
+    Route::get('/edit_event/{event}/edit/', [EventsController::class, "showEditForm"]);
+    Route::post('/edit_event/{event}', [EventsController::class, "editEvent"]);
 
-//News Routes  middleware and controllers //
-Route::post('/add_news', [NewsController::class, "addNews" ]);
-Route::get('/add_news', [NewsController::class, "showNews" ]);
-Route::get('/edit_news/{news}/edit/', [NewsController::class, "showEditForm" ]);
-Route::post('/edit_news/{news}', [NewsController::class, "editNews" ]);
-Route::get('/add_news/{news}/delete/', [NewsController::class, "deleteNews" ]);
+    //News Routes  middleware and controllers //
+    Route::post('/add_news', [NewsController::class, "addNews"]);
+    Route::get('/add_news', [NewsController::class, "showNews"]);
+    Route::get('/edit_news/{news}/edit/', [NewsController::class, "showEditForm"]);
+    Route::post('/edit_news/{news}', [NewsController::class, "editNews"]);
+    Route::get('/add_news/{news}/delete/', [NewsController::class, "deleteNews"]);
 
 });
 
-Route::get('/logout', [UserController::class, "logout" ]);
-Route::post('/login', [UserController::class, "login" ])->middleware('guest');
-Route::get('/register', [UserController::class, "register" ]);
+Route::get('/logout', [UserController::class, "logout"]);
+Route::post('/login', [UserController::class, "login"])->middleware('guest');
+Route::get('/register', [UserController::class, "register"]);
 
 
 
 //Client routes //
 
 Route::middleware(['web', 'visitor'])->group(function () {
-    
+
+
     Route::get('/', function () {
         return view('client.Home');
-    });
+    }) ;
 
     Route::get('/Home', function () {
         return view('client.Home');
@@ -257,11 +258,22 @@ Route::middleware(['web', 'visitor'])->group(function () {
     
     
 
+
+    Route::get('/Fee-Structure', function () {
+        return view('client.Fee-structure');
+    })->name('Fees');
+
+    Route::get('/Scholarships', function () {
+        return view('client.Scholarships');
+    })->name('Scholarships');
+    
+    
+
 });
 
 
-Route::get('/', [NewsController::class, "NewsAndEvents" ]);
-Route::get('/', [NewsController::class, "viewNews" ]);
+Route::get('/', [NewsController::class, "NewsAndEvents"]);
+Route::get('/', [NewsController::class, "viewNews"]);
 
 // Route::get('/Home', [NewsController::class, "viewNews" ]);
 // Route::get('/Home', [EventsController::class, "viewEvents" ]);
