@@ -103,11 +103,7 @@ class UserController extends Controller
         $user = auth()->user();
         return view("admin.profile" , ['user' => $user]);
     }
-    public function user_profile(){
 
-        $user = auth()->user();
-        return view("admin.profile" , ['user' => $user]);
-    }
     public function editUser(Request $request , User $user){
 
         $validate = Validator::make($request->all(), [
