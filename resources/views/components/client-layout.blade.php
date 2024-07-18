@@ -123,7 +123,7 @@
 				</li>
 				{{-- Request::segment(3) =='' &&  --}}
 				<li class="@if ( request()->is('News-Details/*') || request()->is('Event-Details/*')  || (Request::is('News-and-Events')) ) active @endif ">
-					<a href="{{ route('news_events') }}">News & Events</a></li>
+					<a href="{{ route('NewsAndEvents') }}">News & Events</a></li>
 			
 				<li class="@if ( (Request::is('Undergraduate-Programs')) || (Request::is('Postgraduates-Programs'))) active @endif ">
 					<a href="#" class="sub-menu-arrow">Programs</a>

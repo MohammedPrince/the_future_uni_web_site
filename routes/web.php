@@ -172,7 +172,7 @@ Route::middleware(['web', 'visitor'])->group(function () {
     })->name('About-FU');
     
     Route::get('/news_events', function () {
-        return view('client.news_events');
+        return view('client.News-and-Events');
     })->name('news_events');
     
     Route::get('/Fu-Linkages', function () {
