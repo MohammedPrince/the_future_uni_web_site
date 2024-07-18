@@ -119,7 +119,7 @@
                     <!-- {{-- <a href="{{ route('staff.details', Crypt::encrypt($search_result->staff_id)) }}" target="_blank" class="btn badge-secondary">View profile</a>  --}}                       -->
                                           <a href="{{ route('Staff-Details', $search_result->staff_id) }}" target="_blank" class="btn badge-secondary">View profile</a>
                     
-                                   
+                       
                                       </p>
                             </div>
                             <div>
