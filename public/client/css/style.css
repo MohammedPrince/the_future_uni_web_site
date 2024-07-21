@@ -261,18 +261,20 @@ ul {
 }
 
 .nav-section {
+	
 	/* background: #020031; */
 	/* background: #5F0F40; */
 
 	/* background: #57130b; */
 	background: #57130b;
+	
 
 }
 
-.nav-section .nav-right {
+/* .nav-section .nav-right {
 	float: right;
 	padding-top: 23px;
-}
+} */
 
 .nav-section .nav-right a {
 	color: #fff;
