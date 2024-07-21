@@ -295,7 +295,7 @@
 				<p>
 					Copyright &copy;
 	<script>document.write(new Date().getFullYear());</script> All rights reserved for <strong style="color: #d1291f">The Future University.</strong> Designed and Developed by 
-	<a href="/CESD"target="_blank" style="color: #ef7e22"><strong>CESD</strong></a>
+	<a href="{{route('CESD')}}"target="_blank" style="color: #ef7e22"><strong>CESD</strong></a>
 				</p>
 			</div>
 		</div>

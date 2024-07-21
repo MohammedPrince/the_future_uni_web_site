@@ -541,7 +541,7 @@
                             <p class="text-center"><strong>Center of E-Learning and Software Development<br>CESD</strong></p>
                             The Center of E-Learning and Software Development is a cutting-edge hub that harnesses the power of technology to transform education and drive digital innovation. By developing innovative e-learning platforms and cutting-edge software solutions, the center empowers students and professionals to thrive in the digital age. <br><br>
 
-							<a href="/CESD" class="read-more my-eventBtn" style="color:blanchedalmond;">More Details</a>
+							<a href="{{route('CESD')}}" class="read-more my-eventBtn" style="color:blanchedalmond;">More Details</a>
 							
                             </p>
 
@@ -554,7 +554,7 @@
                             <p class="text-center"><strong>Center of Technological Services<br>CTS</strong></p>
                             The Center of Technological Services is a comprehensive resource hub that provides state-of-the-art facilities and specialized support to students, faculty, and researchers. From advanced computing infrastructure to cutting-edge prototyping tools, the center enables innovation and discovery across disciplines.<br><br>
 
-							<a href="/CTS" class="read-more my-eventBtn" style="color:blanchedalmond;">More Details</a>
+							<a href="{{route('CTS')}}" class="read-more my-eventBtn" style="color:blanchedalmond;">More Details</a>
 
                             </p>
 
@@ -568,7 +568,8 @@
 
                             The Innovation Research and Development Center is a dynamic hub where pioneering ideas come to life. By fostering cross-disciplinary collaboration and providing access to cutting-edge resources, the center empowers researchers and innovators to push the boundaries of knowledge and develop transformative solutions. <br> <br>
 
-							<a href="/IRDC" class="read-more my-eventBtn" style="color:blanchedalmond;">More Details</a>
+							<a href="{{route('IRDC')}}" class="read-more my-eventBtn" style="color:blanchedalmond;">More Details</a>
+                            
                             </p>
 
                         </div>
