@@ -41,43 +41,45 @@
                     <li class="sidebar-header"></li>
 
                     <li class="sidebar-item '@if ( (Request::is('profile')) ) active @endif ' ">
-                        <a class='sidebar-link' href='profile'>
+                        <a class='sidebar-link' href='{{route("profile")}}'>
                             <i class="align-middle" data-feather="user"></i> <span class="align-middle">My Profile</span>
                         </a>
                     </li>
 
                     <li class="sidebar-item '@if ( (Request::is('add_user')) || (Request::is('edit_user'))  ) active  @endif' ">
-                        <a class='sidebar-link' href='add_user'>
+                        <a class='sidebar-link' href='{{route("add_user")}}'>
                             <i class="align-middle" data-feather="users"></i> <span class="align-middle">Manage Users</span>
                         </a>
                     </li>
                  
 
                     <li class="sidebar-item '@if ( (Request::is('add_event')) || (Request::is('edit_event'))  ) active @endif ' ">
-                        <a class='sidebar-link' href='add_event'>
+                        <a class='sidebar-link' href='{{route("add_event")}}'>
+                        {{--<!-- {{route("add_event")}} --> --}}
                             <i class="align-middle" data-feather="globe"></i> <span class="align-middle">Manage Events</span>
                         </a>
                     </li>
 
                     <li class="sidebar-item '@if ( (Request::is('add_news')) || (Request::is('edit_news'))  ) active @endif ' ">
-                        <a class='sidebar-link' href='add_news'>
+                        <a class='sidebar-link' href='{{route("add_news")}}'>
+                            {{-- {{route("add_news")}} --}}
                             <i class="align-middle" data-feather="paperclip"></i> <span class="align-middle">Manage News</span>
                         </a>
                     </li>
                     <li class="sidebar-item '@if ( (Request::is('linkage')) || (Request::is('edit_linkage'))  ) active @endif ' ">
-                        <a class='sidebar-link' href='linkage'>
+                        <a class='sidebar-link' href='{{route("linkage")}}'>
                             <i class="align-middle" data-feather="link"></i> <span class="align-middle">Manage Linkage</span>
                         </a>
                     </li>
 
                     <li class="sidebar-item '@if ( (Request::is('fee_structure')) || (Request::is('edit_fee_structure'))  ) active @endif ' ">
-                        <a class='sidebar-link' href='fee_structure'>
+                        <a class='sidebar-link' href='{{route("fee_structure")}}'>
                             <i class="align-middle" data-feather="slack"></i> <span class="align-middle">Fee Structure</span>
                         </a>
                     </li>
 
                     <li class="sidebar-item '@if ( (Request::is('staff')) || (Request::is('edit_staff_information'))  ) active @endif ' ">
-                        <a class='sidebar-link' href='staff'>
+                        <a class='sidebar-link' href='{{route("staff")}}'>
                             <i class="align-middle" data-feather="user-check"></i> <span class="align-middle">Staff Information</span>
                         </a>
                     </li>
@@ -140,7 +142,7 @@
                     <div class="row text-muted">
                         <div class="col-6 text-start">
                             <p class="mb-0">
-                                <a class="text-muted" href="CESD"
+                                <a class="text-muted" href="{{route('CESD')}}"
                                     target="_blank"><strong>Designed and Developed by CESD <?php  echo date("Y");  ?></strong></a> 
                             </p>
                         </div>
