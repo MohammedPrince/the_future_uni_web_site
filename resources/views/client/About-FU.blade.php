@@ -514,7 +514,7 @@
 
                 <div class="feature">
                     <div class="circle" style="width: 50%; height: 50%; ">
-                        <img src="./public/client/img/main_imgs/trustee/dr_ghasan.png" alt="Image">
+                        <img src="./public/client/img/main_imgs/trustee/dr_ghassan.png" alt="Image">
                     </div>
                     <div>
                         <p></p>
@@ -545,7 +545,6 @@
                             our aim is to be among the ten top sudanese university by the end of the next academic year.</p>
 
                         <p>GOOD LUCK!</br>
-                            Dr. Ghassan Abubaker Mustafa</br>
                             Dr. Ghassan Abubaker Mustafa</br>
                             The President</p>
                     </div>
