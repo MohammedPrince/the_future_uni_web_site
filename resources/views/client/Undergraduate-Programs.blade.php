@@ -79,7 +79,7 @@
                             </th>
                                 <th style="width: 50%;">
                                 <div class="col tabcontent" style="background-color: rgba(255, 255, 255, 0.51);" id="Information Technology">
-									<p style="color: black; style=text-align: justify;">
+									<p style="color: black; text-align: justify;">
                                         
                                         
                                         
@@ -107,7 +107,7 @@
                                 </th>
                                 <th style="width: 50%;">
                                 <div class="col tabcontent" style="background-color: rgba(255, 255, 255, 0.51);" id="Engineering">
-									<p style="color: black; style=text-align: justify;">
+									<p style="color: black;  text-align: justify;">
                                         
 
                                         <b>Program:</b> <br>
@@ -137,7 +137,7 @@
                                 </th>
                                 <th style="width: 50%;">
                                 <div class="col tabcontent" style="background-color: rgba(255, 255, 255, 0.51);" id="Telecommunication & Space Technology">
-									<p style="color: black; style=text-align: justify;">
+									<p style="color: black; text-align: justify;">
 
                                 
 
@@ -160,7 +160,7 @@
                                 </th>
                                 <th style="width: 50%;">
                                 <div class="col tabcontent" style="background-color: rgba(255, 255, 255, 0.51);"  id="Architecture">
-									<p style="color: black; style=text-align: justify;">
+									<p style="color: black; text-align: justify;">
                                         
                                         <b>Programs:</b> <br>
                                         <li>Bachelor of Science (Honors) in Architecture Engneering</li>
@@ -177,7 +177,7 @@
                                 </th>
                                 <th style="width: 50%;">
                                 <div class="col tabcontent" style="background-color: rgba(255, 255, 255, 0.51);" id="Arts & Design">
-									<p style="color: black; style=text-align: justify;">
+									<p style="color: black; text-align: justify;">
                                         
 
                                         <b>Programs:</b> <br>
@@ -197,7 +197,7 @@
                                 </th>
                                 <th style="width: 50%;">
                                 <div class="col tabcontent" style="background-color: rgba(255, 255, 255, 0.51);" id="Geoinformatics">
-									<p style="color: black; style=text-align: justify;">
+									<p style="color: black; text-align: justify;">
                                         
 
                                         <b>Programs:</b> <br>
@@ -216,7 +216,7 @@
                                 </th>
                                 <th style="width: 50%;">
                                 <div class="col tabcontent" style="background-color: rgba(255, 255, 255, 0.51);" id="Business Administration">
-									<p style="color: black; style=text-align: justify;">
+									<p style="color: black; text-align: justify;">
                                         
                                         <b>Programs:</b> <br>
                                         <li>Bachelor of Science (Honors) in Business Administration</li>
