@@ -192,8 +192,12 @@ ul {
 -----------------------*/
 
 .header-section {
-	padding: 0px 0;
-	overflow: hidden;
+    padding: 0px 0;
+    overflow: hidden;
+    /* top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999; */
 }
 
 .site-logo {
@@ -260,21 +264,33 @@ ul {
 	display: none;
 }
 
-.nav-section {
-	
+.nav-section { 
 	/* background: #020031; */
 	/* background: #5F0F40; */
-
 	/* background: #57130b; */
-	background: #57130b;
-	
+	 background: #57130b;
+	/* position: fixed;
+	top: 140px; 
+	left: 0;
+	width: 100%;
+	z-index: 999;  */
 
+ }
+
+/* .nav-section {
+    background: #57130b;
+    position: fixed;
+    
+    left: 0;
+    width: 100%;
+    z-index: 998;
 }
+ */
 
-/* .nav-section .nav-right {
+.nav-section .nav-right {
 	float: right;
 	padding-top: 23px;
-} */
+}
 
 .nav-section .nav-right a {
 	color: #fff;
