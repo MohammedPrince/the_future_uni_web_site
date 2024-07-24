@@ -65,7 +65,8 @@
     <tr>
       <td width="30%"><h2>About</h2></td>
       <td>
-        {{$staff_info_cv?->about}}
+        {{-- $staff_info_cv?->about --}}
+        {!! $staff_info_cv?->about !!}
       </td>
     </tr>
     @endif
@@ -73,7 +74,9 @@
     <tr>
       <td><h2>Work Experience</h2></td>
       <td>
-          {{$staff_info_cv?->work_experience}}
+          {{-- $staff_info_cv?->work_experience --}}
+        {!! $staff_info_cv?->work_experience !!}
+
       </td>
     </tr>
     @endif
