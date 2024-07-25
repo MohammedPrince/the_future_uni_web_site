@@ -53,7 +53,7 @@
 
 
     </td>
-      <td colspan="2">
+      <td>
         <h1>{{$staff_info?->staff_name}}</h1>
         {{$staff_info?->staff_position}}
       </td>
@@ -63,34 +63,37 @@
     @if(($staff_info_cv?->about)!="")
 
     <tr>
-      <td colspan="1">About</td>
-      <td>
+      <td>About</td>
+      <td >
         {{-- $staff_info_cv?->about --}}
-    
+    <div style="text-align: justify;">
         {!! \App\Helpers\MarkdownHelper::render($staff_info_cv?->about) !!}
+        </div>
+
       </td>
     </tr>
     @endif
     @if(($staff_info_cv?->work_experience)!="")
     <tr>
-      <td><h2>Work Experience</h2></td>
+      <td>Work Experience</td>
       <td>
           {{-- $staff_info_cv?->work_experience --}}
 
-
+          <div style="text-align: justify;">
         {!! \App\Helpers\MarkdownHelper::render($staff_info_cv?->work_experience) !!}
-
+          </div>
       </td>
     </tr>
     @endif
     @if(($staff_info_cv?->education)!="")
 
     <tr>
-      <td><h2>Education</h2></td>
+      <td>Education</td>
       <td>
       {{-- $staff_info_cv?->education --}}
+      <div style="text-align: justify;">
       {!! \App\Helpers\MarkdownHelper::render($staff_info_cv?->education) !!}
-
+     </div>
       </td>
     </tr>
 
@@ -99,20 +102,24 @@
 
 
     <tr>
-      <td><h2>Skills</h2></td>
+      <td>Skills</td>
       <td>
       {{-- $staff_info_cv?->skills --}}
+      <div style="text-align: justify;">
       {!! \App\Helpers\MarkdownHelper::render($staff_info_cv?->skills) !!}
+      </div>
       </td>
     </tr>
     @endif
     @if(($staff_info_cv?->publication)!="")
      <tr>
-      <td><h2>Publication</h2></td>
+      <td>Publication</td>
       <td>
       
       {{-- $staff_info_cv?->publication --}}
+      <div style="text-align: justify;">
       {!! \App\Helpers\MarkdownHelper::render($staff_info_cv?->publication) !!}
+      </div>
 
       </td>
     </tr>
@@ -121,10 +128,12 @@
     @if(($staff_info_cv?->teaching_and_supervision)!="")
     <tr>
       
-      <td><h2>Teaching and Supervision</h2></td>
+      <td>Teaching and Supervision</td>
       <td>
       {{-- $staff_info_cv->teaching_and_supervision --}}
+      <div style="text-align: justify;">
       {!! \App\Helpers\MarkdownHelper::render($staff_info_cv->teaching_and_supervision) !!}
+      </div>
 
       </td>
     </tr>
@@ -134,10 +143,13 @@
 
     @if(($staff_info_cv?->academic_recognition_and_leadership)!="")
     <tr>
-      <td><h2>Academic Recognition and Leadership</h2></td>
+      <td>Academic Recognition and Leadership</td>
       <td>
       {{-- $staff_info_cv->academic_recognition_and_leadership --}}
-      {!! \App\Helpers\MarkdownHelper::render($staff_info_cv->academic_recognition_and_leadership) !!}
+      <div style="text-align: justify;">
+
+      {!! \App\Helpers\MarkdownHelper::render($staff_info_cv->academic_recognition_and_leadership) !!}.
+      </div>
 
       </td>
     </tr>
@@ -147,11 +159,14 @@
     @if(($staff_info_cv?->contact)!="")
 
     <tr>
-      <td><h2>Contact</h2></td>
-      <td>
+      <td>Contact</td>
+      <td >
 
       {{-- $staff_info_cv->contact --}}
+      <div style="text-align: justify;">
+
       {!! \App\Helpers\MarkdownHelper::render($staff_info_cv->contact) !!}
+      </div>
      
       </td>
     </tr>
