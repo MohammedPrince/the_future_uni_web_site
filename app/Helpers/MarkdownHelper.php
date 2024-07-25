@@ -19,7 +19,12 @@ class MarkdownHelper
             }
         }
 
-        $converter = new CommonMarkConverter($environment);
+        $config = [
+            'html_input' => 'allow',
+            'allow_unsafe_links' => false,
+        ];
+
+        $converter = new CommonMarkConverter($config, $environment);
         return $converter->convertToHtml($markdown);
     }
 }

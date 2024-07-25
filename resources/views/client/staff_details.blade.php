@@ -31,9 +31,9 @@
                                 <section class="contact-page spad pt-0" >
 <div class="container" >
 
-<table cellspacing="0" cellpadding="5" width="100%">
+<table cellspacing="0" cellpadding="20" >
     <tr>
-    <td width="30%">
+    <td width="10%">
    
     @if(($staff_info_cv?->cv_image)=="")
 
@@ -63,10 +63,11 @@
     @if(($staff_info_cv?->about)!="")
 
     <tr>
-      <td width="30%"><h2>About</h2></td>
+      <td colspan="1">About</td>
       <td>
         {{-- $staff_info_cv?->about --}}
-        {!! $staff_info_cv?->about !!}
+    
+        {!! \App\Helpers\MarkdownHelper::render($staff_info_cv?->about) !!}
       </td>
     </tr>
     @endif
@@ -75,7 +76,9 @@
       <td><h2>Work Experience</h2></td>
       <td>
           {{-- $staff_info_cv?->work_experience --}}
-        {!! $staff_info_cv?->work_experience !!}
+
+
+        {!! \App\Helpers\MarkdownHelper::render($staff_info_cv?->work_experience) !!}
 
       </td>
     </tr>
@@ -85,7 +88,9 @@
     <tr>
       <td><h2>Education</h2></td>
       <td>
-      {{$staff_info_cv?->education}}
+      {{-- $staff_info_cv?->education --}}
+      {!! \App\Helpers\MarkdownHelper::render($staff_info_cv?->education) !!}
+
       </td>
     </tr>
 
@@ -96,8 +101,8 @@
     <tr>
       <td><h2>Skills</h2></td>
       <td>
-      {{$staff_info_cv?->skills}}
-          
+      {{-- $staff_info_cv?->skills --}}
+      {!! \App\Helpers\MarkdownHelper::render($staff_info_cv?->skills) !!}
       </td>
     </tr>
     @endif
@@ -106,7 +111,8 @@
       <td><h2>Publication</h2></td>
       <td>
       
-      {{$staff_info_cv?->publication}}
+      {{-- $staff_info_cv?->publication --}}
+      {!! \App\Helpers\MarkdownHelper::render($staff_info_cv?->publication) !!}
 
       </td>
     </tr>
@@ -117,7 +123,8 @@
       
       <td><h2>Teaching and Supervision</h2></td>
       <td>
-      {{$staff_info_cv->teaching_and_supervision}}
+      {{-- $staff_info_cv->teaching_and_supervision --}}
+      {!! \App\Helpers\MarkdownHelper::render($staff_info_cv->teaching_and_supervision) !!}
 
       </td>
     </tr>
@@ -129,7 +136,9 @@
     <tr>
       <td><h2>Academic Recognition and Leadership</h2></td>
       <td>
-      {{$staff_info_cv->academic_recognition_and_leadership}}
+      {{-- $staff_info_cv->academic_recognition_and_leadership --}}
+      {!! \App\Helpers\MarkdownHelper::render($staff_info_cv->academic_recognition_and_leadership) !!}
+
       </td>
     </tr>
     @endif
@@ -141,7 +150,8 @@
       <td><h2>Contact</h2></td>
       <td>
 
-      {{$staff_info_cv->contact}}
+      {{-- $staff_info_cv->contact --}}
+      {!! \App\Helpers\MarkdownHelper::render($staff_info_cv->contact) !!}
      
       </td>
     </tr>
@@ -159,12 +169,6 @@
                             </p>
 
                             <div class="hr-sect new4"><span></span></div>
-
-                            <p style="font-size: 16px;color:black;">
-
-
-
-                            </p>
                         </div>
 
                     </div>
