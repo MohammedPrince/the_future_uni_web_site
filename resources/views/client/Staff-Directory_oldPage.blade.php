@@ -1,370 +1,174 @@
 @extends('components.client-layout')
 @section('main-client-content')
+<style>
+    /* CSS styles for the dropdown list and input field */
+    .input-field,
+    .dropdown-select {
+      width: 100%;
+      padding: 12px 20px;
+      margin: 8px 0;
+      display: inline-block;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+      font-size: 16px;
+      appearance: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      background-image: url('data:image/svg+xml,%3Csvg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="M7 10l5 5 5-5z"/%3E%3C/svg%3E');
+      background-repeat: no-repeat;
+      background-position: right 12px center;
+      background-size: 24px;
+    }
 
-    <div class="site-breadcrumb">
+    .search-btn {
+      background-color: #ff9500;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+  </style>
+<div class="site-breadcrumb">
         <div class="container">
             <a href="/Home"><i class="fa fa-home"></i> Home</a> <i class="fa fa-angle-right"></i>
-            <span style="color: #d1291f;">Fu Staff Directory</span>
+            <span style="color: #d1291f;">Staff Directory</span>
         </div>
     </div>
 
-   
+    <section class="about-section" >
 
-    <section class="testimonial-section  mt-1">
         <div class="container">
 
-                <table style="height: 100%;" border="0" width="100%" cellspacing="1" cellpadding="0">
-                    <tbody>
-                        <tr>
-                            <td style="text-align: center;" colspan="2" bgcolor="#c3c3c3" width="40%"><span
-                                    style="color: #000000;"><b>Top Officials</b></span></td>
-                        </tr>
-                        <tr>
-                            <td style="text-align: left;" bgcolor="#e4e4e4" width="50%"><span
-                                    style="color: #000000;"><b>Dr. Abubaker
-                                        Mustafa Khair</b></span></td>
-                            <td style="text-align: left;" bgcolor="#e4e4e4" width="50%"><span
-                                    style="color: #000000;"><b>Chairman of the
-                                        Board of Trustees</b></span></td>
-                        </tr>
-                        <tr>
-                            <td><span style="color: #000000;">&nbsp;</span></td>
-                            <td><span style="color: #000000;">&nbsp;</span></td>
-                        </tr>
-                       
-                        <tr>
-                            <td bgcolor="#e2e2e2"><span style="color: #000000;"><b>Dr. Ghassan Abubaker Mustafa</b></span>
-                            </td>
-                            <td bgcolor="#e2e2e2"><span style="color: #000000;"><b>Future University President </b></span></td>
-                        </tr>
-                        <tr>
-                            <td><span style="color: #000000;">&nbsp;</span></td>
-                            <td><span style="color: #000000;">&nbsp;</span></td>
-                        </tr>
-                        <tr>
-                            <td bgcolor="#e2e2e2"><span style="color: #000000;"><b>Dr. Isam Moh. Khair</b></span></td>
-                            <td bgcolor="#e2e2e2"><span style="color: #000000;"><b>Assistant President for Academic
-                                        Affairs</b></span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><span style="color: #000000;">&nbsp;</span></td>
-                            <td><span style="color: #000000;">&nbsp;</span></td>
-                        </tr>
-                        <tr>
-                            <td bgcolor="#e2e2e2"><span style="color: #000000;"><b>Mr. Akif Mihaimeed</b></span></td>
-                            <td bgcolor="#e2e2e2"><span style="color: #000000;"><b>Assistant President for Administration
-                                        and
-                                        Finance</b></span></td>
-                        </tr>
-                        <tr>
-                            <td><span style="color: #000000;">&nbsp;</span></td>
-                            <td><span style="color: #000000;">&nbsp;</span></td>
-                        </tr>
-                        <tr>
-                            <td style="text-align: center;" colspan="2" bgcolor="#c3c3c3"><span
-                                    style="color: #000000;"><b>The Academic
-                                        Department</b></span></td>
-                        </tr>
-                        <tr>
-                            <td style="text-align: left;" bgcolor="#eeeeee"><span style="color: #000000;">Ust. Kawther
-                                    Abu Alnaja</span>
-                            </td>
-                            <td style="text-align: left;" bgcolor="#eeeeee"><span style="color: #000000;">Director for
-                                    Admission and
-                                    Registration</span></td>
-                        </tr>
-                        <tr>
-                            <td bgcolor="#eeeeee"><span style="color: #000000;">Dr. Salih Dafa Alla</span></td>
-                            <td bgcolor="#eeeeee"><span style="color: #000000;">Librarian</span></td>
-                        </tr>
-                        <tr>
-                            <td bgcolor="#eeeeee"><span style="color: #000000;">Mr. Abdel Galel Moh. Khair</span></td>
-                            <td bgcolor="#eeeeee"><span style="color: #000000;">Director for Public Relation</span></td>
-                        </tr>
-                        <tr>
-                            <td bgcolor="#eeeeee"><span style="color: #000000;">&nbsp;Mr. Taha Fatih</span></td>
-                            <td bgcolor="#eeeeee"><span style="color: #000000;">Director for Marketing</span></td>
-                        </tr>
-                        <tr>
-                            <td><span style="color: #000000;">&nbsp;</span></td>
-                            <td><span style="color: #000000;">&nbsp;</span></td>
-                        </tr>
-                        <tr>
-                            <td style="text-align: center;" colspan="3" bgcolor="#c3c3c3">
-                                <span
-                                    style="color: #000000;"><b>Deans
-                                    </b></span></td>
-                        </tr>
-                        <tr>
-                            <td bgcolor="#eeeeee"><span style="color: #000000;">Prof. Eltayeb Idriss</span></td>
-                            <td bgcolor="#eeeeee"><span style="color: #000000;">Dean, Faculty of Engineering</span></td>
-                               <td bgcolor="#eeeeee"><span style="color: #000000;">email@gmail.com</span></td>
-                           
-                           
-                        </tr>
-                        <tr>
-                            <td bgcolor="#eeeeee"><span style="color: #000000;">Prof. Hassan Hilmi</span></td>
-                            <td bgcolor="#eeeeee"><span style="color: #000000;">Dean, Faculty of Post Graduates</span>
-                                <td bgcolor="#eeeeee"><span style="color: #000000;">email@gmail.com</span></td>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td bgcolor="#eeeeee"><span style="color: #000000;">Prof. Abdelrahman Hassan</span></td>
-                            <td bgcolor="#eeeeee"><span style="color: #000000;">Dean, Faculty of Basic Studies and
-                                    Continuing</span><br>
-                                <span style="color: #000000;"> Studies</span>
-                            </td>
-                                <td bgcolor="#eeeeee"><span style="color: #000000;">email@gmail.com</span></td>
-                        </tr>
-                        <tr>
-                            <td bgcolor="#eeeeee"><span style="color: #000000;">Dr. Eltayeb Elgoni</span></td>
-                            <td bgcolor="#eeeeee"><span style="color: #000000;">Dean, Faculty of Architecture</span></td>
-                                <td bgcolor="#eeeeee"><span style="color: #000000;">email@gmail.com</span></td>
-                        </tr>
-                        <tr>
-                            <td bgcolor="#eeeeee"><span style="color: #000000;">Dr. Mubarak Hussein</span></td>
-                            <td bgcolor="#eeeeee"><span style="color: #000000;">Dean, Faculty of Computer Science</span>
-                                <td bgcolor="#eeeeee"><span style="color: #000000;">email@gmail.com</span></td>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td bgcolor="#eeeeee"><span style="color: #000000;">Dr. Eltayeb Ganawa</span></td>
-                            <td bgcolor="#eeeeee"><span style="color: #000000;">Dean, Faculty of GIS</span></td>
-                                <td bgcolor="#eeeeee"><span style="color: #000000;">email@gmail.com</span></td>
-                        </tr>
-                        <tr>
-                            <td bgcolor="#eeeeee"><span style="color: #000000;">Dr. Emmalyn Capuno</span></td>
-                            <td bgcolor="#eeeeee"><span style="color: #000000;">Dean, Faculty of Information
-                                    Technology</span></td>
-                        </tr>
-                        <tr>
-                            <td bgcolor="#eeeeee"><span style="color: #000000;">Dr. Ashraf Gasim Elsid</span></td>
-                            <td bgcolor="#eeeeee"><span style="color: #000000;">Dean, Faculty of Telecommunication</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td bgcolor="#eeeeee"><span style="color: #000000;">Dr. Hamid Elfaig</span></td>
-                            <td bgcolor="#eeeeee"><span style="color: #000000;">Dean, Faculty of Business
-                                    Administration</span></td>
-                        </tr>
-                        <tr>
-                            <td bgcolor="#eeeeee"><span style="color: #000000;">Ust. Armin Aragoncillo</span></td>
-                            <td bgcolor="#eeeeee"><span style="color: #000000;">Acting Dean, Faculty of Art &amp;
-                                    Design</span></td>
-                        </tr>
-                        <tr>
-                            <td bgcolor="#eeeeee"><span style="color: #000000;">Dr. Nafisa</span></td>
-                            <td bgcolor="#eeeeee"><span style="color: #000000;">Dean, of Students Affairs</span></td>
-                        </tr>
-                        <tr>
-                            <td><span style="color: #000000;">&nbsp;</span></td>
-                            <td><span style="color: #000000;">&nbsp;</span></td>
-                        </tr>
-                        <tr>
-                            <th style="text-align: center;" colspan="2" bgcolor="#c3c3c3"><span
-                                    style="color: #000000;"><b>The Heads of
-                                        Departments</b></span></th>
-                        </tr>
-                        <tr bgcolor="#eeeeee">
-                            <td style="text-align: left;"><span style="color: #000000;">Dr. Salah Hassan Malik</span></td>
-                            <td style="text-align: left;"><span style="color: #000000;">Head of Knowledge
-                                    Management</span></td>
-                        </tr>
-                        <tr bgcolor="#eeeeee">
-                            <td><span style="color: #000000;">Dr. Salah Hassan Malik</span></td>
-                            <td><span style="color: #000000;">Head of Knowledge Engineering</span></td>
-                        </tr>
-                        <tr bgcolor="#eeeeee">
-                            <td><span style="color: #000000;">Dr. Abdalla Awad Allah</span></td>
-                            <td><span style="color: #000000;">Head of Architecture</span></td>
-                        </tr>
-                        <tr bgcolor="#eeeeee">
-                            <td><span style="color: #000000;">Dr. Mohammed Atta</span></td>
-                            <td><span style="color: #000000;">Head of Interior Design</span></td>
-                        </tr>
-                        <tr bgcolor="#eeeeee">
-                            <td><span style="color: #000000;">Dr. Atif</span></td>
-                            <td><span style="color: #000000;">Head Of Telecommunications</span></td>
-                        </tr>
-                        <tr bgcolor="#eeeeee">
-                            <td><span style="color: #000000;">Ust. Zainab</span></td>
-                            <td><span style="color: #000000;">Head of Computer Science</span></td>
-                        </tr>
-                        <tr bgcolor="#eeeeee">
-                            <td><span style="color: #000000;">Ust. Haitham Abdelmoniem</span></td>
-                            <td><span style="color: #000000;">Head of Information Technology</span></td>
-                        </tr>
-                        <tr bgcolor="#eeeeee">
-                            <td><span style="color: #000000;">Dr. Eltayeb Saeed</span></td>
-                            <td><span style="color: #000000;">Head of Geoinformatics</span></td>
-                        </tr>
-                        <tr bgcolor="#eeeeee">
-                            <td><span style="color: #000000;">&nbsp;Dr. Julito Evangelista</span></td>
-                            <td><span style="color: #000000;">Head of Electronics Engineering&nbsp;</span></td>
-                        </tr>
-                        <tr bgcolor="#eeeeee">
-                            <td bgcolor="#eeeeee"><span style="color: #000000;">&nbsp;</span></td>
-                            <td bgcolor="#eeeeee"><span style="color: #000000;">Head of Business Administration</span>
-                            </td>
-                        </tr>
-                        <tr bgcolor="#eeeeee">
-                            <td bgcolor="#eeeeee"><span style="color: #000000;">&nbsp;</span></td>
-                            <td bgcolor="#eeeeee"><span style="color: #000000;">Head of Creative Multimedia</span></td>
-                        </tr>
-                        <tr bgcolor="#eeeeee">
-                            <td bgcolor="#eeeeee"><span style="color: #000000;">Dr. Abdul Khatim</span></td>
-                            <td bgcolor="#eeeeee"><span style="color: #000000;">Head of Graphic Design</span></td>
-                        </tr>
-                        <tr bgcolor="#eeeeee">
-                            <td bgcolor="#eeeeee"><span style="color: #000000;">Prof. El tayeb Idriss</span></td>
-                            <td bgcolor="#eeeeee"><span style="color: #000000;">Head of Mechatronics Engineering</span>
-                            </td>
-                        </tr>
-                        <tr bgcolor="#eeeeee">
-                            <td bgcolor="#eeeeee"><span style="color: #000000;">Dr. Elias&nbsp;Siddig</span></td>
-                            <td bgcolor="#eeeeee"><span style="color: #000000;">Head of Biomedical Engineering</span></td>
-                        </tr>
-                        <tr bgcolor="#eeeeee">
-                            <td bgcolor="#eeeeee"><span style="color: #000000;">Dr. Reylen Garcia</span></td>
-                            <td bgcolor="#eeeeee"><span style="color: #000000;">Head of Computer Engineering</span></td>
-                        </tr>
-                        <tr bgcolor="#eeeeee">
-                            <td bgcolor="#eeeeee"><span style="color: #000000;">Dr. Eltayeb Ganawa</span></td>
-                            <td bgcolor="#eeeeee"><span style="color: #000000;">Head of KIST</span></td>
-                        </tr>
-                        <tr bgcolor="#eeeeee">
-                            <td style="text-align: center;" colspan="2" bgcolor="#c3c3c3"><span
-                                    style="color: #000000;"><b>The Centers
-                                        and Units of Department</b></span></td>
-                        </tr>
-                        <tr bgcolor="#eeeeee">
-                            <td bgcolor="#eeeeee"><span style="color: #000000;">Engr. Banan Yahia Mursi</span></td>
-                            <td bgcolor="#eeeeee"><span style="color: #000000;">Director, Center for E-Learning and
-                                    Software
-                                    Development</span></td>
-                        </tr>
-                        <tr bgcolor="#eeeeee">
-                            <td bgcolor="#eeeeee"><span style="color: #000000;">Engr. Mutaz Hamad</span></td>
-                            <td bgcolor="#eeeeee"><span style="color: #000000;">Director, Center of Technical
-                                    Support</span></td>
-                        </tr>
-                        <tr bgcolor="#eeeeee">
-                            <td bgcolor="#eeeeee"><span style="color: #000000;">Mr. Waleed Jaffar Mustafa</span></td>
-                            <td bgcolor="#eeeeee"><span style="color: #000000;">Director, ICDL</span></td>
-                        </tr>
-                        <tr bgcolor="#eeeeee">
-                            <td bgcolor="#eeeeee"><span style="color: #000000;">Engr. Ahmed Ashri</span></td>
-                            <td bgcolor="#eeeeee"><span style="color: #000000;">Director, Project Unit</span></td>
-                        </tr>
-                        <tr bgcolor="#eeeeee">
-                            <td bgcolor="#eeeeee"><span style="color: #000000;">Ms. Malaz Ibrahim</span></td>
-                            <td bgcolor="#eeeeee"><span style="color: #000000;">Statistic and information
-                                    Department</span></td>
-                        </tr>
-                        <tr bgcolor="#eeeeee">
-                            <td bgcolor="#EEEEEE"><span style="color: #000000;">Mr. Muhammad Ali</span></td>
-                            <td bgcolor="#EEEEEE"><span style="color: #000000;">Network Unit</span></td>
-                        </tr>
-                        <tr bgcolor="#eeeeee">
-                            <td style="text-align: center;" colspan="2" bgcolor="#c3c3c3"><span
-                                    style="color: #000000;"><b>The
-                                        Advisors</b></span></td>
-                        </tr>
-                        <tr bgcolor="#eeeeee">
-                            <td bgcolor="#EEEEEE"><span style="color: #000000;">Amb. Sayed Sharief</span></td>
-                            <td bgcolor="#EEEEEE"><span style="color: #000000;">&nbsp;</span></td>
-                        </tr>
-                        <tr bgcolor="#eeeeee">
-                            <td bgcolor="#EEEEEE"><span style="color: #000000;">Prof. Eltayeb Idriss</span></td>
-                            <td bgcolor="#EEEEEE"><span style="color: #000000;">&nbsp;</span></td>
-                        </tr>
-                        <tr bgcolor="#eeeeee">
-                            <td bgcolor="#EEEEEE"><span style="color: #000000;">Mr. Mohammad Issa</span></td>
-                            <td bgcolor="#EEEEEE"><span style="color: #000000;">&nbsp;</span></td>
-                        </tr>
-                        <tr bgcolor="#eeeeee">
-                            <td bgcolor="#EEEEEE"><span style="color: #000000;">Engr. Osman Mustafa Khair</span></td>
-                            <td bgcolor="#EEEEEE"><span style="color: #000000;">&nbsp;</span></td>
-                        </tr>
-                        <tr bgcolor="#eeeeee">
-                            <td bgcolor="#EEEEEE"><span style="color: #000000;">General ElSheikh</span></td>
-                            <td bgcolor="#EEEEEE"><span style="color: #000000;">&nbsp;</span></td>
-                        </tr>
-                        <tr bgcolor="#eeeeee">
-                            <td style="text-align: center;" colspan="2" bgcolor="#c3c3c3"><span
-                                    style="color: #000000;"><b>The Admin and
-                                        Finance</b></span></td>
-                        </tr>
-                        <tr bgcolor="#eeeeee">
-                            <td bgcolor="#EEEEEE"><span style="color: #000000;">Mr. Abdel Rahim Al Badri</span></td>
-                            <td bgcolor="#EEEEEE"><span style="color: #000000;">Finance Manager</span></td>
-                        </tr>
-                        <tr bgcolor="#eeeeee">
-                            <td bgcolor="#EEEEEE"><span style="color: #000000;">Ms. Fatima Hassan</span></td>
-                            <td bgcolor="#EEEEEE"><span style="color: #000000;">Internal Auditor</span></td>
-                        </tr>
-                        <tr bgcolor="#eeeeee">
-                            <td bgcolor="#EEEEEE"><span style="color: #000000;">Mr. El Nour</span></td>
-                            <td bgcolor="#EEEEEE"><span style="color: #000000;">Accounting Manager</span></td>
-                        </tr>
-                        <tr bgcolor="#eeeeee">
-                            <td bgcolor="#EEEEEE"><span style="color: #000000;">Mr. Albaguer Elagab</span></td>
-                            <td bgcolor="#EEEEEE"><span style="color: #000000;">Director of Human Resources</span></td>
-                        </tr>
-                        <tr bgcolor="#eeeeee">
-                            <td bgcolor="#EEEEEE"><span style="color: #000000;">Mr. Mohammad issa</span></td>
-                            <td bgcolor="#EEEEEE"><span style="color: #000000;">General Director For Admin and
-                                    Finance</span></td>
-                        </tr>
-                        <tr bgcolor="#eeeeee">
-                            <td bgcolor="#EEEEEE"><span style="color: #000000;">Mr. Yousif Omer</span></td>
-                            <td bgcolor="#EEEEEE"><span style="color: #000000;">Director for Admin and Services</span>
-                            </td>
-                        </tr>
-                        <tr bgcolor="#eeeeee">
-                            <td bgcolor="#EEEEEE"><span style="color: #000000;">Mr. Khalid</span></td>
-                            <td bgcolor="#EEEEEE"><span style="color: #000000;">Supervisor for Services</span></td>
-                        </tr>
-                        <tr bgcolor="#eeeeee">
-                            <td bgcolor="#EEEEEE"><span style="color: #000000;">Lieutenant Hussein</span></td>
-                            <td bgcolor="#EEEEEE"><span style="color: #000000;">Commander, University Guard</span></td>
-                        </tr>
-                        <tr bgcolor="#eeeeee">
-                            <td bgcolor="#EEEEEE"><span style="color: #000000;">Dr. Mohamad Ashraf</span></td>
-                            <td bgcolor="#EEEEEE"><span style="color: #000000;">Medical Doctor</span></td>
-                        </tr>
-                        <tr bgcolor="#eeeeee">
-                            <td style="text-align: center;" colspan="2" bgcolor="#c3c3c3"><span
-                                    style="color: #000000;"><b>The Central
-                                        Units</b></span></td>
-                        </tr>
-                        <tr bgcolor="#eeeeee">
-                            <td bgcolor="#EEEEEE"><span style="color: #000000;">Mr. Ghassan Abubaker Mustafa</span></td>
-                            <td bgcolor="#EEEEEE"><span style="color: #000000;">International Relations
-                                    Administration</span></td>
-                        </tr>
-                        <tr bgcolor="#eeeeee">
-                            <td bgcolor="#EEEEEE"><span style="color: #000000;">Dr. Nafisa</span></td>
-                            <td bgcolor="#EEEEEE"><span style="color: #000000;">Deanship of Students Affairs</span></td>
-                        </tr>
-                        <tr bgcolor="#eeeeee">
-                            <td bgcolor="#EEEEEE"><span style="color: #000000;">Mr. Taha Fatih</span></td>
-                            <td bgcolor="#EEEEEE"><span style="color: #000000;">Academic Marketing Unit</span></td>
-                        </tr>
-                        <tr bgcolor="#eeeeee">
-                            <td bgcolor="#EEEEEE"><span style="color: #000000;">Mr. Abdel Galel Moh. Khair</span></td>
-                            <td bgcolor="#EEEEEE"><span style="color: #000000;">Media and Public Relations
-                                    Administration</span></td>
-                        </tr>
-                        <tr bgcolor="#eeeeee">
-                            <td bgcolor="#EEEEEE"><span style="color: #000000;">Mr. Bahaeldin Elsayed Ali</span></td>
-                            <td bgcolor="#EEEEEE"><span style="color: #000000;">Executive Office of the President</span>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+            <div class="post-item post-details" style="padding-top: 0px;">
+                <div class="section-title">
+                    <div class="post-content">
+                
+                        <div class="container">
 
-           
+
+                            <div class="hr-sect new4"><span>Directory of Expertise</span></div>
+
+                            <p>
+                            <blockquote class="text-center" style="background-color: whitesmoke;">
+                                <span style="font-size: 18px;">
+
+                                <section class="contact-page spad pt-0" >
+                    
+<div class="container" >
+
+<div class="contact-form spad pb-0">
+<!-- <div class="section-title text-center">
+<h3>GET IN TOUCH</h3>
+<p>Contact us for best deals and offer</p>
+</div> -->
+<form class="comment-form --contact" action="Staff-Directory" method="POST">
+@csrf
+<div class="row">
+<div class="col-lg-8">
+<input type="text" name="keyword" placeholder="keyword...">
+</div>
+
+<div class="col-lg-8">
+
+     <select name="staff_dep_id" class="dropdown-select" >
+     <option value="">Select Staff Faculty / Department</option>
+      @foreach ($departments as $departments_query)
+
+      <option value="{{$departments_query->deprt_id}}">{{$departments_query->Department_name_en}}</option>
+
+     @endforeach
+</select>
+<br>
+<div class="text-center">
+<button class="site-btn">Search</button>
+</div>
+</div>
+</div>
+</form>
+</div>
+</div>
+
+
+
+                            <p style="font-size: 16px;color:black;">
+                              <!--  -->
+                              <section class="testimonial-section spad">
+        <div class="container">
+            <div id="Board Of Trustees" >
+                <!-- <h3>FU Board Of Trustees</h3> -->
+
+                <div class="row">
+                @if(isset($search_data) && $search_data->count() > 0)
+                @foreach($search_data as $search_result)
+                    <div class="col-lg-3 col-md-3">
+                        <div class="single-feature">
+                            <div class="desc-wrap">
+                           
+                @if(($search_result->cv_image)=="")
+                <img src="{{ asset('/storage/app/public/' . 'test57992.jpg') }}" alt="Board of Trustees">
+                @else
+                <img src="{{ asset('/storage/app/public/staff_imgs/' . $search_result->cv_image) }}" alt="Board of Trustees">
+                @endif
+              
+
+                                <p class="additional-text text-center">{{ $search_result->staff_position}} <br> 
+                    
+                     <a href="{{ route('Staff-Details', Crypt::encrypt($search_result->staff_id)) }}" target="_blank" class="btn badge-secondary">View profile</a>                       
+                                          <!-- <a href="{{ route('Staff-Details', $search_result->staff_id) }}" target="_blank" class="btn badge-secondary">View profile</a> -->
+                    
+                       
+                                      </p>
+                            </div>
+                            <div>
+                                <h6>{{ $search_result->staff_name }}</h6>
+                            </div>
+                        </div>
+                    </div>
+                    @endforeach
+                   
+                    </div>
+
+
+                </div>
+
+            </div>
+
+    </section>
+                              
+               
+
+@else
+
+    <!-- <p>No results found.</p> -->
+
+
+
+@endif
+
+
+</section>
+                                    
+                                    
+                  
+                                </span>
+                            </blockquote>
+                            </p>
+
+                            <!-- <div class="hr-sect new4"><span></span></div> -->
+
+                            <hr class="hr-sect">
+
+
+                              <!--  -->
+                          
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 @endsection

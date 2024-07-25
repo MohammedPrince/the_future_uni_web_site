@@ -94,14 +94,11 @@ Route::post('/add_fee', [Fee_StructureController::class, "store" ]);
 
 // Staff information 
 
-Route::get('/staff', [StaffInformationController::class, "index" ])->name('staff');
-Route::post('/add_staff', [StaffInformationController::class, "store" ]);
-Route::get('/saff_cv/{id}/staff_cv', [StaffInformationController::class, "Show_cv" ]);
-Route::post('/saff_cv/{id}/add_cv', [StaffInformationController::class, "Add_cv" ]);
-
-
-
-Route::get('/edit_staff_information', [StaffInformationController::class, "edit" ]);
+Route::get('/staff', [StaffInformationController::class, "index"])->name('staff');
+Route::post('/add_staff', [StaffInformationController::class, "store"]);
+Route::get('/saff_cv/{id}/staff_cv', [StaffInformationController::class, "Show_cv"]);
+Route::post('/saff_cv/{id}/add_cv', [StaffInformationController::class, "Add_cv"]);
+Route::get('/edit_staff_information', [StaffInformationController::class, "edit"]);
 
 
 
