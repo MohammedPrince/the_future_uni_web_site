@@ -9,8 +9,8 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-lg-8">
-                                    <div class="hs-subtitle" style="color:#5F0F40">2ND TOP PRIVATE UNIVERSITY</div>
-                                <h2 class="hs-title"style="color:#5F0F40">Inspiring Excellence, Empowering Minds, Transforming Future</h2>
+                                    <div class="hs-subtitle HeaderMainTxtColor">2ND TOP PRIVATE UNIVERSITY</div>
+                                <h2 class="hs-title HeaderMainTxtColor">Inspiring Excellence, Empowering Minds, Transforming Future</h2>
                                 <!--<p class="hs-des">Education is not just about going to school and getting a degree. It's
                                     about widening your<br> knowledge and absorbing the truth about life. Knowledge is
                                     power.</p>  -->
@@ -26,8 +26,8 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-lg-8">
-                                <div class="hs-subtitle"style="color:#5F0F40">2ND TOP PRIVATE UNIVERSITY</div>
-                                <h2 class="hs-title"style="color:#5F0F40">Inspiring Excellence, Empowering Minds, Transforming Future</h2>
+                                <div class="hs-subtitle HeaderMainTxtColor">2ND TOP PRIVATE UNIVERSITY</div>
+                                <h2 class="hs-title HeaderMainTxtColor">Inspiring Excellence, Empowering Minds, Transforming Future</h2>
                                 <!-- <p class="hs-des">Education is not just about going to school and getting a degree. It's
                                     about widening your<br> knowledge and absorbing the truth about life. Knowledge is
                                     power.</p> -->
@@ -793,7 +793,7 @@
                 <div class="col-md-7 col-lg-5">
                     <form class="newsletter">
                         <input type="text" placeholder="Enter your email">
-                        <button class="site-btn">SUBSCRIBE</button>
+                        <button class="site-btn FooterMainColor">SUBSCRIBE</button>
                     </form>
                 </div>
             </div>
