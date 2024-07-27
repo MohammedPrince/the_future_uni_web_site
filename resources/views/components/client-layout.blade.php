@@ -336,12 +336,8 @@
                             </div>
                         </li>
 
-                        <p>Visitor Counter:
-                            <?php
-                            $filePath = storage_path('./public/storage/visitor_count.txt');
-                            $count = file_exists($filePath) ? (int) file_get_contents($filePath) : 0;
-                            echo '<strong class="SubFooterText">' . $count . '</strong>';
-                            ?>
+                        <p>Visitor Counter:0
+                          
                         </p>
 
                     </ul>
