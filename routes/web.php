@@ -43,49 +43,43 @@ Route::middleware(['adminType'])->group(function () {
 
     Route::get('/add_event', function () {
         return view('admin.add_events');
-    });
+    })->name('add_event');
 
     Route::get('/add_news', function () {
         return view('admin.add_news');
-    });
+    })->name('add_news');
 
     //Users//
-Route::post('/add_user', [UserController::class, "addUser" ]);
-Route::get('/edit_user/{user}/edit/', [UserController::class, "showEditForm" ]);
-Route::get('/add_user/{user}/delete/', [UserController::class, "deleteUser" ]);
+Route::post('/add_user', [UserController::class, "addUser" ])->name('add_user');
+Route::get('/edit_user/{user}/edit/', [UserController::class, "showEditForm" ])->name('edit_user');
+Route::get('/add_user/{user}/delete/', [UserController::class, "deleteUser" ])->name('delete_user');
 Route::put('/edit_user/{user}', [UserController::class, "editUser" ]);
 Route::get('/add_user', [UserController::class, "showUser" ]);
 Route::get('/add_user/{user:id}/edit', [UserController::class, "showUser" ]);
-Route::get('/profile', [UserController::class, "user_profile" ]);
+Route::get('/profile', [UserController::class, "user_profile" ])->name('profile');
 // 
 
 Route::get('/new_edit_user/{id}/edit/', [UserController::class, "newPage" ]);
- 
-
-
-
-
-
 
 // 
 
     //Event Routes  middleware and controllers //
     Route::post('/add_event', [EventsController::class, "addEvent"]);
-    Route::get('/add_event', [EventsController::class, "showEvents"]);
+    Route::get('/add_event', [EventsController::class, "showEvents"])->name('add_event');
     Route::get('/add_event/{event}/delete/', [EventsController::class, "deleteEvent"]);
     Route::get('/add_event/{event}/status/{event_status}', [EventsController::class, "eventStatus"]);
-    Route::get('/edit_event/{event}/edit/', [EventsController::class, "showEditForm"]);
+    Route::get('/edit_event/{event}/edit/', [EventsController::class, "showEditForm"])->name('edit_event');
     Route::post('/edit_event/{event}', [EventsController::class, "editEvent"]);
 
 //News Routes  middleware and controllers //
 Route::post('/add_news', [NewsController::class, "addNews" ]);
-Route::get('/add_news', [NewsController::class, "showNews" ]);
+Route::get('/add_news', [NewsController::class, "showNews" ])->name('add_news');
 Route::get('/edit_news/{news}/edit/', [NewsController::class, "showEditForm" ]);
 Route::post('/edit_news/{news}', [NewsController::class, "editNews" ]);
 Route::get('/add_news/{news}/delete/', [NewsController::class, "deleteNews" ]);
 
 // Linkages
-Route::get('/linkage', [LinkageController::class, "index" ]);
+Route::get('/linkage', [LinkageController::class, "index" ])->name('linkage');
 Route::post('/add_linkage', [LinkageController::class, "store" ]);
 Route::get('/edit_linkage/{id}/edit', [LinkageController::class, "show" ]);
 Route::get('/linkage/{id}/delete', [LinkageController::class, "destroy" ]);
@@ -93,21 +87,18 @@ Route::get('/linkage/{id}/delete', [LinkageController::class, "destroy" ]);
 
 
 // fee_structure
-Route::get('/fee_structure', [Fee_StructureController::class, "index" ]);
+Route::get('/fee_structure', [Fee_StructureController::class, "index" ])->name('fee_structure');
 Route::post('/add_fee', [Fee_StructureController::class, "store" ]);
 
 
 
 // Staff information 
 
-Route::get('/staff', [StaffInformationController::class, "index" ]);
-Route::post('/add_staff', [StaffInformationController::class, "store" ]);
-Route::get('/saff_cv/{id}/staff_cv', [StaffInformationController::class, "Show_cv" ]);
-Route::post('/saff_cv/{id}/add_cv', [StaffInformationController::class, "Add_cv" ]);
-
-
-
-Route::get('/edit_staff_information', [StaffInformationController::class, "edit" ]);
+Route::get('/staff', [StaffInformationController::class, "index"])->name('staff');
+Route::post('/add_staff', [StaffInformationController::class, "store"]);
+Route::get('/saff_cv/{id}/staff_cv', [StaffInformationController::class, "Show_cv"]);
+Route::post('/saff_cv/{id}/add_cv', [StaffInformationController::class, "Add_cv"]);
+Route::get('/edit_staff_information', [StaffInformationController::class, "edit"]);
 
 
 
@@ -123,25 +114,25 @@ Route::get('/edit_staff_information', [StaffInformationController::class, "edit"
 
 Route::middleware(['mustBeLoggedIn'])->group(function () {
 
-    Route::get('/add_event', function () {
-        return view('admin.add_events');
-    });
+    // Route::get('/add_event', function () {
+    //     return view('admin.add_events');
+    // });
 
     Route::get('/add_news', function () {
         return view('admin.add_news');
-    });
+    })->name('add_news');
 
     //Event Routes  middleware and controllers //
     Route::post('/add_event', [EventsController::class, "addEvent"]);
-    Route::get('/add_event', [EventsController::class, "showEvents"]);
+    Route::get('/add_event', [EventsController::class, "showEvents"])->name('add_event');
     Route::get('/add_event/{event}/delete/', [EventsController::class, "deleteEvent"]);
     Route::get('/add_event/{event}/status/{event_status}', [EventsController::class, "eventStatus"]);
-    Route::get('/edit_event/{event}/edit/', [EventsController::class, "showEditForm"]);
+    Route::get('/edit_event/{event}/edit/', [EventsController::class, "showEditForm"])->name('edit_event');
     Route::post('/edit_event/{event}', [EventsController::class, "editEvent"]);
 
     //News Routes  middleware and controllers //
     Route::post('/add_news', [NewsController::class, "addNews"]);
-    Route::get('/add_news', [NewsController::class, "showNews"]);
+    Route::get('/add_news', [NewsController::class, "showNews"])->name('add_news');
     Route::get('/edit_news/{news}/edit/', [NewsController::class, "showEditForm"]);
     Route::post('/edit_news/{news}', [NewsController::class, "editNews"]);
     Route::get('/add_news/{news}/delete/', [NewsController::class, "deleteNews"]);

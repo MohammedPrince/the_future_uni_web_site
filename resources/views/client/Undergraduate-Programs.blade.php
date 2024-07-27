@@ -30,56 +30,74 @@
 						
 
 						<div class="container">
-							
-							
-							<!-- <div class="feature">
-								
-									<div class="circle" style="width: 250px; height: 250px; ">
-										<img src="./public/client/img/main_imgs/members/Ust.-Kawther-Abuelnaja.jpg" alt="" >
-									</div>
-								  <span>
-									<p class="image-text"><strong>Dr. Test Test Test-Test </strong></p>
-								  	<p class="image-text">Head of Scientific and Academic Affairs</p>
-								</span>
-								
-							</div>	 -->
 
-                            
 
-                            <table class="table table-bordered table-hover">
-								<tbody>
-									<tr>  
-										<th>
-                                        <div class="tab" style="width: 80%;">
-                                        <button class="tablinks" onclick="openTab(event, 'Computer Science')">Computer Science</button>
-                                        </div>
-                                    </th>
-                                   
-										<th style="width: 50%;">			
-                                         <div class="col tabcontent" style="background-color: rgba(255, 255, 255, 0.51);" id="Computer Science">
-									<!-- <div class="hr-sect new6"><img src="./public/client/img/main_imgs/faculites/cs.jpg" height="150px" width="150px" alt="Computer Sci" ><span></span></div> -->
-									<p style="color: black; text-align:justify" >
+
+                            <!-- <div class="feature">
+
+                                <div class="circle" style="width: 250px; height: 250px; ">
+                                    <img src="./public/client/img/main_imgs/faculites/post.jpg" alt="">
+                                </div>
+                                <span>
+                                    <p class="image-text"><strong>Dr. Test Test Test-Test </strong></p>
+                                    <p class="image-text">Head of Postgraduate Faculty</p>
+                                </span>
+
+                            </div> -->
+
+                            <div class="hr-sect new6"><span>Future University Undergraduate Programs</span></div>
+                            <p></p>
+
+
+                            <div class="container text-center">
+                                <div class="tab">
+                                    <button class="tablinks" onclick="openTab(event, 'Business Administration')">Business
+                                        Administration</button>
+                                    <button class="tablinks" onclick="openTab(event, 'Information Technology')">Information
+                                        Technology</button>
+                                    <button class="tablinks" onclick="openTab(event, 'Engineering')">Engineering</button>
+                                    <button class="tablinks"
+                                        onclick="openTab(event, 'Telecommunication & Space Technology')">Telecommunication &
+                                        Space Technology</button>
+                                        <button class="tablinks" onclick="openTab(event, 'Arts & Design')">Arts & Design</button>
+
+                                    <button class="tablinks" onclick="openTab(event, 'Computer Science')">Computer Science</button>
                                         
+                                        <button class="tablinks" onclick="openTab(event, 'Architecture')">Architecture</button>
 
-                                        
-                                       
+                                    <button class="tablinks" onclick="openTab(event, 'Geoinformatics')">Geoinformatics</button>
+                                </div>
 
-                                        <b>Programs:</b> <br>
-                                        <li>Bachelor of Science (Honors) in Computer Science </li>
-                                        <li>Bachelor of Science (Honors) in Software Engineering</li>
-                                        </p>
-								</div>
-                                </th>
-                               </tr>
-                               <tr>
-                                <th >
-                                <div class="tab" style="width: 80%;">
-                                <button class="tablinks" onclick="openTab(event, 'Information Technology')">Information Technology</button>
+
                             </div>
-                            </th>
-                                <th style="width: 50%;">
-                                <div class="col tabcontent" style="background-color: rgba(255, 255, 255, 0.51);" id="Information Technology">
-									<p style="color: black; style=text-align: justify;">
+
+                            <div class="row">
+
+                                <div class="col tabcontent" style="background-color: rgba(255, 255, 255, 0.51);"
+                                    id="Business Administration">
+                                    <!-- <div class="hr-sect new6"><img src="./public/client/img/main_imgs/faculites/post.jpg"
+                                            height="150px" width="150px" alt="Computer Sci"><span></span></div> -->
+                                    
+                                    <p class="text-center"><strong> Business Administration </strong></p>
+                                    <b>Programs:</b>
+                                    <p style="color: black; text-align: justify;">
+                                         <br>
+                                        <li>Bachelor of Science (Honors) in Business Administration</li>
+                                        <li>Bachelor of Science (Honors) in Human Resource</li>
+                                        <li>Bachelor of Science (Honors) in Marketing</li>
+
+									</p>
+                                    
+                                </div>
+
+                                <div class="col tabcontent" style="background-color: rgba(255, 255, 255, 0.51);"
+                                    id="Information Technology">
+                                    <!-- <div class="hr-sect new6"><img src="./public/client/img/main_imgs/faculites/post.jpg"
+                                            height="150px" width="150px" alt="Computer Sci"><span></span></div> -->
+                                    <p style="color: black; text-align: justify;">
+                                    <p class="text-center"><strong>Information Technology</strong>
+                                    </p>
+                                    <p style="color: black; text-align: justify;">
                                         
                                         
                                         
@@ -93,21 +111,18 @@
                                         <li>Diploma in Web Design</li>
                                         
                                         </p>
-								</div>
-                            
-                            </th>
 
-                               </tr>
+                                </div>
 
-                               <tr>
-                                <th>
-                                <div class="tab" style="width: 80%;">
-                                <button class="tablinks" onclick="openTab(event, 'Engineering')">Engineering</button>
-                            </div>
-                                </th>
-                                <th style="width: 50%;">
-                                <div class="col tabcontent" style="background-color: rgba(255, 255, 255, 0.51);" id="Engineering">
-									<p style="color: black; style=text-align: justify;">
+
+                                <div class="col tabcontent" style="background-color: rgba(255, 255, 255, 0.51);"
+                                    id="Engineering">
+                                    <!-- <div class="hr-sect new6"><img src="./public/client/img/main_imgs/faculites/post.jpg"
+                                            height="150px" width="150px" alt="POST"><span></span></div> -->
+                                    <p style="color: black; text-align: justify;">
+                                    <p class="text-center"><strong>Engineering</strong>
+                                    </p>
+                                    <p style="color: black;  text-align: justify;">
                                         
 
                                         <b>Program:</b> <br>
@@ -125,59 +140,48 @@
                                         <li>Diploma in Network Engineering</li>
                                         </div>
                                         </p>
-								</div>
-                                </th>
-                               </tr>
-                               <tr>
-                                <th>
-                                <div class="tab" style="width: 80%;">
-                                <button class="tablinks" onclick="openTab(event, 'Telecommunication & Space Technology')">Telecommunication & Space Technology</button>
+                                </div>
 
-                            </div>
-                                </th>
-                                <th style="width: 50%;">
-                                <div class="col tabcontent" style="background-color: rgba(255, 255, 255, 0.51);" id="Telecommunication & Space Technology">
-									<p style="color: black; style=text-align: justify;">
 
+                                <div class="col tabcontent" style="background-color: rgba(255, 255, 255, 0.51);"
+                                    id="Computer Science">
+                                    <!-- <div class="hr-sect new6"><img src="./public/client/img/main_imgs/faculites/post.jpg"
+                                            height="150px" width="150px" alt="Computer Sci"><span></span></div> -->
+                                    <p style="color: black; text-align: justify;">
+                                    <p class="text-center"><strong> Computer Science 
+                                           </strong></p>
                                 
+                                    <p style="color: black; text-align:justify" >
+                                        
 
                                         <b>Programs:</b> <br>
-                                        <li>Bachelor of Science (Honors) in Telecom. Engineering</li>
-                                        <li>Bachelor of Science (Honors) in Satellite Engineering</li>
-                                        <li>Diploma In Telecom. Engineering</li>
-                                        
+                                        <li>Bachelor of Science (Honors) in Computer Science </li>
+                                        <li>Bachelor of Science (Honors) in Software Engineering</li>
                                         </p>
+                                </div>
 
-									</p>
-								</div>
-                                </th>
-                               </tr>
-                               <tr>
-                                <th>
-                                <div class="tab" style="width: 80%;">
-                                <button class="tablinks" onclick="openTab(event, 'Architecture')">Architecture</button>
-                            </div>
-                                </th>
-                                <th style="width: 50%;">
-                                <div class="col tabcontent" style="background-color: rgba(255, 255, 255, 0.51);"  id="Architecture">
-									<p style="color: black; style=text-align: justify;">
-                                        
-                                        <b>Programs:</b> <br>
-                                        <li>Bachelor of Science (Honors) in Architecture Engneering</li>
+                                <div class="col tabcontent" style="background-color: rgba(255, 255, 255, 0.51);"
+                                    id="Telecommunication & Space Technology">
+                                    <!-- <div class="hr-sect new6"><img src="./public/client/img/main_imgs/faculites/post.jpg"
+                                            height="150px" width="150px" alt="Computer Sci"><span></span></div> -->
+                                    <p style="color: black; text-align: justify;">
+                                    <p class="text-center"><strong>Telecommunication & Space Technology</strong></p>
+                                    <p style="color: black; text-align: justify;">
+                                    <b>Programs:</b> <br>
+                                    <li>Bachelor of Science (Honors) in Telecom. Engineering</li>
+                                    <li>Bachelor of Science (Honors) in Satellite Engineering</li>
+                                    <li>Diploma In Telecom. Engineering</li>
+
                                     </p>
-								</div>
-                            
-                            </th>
-                               </tr>
-                               <tr>
-                                <th>
-                                <div class="tab" style="width: 80%;">
-                                <button class="tablinks" onclick="openTab(event, 'Arts & Design')">Arts & Design</button>
-                            </div>
-                                </th>
-                                <th style="width: 50%;">
-                                <div class="col tabcontent" style="background-color: rgba(255, 255, 255, 0.51);" id="Arts & Design">
-									<p style="color: black; style=text-align: justify;">
+                                </div>
+
+                                <div class="col tabcontent" style="background-color: rgba(255, 255, 255, 0.51);"
+                                    id="Arts & Design">
+                                    <!-- <div class="hr-sect new6"><img src="./public/client/img/main_imgs/faculites/post.jpg"
+                                            height="150px" width="150px" alt="Computer Sci"><span></span></div> -->
+                                    <p style="color: black; text-align: justify;">
+                                    <p class="text-center"><strong>Arts & Design</strong></p>
+                                    <p style="color: black; text-align: justify;">
                                         
 
                                         <b>Programs:</b> <br>
@@ -185,89 +189,47 @@
                                         <li>Bachelor of Science (Honors) in Interior Design</li>
                                         <li>Bachelor of Science (Honors) in Graphic Technology Art</li>
 									</p>
-								</div>
-                            
-                            </th>
-                               </tr>
-                               <tr>
-                                <th>
-                                <div class="tab" style="width: 80%;">
-                                <button class="tablinks" onclick="openTab(event, 'Geoinformatics')">Geoinformatics</button>
-                            </div>
-                                </th>
-                                <th style="width: 50%;">
-                                <div class="col tabcontent" style="background-color: rgba(255, 255, 255, 0.51);" id="Geoinformatics">
-									<p style="color: black; style=text-align: justify;">
+                                    </p>
+                                </div>
+
+                                <div class="col tabcontent" style="background-color: rgba(255, 255, 255, 0.51);"
+                                    id="Architecture">
+                                    <!-- <div class="hr-sect new6"><img src="./public/client/img/main_imgs/faculites/post.jpg"
+                                            height="150px" width="150px" alt="Computer Sci"><span></span></div> -->
+                                    <p style="color: black; text-align: justify;">
+                                    <p class="text-center"><strong>Architecture</strong></p>
+                                    <p style="color: black; text-align: justify;">
+                                        
+                                        <b>Programs:</b> <br>
+                                        <li>Bachelor of Science (Honors) in Architecture Engneering</li>
+                                    </p>
+                                    </p>
+                                </div>
+
+                                <div class="col tabcontent" style="background-color: rgba(255, 255, 255, 0.51);"
+                                    id="Geoinformatics">
+                                    <!-- <div class="hr-sect new6"><img src="./public/client/img/main_imgs/faculites/post.jpg"
+                                            height="150px" width="150px" alt="Computer Sci"><span></span></div> -->
+                                    <p style="color: black; text-align: justify;">
+                                    <p class="text-center"><strong>Geoinformatics</strong></p>
+                                    <p style="color: black; text-align: justify;">
                                         
 
                                         <b>Programs:</b> <br>
                                         <li>Bachelor of Science (Honors) in Geoinformatics</li>
                                         <li>Bachelor of Science (Honors) in Remote Sensing</li>
 									</p>
-								</div>
-                            
-                            </th>
-                               </tr>
-                               <tr>
-                                <th>
-                                <div class="tab" style="width: 80%;">
-                                <button class="tablinks" onclick="openTab(event, 'Business Administration')">Business Administration</button>
+                                    </p>
+                                </div>
+
                             </div>
-                                </th>
-                                <th style="width: 50%;">
-                                <div class="col tabcontent" style="background-color: rgba(255, 255, 255, 0.51);" id="Business Administration">
-									<p style="color: black; style=text-align: justify;">
-                                        
-                                        <b>Programs:</b> <br>
-                                        <li>Bachelor of Science (Honors) in Business Administration</li>
-                                        <li>Bachelor of Science (Honors) in Human Resource</li>
-                                        <li>Bachelor of Science (Honors) in Marketing</li>
 
-									</p>
-								</div>
-                            
-                            </th>
-                               </tr>
 
-                               <!-- <tr>
-                                <th>
-                                <div class="tab" style="width: 80%;">
-                                <button class="tablinks" onclick="openTab(event, 'Postgraduates')">Postgraduates</button>
-                            </div>
-                                </th>
-                                <th style="width: 50%;">
-                                <div class="col tabcontent" style="background-color: rgba(255, 255, 255, 0.51);" id="Postgraduates">
-									<div class="hr-sect new6"><img src="./public/client/img/main_imgs/faculites/ba.jpg" height="150px" width="150px" alt="Computer Sci" ><span></span></div>
-									<p style="color: black;">
-                                        <p class="text-center"><strong>Faculty of Postgraduates</strong></p>
-
-                                        <b>Description: </b>
-                                        <div style="text-align: justify; style=text-align: justify;">
-                                        The Future University Post Graduate Studies offers a world class graduate education that is inspired by the excellent management of faculty members. The Graduate Programs are supported by academic and research curriculum that are recognized by the experts in their respective fields.
-                                        The Faculty of Postgraduate Studies offers specialized inter-related Information and Communication Technology (ICT) graduate degree programs that promote interdisciplinary scientific research and development (R & D) in both the fundamentals and frontiers of engineering, computer science, information technology, creative multimedia, architecture, space science, and business administration. We ensure quality, excellence, and distinction for our graduates. We believe that a high quality research environment informs high quality education.
-                                        The aim of the post graduate studies is to develop high level of knowledge and skilled leaders through creative and critical learning. This offers both coursework and research graduate programs.
-                                        We prepare our postgraduate students for a professional career and for academic research development. The emphasis of the program is on both theoretical and practical techniques for the design and development of communication networks and landscape architecture, enabling the postgraduate students to apply their knowledge and skills in a variety of settings and applications.
-                                        The curricular program is distinctive from traditional masters program since it offers information and communication technologies (ICT) modern concepts and innovative education to achieve the objectives. This provides opportunities to students to acquire appropriate skills and expertise necessary to lead a team and to undertake research and development in the different fields of postgraduate studies.
-                                        The postgraduate students in the University will have the chance to attend classes online or on site in international universities where the institution is affiliated with. The graduates gain employments in the consultancies, local government offices ad in other institutions.
-                                        </div>
-									    </p>
-                                        <p> 
-                                        <div style="text-align: justify;">
-                                        <b>Majors of the Program:</b> <br>
-                                        <li>Master of Business Administration (MBA)</li>
-                                        <li>Master of Landscape Architecture</li>
-                                        <li>Master of Science in Information Systems</li>
-                                        <li>Master of Science in Computer Science</li>
-                                        <li>Master of Science in Computer Engineering</li>
-                                        <li>Master of Science in Communication Networks Engineering</li>
-                                        </div>
-									</p>
-								</div>
-                            
-                            </th>
-                               </tr>-->
-                           </tbody>
-							</table>
+                        <!-- ////////////////////////////////// -->
+                         
+							
+		
+  
 
                         </div>
 

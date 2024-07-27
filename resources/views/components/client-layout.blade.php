@@ -20,6 +20,13 @@
 	<link rel="stylesheet" href="{{asset('./public/client/css/owl.carousel.css')}}" />
 	<link rel="stylesheet" href="{{asset('./public/client/css/owl.theme.default.min.css')}}">
 	<link rel="stylesheet" href="{{asset('./public/client/css/style.css')}}" />
+
+	<!-- slide show start -->
+	<link rel="stylesheet" href="{{asset('./public/client/css/splide.min.css')}}" />
+
+	<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css"> -->
+	<!-- slide show end -->
+
 	
 	<!--[if lt IE 9]>
 	  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -44,7 +51,38 @@
 	<script src="{{asset('./public/client/js/swiper-bundle.min.js')}}"></script>
    
 		@endif
+		<!-- slide show design start -->
+		<style>
+    .splide__slide {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      background-color: #fff;
+      padding: 1.5rem;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      margin: 0 0.5rem;
+    }
 
+    .splide__slide img {
+      width: 60px;
+      height: 60px;
+      margin-bottom: 0.75rem;
+    }
+
+    .splide__slide h3 {
+      font-size: 1rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .splide__slide p {
+      font-size: 0.8rem;
+      color: #666;
+    }
+  </style>
+
+<!-- slide show design End -->
 	</head>
 
 <body>
@@ -98,11 +136,11 @@
 
 	<nav class="nav-section">
 		<div class="container">
-
+<!-- 
 			<div class="nav-right">
 				{{-- <a href><i class="fa fa-phone"></i></a>
 				<a href><i class="fa fa-shopping-cart"></i></a> --}}
-			</div>
+			</div> -->
 			<ul class="main-menu" >
 			
 				<li class="@if ( Request::is('/Home') )  active @endif"><a href="{{route('Home')}}">Home</a></li>
@@ -295,7 +333,7 @@
 				<p>
 					Copyright &copy;
 	<script>document.write(new Date().getFullYear());</script> All rights reserved for <strong style="color: #d1291f">The Future University.</strong> Designed and Developed by 
-	<a href="/CESD"target="_blank" style="color: #ef7e22"><strong>CESD</strong></a>
+	<a href="{{route('CESD')}}"target="_blank" style="color: #ef7e22"><strong>CESD</strong></a>
 				</p>
 			</div>
 		</div>
@@ -310,6 +348,22 @@
 	<script src="{{asset('./public/client/js/magnific-popup.min.js')}}"></script>
 	<script src="{{asset('./public/client/js/main.js')}}"></script>
 
+	<!-- slide show for Facultys start-->
+	<script src="{{asset('./public/client/js/splide.min.js')}}"></script>
+
+	<!-- <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script> -->
+  <script>
+    var splide = new Splide('.splide', {
+      type: 'loop',
+      perPage: 3,
+      focus: 'center',
+      gap: '1rem',
+    });
+
+    splide.mount();
+  </script>
+
+	<!-- slide show for Facultys end-->
 
 	<!-- Counter Start -->
 

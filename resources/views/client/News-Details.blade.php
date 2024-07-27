@@ -83,7 +83,12 @@
                                         @endforeach
 
                                         <div class="rp-content">
-                                            <h6 style="font-size: 19px"><a href="./Event-Details/{{ $event_result->id }}"
+                                            <!-- <h6 style="font-size: 19px"><a href="./Event-Details/{{ $event_result->id }}" -->
+                                            <h6 style="font-size: 19px"><a href="{{route('eventDetails' ,  $event_result->id)}}"
+
+                                      
+                                            
+
                                                     style="color:black">
                                                     {{ $event_result->event_title }}</a></h6>
                                             <p><i class="fa fa-calendar-o"></i>

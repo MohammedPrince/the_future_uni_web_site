@@ -192,8 +192,12 @@ ul {
 -----------------------*/
 
 .header-section {
-	padding: 0px 0;
-	overflow: hidden;
+    padding: 0px 0;
+    overflow: hidden;
+    /* top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999; */
 }
 
 .site-logo {
@@ -260,14 +264,28 @@ ul {
 	display: none;
 }
 
-.nav-section {
+.nav-section { 
 	/* background: #020031; */
 	/* background: #5F0F40; */
-
 	/* background: #57130b; */
-	background: #57130b;
+	 background: #57130b;
+	/* position: fixed;
+	top: 140px; 
+	left: 0;
+	width: 100%;
+	z-index: 999;  */
 
+ }
+
+/* .nav-section {
+    background: #57130b;
+    position: fixed;
+    
+    left: 0;
+    width: 100%;
+    z-index: 998;
 }
+ */
 
 .nav-section .nav-right {
 	float: right;
@@ -2581,3 +2599,85 @@ a.bg-danger:focus,
 a.bg-danger:hover {
     background-color: #e4b9b9
 }
+
+/* Nader Css  */
+
+
+ /* CSS styles for the dropdown list and input field */
+ .input-field,
+ .dropdown-select {
+   width: 100%;
+   padding: 12px 20px;
+   margin: 8px 0;
+   display: inline-block;
+   border: 1px solid #ccc;
+   border-radius: 4px;
+   box-sizing: border-box;
+   font-size: 16px;
+   appearance: none;
+   -webkit-appearance: none;
+   -moz-appearance: none;
+   background-image: url('data:image/svg+xml,%3Csvg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="M7 10l5 5 5-5z"/%3E%3C/svg%3E');
+   background-repeat: no-repeat;
+   background-position: right 12px center;
+   background-size: 24px;
+ }
+
+ /* .containerfortheform {
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ height: 100%;
+ width: 100%;
+}
+
+.centered-formthenewform {
+ display: flex;
+ flex-direction: column;
+ gap: 10px;
+ padding: 20px;
+ border: 1px solid #ccc;
+ border-radius: 5px;
+ background-color: #f9f9f9;
+} */
+.centered-formthenewform {
+display: flex;
+flex-direction: column;
+align-items: center;
+gap: 10px;
+padding: 20px;
+/* border: 1px solid #ccc;
+border-radius: 5px;
+background-color: #f9f9f9; */
+}
+
+.centered-formthenewform .row {
+width: 100%;
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+
+.centered-formthenewform .col-lg-8 {
+width: 100%;
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+
+.centered-formthenewform input,
+.centered-formthenewform select {
+width: 100%;
+max-width: 400px;
+}
+
+
+ .search-btn {
+   background-color: #ff9500;
+   color: white;
+   padding: 12px 20px;
+   border: none;
+   border-radius: 4px;
+   cursor: pointer;
+   font-size: 16px;
+ }

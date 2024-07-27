@@ -147,8 +147,9 @@ class StaffDirectoryController extends Controller
 
     public function showStaffDetails($encryptedId)  
     {  
-    // $decryptedId = Crypt::decrypt($encryptedId);
-    $decryptedId = $encryptedId;
+        
+    $decryptedId = Crypt::decrypt($encryptedId);
+    // $decryptedId = $encryptedId;
 
     $staff_info = Staff_information::where('staff_id',$decryptedId)->first();
     $staff_info_cv = staff_cv::where('staff_id',$decryptedId)->first();

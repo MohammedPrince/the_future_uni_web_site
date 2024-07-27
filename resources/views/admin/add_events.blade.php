@@ -181,7 +181,8 @@
 
                                                 </td>
                                             
-                                                <td><a href="edit_event/{{$event->id}}/edit" class="btn btn btn-info">Edit</a></td>
+                                                <td><a href="{{route('edit_event',$event->id,'edit')}}" class="btn btn btn-info">Edit</a></td>
+                                                <!-- {{-- old - edit_event/{{$event->id}}/edit --}} -->
                                                 <td><a href="add_event/{{$event->id}}/delete" class="btn btn btn-danger" onClick="return confirm('Are You Sure You Want to Delete this event ?')">Delete</a></td>
                                             </tr>
                                             @endforeach

@@ -189,10 +189,16 @@
                                                     {{ $user->isAdmin == '1' ? 'Admin' : 'User' }}
                                                 </td>
                                            
-                                                <td><a href="edit_user/{{$user->id}}/edit" class="btn btn btn-info">Edit</a></td>
+                                                <td><a href="{{route('edit_user' ,$user->id,'edit')}}" class="btn btn btn-info">Edit</a></td>
+
+                                                <!-- {{-- edit_user/{{$user->id}}/edit -- real one--}} -->
+                                                    
                                                 <!-- <td><a href="" class="btn btn btn-info">Edit</a></td> -->
 
-                                                <td><a href="add_user/{{$user->id}}/delete" class="btn btn btn-danger" onClick="return confirm('Are You Sure You Want to Delete this User ?')">Delete</a></td>
+                                                <td><a href="{{route('delete_user' ,$user->id,'delete')}}" class="btn btn btn-danger" onClick="return confirm('Are You Sure You Want to Delete this User ?')">Delete</a></td>
+                                            
+                                                 <!-- {{-- add_user/{{$user->id}}/delete -- real one --}} -->
+                                                    
                                             </tr>
                                         @endforeach
 

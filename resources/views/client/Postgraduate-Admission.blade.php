@@ -1,5 +1,88 @@
 @extends('components.client-layout')
 @section('main-client-content')
+<style>
+
+    .container_newenrollprocess {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 40px;
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .header h1 {
+      font-size: 32px;
+      font-weight: 700;
+      color: #333;
+    }
+
+    .enrollment-steps {
+      display: grid;
+      /* grid-template-columns: repeat(2, 1fr); */
+	  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-gap: 30px;
+    }
+
+    .step {
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      padding: 30px;
+      display: flex;
+      align-items: center;
+	  transition: transform 0.3s ease-in-out;
+    }
+
+    .step-number {
+      font-size: 36px;
+      font-weight: 700;
+      color: #E57C23;;
+      margin-right: 20px;
+    }
+
+    .step-content h3 {
+      font-size: 18px;
+      font-weight: 500;
+      color: #333;
+      margin-bottom: 10px;
+    }
+
+    .step-content p {
+      font-size: 14px;
+      color: #666;
+      line-height: 1.6;
+    }
+
+	.step:hover {
+      transform: translateY(-5px);
+    }
+
+
+	@media (max-width: 768px) {
+      .enrollment-steps {
+        grid-template-columns: 1fr;
+      }
+
+      .step {
+        padding: 30px;
+      }
+
+      .step-number {
+        font-size: 40px;
+      }
+
+      .step h3 {
+        font-size: 18px;
+      }
+
+      .step p {
+        font-size: 15px;
+      }
+    }
+  </style>
 
     <div class="site-breadcrumb">
         <div class="container">
@@ -7,7 +90,7 @@
             <span style="color: #d1291f;">Postgraduate-Admission</span>
         </div>
     </div>
-
+<!-- 
     <section class="enroll-section overlay">
         </br>
         <div class="container">
@@ -45,7 +128,6 @@
                     </div>
                 </div>
                 <div class="col-lg-7">
-                    <!-- Content for the second row goes here -->
                     </br>
                     <div class="enroll-list text-white">
                         <div class="enroll-list-item">
@@ -74,7 +156,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
 
 						<!-- <p>
 						<blockquote class="text-center" style="background-color: whitesmoke;">
@@ -153,6 +235,78 @@
 							  </div>
 							
 						  </div> -->
+						  <p></p>
+						  <div class="hr-sect new4"><span>Enrollment Process</span></div>
+							<p></p>
+
+					
+							<div class="container_newenrollprocess">
+
+							<div class="enrollment-steps">
+      <div class="step">
+        <div class="step-number">1</div>
+        <div class="step-content">
+          <h3>Ministry of the higher education application</h3>
+          <p>Apply to admission system at the Ministry of the higher education PORTAL.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-number">2</div>
+        <div class="step-content">
+          <h3>Admission & Registration</h3>
+          <p>Visit the admission and registration office to complete the admission process.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-number">3</div>
+        <div class="step-content">
+          <h3>Future University ODMS</h3>
+          <p>Fill in the application form using online admission system (ODMS).</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-number">4</div>
+        <div class="step-content">
+          <h3>Track Your Application</h3>
+          <p>Track the progress of your application in (ODMS) using your ministry number, and proceed with next steps.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-number">5</div>
+        <div class="step-content">
+          <h3>Interviews</h3>
+          <p>Meet with the Future University Registrar, deans of student affairs, and your faculty dean for short interviews.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-number">6</div>
+        <div class="step-content">
+          <h3>Complete the Payments</h3>
+          <p>Pay your tuition and registration fees in Faisal Islamic Bank or Khartoum bank via the mobile banking applications.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-number">7</div>
+        <div class="step-content">
+          <h3>Student ID card</h3>
+          <p>Obtain your student ID card form the ID card office.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-number">8</div>
+        <div class="step-content">
+          <h3>Welcome to the Future University</h3>
+          <p>You are now part of our family.</p>
+        </div>
+      </div>
+    </div>
+
+</div>
+								<!-- <div class="col" style="background-color: rgba(255, 255, 255, 0.53);">
+									<a href="Postgraduates-Programs" ><button class="modal-button" >Postgraduates Programs</button></a>
+								</div> -->
+
+			
 
 
 						  <p></p>

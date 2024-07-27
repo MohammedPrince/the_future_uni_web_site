@@ -132,255 +132,195 @@
     </section>
 
 
-    <section class="service-section spad">
+    <section class="service-section spad" >
         <div class="container services">
             <div class="section-title text-center">
                 <h3>OUR Faculties</h3>
                 <!-- <p>We provides the opportunity to prepare for life</p> -->
             </div>
 
+            <!-- Slide Show Start -->
 
+            <div class="splide">
+    <div class="splide__track">
+      <ul class="splide__list">
 
-							<table class="table table-bordered table-hover">
-								<tbody>
-									<tr>  
-										<th>
-                                        <div class="tab" style="width: 80%;">
-                                            <button class="tablinks" onclick="openTab(event, 'ENG')">Faculty of Engineering</button>
-                                        </div>
-                                    </th>
-                                   
-										<th style="width: 50%;">			
-                            <div class="col" style="background-color: rgba(255, 255, 255, 0.51);">
-					<p style="color: black;">
+              <!-- Faculty of Information Technology start -->
 
-						<div id="ENG" class="tabcontent" style="text-align: justify;">
-							<!-- <p class="text-center"><strong>Faculty of Engineering<br>ENG</strong></p>
-                            <div class="hr-sect new6"><img src="./public/client/img/main_imgs/faculites/engineering.jpg" height="100px"
-							width="100px" alt="" loading="lazy"><span></span></div> -->
-                            <div style="text-align: justify;">
-							Our faculty of engineering is renowned for its cutting-edge curriculum, state-of-the-art facilities, and world-class faculty. By blending theoretical knowledge with practical application, we empower our students to tackle complex challenges and develop innovative solutions that drive progress in various industries. Through hands-on projects, interdisciplinary collaboration, and access to advanced research opportunities, our graduates emerge as highly sought-after engineering professionals.
-
-                            </div>
-							<br><br>
-							<a href="Undergraduate-Programs" class="read-more my-eventBtn" style="color:blanchedalmond;">More Details</a>
-						</div>
-				</p>
-						
-				</div>
-            </th>
-	
-									</tr>
-                                    <tr>
-										<th>
-                                        <div class="tab" style="width: 80%;">
-                                        <button class="tablinks" onclick="openTab(event, 'IT')">Faculty of Information Technology</button>
-                                        </div>
-                                        </th>
-										<th style="width: 50%;">
-                                        <div class="col" style="background-color: rgba(255, 255, 255, 0.51);">
-				
-                <p style="color: black;">
+              <li class="splide__slide">
+        <p style="color: black;">
                 
-                    <div id="IT" class="tabcontent">
-                        <!-- <p class="text-center"><strong>Faculty of Information Technology<br>IT</strong></p>
-                        <div class="hr-sect new6"><img src="./public/client/img/main_imgs/faculites/it.jpg" height="100px"
-                        width="100px" alt="" loading="lazy"><span></span></div> -->
-                        The faculty of information technology at our university is at the forefront of digital innovation. With a focus on emerging technologies, our curriculum equips students with the skills to design, develop, and deploy transformative IT solutions. Through experiential learning, industry partnerships, and exposure to the latest tools and methodologies, our graduates are poised to lead the digital revolution.
-    
-                        <br><br>
-                <a href="Undergraduate-Programs" class="read-more my-eventBtn" style="color:blanchedalmond;">More Details</a>
+                <div id="IT" >
+                    <p class="text-center"><strong>Faculty of Information Technology<br>IT</strong></p>
+                    <div class="hr-sect new6"><img src="./public/client/img/main_imgs/faculites/it.jpg" height="100px"
+                    width="100px" alt="" loading="lazy"><span></span></div>
+                    <div style="text-align: justify;">
+                    faculty of information technology at our university is at the forefront of digital innovation. With a focus on emerging technologies, our curriculum equips students with the skills to design, develop, and deploy transformative IT solutions. Through experiential learning, industry partnerships, and exposure to the latest tools and methodologies, our graduates are poised to lead the digital revolution.
+                    </div> 
+
+                    <br><br>
+            <a href="Undergraduate-Programs" class="read-more my-eventBtn" style="color:blanchedalmond;">More Details</a>
+                </div>
+            </p>
+        </li>
+        <!-- Faculty of Information Technology End -->
+
+        <!-- Faculty of Engineering start -->
+        <li class="splide__slide">
+        <p style="color: black;">
+
+<div id="ENG" style="text-align: justify;">
+    <p class="text-center"><strong>Faculty of Engineering<br>ENG</strong></p>
+    <div class="hr-sect new6"><img src="./public/client/img/main_imgs/faculites/engineering.jpg" height="100px"
+    width="100px" alt="" loading="lazy"><span></span></div>
+    <div style="text-align: justify;">
+    <div style="text-align: justify;"> Our faculty of engineering is renowned for its cutting-edge curriculum, state-of-the-art facilities, and world-class faculty. By blending theoretical knowledge with practical application, we empower our students to tackle complex challenges and develop innovative solutions that drive progress in various industries. Through hands-on projects, interdisciplinary collaboration, and access to advanced research opportunities, our graduates emerge as highly sought-after engineering professionals.
+
+    </div>
+    </div>
+    <br><br>
+    <a href="Undergraduate-Programs" class="read-more my-eventBtn" style="color:blanchedalmond;">More Details</a>
+</div>
+</p>
+        </li>
+        <!-- Faculty of Engineering End -->
+
+        <!-- Faculty of Computer Science start -->
+        <li class="splide__slide">
+        <p style="color: black;">
+					
+                    <div id="SCI" >
+                        <p class="text-center"><strong>Faculty of Computer Science<br>SCI</strong></p>
+                        <div class="hr-sect new6"><img src="./public/client/img/main_imgs/faculites/cs.jpg" height="100px"
+                        width="100px" alt="" loading="lazy"><span></span></div>
+                        <div style="text-align: justify;">
+                        Our faculty of computer science is dedicated to cultivating the next generation of innovators and problem-solvers. By blending cutting-edge theory with practical application, we empower our students to master the fundamentals of computer science and push the boundaries of what's possible. Through cutting-edge research, hands-on projects, and collaborative learning, our graduates are prepared to excel in a wide range of tech-driven industries. 
+                        </div>
+
+                    <a href="Undergraduate-Programs" class="read-more my-eventBtn" style="color:blanchedalmond;">More Details</a>
                     </div>
                 </p>
-            </div>
-                                        </th>
-							
-									</tr>
-                                    <tr>
-										<th>
-                                        <div class="tab" style="width: 80%;">
-                                        <button class="tablinks" onclick="openTab(event, 'SCI')">Faculty of Computer Science</button>
-                                        </div>
-                                        </th>
-										<th style="width: 50%;">
-                                        <div class="col" style="background-color: rgba(255, 255, 255, 0.51);">
-					
-					<p style="color: black;">
-					
-						<div id="SCI" class="tabcontent">
-							<!-- <p class="text-center"><strong>Faculty of Computer Science<br>SCI</strong></p>
-                            <div class="hr-sect new6"><img src="./public/client/img/main_imgs/faculites/cs.jpg" height="100px"
-							width="100px" alt="" loading="lazy"><span></span></div> -->
-							Our faculty of computer science is dedicated to cultivating the next generation of innovators and problem-solvers. By blending cutting-edge theory with practical application, we empower our students to master the fundamentals of computer science and push the boundaries of what's possible. Through cutting-edge research, hands-on projects, and collaborative learning, our graduates are prepared to excel in a wide range of tech-driven industries. 
-		
-						<a href="Undergraduate-Programs" class="read-more my-eventBtn" style="color:blanchedalmond;">More Details</a>
-						</div>
-					</p>
-				</div>
-                                        </th>
-							
-									</tr>
-                                    <tr>
-										<th>
-                                        <div class="tab" style="width: 80%;">
-                                        <button class="tablinks" onclick="openTab(event, 'TCOM')">Faculty of Telecommunication Engineering</button>
-                                        </div>
-                                        </th>
-										<th style="width: 50%;">
-                                        <div class="col-6" style="background-color: rgba(255, 255, 255, 0.51);" >
-					
-					<p style="color: black;">
-					
-						<div id="TCOM" class="tabcontent">
-							<!-- <p class="text-center"><strong>Faculty of Telecommunication Engineering<br>TCOM</strong></p>
-                            <div class="hr-sect new6"><img src="./public/client/img/main_imgs/faculites/tcom.jpg" height="100px"
-							width="100px" alt="" loading="lazy"><span></span></div> -->
-							At the forefront of technological advancement, our faculty of telecommunication engineering and space technology is committed to shaping the future of communication and space exploration. By integrating emerging trends in satellite technology, wireless systems, and aerospace engineering, we equip our students with the skills to design, develop, and deploy transformative solutions that redefine the boundaries of what's possible. 
-						 <br><br>
-						 <a href="Undergraduate-Programs" class="read-more my-eventBtn" style="color:blanchedalmond;">More Details</a>
-						</div>
-					</p>
-				</div>
-		
-                                        </th>
-							
-									</tr>
-                                    <tr>
-										<th>
-                                        <div class="tab" style="width: 80%;">
-                                        <button class="tablinks" onclick="openTab(event, 'ARCH')">Faculty of Architecture Engineering</button>
-                                        </div>
-                                        </th>
-										<th style="width: 50%;">
-                                        <div class="col" style="background-color: rgba(255, 255, 255, 0.51);" >
-				
-					<p style="color: black;">
-					
-						<div id="ARCH" class="tabcontent">
-							<!-- <p class="text-center"><strong>Faculty of Architecture Engineering<br>ARCH</strong></p>
-                            <div class="hr-sect new6"><img src="./public/client/img/main_imgs/faculites/arch.jpg" height="100px"
-							width="100px" alt="" loading="lazy"><span></span></div> -->
-							The faculty of architecture engineering at our university is dedicated to cultivating visionary designers and innovative problem-solvers. By blending the art of architecture with the science of engineering, we empower our students to create sustainable, functional, and aesthetically-pleasing structures that enhance the built environment. Through hands-on studios, interdisciplinary collaboration, and exposure to cutting-edge technologies, our graduates are poised to shape the future of the industry. 
-			
-							<a href="Undergraduate-Programs" class="read-more my-eventBtn" style="color:blanchedalmond;">More Details</a>
-						</div>
-					</p>
-				</div>
+        </li>
+        <!-- Faculty of Computer Science End -->
 
-                                      </th>
-							
-									</tr>
-                                    <tr>
-										<th>
-                                        <div class="tab" style="width: 80%;">
-                                        <button class="tablinks" onclick="openTab(event, 'FAD')">Faculty of Fine Arts and Design</button>
-                                        </div>
-                                        </th>
-										<th style="width: 50%;">
-                                        <div class="col" style="background-color: rgba(255, 255, 255, 0.51);" >
-				
-					<p style="color: black;">
+                <!-- Faculty of Telecommunication Engineering start -->
+                <li class="splide__slide">
+                <p style="color: black;">
 					
-						<div id="FAD" class="tabcontent">
-							<!-- <p class="text-center"><strong>Faculty of Fine Arts and Design<br>FAD</strong></p>
-                            <div class="hr-sect new6"><img src="./public/client/img/main_imgs/faculites/fad.jpg" height="100px"
-							width="100px" alt="" loading="lazy"><span></span></div> -->
-							The faculty of fine arts and design at our university is a vibrant hub of creativity and innovation. By nurturing the artistic talents and technical skills of our students, we empower them to express their unique visions through a diverse range of mediums, from visual arts and graphic design to performance and digital media. Our graduates leave equipped to thrive as influential artists, designers, and creative professionals.
+                    <div id="TCOM" >
+                        <p class="text-center"><strong>Faculty of Telecommunication Engineering<br>TCOM</strong></p>
+                        <div class="hr-sect new6"><img src="./public/client/img/main_imgs/faculites/tcom.jpg" height="100px"
+                        width="100px" alt="" loading="lazy"><span></span></div>
+                        <div style="text-align: justify;">
+                        At the forefront of technological advancement, our faculty of telecommunication engineering and space technology is committed to shaping the future of communication and space exploration. By integrating emerging trends in satellite technology, wireless systems, and aerospace engineering, we equip our students with the skills to design, develop, and deploy transformative solutions that redefine the boundaries of what's possible. 
+                        </div>
 
-						<a href="Undergraduate-Programs" class="read-more my-eventBtn" style="color:blanchedalmond;">More Details</a>
-						</div>
-					</p>
-				</div>
+                     <br><br>
+                     <a href="Undergraduate-Programs" class="read-more my-eventBtn" style="color:blanchedalmond;">More Details</a>
+                    </div>
+                </p>
+        </li>
+        <!-- Faculty of Telecommunication Engineering End -->
 
-                                    </th>
-							
-									</tr>
-                                    <tr>
-										<th>
-                                        <div class="tab" style="width: 80%;">
-                                        <button class="tablinks" onclick="openTab(event, 'GIS')">Faculty of Geoinformatics</button>
-                                        </div> 
-                                        </th>
-										<th style="width: 50%;">
-                                        <div class="col" style="background-color: rgba(255, 255, 255, 0.51);" >
+                     <!-- Faculty of Architecture Engineering start -->
+                     <li class="splide__slide">
+                     <p style="color: black;">
 					
-					<p style="color: black;">
-					
-						<div id="GIS" class="tabcontent">
-							<!-- <p class="text-center"><strong>Faculty of Geoinformatics<br>GIS</strong></p>
-                            <div class="hr-sect new6"><img src="./public/client/img/main_imgs/faculites/geo.jpg" height="100px"
-							width="100px" alt="" loading="lazy"><span></span></div> -->
-							The faculty of geoinformatics at our university is at the forefront of spatial data analysis and visualization. By integrating cutting-edge technologies like GIS, remote sensing, and geospatial modeling, we equip our students with the skills to collect, interpret, and apply geospatial intelligence to solve complex challenges in fields ranging from urban planning to environmental management.
-		
-					<br><br>
-					<a href="Undergraduate-Programs" class="read-more my-eventBtn" style="color:blanchedalmond;">More Details</a>
-						</div>
-					</p>
-				</div>
-			</div>
+                    <div id="ARCH" >
+                        <p class="text-center"><strong>Faculty of Architecture Engineering<br>ARCH</strong></p>
+                        <div class="hr-sect new6"><img src="./public/client/img/main_imgs/faculites/arch.jpg" height="100px"
+                        width="100px" alt="" loading="lazy"><span></span></div>
+                        <div style="text-align: justify;">
+                        The faculty of architecture engineering at our university is dedicated to cultivating visionary designers and innovative problem-solvers. By blending the art of architecture with the science of engineering, we empower our students to create sustainable, functional, and aesthetically-pleasing structures that enhance the built environment. Through hands-on studios, interdisciplinary collaboration, and exposure to cutting-edge technologies, our graduates are poised to shape the future of the industry. 
+                        </div>
 
-                                    </th>
-							
-									</tr>
-                                    <tr>
-										<th>
-                                        <div class="tab" style="width: 80%;">
-                                        <button class="tablinks" onclick="openTab(event, 'BA')">Faculty of Business Administration</button>
-                                        </div> 
-                                        </th>
-										<th style="width: 50%;">
-                                        <div class="col" style="background-color: rgba(255, 255, 255, 0.51);" >
-		
-        <p style="color: black;">
-        
-            <div id="BA" class="tabcontent">
-                <!-- <p class="text-center"><strong>Faculty of Business Administration<br>BA</strong></p>
-                <div class="hr-sect new6"><img src="./public/client/img/main_imgs/faculites/ba.jpg" height="100px"
-                width="100px" alt="" loading="lazy"><span></span></div> -->
-                The faculty of business administration at our university is dedicated to nurturing the next generation of business leaders and entrepreneurs. By blending theoretical knowledge with practical application, we empower our students to develop the strategic thinking, decision-making, and problem-solving skills needed to thrive in the dynamic global marketplace. Through hands-on projects, experiential learning, and exposure to industry best practices, our graduates are prepared to excel in a wide range of business domains. 
+                        <a href="Undergraduate-Programs" class="read-more my-eventBtn" style="color:blanchedalmond;">More Details</a>
+                    </div>
+                </p>
+        </li>
+        <!-- Faculty of Architecture Engineering End -->
+
+
+                     <!-- Faculty of Fine Arts and Design start -->
+                     <li class="splide__slide">
+                     <p style="color: black;">
+					
+                    <div id="FAD">
+                        <p class="text-center"><strong>Faculty of Fine Arts and Design<br>FAD</strong></p>
+                        <div class="hr-sect new6"><img src="./public/client/img/main_imgs/faculites/fad.jpg" height="100px"
+                        width="100px" alt="" loading="lazy"><span></span></div>
+                        <div style="text-align: justify;">
+                        The faculty of fine arts and design at our university is a vibrant hub of creativity and innovation. By nurturing the artistic talents and technical skills of our students, we empower them to express their unique visions through a diverse range of mediums, from visual arts and graphic design to performance and digital media. Our graduates leave equipped to thrive as influential artists, designers, and creative professionals.
+                        </div>
+
+                    <a href="Undergraduate-Programs" class="read-more my-eventBtn" style="color:blanchedalmond;">More Details</a>
+                    </div>
+                </p>
+        </li>
+        <!-- Faculty of Fine Arts and Design End -->
+
+
+                             <!-- Faculty of Geoinformatics start -->
+                             <li class="splide__slide">
+                             <p style="color: black;">
+					
+                    <div id="GIS">
+                        <p class="text-center"><strong>Faculty of Geoinformatics<br>GIS</strong></p>
+                        <div class="hr-sect new6"><img src="./public/client/img/main_imgs/faculites/geo.jpg" height="100px"
+                        width="100px" alt="" loading="lazy"><span></span></div>
+                        <div style="text-align: justify;">
+                        The faculty of geoinformatics at our university is at the forefront of spatial data analysis and visualization. By integrating cutting-edge technologies like GIS, remote sensing, and geospatial modeling, we equip our students with the skills to collect, interpret, and apply geospatial intelligence to solve complex challenges in fields ranging from urban planning to environmental management.
+                        </div>
 
                 <br><br>
                 <a href="Undergraduate-Programs" class="read-more my-eventBtn" style="color:blanchedalmond;">More Details</a>
-            </div>
-        </p>
-    </div>
-                                        </th>
-							
-									</tr>
-                                    <tr>
-										<th>
-                                        <div class="tab" style="width: 80%;">
-                                        <button class="tablinks" onclick="openTab(event, 'POST')">Faculty of Postgraduate Studies</button>
-                                        </div> 
-                                        </th>
-										<th style="width: 50%;">
-                                        <div class="col" style="background-color: rgba(255, 255, 255, 0.51);" >
-				
-					<p style="color: black;">
-					
-						<div id="POST" class="tabcontent">
-							<!--  <p class="text-center"><strong>Faculty of Postgraduate Studies<br>POST</strong></p>
-                            <div class="hr-sect new6"><img src="./public/client/img/main_imgs/faculites/post.jpg" height="100px"
-							width="100px" alt="" loading="lazy"><span></span></div> -->
-							The faculty of postgraduate studies at our university is a hub of advanced research and specialized knowledge. Catering to students seeking to deepen their expertise or transition into academic or research-focused careers, we offer a diverse range of master's and doctoral programs. Through rigorous coursework, mentorship from leading scholars, and opportunities for interdisciplinary collaboration, our postgraduate students become pioneers in their respective fields.
+                    </div>
+                </p>
+        </li>
+        <!-- Faculty of Geoinformatics End -->
 
-							<br><br>
-							<a href="Postgraduates-Programs" class="read-more my-eventBtn" style="color:blanchedalmond;">More Details</a>
-						</div>
-					</p>
-				</div>
-   
-                                    </th>
-							
-									</tr>
-                                    <!-- <tr>
-										<th>Nottingham University, Malaysia Campus</th>
-										<th>Boston University, USA</th>
-							
-									</tr> -->
+                             <!-- Faculty of Business Administration start -->
+                             <li class="splide__slide">
+                             <p style="color: black;">
+        
+        <div id="BA" >
+            <p class="text-center"><strong>Faculty of Business Administration<br>BA</strong></p>
+            <div class="hr-sect new6"><img src="./public/client/img/main_imgs/faculites/ba.jpg" height="100px"
+            width="100px" alt="" loading="lazy"><span></span></div>
+            <div style="text-align: justify;">
+            The faculty of business administration at our university is dedicated to nurturing the next generation of business leaders and entrepreneurs. By blending theoretical knowledge with practical application, we empower our students to develop the strategic thinking, decision-making, and problem-solving skills needed to thrive in the dynamic global marketplace. Through hands-on projects, experiential learning, and exposure to industry best practices, our graduates are prepared to excel in a wide range of business domains. 
+            </div>
+
+            <br><br>
+            <a href="Undergraduate-Programs" class="read-more my-eventBtn" style="color:blanchedalmond;">More Details</a>
+        </div>
+    </p>
+        </li>
+        <!-- Faculty of Business Administration End -->
+
+                                     <!-- Faculty of Postgraduate Studies start -->
+                                     <li class="splide__slide">
+                                     <p style="color: black;">
 					
-								</tbody>
-							</table>
+                    <div id="POST">
+                         <p class="text-center"><strong>Faculty of Postgraduate Studies<br>POST</strong></p>
+                        <div class="hr-sect new6"><img src="./public/client/img/main_imgs/faculites/post.jpg" height="100px"
+                        width="100px" alt="" loading="lazy"><span></span></div>
+                        <div style="text-align: justify;">
+                        The faculty of postgraduate studies at our university is a hub of advanced research and specialized knowledge. Catering to students seeking to deepen their expertise or transition into academic or research-focused careers, we offer a diverse range of master's and doctoral programs. Through rigorous coursework, mentorship from leading scholars, and opportunities for interdisciplinary collaboration, our postgraduate students become pioneers in their respective fields.
+                        </div>
+
+                        <br><br>
+                        <a href="Postgraduates-Programs" class="read-more my-eventBtn" style="color:blanchedalmond;">More Details</a>
+                    </div>
+                </p>
+        </li>
+        <!-- Faculty of Postgraduate Studies End -->
+
+      </ul>
+    </div>
+  </div>
+           <!-- Slide Show End -->
 						</div>
         </div>
     </section>
@@ -541,7 +481,7 @@
                             <p class="text-center"><strong>Center of E-Learning and Software Development<br>CESD</strong></p>
                             The Center of E-Learning and Software Development is a cutting-edge hub that harnesses the power of technology to transform education and drive digital innovation. By developing innovative e-learning platforms and cutting-edge software solutions, the center empowers students and professionals to thrive in the digital age. <br><br>
 
-							<a href="/CESD" class="read-more my-eventBtn" style="color:blanchedalmond;">More Details</a>
+							<a href="{{route('CESD')}}" class="read-more my-eventBtn" style="color:blanchedalmond;">More Details</a>
 							
                             </p>
 
@@ -554,7 +494,7 @@
                             <p class="text-center"><strong>Center of Technological Services<br>CTS</strong></p>
                             The Center of Technological Services is a comprehensive resource hub that provides state-of-the-art facilities and specialized support to students, faculty, and researchers. From advanced computing infrastructure to cutting-edge prototyping tools, the center enables innovation and discovery across disciplines.<br><br>
 
-							<a href="/CTS" class="read-more my-eventBtn" style="color:blanchedalmond;">More Details</a>
+							<a href="{{route('CTS')}}" class="read-more my-eventBtn" style="color:blanchedalmond;">More Details</a>
 
                             </p>
 
@@ -568,7 +508,8 @@
 
                             The Innovation Research and Development Center is a dynamic hub where pioneering ideas come to life. By fostering cross-disciplinary collaboration and providing access to cutting-edge resources, the center empowers researchers and innovators to push the boundaries of knowledge and develop transformative solutions. <br> <br>
 
-							<a href="/IRDC" class="read-more my-eventBtn" style="color:blanchedalmond;">More Details</a>
+							<a href="{{route('IRDC')}}" class="read-more my-eventBtn" style="color:blanchedalmond;">More Details</a>
+                            
                             </p>
 
                         </div>

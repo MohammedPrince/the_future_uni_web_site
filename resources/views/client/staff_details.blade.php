@@ -31,9 +31,9 @@
                                 <section class="contact-page spad pt-0" >
 <div class="container" >
 
-<table cellspacing="0" cellpadding="5" width="100%">
+<table cellspacing="0" cellpadding="20" >
     <tr>
-    <td width="30%">
+    <td width="10%">
    
     @if(($staff_info_cv?->cv_image)=="")
 
@@ -53,7 +53,7 @@
 
 
     </td>
-      <td colspan="2">
+      <td>
         <h1>{{$staff_info?->staff_name}}</h1>
         {{$staff_info?->staff_position}}
       </td>
@@ -63,26 +63,37 @@
     @if(($staff_info_cv?->about)!="")
 
     <tr>
-      <td width="30%"><h2>About</h2></td>
-      <td>
-        {{$staff_info_cv?->about}}
+      <td>About</td>
+      <td >
+        {{-- $staff_info_cv?->about --}}
+    <div style="text-align: justify;">
+        {!! \App\Helpers\MarkdownHelper::render($staff_info_cv?->about) !!}
+        </div>
+
       </td>
     </tr>
     @endif
     @if(($staff_info_cv?->work_experience)!="")
     <tr>
-      <td><h2>Work Experience</h2></td>
+      <td>Work Experience</td>
       <td>
-          {{$staff_info_cv?->work_experience}}
+          {{-- $staff_info_cv?->work_experience --}}
+
+          <div style="text-align: justify;">
+        {!! \App\Helpers\MarkdownHelper::render($staff_info_cv?->work_experience) !!}
+          </div>
       </td>
     </tr>
     @endif
     @if(($staff_info_cv?->education)!="")
 
     <tr>
-      <td><h2>Education</h2></td>
+      <td>Education</td>
       <td>
-      {{$staff_info_cv?->education}}
+      {{-- $staff_info_cv?->education --}}
+      <div style="text-align: justify;">
+      {!! \App\Helpers\MarkdownHelper::render($staff_info_cv?->education) !!}
+     </div>
       </td>
     </tr>
 
@@ -91,19 +102,24 @@
 
 
     <tr>
-      <td><h2>Skills</h2></td>
+      <td>Skills</td>
       <td>
-      {{$staff_info_cv?->skills}}
-          
+      {{-- $staff_info_cv?->skills --}}
+      <div style="text-align: justify;">
+      {!! \App\Helpers\MarkdownHelper::render($staff_info_cv?->skills) !!}
+      </div>
       </td>
     </tr>
     @endif
     @if(($staff_info_cv?->publication)!="")
      <tr>
-      <td><h2>Publication</h2></td>
+      <td>Publication</td>
       <td>
       
-      {{$staff_info_cv?->publication}}
+      {{-- $staff_info_cv?->publication --}}
+      <div style="text-align: justify;">
+      {!! \App\Helpers\MarkdownHelper::render($staff_info_cv?->publication) !!}
+      </div>
 
       </td>
     </tr>
@@ -112,9 +128,12 @@
     @if(($staff_info_cv?->teaching_and_supervision)!="")
     <tr>
       
-      <td><h2>Teaching and Supervision</h2></td>
+      <td>Teaching and Supervision</td>
       <td>
-      {{$staff_info_cv->teaching_and_supervision}}
+      {{-- $staff_info_cv->teaching_and_supervision --}}
+      <div style="text-align: justify;">
+      {!! \App\Helpers\MarkdownHelper::render($staff_info_cv->teaching_and_supervision) !!}
+      </div>
 
       </td>
     </tr>
@@ -124,9 +143,14 @@
 
     @if(($staff_info_cv?->academic_recognition_and_leadership)!="")
     <tr>
-      <td><h2>Academic Recognition and Leadership</h2></td>
+      <td>Academic Recognition and Leadership</td>
       <td>
-      {{$staff_info_cv->academic_recognition_and_leadership}}
+      {{-- $staff_info_cv->academic_recognition_and_leadership --}}
+      <div style="text-align: justify;">
+
+      {!! \App\Helpers\MarkdownHelper::render($staff_info_cv->academic_recognition_and_leadership) !!}.
+      </div>
+
       </td>
     </tr>
     @endif
@@ -135,10 +159,14 @@
     @if(($staff_info_cv?->contact)!="")
 
     <tr>
-      <td><h2>Contact</h2></td>
-      <td>
+      <td>Contact</td>
+      <td >
 
-      {{$staff_info_cv->contact}}
+      {{-- $staff_info_cv->contact --}}
+      <div style="text-align: justify;">
+
+      {!! \App\Helpers\MarkdownHelper::render($staff_info_cv->contact) !!}
+      </div>
      
       </td>
     </tr>
@@ -156,12 +184,6 @@
                             </p>
 
                             <div class="hr-sect new4"><span></span></div>
-
-                            <p style="font-size: 16px;color:black;">
-
-
-
-                            </p>
                         </div>
 
                     </div>

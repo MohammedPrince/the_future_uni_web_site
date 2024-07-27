@@ -123,7 +123,7 @@
                                                 <span>Senior Software Develope</span>
                                                 <div class="about-widget">
                                                 <div class="social pt-1">
-                                                    <a href="mailto:nader_najeeb@fu.edu.sd" style="color: #ef7e22"><i class="fa fa-envelope"></i> nader_najeeb@fu.edu.sd</a>
+                                                    <a href="mailto:nadernageeb@fu.edu.sd" style="color: #ef7e22"><i class="fa fa-envelope"></i> nader_najeeb@fu.edu.sd</a>
                                                 </div>
                                                 </div>
                                                 <br><br>
