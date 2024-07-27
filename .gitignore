@@ -2,6 +2,8 @@
 /public/build
 /public/hot
 /public/storage
+/storage/app/public/visitor_count.txt
+/public/storage
 /storage/*.key
 /vendor
 .env
