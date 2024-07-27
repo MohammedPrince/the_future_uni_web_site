@@ -307,6 +307,14 @@ ul {
 
 }
 
+.nav-section.fixed {
+    position: fixed;
+    top: 0;
+    margin-top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
 /* .nav-section {
     background: #57130b;
     position: fixed;
