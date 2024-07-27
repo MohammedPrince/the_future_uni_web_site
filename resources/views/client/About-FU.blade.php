@@ -319,7 +319,7 @@
                                 <p class="additional-text">Former Chief of the Judiciary; Former Chairman, Computer Man College; Former Minister of Justice</p>
                             </div>
                             <div>
-                                <h6>Uzt. Dafa Alla Elhaj Yousif - Member</h6>
+                                <h6>Uzt. Dafa Alla Elhaj Yousif - Member (Passed away, November 2020)</h6>
                             </div>
                         </div>
                     </div>
