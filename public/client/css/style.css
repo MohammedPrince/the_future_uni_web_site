@@ -26,7 +26,7 @@ Extra Colors
 /*----------------------------------------*/
 
 .HeaderMainColor {
-	background:#b41906 !important;
+	background:#020031 !important;
 }
 
 .HeaderMainTxtColor {
@@ -34,7 +34,7 @@ Extra Colors
 }
 
 .FooterMainColor {
-	background:#360701 !important;
+	background:#020031 !important;
 }
 
 .SubFooterText {
@@ -42,7 +42,7 @@ Extra Colors
 }
 
 .ActiveMenuMainColor {
-	background:#04091e !important;
+	background:#d1291f !important;
 }
 
 
@@ -365,7 +365,7 @@ ul {
 }
 
 .main-menu li a:hover {
-	background: #22170e;
+	background: #fb8b24;
 }
 
 .main-menu li.active a {
@@ -385,7 +385,7 @@ ul {
 
 .sub-main-menu {
 	list-style: none;
-	background-color: #04091e;
+	background-color: #020031;
 	padding: 2px;
 	margin: 2px;
 	display: none;
@@ -428,7 +428,7 @@ ul {
 }
 
 .sub-main-menu li a:hover {
-	background: #b41906;
+	background: #fb8b24;
 
 }
 
@@ -554,7 +554,7 @@ ul {
 -----------------------*/
 
 .counter-section {
-	background: #a21200;
+	background: #020031;
 	padding: 40px 0;
 }
 
@@ -2139,7 +2139,7 @@ ul {
 }
 
 .single-feature .title {
-	background: #f5f2f2;
+	background: #fff;
 	padding: 20px 0px;
 	-webkit-transition: all 0.3s ease 0s;
 	-moz-transition: all 0.3s ease 0s;
@@ -2148,13 +2148,14 @@ ul {
 }
 
 .single-feature .title h4 {
-	color: #a21200
+	color: #7c1104;
 }
 
 .single-feature .desc-wrap {
 	padding: 20px;
-	background-color: #fff;
-	box-shadow: 0px 10px 30px 0px rgba(153, 153, 153, 0.1)
+	background-color: #7c1104;
+	box-shadow: 0px 10px 30px 0px rgba(153, 153, 153, 0.1);
+	color: #fff;
 }
 
 .single-feature .desc-wrap a {
@@ -2294,7 +2295,7 @@ img {
 	position: relative;
 	display: inline-block;
 	text-transform: uppercase;
-	background: #ef7e22;
+	background: #d1291f;
 	color: #fff;
 	padding: 18px 30px;
 	font-size: 14px;
