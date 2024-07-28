@@ -49,7 +49,7 @@
                 <div class="col-lg-4">
                     <div class="single-feature">
                         <div class="title">
-                            <h4 class="toggle-content" style="color: ##7c1104 !important;">Embedded Learning</h4>
+                            <h4 class="toggle-content" style="color: #7c1104 !important;">Embedded Learning</h4>
                         </div>
                         <div class="desc-wrap" style="text-align: justify; display: none;">
                             <p style="color: #fff;">
@@ -66,7 +66,7 @@
                 <div class="col-lg-4">
                     <div class="single-feature">
                         <div class="title">
-                            <h4 class="toggle-content" style="color: ##7c1104 !important;">Sustainability Focus</h4>
+                            <h4 class="toggle-content" style="color:#7c1104 !important;">Sustainability Focus</h4>
                         </div>
                         <div class="desc-wrap" style="text-align: justify; display: none;">
                             <p style="color: #fff;">
@@ -83,7 +83,7 @@
                 <div class="col-lg-4">
                     <div class="single-feature">
                         <div class="title">
-                            <h4 class="toggle-content" style="color: ##7c1104 !important;">Global Engagement</h4>
+                            <h4 class="toggle-content" style="color:#7c1104;">Global Engagement</h4>
                         </div>
                         <div class="desc-wrap" style="text-align: justify; display: none;">
                             <p style="color: #fff;">
