@@ -56,13 +56,12 @@
     .splide__slide {
       display: flex;
       flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
       background-color: #fff;
       padding: 1.5rem;
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
       margin: 0 0.5rem;
+	  transition: transform 0.3s, border 0.3s; 
+      border: 2px solid transparent; 
     }
 
     .splide__slide img {
@@ -79,6 +78,51 @@
     .splide__slide p {
       font-size: 0.8rem;
       color: #666;
+    }
+
+	.splide__slide.slide-1:hover {
+      border: 1px solid #0077b6;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .splide__slide.slide-2:hover {
+      border: 1px solid #8b008b;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .splide__slide.slide-3:hover {
+      border: 1px solid #ff6347;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+
+	.splide__slide.slide-4:hover {
+      border: 1px solid #8A9D41;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+
+	.splide__slide.slide-5:hover {
+      border: 1px solid #BC376F;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+
+	.splide__slide.slide-6:hover {
+      border: 1px solid #1EACD4;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+
+	.splide__slide.slide-7:hover {
+      border: 1px solid #FA3434;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+	
+	.splide__slide.slide-8:hover {
+      border: 1px solid #AFE911;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+
+	.splide__slide.slide-8:hover {
+      border: 1px solid #E911A1;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     }
   </style>
 
