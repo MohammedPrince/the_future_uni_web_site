@@ -56,9 +56,9 @@
     .splide__slide {
       display: flex;
       flex-direction: column;
-      justify-content: center;
+      /* justify-content: center;
       align-items: center;
-      text-align: center;
+      text-align: center; */
       background-color: #fff;
       padding: 1.5rem;
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
@@ -80,6 +80,48 @@
       font-size: 0.8rem;
       color: #666;
     }
+
+    .splide__slide.slide-1:hover {
+  border: 2px solid #0077b6;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.splide__slide.slide-2:hover {
+  border: 2px solid #8b008b;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.splide__slide.slide-3:hover {
+  border: 2px solid #ff6347;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.splide__slide.slide-4:hover {
+  border: 2px solid #2C27CE;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.splide__slide.slide-5:hover {
+  border: 2px solid #CA3B7E;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.splide__slide.slide-6:hover {
+  border: 2px solid #2DAE2D;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.splide__slide.slide-7:hover {
+  border: 2px solid #F5F90B;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.splide__slide.slide-8:hover {
+  border: 2px solid #F63A19;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+
   </style>
 
     <!-- slide show design End -->
