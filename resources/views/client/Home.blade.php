@@ -374,7 +374,53 @@
     </section>
     <div></div>
 
-    <section class="fact-section spad set-bg " data-setbg="./public/client/img/fact-bg.jpg">
+
+    <section class="fact-section spad set-bg" data-setbg="img/fact-bg.jpg">
+<div class="container">
+<div class="row">
+<div class="col-sm-6 col-lg-3 fact">
+<div class="fact-icon">
+<i class="ti-crown"></i>
+</div>
+<div class="fact-text">
+<h2>50</h2>
+<p>YEARS</p>
+</div>
+</div>
+<div class="col-sm-6 col-lg-3 fact">
+<div class="fact-icon">
+<i class="ti-briefcase"></i>
+</div>
+<div class="fact-text">
+<h2>80</h2>
+<p>TEACHERS</p>
+</div>
+</div>
+<div class="col-sm-6 col-lg-3 fact">
+<div class="fact-icon">
+<i class="ti-user"></i>
+</div>
+<div class="fact-text">
+<h2>500</h2>
+<p>STUDENTS</p>
+</div>
+</div>
+<div class="col-sm-6 col-lg-3 fact">
+<div class="fact-icon">
+<i class="ti-pencil-alt"></i>
+</div>
+<div class="fact-text">
+<h2>800+</h2>
+<p>LESSONS</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+
+
+    <!-- <section class="fact-section spad set-bg " data-setbg="./public/client/img/fact-bg.jpg">
 
         <div class="container">
             <section class="feature-area">
@@ -444,7 +490,7 @@
                 </div>
             </section>
         </div>
-    </section>
+    </section> -->
 
     <section class="courses-section spad">
         <div class="container">
@@ -572,6 +618,39 @@
             </div>
         </div>
     </section>
+
+    <div class="gallery-section">
+<div class="gallery">
+<div class="grid-sizer"></div>
+
+<div class="gallery-item gi-big set-bg" data-setbg="./public/storage/news_imgs/3_n.jpg">
+<a class="img-popup" href="./public/storage/news_imgs/3_n.jpg"><i class="ti-plus"></i></a>
+</div>
+
+<div class="gallery-item set-bg" data-setbg="./public/storage/event_imgs/events.png">
+<a class="img-popup" href="./public/storage/event_imgs/events.png"><i class="ti-plus"></i></a>
+</div>
+<div class="gallery-item set-bg" data-setbg="./public/storage/news_imgs/3.jpg">
+<a class="img-popup" href="./public/storage/news_imgs/3.jpg"><i class="ti-plus"></i></a>
+</div>
+<div class="gallery-item gi-long set-bg" data-setbg="./public/storage/news_imgs/7.jpg">
+<a class="img-popup" href="./public/storage/news_imgs/7.jpg"><i class="ti-plus"></i></a>
+</div>
+<div class="gallery-item gi-big set-bg" data-setbg="./public/storage/news_imgs/tcom_course.jpg">
+<a class="img-popup" href="./public/storage/news_imgs/tcom_course.jpg"><i class="ti-plus"></i></a>
+</div>
+<div class="gallery-item gi-long set-bg" data-setbg="./public/storage/event_imgs/fu_img.png">
+<a class="img-popup" href="./public/storage/event_imgs/fu_img.png"><i class="ti-plus"></i></a>
+</div>
+
+<div class="gallery-item set-bg" data-setbg="./public/client/img/main_imgs/general/fu.jpg">
+<a class="img-popup" href="./public/client/img/main_imgs/general/fu.jpg"><i class="ti-plus"></i></a>
+</div>
+<div class="gallery-item set-bg" data-setbg="img/gallery/7.jpg">
+<a class="img-popup" href="img/gallery/7.jpg"><i class="ti-plus"></i></a>
+</div>
+</div>
+</div>
 
 
     {{-- @if ($news_value) --}}
