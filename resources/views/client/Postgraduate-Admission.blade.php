@@ -1,92 +1,10 @@
 @extends('components.client-layout')
 @section('main-client-content')
-<style>
 
-    .container_newenrollprocess {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 40px;
-    }
-
-    .header {
-      text-align: center;
-      margin-bottom: 40px;
-    }
-
-    .header h1 {
-      font-size: 32px;
-      font-weight: 700;
-      color: #333;
-    }
-
-    .enrollment-steps {
-      display: grid;
-      /* grid-template-columns: repeat(2, 1fr); */
-	  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      grid-gap: 30px;
-    }
-
-    .step {
-      background-color: #fff;
-      border-radius: 8px;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-      padding: 30px;
-      display: flex;
-      align-items: center;
-	  transition: transform 0.3s ease-in-out;
-    }
-
-    .step-number {
-      font-size: 36px;
-      font-weight: 700;
-      color: #E57C23;;
-      margin-right: 20px;
-    }
-
-    .step-content h3 {
-      font-size: 18px;
-      font-weight: 500;
-      color: #333;
-      margin-bottom: 10px;
-    }
-
-    .step-content p {
-      font-size: 14px;
-      color: #666;
-      line-height: 1.6;
-    }
-
-	.step:hover {
-      transform: translateY(-5px);
-    }
-
-
-	@media (max-width: 768px) {
-      .enrollment-steps {
-        grid-template-columns: 1fr;
-      }
-
-      .step {
-        padding: 30px;
-      }
-
-      .step-number {
-        font-size: 40px;
-      }
-
-      .step h3 {
-        font-size: 18px;
-      }
-
-      .step p {
-        font-size: 15px;
-      }
-    }
-  </style>
 
     <div class="site-breadcrumb">
         <div class="container">
-            <a href="/Home"><i class="fa fa-home"></i> Home</a> <i class="fa fa-angle-right"></i>
+            <a href="{{route('Home')}}"><i class="fa fa-home"></i> Home</a> <i class="fa fa-angle-right"></i>
             <span style="color: #d1291f;">Postgraduate-Admission</span>
         </div>
     </div>
@@ -302,11 +220,7 @@
     </div>
 
 </div>
-								<!-- <div class="col" style="background-color: rgba(255, 255, 255, 0.53);">
-									<a href="Postgraduates-Programs" ><button class="modal-button" >Postgraduates Programs</button></a>
-								</div> -->
 
-			
 
 
 						  <p></p>
