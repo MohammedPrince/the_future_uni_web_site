@@ -220,9 +220,63 @@
     </div>
 
 </div>
+<div class="hr-sect new4"><span>Download Forms</span></div>
+<section class="service-section spad">
+<div class="container services">
+<!-- <div class="section-title text-center">
+<h3>OUR SERVICES</h3>
+<p>We provides the opportunity to prepare for life</p>
+</div> -->
+<div class="row">
+<div class="col-lg-4 col-sm-6 service-item">
+<div class="service-content">
+<a href="public/storage/documents/general/fu_post_admission_registration.pdf" target="_blank"><button class="modal-button" >Admission & Registration</button></a>
+<p>  </p>
+</div>
+</div>
+<div class="col-lg-4 col-sm-6 service-item">
+
+<div class="service-content">
+<a href="public/storage/documents/general/fu_post_finaldisscussion.pdf" target="_blank"><button class="modal-button" >Final Discussion</button></a>
+<p>  </p>
+</div>
+</div>
+<div class="col-lg-4 col-sm-6 service-item">
+
+<div class="service-content">
+<a href="public/storage/documents/general/fu_post_correction.pdf" target="_blank"><button class="modal-button" >Correction Approval</button></a>
+
+<p>   </p>
+</div>
+</div>
+<div class="col-lg-4 col-sm-6 service-item">
+<div class="service-content">
+<a href="public/storage/documents/general/fu_post_freez.pdf" target="_blank"></a><button class="modal-button" > Semester Freezing </button></a>
+
+<p>   </p>
+</div>
+</div>
+<div class="col-lg-4 col-sm-6 service-item">
+
+<div class="service-content">
+<a href="public/storage/documents/general/fu_post_re-registration.pdf" target="_blank"><button class="modal-button" >SEM Re-registration</button></a>
+
+<p>   </p>
+</div>
+</div>
+<div class="col-lg-4 col-sm-6 service-item">
+<div class="service-content">
+<a href="public/storage/documents/general/fu_post_re-study.pdf" target="_blank"><button class="modal-button" >Restudy Courses</button></a>
+
+<p>   </p>
+</div>
+</div>
+</div>
+</div>
+</section>
 
 
-
+<!-- 
 						  <p></p>
 						  <div class="hr-sect new4"><span>Programs Details</span></div>
 							<p></p>
@@ -235,8 +289,9 @@
 
 							</div>
 
-						<p></p>
-						  <div class="hr-sect new4"><span>Download Forms</span></div>
+						<p></p> -->
+
+						  <!-- <div class="hr-sect new4"><span>Download Forms</span></div>
 						<p></p>
 
 						<div class="container">
@@ -262,8 +317,10 @@
 									<a href="public/storage/documents/general/fu_post_re-study.pdf" target="_blank"><button class="modal-button" >Restudy Courses</button></a>
 								</div>
 							</div>
+						</div> -->
 
-						</div>
+
+
 						
 					</div>
 				</div>

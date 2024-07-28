@@ -80,7 +80,7 @@
                                                 <h5 class="card-title mb-0">Link Date</h5>
                                             </div>
                                             <div class="card-body">
-                                                <input type="date" value="{{ old('link_date') }}"
+                                                <input  type="date" value="{{ old('link_date') }}"
                                                     name="link_date" class="form-control"
                                                     placeholder="Link Date">
                                                 @error('link_date')
