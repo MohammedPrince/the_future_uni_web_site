@@ -54,10 +54,11 @@ class EventsController extends Controller
         $news='';
         $news_faculty_id='';
         $news_value = false;
-        $event = Events::find($event_id);
+        $new_event_id = base64_decode($event_id);
+        $event = Events::find($new_event_id);
 
-        $faculty_id = Events :: GetEventColumn('faculty_id',$event_id);
-        $event_by_id = Events :: GetEventColumn('event_by',$event_id);
+        $faculty_id = Events :: GetEventColumn('faculty_id',$new_event_id);
+        $event_by_id = Events :: GetEventColumn('event_by',$new_event_id);
 
         $event_office = MainApp::getFacultiesAndOffices($faculty_id) ;
 

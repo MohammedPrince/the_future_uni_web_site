@@ -77,9 +77,9 @@
                                 @endforeach
                                 <div class="rp-content">
                             <!-- <h6 style="font-size: 19px"><a href="/News-Details/{{ $news_result->id }}" style="color:black"> -->
-                            <h6 style="font-size: 19px"><a href="{{route('newsDetails' , $news_result->id)}}" style="color:black">
+                            <h6 style="font-size: 19px"><a href="{{route('newsDetails' , base64_encode($news_result->id))}}" style="color:black">
 
-                                
+                            
                                 {{ $news_result->news_title }}</a></h6>
                             <p><i class="fa fa-calendar-o"></i> <strong>{{ $news_result->news_date }}</strong></p>
                                 </div>

@@ -51,10 +51,11 @@ class NewsController extends Controller
         $events='';
 
         $event_value = false;
-        $news = News::find($news_id);
+        $new_news_id  = base64_decode($news_id);
+        $news = News::find($new_news_id);
 
-        $faculty_id = News :: GetNewsColumn('faculty_id',$news_id);
-        $event_by_id = News :: GetNewsColumn('news_by',$news_id);
+        $faculty_id = News :: GetNewsColumn('faculty_id',$new_news_id);
+        $event_by_id = News :: GetNewsColumn('news_by',$new_news_id);
 
         $news_office = MainApp::getFacultiesAndOffices($faculty_id) ;
 

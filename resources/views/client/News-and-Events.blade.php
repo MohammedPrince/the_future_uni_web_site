@@ -30,7 +30,7 @@
 						@endforeach
 
 						<div class="post-content">
-							<h3><a href="Event-Details/{{ $event->id }}">{{ $event->event_title }}</a></h3>
+							<h3><a href="{{route('eventDetails' , base64_encode($event->id))}}">{{ $event->event_title }}</a></h3>
 
 							<div class="post-meta">
 								<span style="color:black"><i class="fa fa-calendar-o"></i> {{ $event->event_date }}</span>
@@ -39,7 +39,9 @@
 
 							<p style="font-size:17px;">
 								{{ Str::words($event->event_desc, 3, '...') }}
-							<span><a href="Event-Details/{{$event->id}}" style="color:#d1291f; font-size:16px;" >Read More</a></span>
+							<!-- <span><a href="Event-Details/{{$event->id}}" style="color:#d1291f; font-size:16px;" >Read More</a></span> -->
+							<span><a href="{{route('eventDetails' , base64_encode($event->id))}}" style="color:#d1291f; font-size:16px;" >Read More</a></span>
+							
 							</p>
 							
 						</div>
@@ -67,7 +69,9 @@
 						<div class="post-thumb set-bg" data-setbg="public/storage/news_imgs/{{$image}}"></div>
 						@endforeach
 						<div class="post-content">
-							<h3><a href="News-Details/{{ $newz->id }}">{{ $newz->news_title }}</a></h3>
+							<!-- <h3><a href="News-Details/{{ $newz->id }}">{{ $newz->news_title }}</a></h3> -->
+							<h3><a href="{{route('newsDetails' , base64_encode($newz->id))}}">{{ $newz->news_title }}</a></h3>
+
 
 							<div class="post-meta">
 								<span><i class="fa fa-calendar-o"></i> {{ $newz->news_date }}</span>
@@ -76,7 +80,7 @@
 
 							<p style="font-size:17px;">
 								{{ Str::words($newz->event_desc, 3, '...') }}
-							<span><a href="News-Details/{{$newz->id}}" style="color:#d1291f; font-size:16px;" >Read More</a></span>
+							<span><a href="{{route('newsDetails' , base64_encode($newz->id))}}" style="color:#d1291f; font-size:16px;" >Read More</a></span>
 							</p>
 						</div>
 					</div>
