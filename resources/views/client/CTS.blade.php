@@ -113,6 +113,8 @@
 
                         <p><div class="hr-sect new6"><span>CTS Team</span></div></p>
 
+                        <!-- Real One start -->
+
                         <section class="testimonial-section spad" style="background-color: white;padding-top: 0px">
                             <div class="container">
                                 <div class="section-title text-center">
@@ -253,6 +255,116 @@
                                 </div>
                             </div>
                         </section>
+
+                        <!-- Real One End -->
+
+
+
+<div class="col-md-6 col-lg-3">
+<div class="member">
+<div class="member-pic set-bg" data-setbg="img/member/1.jpg">
+<div class="member-social">
+<a href><i class="fa fa-facebook"></i></a>
+<a href><i class="fa fa-twitter"></i></a>
+<a href><i class="fa fa-pinterest"></i></a>
+</div>
+</div>
+<h5>Sasha Johnson</h5>
+<p>Literature Teacher</p>
+</div>
+</div>
+<div class="col-md-6 col-lg-3">
+<div class="member">
+<div class="member-pic set-bg" data-setbg="img/member/2.jpg">
+<div class="member-social">
+<a href><i class="fa fa-facebook"></i></a>
+<a href><i class="fa fa-twitter"></i></a>
+<a href><i class="fa fa-pinterest"></i></a>
+</div>
+</div>
+<h5>Darmian Shaw</h5>
+<p>Physics Teacher</p>
+</div>
+</div>
+<div class="col-md-6 col-lg-3">
+<div class="member">
+<div class="member-pic set-bg" data-setbg="img/member/3.jpg">
+<div class="member-social">
+<a href><i class="fa fa-facebook"></i></a>
+<a href><i class="fa fa-twitter"></i></a>
+<a href><i class="fa fa-pinterest"></i></a>
+</div>
+</div>
+<h5>Joshua Matt</h5>
+<p>Matt Teacher</p>
+</div>
+</div>
+<div class="col-md-6 col-lg-3">
+<div class="member">
+<div class="member-pic set-bg" data-setbg="img/member/4.jpg">
+<div class="member-social">
+<a href><i class="fa fa-facebook"></i></a>
+<a href><i class="fa fa-twitter"></i></a>
+<a href><i class="fa fa-pinterest"></i></a>
+</div>
+</div>
+<h5>Taylor Launer</h5>
+<p>Music Teacher</p>
+</div>
+</div>
+<div class="col-md-6 col-lg-3">
+<div class="member">
+<div class="member-pic set-bg" data-setbg="img/member/4.jpg">
+<div class="member-social">
+<a href><i class="fa fa-facebook"></i></a>
+<a href><i class="fa fa-twitter"></i></a>
+<a href><i class="fa fa-pinterest"></i></a>
+</div>
+</div>
+<h5>Taylor Launer</h5>
+<p>Music Teacher</p>
+</div>
+</div><div class="col-md-6 col-lg-3">
+<div class="member">
+<div class="member-pic set-bg" data-setbg="img/member/4.jpg">
+<div class="member-social">
+<a href><i class="fa fa-facebook"></i></a>
+<a href><i class="fa fa-twitter"></i></a>
+<a href><i class="fa fa-pinterest"></i></a>
+</div>
+</div>
+<h5>Taylor Launer</h5>
+<p>Music Teacher</p>
+</div>
+</div>
+</div><div class="col-md-6 col-lg-3">
+<div class="member">
+<div class="member-pic set-bg" data-setbg="img/member/4.jpg">
+<div class="member-social">
+<a href><i class="fa fa-facebook"></i></a>
+<a href><i class="fa fa-twitter"></i></a>
+<a href><i class="fa fa-pinterest"></i></a>
+</div>
+</div>
+<h5>Taylor Launer</h5>
+<p>Music Teacher</p>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
                         <!-- <p><div class="hr-sect new6"><span>CTS Labs & Units</span></div></p>
