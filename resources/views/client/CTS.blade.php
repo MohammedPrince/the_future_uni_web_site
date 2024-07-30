@@ -115,7 +115,7 @@
 
                         <!-- Real One start -->
 
-                        <section class="testimonial-section spad" style="background-color: white;padding-top: 0px">
+                        <!-- <section class="testimonial-section spad" style="background-color: white;padding-top: 0px">
                             <div class="container">
                                 <div class="section-title text-center">
                                     
@@ -254,7 +254,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </section>
+                        </section> -->
 
                         <!-- Real One End -->
 
@@ -262,15 +262,16 @@
 
 <div class="col-md-6 col-lg-3">
 <div class="member">
-<div class="member-pic set-bg" data-setbg="img/member/1.jpg">
+<div class="member-pic set-bg" data-setbg="{{asset('./public/storage/staff_imgs/IMG_7417.jpg')}}">
 <div class="member-social">
-<a href><i class="fa fa-facebook"></i></a>
-<a href><i class="fa fa-twitter"></i></a>
-<a href><i class="fa fa-pinterest"></i></a>
+<a href = "https://sd.linkedin.com/in/khalidkaradh" target="_blank"><i class="fa fa-linkedin-square"></i></a>
+<a href = "https://scholar.google.com/citations?user=kzPAeHMAAAAJ&hl=en&oi=ao" target="_blank"><i class="fa fa-graduation-cap"></i></a>
+<a href = "mailto:khalidkaradh@fu.edu.sd"><i class="fa fa-envelope" target="_blank"></i></a>
+
 </div>
 </div>
-<h5>Sasha Johnson</h5>
-<p>Literature Teacher</p>
+<h5>Se. Dr. Khalid Sheikhidris Mohamed</h5>
+<p>CTS Director</p>
 </div>
 </div>
 <div class="col-md-6 col-lg-3">
@@ -282,8 +283,8 @@
 <a href><i class="fa fa-pinterest"></i></a>
 </div>
 </div>
-<h5>Darmian Shaw</h5>
-<p>Physics Teacher</p>
+<h5>Mr. Mutaz Abdelmonem</h5>
+<p>Junior Maintenance & Technical Support Engineer</p>
 </div>
 </div>
 <div class="col-md-6 col-lg-3">
@@ -295,8 +296,8 @@
 <a href><i class="fa fa-pinterest"></i></a>
 </div>
 </div>
-<h5>Joshua Matt</h5>
-<p>Matt Teacher</p>
+<h5>Ms. Bashria Saidna</h5>
+<p>Junior Maintenance & Technical Support Engineer</p>
 </div>
 </div>
 <div class="col-md-6 col-lg-3">
@@ -308,10 +309,11 @@
 <a href><i class="fa fa-pinterest"></i></a>
 </div>
 </div>
-<h5>Taylor Launer</h5>
-<p>Music Teacher</p>
+<h5>Mr. Abdelrahman El-Tijani</h5>
+<p>Junior Maintenance & Technical Support Engineer</p>
 </div>
 </div>
+
 <div class="col-md-6 col-lg-3">
 <div class="member">
 <div class="member-pic set-bg" data-setbg="img/member/4.jpg">
@@ -321,10 +323,35 @@
 <a href><i class="fa fa-pinterest"></i></a>
 </div>
 </div>
-<h5>Taylor Launer</h5>
-<p>Music Teacher</p>
+<h5>Mr. Mazen Khalafalla Hassan</h5>
+<p>Junior Network Engineer</p>
 </div>
 </div><div class="col-md-6 col-lg-3">
+<div class="member">
+<div class="member-pic set-bg" data-setbg="img/member/4.jpg">
+<div class="member-social">
+<a href><i class="fa fa-facebook"></i></a>
+<a href><i class="fa fa-twitter"></i></a>
+<a href><i class="fa fa-pinterest"></i></a>
+</div>
+</div>
+<h5>Ms. Asmaa Aamir</h5>
+<p>Junior Maintenance & Technical Support Engineer</p>
+</div>
+</div><div class="col-md-6 col-lg-3">
+<div class="member">
+<div class="member-pic set-bg" data-setbg="img/member/4.jpg">
+<div class="member-social">
+<a href><i class="fa fa-facebook"></i></a>
+<a href><i class="fa fa-twitter"></i></a>
+<a href><i class="fa fa-pinterest"></i></a>
+</div>
+</div>
+<h5>Mr. Bahaa A. Mutaal</h5>
+<p>Junior Maintenance & Technical Support Engineer</p>
+</div>
+</div>
+<!-- <div class="col-md-6 col-lg-3">
 <div class="member">
 <div class="member-pic set-bg" data-setbg="img/member/4.jpg">
 <div class="member-social">
@@ -336,20 +363,7 @@
 <h5>Taylor Launer</h5>
 <p>Music Teacher</p>
 </div>
-</div>
-</div><div class="col-md-6 col-lg-3">
-<div class="member">
-<div class="member-pic set-bg" data-setbg="img/member/4.jpg">
-<div class="member-social">
-<a href><i class="fa fa-facebook"></i></a>
-<a href><i class="fa fa-twitter"></i></a>
-<a href><i class="fa fa-pinterest"></i></a>
-</div>
-</div>
-<h5>Taylor Launer</h5>
-<p>Music Teacher</p>
-</div>
-</div>
+</div> -->
 
 
 
