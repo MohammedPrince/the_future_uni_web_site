@@ -32,18 +32,17 @@
 
 
 						<div>
-							<table class="table table-bordered table-hover">
+						<table class="table table-bordered table-hover">
 								<tbody>
 									<tr>
-										<td>Multimedia University, Malaysia</td>
-										<td>University Telecom SDN. BHD., Malaysia</td>
-										<td>University of Malaya (UM), Malaysia</td>
-										<td>Perta University Amman Jordan</td>
-										
+										<td>Nottingham University, Malaysia Campus</td>
+										<td>Boston University, USA</td>
+										<td>Johns Hopkins University, USA</td>
+										<td>Penn State University, USA</td>
 									</tr>
 									<tr>
-									    <td>University Telematica, Internazionale UNINETTUNO, Rome, Italey</td>
-										<td>University of Turino, Italy</td>
+										<td>Universita Telematica Internazionale UNINETTUNO, Rome</td>
+										<td>Universitas Paramadina, Indonesia</td>
 										<td>Addis Ababa (AAU), Ethiopia</td>
 										<td>CHUNGNAM University, Korea (CNU)</td>
 									</tr>
@@ -56,48 +55,26 @@
 									<tr>
 										<td>KANGNAM University (KNU), Korea</td>
 										<td>Technical University of SOFIA, Republic of Bulgaria</td>
-										<td>Universita' di Venezia (IUAV), Venice Italy</td>
+										<td>Universita' di Venezia (IUAV), Venice Italy;</td>
 										<td>University of Juba (UOJ), South Sudan</td>
 									</tr>
 									<tr>
 										<td>Universitas Trisakti, Indonesia</td>
 										<td>Islamic University of As-Syafiiyad</td>
 										<td>University of Indonesia</td>
-										<td>TYOTO University, Japan</td>
-									</tr>
-									<tr>
-										<td>Universita' di Venezia (IUAV) Venice Italy</td>
-										<td>Islamic Word Academy of Sciences, Amman-Jordan</td>
-										<td>Sofia University "St. Kliment Ohridski", Bulgaria</td>
-										<td>University of Mining and Geology "St. Ivan Rilski" (UMG), Bulgaria</td>
-									</tr>
-									<tr>
-										<td>Addis Ababa (AAU), Ethiopia</td>
-										<td>University of Juba (UOJ), South Sudan</td>
-										<td>CHUNGNAM University, Korea (CNU)</td>
-										<td>Islamic University, As-Shafiya University, Indonesia</td>
-									</tr>
-									<tr>
-										<td>Paramadina University, Jakarta Indonesia</td>
-										<td>TRISAKYI University, Indonesia</td>
-										<td>Iniversitas of Indonesia</td>
-										<td>Institut Teknolo</td>
-									</tr>
-									<tr>
-										<td></td>
-										<td></td>
-										<td></td>
 										<td></td>
 									</tr>
 									<tr>
-										<td></td>
-										<td></td>
-										<td></td>
-										<td></td>
+										<td>University de Pau et Des Oays de L' Adour (UPPA)</td>
+										<td>University of Trieste Italy</td>
+										<td>Nottingham University, Malaysia</td>
+										<td>ADAMA University, Malaysia</td>
 									</tr>
 								</tbody>
 							</table>
 						</div>
+
+	
 
 						<div class="hr-sect new4"><span>Local Linkages</span></div>
 						<div>
@@ -126,7 +103,7 @@
 									</tr>
 									<tr>
 										<td>SUDACAD</td>
-										<td></td>
+										<td>SUDAPET Company Ltd</td>
 										<td></td>
 										<td></td>
 									</tr>

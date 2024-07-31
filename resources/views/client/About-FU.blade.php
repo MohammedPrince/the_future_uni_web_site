@@ -398,7 +398,7 @@
                     <div class="col-lg-3 col-md-3">
                         <div class="single-feature">
                             <div class="desc-wrap">
-                                <img src="./public/client/img/main_imgs/trustee/dr_ghasan.png" alt="FOUNDERS, INVESTORS, AND REPRESENTATIVES">
+                                <img src="./public/client/img/main_imgs/trustee/dr_ghassan.png" alt="FOUNDERS, INVESTORS, AND REPRESENTATIVES">
                               
                             </div>
                             <div>
