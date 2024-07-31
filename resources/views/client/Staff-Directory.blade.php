@@ -21,7 +21,9 @@
                             <!-- <div class="hr-sect new4"><span>Directory of Expertise</span></div> -->
 
                             <p>
-                            <blockquote  style="background-color: whitesmoke;">
+                            <!-- <blockquote  style="background-color: whitesmoke;"> -->
+
+                            <div style="background-color: whitesmoke;">
                                 <span style="font-size: 18px;">
 
                                 <section class="contact-page spad pt-0" >
@@ -114,7 +116,8 @@
                                     
                   
                                 </span>
-                            </blockquote>
+                            </div>
+                            <!-- </blockquote> -->
                             </p>
 
                             <!-- <div class="hr-sect new4"><span></span></div> -->

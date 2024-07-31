@@ -62,7 +62,7 @@ button:hover {
         <h2>Page Not Found</h2>
         <p>Sorry, the page you're looking for doesn't exist.</p>
         <!-- <button onclick="history.back()">Go Back</button> -->
-        <button onclick="location.href='Home' ">Home</button>
+        <!-- <button onclick="location.href='Home' ">Home</button> -->
     </div>
 </body>
 </html>

@@ -46,16 +46,16 @@ button:hover {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>404 - Page Not Found</title>
+    <title>500 - Internal Server Error</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
-        <h1>404</h1>
-        <h2>Page Not Found</h2>
-        <p>Sorry, the page you're looking for doesn't exist.</p>
+        <h1>500</h1>
+        <h2>Internal Server Error</h2>
+        <!-- <p>Sorry, the page you're looking for doesn't exist.</p> -->
         <!-- <button onclick="history.back()">Go Back</button> -->
-        <button onclick="location.href='Home' ">Home</button>
+        <!-- <button onclick="location.href='Home' ">Home</button> -->
     </div>
 </body>
 </html>

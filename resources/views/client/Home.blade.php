@@ -162,7 +162,7 @@
         <p style="color: black;">
                 
                 <div id="IT" >
-                    <p class="text-center"><strong>Faculty of Information Technology<br>IT</strong></p>
+                    <p class="text-center"><strong> <h3>Faculty of Information Technology</h3> <br></strong></p>
 
                     <div style="text-align: justify;">
                     faculty of information technology at our university is at the forefront of digital innovation. With a focus on emerging technologies, our curriculum equips students with the skills to design, develop, and deploy transformative IT solutions. 
@@ -177,7 +177,7 @@
         <p style="color: black;">
                
 <div id="ENG" style="text-align: justify;">
-<p class="text-center"><strong>Faculty of Engineering<br>ENG</strong></p>
+<p class="text-center"><strong><h3 style="text-align: center;"> Faculty of Engineering </h3> <br></strong></p>
 <div style="text-align: justify;"> Our faculty of engineering is renowned for its cutting-edge curriculum, state-of-the-art facilities, and world-class faculty. By blending theoretical knowledge with practical application, we empower our students to tackle complex challenges and develop innovative solutions that drive progress in various industries.
                             
     </div>
@@ -194,7 +194,7 @@
         <p style="color: black;">
 					
                     <div id="SCI" >
-                        <p class="text-center"><strong>Faculty of Computer Science<br>SCI</strong></p>
+                        <p class="text-center"><strong><h3>Faculty of Computer Science</h3><br></strong></p>
                         <div style="text-align: justify;">
                         Our faculty of computer science is dedicated to cultivating the next generation of innovators and problem-solvers. By blending cutting-edge theory with practical application, we empower our students to master the fundamentals of computer science and push the boundaries of what's possible. 
                         </div>
@@ -208,7 +208,7 @@
                 <p style="color: black;">
 					
                     <div id="TCOM" >
-                        <p class="text-center"><strong>Faculty of Telecommunication Engineering<br>TCOM</strong></p>
+                        <p class="text-center"><strong><h3>Faculty of Telecommunication Engineering</h3><br></strong></p>
                         <div style="text-align: justify;">
                         The faculty of telecommunication engineering and space technology is at the forefront of technological advancement, committed to shaping the future of communication and space exploration by integrating emerging trends and equipping students with the skills to design, develop, and deploy transformative solutions that redefine the boundaries of what's possible.                        </div>
                     
@@ -224,7 +224,7 @@
                      <p style="color: black;">
 					
                     <div id="ARCH" >
-                        <p class="text-center"><strong>Faculty of Architecture Engineering<br>ARCH</strong></p>
+                        <p class="text-center"><strong><h3> Faculty of Architecture Engineering </h3><br></strong></p>
                         <div style="text-align: justify;">
                         The faculty of architecture engineering at our university is dedicated to cultivating visionary designers and innovative problem-solvers. By blending the art of architecture with the science of engineering, we empower our students to create sustainable, functional, and aesthetically-pleasing structures that enhance the built environment. 
                         </div>
@@ -239,7 +239,7 @@
                      <p style="color: black;">
 					
                     <div id="FAD">
-                        <p class="text-center"><strong>Faculty of Fine Arts and Design<br>FAD</strong></p>
+                        <p class="text-center"><strong> <h3>Faculty of Fine Arts and Design</h3> <br></strong></p>
                         <div style="text-align: justify;">
                         The faculty of fine arts and design at our university is a vibrant hub of creativity and innovation. By nurturing the artistic talents and technical skills of our students, we empower them to express their unique visions through a diverse range of mediums, from visual arts and graphic design to performance and digital media. 
                         </div>
@@ -254,7 +254,7 @@
                              <p style="color: black;">
 					
                     <div id="GIS">
-                        <p class="text-center"><strong>Faculty of Geoinformatics<br>GIS</strong></p>
+                        <p class="text-center"><strong><h3>Faculty of Geoinformatics</h3><br></strong></p>
                         <div style="text-align: justify;">
                         The faculty of geoinformatics at our university is at the forefront of spatial data analysis and visualization. By integrating cutting-edge technologies like GIS, remote sensing, and geospatial modeling, we equip our students with the skills to collect, interpret, and apply geospatial intelligence to solve complex challenges in fields ranging from urban planning to environmental management.
                         </div>
@@ -271,7 +271,7 @@
                              <p style="color: black;">
         
         <div id="BA" >
-            <p class="text-center"><strong>Faculty of Business Administration<br>BA</strong></p>
+            <p class="text-center"><strong><h3>Faculty of Business Administration</h3><br></strong></p>
             <div style="text-align: justify;">
             The faculty of business administration at our university is dedicated to nurturing the next generation of business leaders and entrepreneurs. By blending theoretical knowledge with practical application, we empower our students to develop the strategic thinking, decision-making, and problem-solving skills needed to thrive in the dynamic global marketplace. 
             </div>
@@ -288,7 +288,7 @@
                                      <p style="color: black;">
 					
                     <div id="POST">
-                         <p class="text-center"><strong>Faculty of Postgraduate Studies<br>POST</strong></p>
+                         <p class="text-center"><strong><h3>Faculty of Postgraduate Studies</h3><br></strong></p>
                         <div style="text-align: justify;">
                         The faculty of postgraduate studies at our university is a hub of advanced research and specialized knowledge. Catering to students seeking to deepen their expertise or transition into academic or research-focused careers, we offer a diverse range of master's and doctoral programs.
                         </div>
@@ -380,11 +380,11 @@
 <div class="row">
 <div class="col-sm-6 col-lg-3 fact">
 <div class="fact-icon">
-<i class="ti-crown"></i>
+<i class="ti-search"></i>
 </div>
 <div class="fact-text">
-<h2>50</h2>
-<p>YEARS</p>
+<h2>1991</h2>
+<p>ESTABLISHED</p>
 </div>
 </div>
 <div class="col-sm-6 col-lg-3 fact">
@@ -392,8 +392,8 @@
 <i class="ti-briefcase"></i>
 </div>
 <div class="fact-text">
-<h2>80</h2>
-<p>TEACHERS</p>
+<h2>35</h2>
+<p>PROGRAMS</p>
 </div>
 </div>
 <div class="col-sm-6 col-lg-3 fact">
@@ -401,17 +401,17 @@
 <i class="ti-user"></i>
 </div>
 <div class="fact-text">
-<h2>500</h2>
-<p>STUDENTS</p>
+<h2>2000+</h2>
+<p>ACTIVE STUDENTS</p>
 </div>
 </div>
 <div class="col-sm-6 col-lg-3 fact">
 <div class="fact-icon">
-<i class="ti-pencil-alt"></i>
+<i class="ti-crown"></i>
 </div>
 <div class="fact-text">
-<h2>800+</h2>
-<p>LESSONS</p>
+<h2>8000+</h2>
+<p>GRADUATES</p>
 </div>
 </div>
 </div>
@@ -699,7 +699,7 @@
         <div class="container">
 
             <div class="section-title text-center">
-                <h3>Partnerships</h3>
+                <h3>Partners</h3>
                 <!-- <p>Future University professional partners</p> -->
             </div>
 
@@ -743,17 +743,17 @@
                     
                     <div class="col">
                         <div class="col" style="background-color: rgba(255, 255, 255, 0.51);">
-                            <img src="./public/client/img/main_imgs/members/jhon.png" height="150px" width="150px"
+                            <img src="./public/client/img/main_imgs/members/nottingham_university.png" height="150px" width="150px"
                                 alt="" loading="lazy">
 
-                            <a href="https://www.jhu.edu/" target="_blank">
-                                <h6 class="text-center" style="margin-top: 10px"><strong>Johns Hopkins University</strong>
+                            <a href="https://www.nottingham.ac.uk/" target="_blank">
+                                <h6 class="text-center" style="margin-top: 10px"><strong>University of Nottingham</strong>
                                 </h6>
                             </a>
 
                         </div>
                     </div>
-                    <div class="col">
+                    <!-- <div class="col">
                         <div class="col" style="background-color: rgba(255, 255, 255, 0.51);">
                             <img src="./public/client/img/main_imgs/members/boston_uni.png" height="150px" width="150px"
                                 alt="" loading="lazy">
@@ -763,7 +763,7 @@
                             </a>
 
                         </div>
-                    </div>
+                    </div> -->
                     <div class="col">
                         <div class="col" style="background-color: rgba(255, 255, 255, 0.51);">
                             <img src="./public/client/img/main_imgs/members/uni_of_ini.png" height="150px" width="150px"

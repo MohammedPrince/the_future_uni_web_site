@@ -276,7 +276,7 @@
 </div>
 <div class="col-md-6 col-lg-3">
 <div class="member">
-<div class="member-pic set-bg" data-setbg="img/member/2.jpg">
+<div class="member-pic set-bg" data-setbg="{{asset('./public/storage/staff_imgs/mutazCTS.jpg')}}">
 <div class="member-social">
 <a href><i class="fa fa-facebook"></i></a>
 <a href><i class="fa fa-twitter"></i></a>
@@ -289,7 +289,7 @@
 </div>
 <div class="col-md-6 col-lg-3">
 <div class="member">
-<div class="member-pic set-bg" data-setbg="img/member/3.jpg">
+<div class="member-pic set-bg" data-setbg="{{asset('./public/storage/staff_imgs/woman_user_noimage.png')}}">
 <div class="member-social">
 <a href><i class="fa fa-facebook"></i></a>
 <a href><i class="fa fa-twitter"></i></a>
@@ -302,7 +302,7 @@
 </div>
 <div class="col-md-6 col-lg-3">
 <div class="member">
-<div class="member-pic set-bg" data-setbg="img/member/4.jpg">
+<div class="member-pic set-bg" data-setbg="{{asset('./public/storage/staff_imgs/test57992.jpg')}}">
 <div class="member-social">
 <a href><i class="fa fa-facebook"></i></a>
 <a href><i class="fa fa-twitter"></i></a>
@@ -328,7 +328,7 @@
 </div>
 </div><div class="col-md-6 col-lg-3">
 <div class="member">
-<div class="member-pic set-bg" data-setbg="img/member/4.jpg">
+<div class="member-pic set-bg" data-setbg="{{asset('./public/storage/staff_imgs/asmaCTS.jpg')}}">
 <div class="member-social">
 <a href><i class="fa fa-facebook"></i></a>
 <a href><i class="fa fa-twitter"></i></a>
@@ -340,7 +340,7 @@
 </div>
 </div><div class="col-md-6 col-lg-3">
 <div class="member">
-<div class="member-pic set-bg" data-setbg="img/member/4.jpg">
+<div class="member-pic set-bg" data-setbg="{{asset('./public/storage/staff_imgs/test57992.jpg')}}">
 <div class="member-social">
 <a href><i class="fa fa-facebook"></i></a>
 <a href><i class="fa fa-twitter"></i></a>
