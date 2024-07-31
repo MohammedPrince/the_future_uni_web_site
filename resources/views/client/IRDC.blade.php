@@ -182,7 +182,7 @@
 
                         </div>
 
-                        <div class="hr-sect new4" style="padding-top: 30px"><span>Service</span></div>
+                        <!-- <div class="hr-sect new4" style="padding-top: 30px"><span>Service</span></div>
 
                         <p style="font-size: 16px;padding-top: 0px">
                             We are committed towards providing extraordinary customer satisfaction models that could aid in approaching and achieving the promotional goals and measures. 
@@ -191,7 +191,7 @@
                             developed, and delivered to achieve the organizational goals, strategies, and values.
                         </p>
     
-                        <hr class="new4">
+                        <hr class="new4"> -->
 
                       </div>
                     <p></p>
