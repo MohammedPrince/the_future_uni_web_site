@@ -52,7 +52,7 @@
                             <h4 class="toggle-content" style="color: #7c1104 !important;">Embedded Learning</h4>
                         </div>
                         <div class="desc-wrap" style="text-align: justify; display: none;">
-                            <p style="color: #fff;">
+                            <p style="color: #281e32;">
                                 Our university supports embedded learning by integrating real-world applications into
                                 courses, facilitating experiential opportunities like internships and service-learning
                                 projects, and promoting collaborative research partnerships. This commitment ensures that
@@ -69,7 +69,7 @@
                             <h4 class="toggle-content" style="color:#7c1104 !important;">Sustainability Focus</h4>
                         </div>
                         <div class="desc-wrap" style="text-align: justify; display: none;">
-                            <p style="color: #fff;">
+                            <p style="color: #281e32;">
                                 Sustainability is at the core of our university's mission as we integrate sustainable
                                 practices and environmental stewardship throughout our curriculum, campus operations, and
                                 community engagement initiatives. By fostering a deep understanding of sustainable
@@ -86,7 +86,7 @@
                             <h4 class="toggle-content" style="color:#7c1104;">Global Engagement</h4>
                         </div>
                         <div class="desc-wrap" style="text-align: justify; display: none;">
-                            <p style="color: #fff;">
+                            <p style="color: #281e32;">
                                 Our university fosters a globally-minded community, encouraging students to engage with
                                 diverse perspectives through international exchange programs, virtual collaborations, and
                                 cross-cultural learning opportunities. By cultivating a global mindset, we empower our
@@ -112,7 +112,7 @@
                         <i class="fa fa-graduation-cap"></i>
                     </div>
                     <div class="counterx-content">
-                        <h2>Future University Life Span</h2>
+                        <h2 style="vertical-align: center;">Future University Life Span</h2>
                         <!--<p><i class="fa fa-calendar-o"></i>Online and Available no matter what happens...
                                 <a href="https://elearning.fu.edu.sd/" target="_blank" style="color: #ef7e22"><strong>Check
                                         it</strong></a>
@@ -623,32 +623,61 @@
 <div class="gallery">
 <div class="grid-sizer"></div>
 
-<div class="gallery-item gi-big set-bg" data-setbg="./public/storage/news_imgs/3_n.jpg">
-<a class="img-popup" href="./public/storage/news_imgs/3_n.jpg"><i class="ti-plus"></i></a>
+<div class="gallery-item gi-big set-bg" data-setbg="{{ asset('./public/client/img/blog/1.jpg') }}">
+<a class="img-popup" href="{{ asset('./public/client/img/blog/1.jpg') }}"><i class="ti-plus"></i></a>
 </div>
 
-<div class="gallery-item set-bg" data-setbg="./public/storage/event_imgs/events.png">
-<a class="img-popup" href="./public/storage/event_imgs/events.png"><i class="ti-plus"></i></a>
+<div class="gallery-item set-bg" data-setbg="{{ asset('./public/client/img/blog/2.jpg') }}">
+<a class="img-popup" href="{{ asset('./public/client/img/blog/2.jpg') }}"><i class="ti-plus"></i></a>
 </div>
-<div class="gallery-item set-bg" data-setbg="./public/storage/news_imgs/3.jpg">
-<a class="img-popup" href="./public/storage/news_imgs/3.jpg"><i class="ti-plus"></i></a>
+<div class="gallery-item set-bg" data-setbg="{{ asset('./public/client/img/blog/8.jpg') }}">
+<a class="img-popup" href="{{ asset('./public/client/img/blog/8.jpg') }}"><i class="ti-plus"></i></a>
 </div>
-<div class="gallery-item gi-long set-bg" data-setbg="./public/storage/news_imgs/7.jpg">
-<a class="img-popup" href="./public/storage/news_imgs/7.jpg"><i class="ti-plus"></i></a>
+<div class="gallery-item gi-long set-bg" data-setbg="{{ asset('./public/client/img/blog/3.jpg') }}">
+<a class="img-popup" href="{{ asset('./public/client/img/blog/3.jpg') }}"><i class="ti-plus"></i></a>
 </div>
-<div class="gallery-item gi-big set-bg" data-setbg="./public/storage/news_imgs/tcom_course.jpg">
-<a class="img-popup" href="./public/storage/news_imgs/tcom_course.jpg"><i class="ti-plus"></i></a>
+<div class="gallery-item gi-big set-bg" data-setbg="{{ asset('./public/client/img/blog/10.jpg') }}">
+<a class="img-popup" href="{{ asset('./public/client/img/blog/10.jpg') }}"><i class="ti-plus"></i></a>
 </div>
-<div class="gallery-item gi-long set-bg" data-setbg="./public/storage/event_imgs/fu_img.png">
-<a class="img-popup" href="./public/storage/event_imgs/fu_img.png"><i class="ti-plus"></i></a>
+<div class="gallery-item gi-long set-bg" data-setbg="{{ asset('./public/client/img/blog/7.jpg') }}">
+<a class="img-popup" href="{{ asset('./public/client/img/blog/7.jpg') }}"><i class="ti-plus"></i></a>
 </div>
 
-<div class="gallery-item set-bg" data-setbg="./public/client/img/main_imgs/general/fu.jpg">
-<a class="img-popup" href="./public/client/img/main_imgs/general/fu.jpg"><i class="ti-plus"></i></a>
+<div class="gallery-item set-bg" data-setbg="{{ asset('./public/client/img/blog/13.jpg') }}">
+<a class="img-popup" href="{{ asset('./public/client/img/blog/13.jpg') }}"><i class="ti-plus"></i></a>
 </div>
-<div class="gallery-item set-bg" data-setbg="img/gallery/7.jpg">
-<a class="img-popup" href="img/gallery/7.jpg"><i class="ti-plus"></i></a>
+<!--  -->
+<div class="gallery-item set-bg" data-setbg="{{ asset('./public/client/img/blog/18.jpg') }}">
+<a class="img-popup" href="{{ asset('./public/client/img/blog/18.jpg') }}"><i class="ti-plus"></i></a>
 </div>
+<!--<div class="gallery-item set-bg" data-setbg="{{ asset('./public/client/img/blog/9.jpg') }}">
+<a class="img-popup" href="{{ asset('./public/client/img/blog/9.jpg') }}"><i class="ti-plus"></i></a>
+</div>
+
+
+
+ <div class="gallery-item set-bg" data-setbg="{{ asset('./public/client/img/blog/10.jpg') }}">
+<a class="img-popup" href="{{ asset('./public/client/img/blog/10.jpg') }}"><i class="ti-plus"></i></a>
+</div>
+<div class="gallery-item set-bg" data-setbg="{{ asset('./public/client/img/blog/11.jpg') }}">
+<a class="img-popup" href="{{ asset('./public/client/img/blog/11.jpg') }}"><i class="ti-plus"></i></a>
+</div>
+<div class="gallery-item set-bg" data-setbg="{{ asset('./public/client/img/blog/12.jpg') }}">
+<a class="img-popup" href="{{ asset('./public/client/img/blog/12.jpg') }}"><i class="ti-plus"></i></a>
+</div>
+<div class="gallery-item set-bg" data-setbg="{{ asset('./public/client/img/blog/13.jpg') }}">
+<a class="img-popup" href="{{ asset('./public/client/img/blog/13.jpg') }}"><i class="ti-plus"></i></a>
+</div>
+<div class="gallery-item set-bg" data-setbg="{{ asset('./public/client/img/blog/14.jpg') }}">
+<a class="img-popup" href="{{ asset('./public/client/img/blog/14.jpg') }}"><i class="ti-plus"></i></a>
+</div>
+<div class="gallery-item set-bg" data-setbg="{{ asset('./public/client/img/blog/15.jpg') }}">
+<a class="img-popup" href="{{ asset('./public/client/img/blog/15.jpg') }}"><i class="ti-plus"></i></a>
+</div>
+<div class="gallery-item set-bg" data-setbg="{{ asset('./public/client/img/blog/16.jpg') }}">
+<a class="img-popup" href="{{ asset('./public/client/img/blog/16.jpg') }}"><i class="ti-plus"></i></a>
+</div> -->
+
 </div>
 </div>
 

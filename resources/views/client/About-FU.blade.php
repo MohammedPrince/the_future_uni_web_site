@@ -122,7 +122,7 @@
                         <div class="single-feature">
                             <div class="desc-wrap">
                                 <img src="./public/client/img/main_imgs/trustee/azeb.png" alt="Board of Trustees">
-                                <p class="additional-text text-center">The Former First Lady of The Republic of Ethiopia; Vice President of Organization of African First Ladies Against 
+                                <p class="additional-text text-center" >The Former First Lady of The Republic of Ethiopia; Vice President of Organization of African First Ladies Against 
                                     HIV/AIDS; Founder and Patron of Ethiopia's National Initiative for Mental Health.</p>
                             </div>
                             <div>
@@ -513,40 +513,26 @@
             <div id="President" class="tabcontent">
 
                 <div class="feature">
-                    <div class="circle" style="width: 50%; height: 50%; ">
-                        <img src="./public/client/img/main_imgs/trustee/dr_ghassan.png" alt="Image">
+                    <div class="circle" style="width: 120%; height: 120%; ">
+                        <img src="./public/client/img/main_imgs/trustee/dr_ghassan.png" width= "50%" height= "50%" alt="Image">
                     </div>
                     <div>
                         <p></p>
-                        <p>As the present academic year comes to an end, we start the preparation to welcome the new
-                            students for the new academic year 2022/2023.</p>
-                            students for the new academic year 2022/2023.</p>
-                        <p>This occasion gives me the opportunity to congratulate the graduates of all departments and wish
-                            them a successful career in their professional life.
-                            I also welcome those who decided to continue with their postgraduate studies at the University.
-                        </p>
+                        <p style="text-align: center;">A Message from the University President</p>
 
-                        <p>The past academic year witnessed an amazing International cooperation, visiting professors from
-                            Italy, France, Bulgaria,
-                            Malaysia and the UK enriched our academic life.</p>
+                        <p >Dear Future University Community,</p>
 
-                        <p>The programmes offering are increasing as we are about to launch undergraduate new programmes in
-                            Business Administration,
-                            Journalism and Media as well as Master Programmes in GIS and Architecture.</p>
+                        <p style="text-align: justify;">It is my honor to welcome you all to the start of a new academic year. As your university president, I am profoundly grateful for the resilience and dedication that our students, faculty, and staff members have demonstrated over the past tough year.
+                            Despite the unprecedented challenges we have faced, our community has come together to ensure the continuity of our academic mission and to support one another. For that, I express my sincere appreciation. Moving forward, I assure you that this university remains steadfast in its commitment to providing a transformative educational experience and cultivating a vibrant campus life. The Future University is here to support the growth and development of our future generations, as well as to foster innovation and excellence across all our endeavors.</p>
+                            
+                            <p style="text-align: justify;">To our students, I urge you to embrace the opportunities that lie ahead and to engage actively in your academic and extracurricular pursuits. Your education is not just about acquiring knowledge, but also about developing the skills and resilience that will serve you well in the future. To our faculty and staff, I am deeply appreciative of your unconditioned dedication and your commitment to our students and our shared mission.</p>
+                            
+                            <p style="text-align: justify;">Together, we will continue to navigate these uncertain times with courage, compassion, and a steadfast determination to succeed.
+                            I look forward to witness the remarkable achievements of our university community.</p>
 
-                        <p>The University service to the community reached new heights! A major cooperation with the
-                            Ministry of Urban Planning permitted
-                            the University to contribute to the planning and design of Omdurman Frontline and Omdurman
-                            Central Market, and culminated with
-                            the signing of an MOU between the University and the Ministry.</p>
-
-                        <p>Lastly, our research activities, although modest, started to yield results and the University
-                            ranking among the Sudanese Universities kept progressing,
-                            our aim is to be among the ten top sudanese university by the end of the next academic year.</p>
-
-                        <p>GOOD LUCK!</br>
-                            Dr. Ghassan Abubaker Mustafa</br>
-                            The President</p>
+                        <p>Good Luck!</br>
+                            DR. GHASSAN ABUBAKER MUSTAFA</br>
+                            The University President</p>
                     </div>
                 </div>
             </div>
@@ -558,34 +544,35 @@
                         <img src="./public/client/img/main_imgs/trustee/dr_isam.png" alt="Image">
                     </div>
                     <div>
-                        <p></p>
-                        <p>As the present academic year comes to an end, we start the preparation to welcome the new
-                            students for the new academic year 2022/2023.</p>
-                        <p>This occasion gives me the opportunity to congratulate the graduates of all departments and wish
-                            them a successful career in their professional life.
-                            I also welcome those who decided to continue with their postgraduate studies at the University.
-                        </p>
+                    <p></p>
+                        <p style="text-align: center;">A Message from the University Deputy President</p>
 
-                        <p>The past academic year witnessed an amazing International cooperation, visiting professors from
-                            Italy, France, Bulgaria,
-                            Malaysia and the UK enriched our academic life.</p>
+                        <p style="text-align: justify;">It is with great pride and enthusiasm that I welcome you all to the start of a new academic year here at Future University. 
+                            I am humbled by the unwavering resilience and dedication that our students, academicians, and 
+                            staff have demonstrated over the past challenging course of time.</p>
+                            
+                            <p style="text-align: justify;">Despite the unprecedented obstacles we have faced as a community, 
+                                I have been truly inspired by the way our university has come together to support one another and ensure the 
+                                continuity of our academic mission. Your commitment to excellence, innovation, and compassion is a testament to 
+                                the strength and character of our university.</p>
+                            
+                            <p style="text-align: justify;">The university administration 
+                                remains steadfastly committed to providing a transformative educational experience for our students. 
+                                We are dedicated to cultivating a vibrant campus life that fosters personal and professional growth, 
+                                as well as to supporting the innovative research and scholarship that has long been the hallmark of this institution.</p>
 
-                        <p>The programmes offering are increasing as we are about to launch undergraduate new programmes in
-                            Business Administration,
-                            Journalism and Media as well as Master Programmes in GIS and Architecture.</p>
+                            <p style="text-align: justify;"> To our students, I urge you to embrace the countless opportunities that 
+                                lie before you. Engage actively in your studies, participate in extracurricular activities, and seek out new experiences 
+                                that will broaden your perspectives and enrich your personal and intellectual development. Remember, your education is 
+                                about so much more than just acquiring knowledge.</p>
 
-                        <p>The University service to the community reached new heights! A major cooperation with the
-                            Ministry of Urban Planning permitted
-                            the University to contribute to the planning and design of Omdurman Frontline and Omdurman
-                            Central Market, and culminated with
-                            the signing of an MOU between the University and the Ministry.</p>
-
-                        <p>Lastly, our research activities, although modest, started to yield results and the University
-                            ranking among the Sudanese Universities kept progressing,
-                            our aim is to be among the ten top sudanese university by the end of the next academic year.</p>
+                                <p style="text-align: justify;">  To our esteemed faculty and staff, I offer my heartfelt gratitude for your unwavering dedication to our students and 
+                                our journey. Your passion, expertise, and tireless efforts are the driving force behind the excellence that defines 
+                                Future University. Together, as a united community, we will continue to navigate these uncertain times with courage, compassion, and a 
+                                steadfast determination to succeed. </p>
 
                         <p>GOOD LUCK!</br>
-                            Dr. Isameldeen Mohamed Khair</br>
+                            Dr. ISAMELDEEN MOHAMED KHAIR</br>
                             Deputy President for Academic Affairs</p>
                     </div>
                 </div>
