@@ -122,7 +122,7 @@
                                     <div class="ts-item">
                                         <div class="row">
                                             <div class="col-md-3">
-                                                <div class="ts-author-pic set-bg" data-setbg="/public/client/img/main_imgs/members/"></div>
+                                                <div class="ts-author-pic set-bg" data-setbg="{{asset('./public/storage/staff_imgs/woman_user_noimage.png')}}"></div>
                                             </div>
                                             <div class="col-md-9 ts-text">
                                                 <p></p><p></p><p></p><br>
