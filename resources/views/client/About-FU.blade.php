@@ -4,7 +4,7 @@
     <div class="site-breadcrumb">
         <div class="container">
             <a href="Home"><i class="fa fa-home"></i> Home</a> <i class="fa fa-angle-right"></i>
-            <span style="color: #d1291f;">About Future University</span>
+            <span style="color: #d1291f;">History</span>
         </div>
     </div>
 
@@ -226,7 +226,7 @@
                                 and President Reagan)</p>
                             </div>
                             <div>
-                                <h6>Prof . Farouk El - Baz</h6>
+                                <h6>Prof. Farouk El - Baz</h6>
                             </div>
                         </div>
                     </div>
@@ -266,7 +266,7 @@
                                 </p>
                             </div>
                             <div>
-                                <h6>Prof . Mohamed Haj Ali - Member</h6>
+                                <h6>Prof. Mohamed Haj Ali - Member</h6>
                             </div>
                         </div>
                     </div>
@@ -319,7 +319,7 @@
                                 <p class="additional-text">Former Chief of the Judiciary; Former Chairman, Computer Man College; Former Minister of Justice</p>
                             </div>
                             <div>
-                                <h6>Uzt. Dafa Alla Elhaj Yousif - Member (Passed away, November 2020)</h6>
+                                <h6>Mr. Dafa Alla Elhaj Yousif - Member (Passed away, November 2020)</h6>
                             </div>
                         </div>
                     </div>
@@ -332,7 +332,7 @@
                                     and Education; Former Legal Affairs Advisor to the President of the Republic of Sudan.</p>
                             </div>
                             <div>
-                                <h6>Uzt. Abdel Basit Sabdrat - Member</h6>
+                                <h6>Mr. Abdel Basit Sabdrat - Member</h6>
                             </div>
                         </div>
                     </div>
@@ -398,6 +398,18 @@
                     <div class="col-lg-3 col-md-3">
                         <div class="single-feature">
                             <div class="desc-wrap">
+                                <img src="./public/client/img/main_imgs/trustee/dr_abubaker.png" alt="FOUNDERS, INVESTORS, AND REPRESENTATIVES">
+                              
+                            </div>
+                            <div>
+                                <h6>Dr. Abubaker Mustafa Mohamed</h6>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-3">
+                        <div class="single-feature">
+                            <div class="desc-wrap">
                                 <img src="./public/client/img/main_imgs/trustee/dr_ghassan.png" alt="FOUNDERS, INVESTORS, AND REPRESENTATIVES">
                               
                             </div>
@@ -427,7 +439,7 @@
                              
                             </div>
                             <div>
-                                <h6>Madam Mona Ali Hassan Karrar</h6>
+                                <h6>Mrs. Mona Ali Hassan Karrar</h6>
                             </div>
                         </div>
                     </div>
@@ -484,7 +496,7 @@
                                     <p class="additional-text">The Director for Admission and Registration</p>
                                 </div>
                                 <div>
-                                    <h6>Utz. Kawther Abu El Naja</h6>
+                                    <h6>Mrs. Kawther Abu El Naja</h6>
                                 </div>
                             </div>
                         </div>
