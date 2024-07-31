@@ -64,7 +64,7 @@
 
     <tr>
       <td style="vertical-align: top; text-align: left;">About</td>
-      <td >
+      <td style="vertical-align: top;">
         {{-- $staff_info_cv?->about --}}
     <div style="text-align: justify;">
         {!! \App\Helpers\MarkdownHelper::render($staff_info_cv?->about) !!}
@@ -75,8 +75,8 @@
     @endif
     @if(($staff_info_cv?->work_experience)!="")
     <tr>
-      <td>Work Experience</td>
-      <td>
+      <td style="vertical-align: top; text-align: left;">Work Experience</td>
+      <td style="vertical-align: top;">
           {{-- $staff_info_cv?->work_experience --}}
 
           <div style="text-align: justify;">
@@ -88,8 +88,8 @@
     @if(($staff_info_cv?->education)!="")
 
     <tr>
-      <td>Education</td>
-      <td>
+      <td style="vertical-align: top; text-align: left;">Education</td>
+      <td style="vertical-align: top;">
       {{-- $staff_info_cv?->education --}}
       <div style="text-align: justify;">
       {!! \App\Helpers\MarkdownHelper::render($staff_info_cv?->education) !!}
@@ -102,8 +102,8 @@
 
 
     <tr>
-      <td>Skills</td>
-      <td>
+      <td style="vertical-align: top; text-align: left;">Skills</td>
+      <td style="vertical-align: top;">
       {{-- $staff_info_cv?->skills --}}
       <div style="text-align: justify;">
       {!! \App\Helpers\MarkdownHelper::render($staff_info_cv?->skills) !!}
@@ -112,9 +112,9 @@
     </tr>
     @endif
     @if(($staff_info_cv?->publication)!="")
-     <tr>
-      <td>Publication</td>
-      <td>
+     <tr style="vertical-align: top;">
+      <td style="vertical-align: top; text-align: left;">Publication</td>
+      <td style="vertical-align: top;">
       
       {{-- $staff_info_cv?->publication --}}
       <div style="text-align: justify;">
@@ -128,8 +128,8 @@
     @if(($staff_info_cv?->teaching_and_supervision)!="")
     <tr>
       
-      <td>Teaching and Supervision</td>
-      <td>
+      <td style="vertical-align: top; text-align: left;">Teaching and Supervision</td>
+      <td style="vertical-align: top;">
       {{-- $staff_info_cv->teaching_and_supervision --}}
       <div style="text-align: justify;">
       {!! \App\Helpers\MarkdownHelper::render($staff_info_cv->teaching_and_supervision) !!}
@@ -143,8 +143,8 @@
 
     @if(($staff_info_cv?->academic_recognition_and_leadership)!="")
     <tr>
-      <td>Academic Recognition and Leadership</td>
-      <td>
+      <td style="vertical-align: top; text-align: left;">Academic Recognition</td>
+      <td style="vertical-align: top;">
       {{-- $staff_info_cv->academic_recognition_and_leadership --}}
       <div style="text-align: justify;">
 
@@ -159,8 +159,8 @@
     @if(($staff_info_cv?->contact)!="")
 
     <tr>
-      <td>Links</td>
-      <td >
+      <td style="vertical-align: top; text-align: left;">Links</td>
+      <td style="vertical-align: top;">
 
       {{-- $staff_info_cv->contact --}}
       <div style="text-align: justify;">
