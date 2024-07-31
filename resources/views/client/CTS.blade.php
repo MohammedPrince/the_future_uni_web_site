@@ -316,7 +316,7 @@
 
 <div class="col-md-6 col-lg-3">
 <div class="member">
-<div class="member-pic set-bg" data-setbg="img/member/4.jpg">
+<div class="member-pic set-bg" data-setbg="{{asset('./public/storage/staff_imgs/newmazinCTS.jpg')}}">
 <div class="member-social">
 <a href><i class="fa fa-facebook"></i></a>
 <a href><i class="fa fa-twitter"></i></a>

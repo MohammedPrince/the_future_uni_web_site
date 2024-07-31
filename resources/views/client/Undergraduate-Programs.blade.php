@@ -45,8 +45,8 @@
 
                             </div> -->
 
-                            <div class="hr-sect new6"><span>Future University Undergraduate Programs</span></div>
-                            <p></p>
+                            <!-- <div class="hr-sect new6"><span>Future University Undergraduate Programs</span></div>
+                            <p></p> -->
 
 
                             <div class="container text-center">

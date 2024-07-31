@@ -10,8 +10,8 @@
     </div>
 
 	<p></p>
-						  <div class="hr-sect new4"><span>External & Internal Transfer / Bridging</span></div>
-							<p></p>
+						  <!-- <div class="hr-sect new4"><span>External & Internal Transfer / Bridging</span></div>
+							<p></p> -->
 
 					
 							<div class="container_newenrollprocess">

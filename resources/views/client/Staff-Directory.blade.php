@@ -18,7 +18,7 @@
                         <div class="container">
 
 
-                            <div class="hr-sect new4"><span>Directory of Expertise</span></div>
+                            <!-- <div class="hr-sect new4"><span>Directory of Expertise</span></div> -->
 
                             <p>
                             <blockquote  style="background-color: whitesmoke;">
@@ -33,7 +33,7 @@
 
       <div class="row">
         <div class="col-lg-8 d-flex justify-content-center">
-          <input type="text" name="keyword" placeholder="keyword..." class="text-center">
+          <input type="text" name="keyword" placeholder="Search by name" class="text-center">
         </div>
         <div class="col-lg-8">
           <select name="staff_dep_id" class="dropdown-select">
@@ -76,7 +76,7 @@
 
                                 <p class="additional-text text-center">{{ $search_result->staff_position}} <br> 
                     
-                     <a href="{{ route('Staff-Details', base64_encode($search_result->staff_id)) }}" target="_blank" class="btn badge-secondary">View profile</a>                       
+                     <a href="{{ route('Staff-Details', base64_encode($search_result->staff_id)) }}" class="btn badge-secondary">View profile</a>                       
                                           <!-- <a href="{{ route('Staff-Details', $search_result->staff_id) }}" target="_blank" class="btn badge-secondary">View profile</a> -->
                     
                        
@@ -119,7 +119,7 @@
 
                             <!-- <div class="hr-sect new4"><span></span></div> -->
 
-                            <hr class="hr-sect">
+                            <!-- <hr class="hr-sect"> -->
 
 
                               <!--  -->

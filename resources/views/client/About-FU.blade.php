@@ -12,7 +12,7 @@
 
         <div class="container">
             <div class="section-title text-center">
-                <h4>History of FU From 1990 - Now</h4>
+                <h4>From 1990 - Now</h4>
             </div>
 
             <div class="row">

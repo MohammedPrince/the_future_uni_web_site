@@ -699,20 +699,31 @@
         <div class="container">
 
             <div class="section-title text-center">
-                <h3>Proud Partnerships</h3>
-                <p>Future University professional partners</p>
+                <h3>Partnerships</h3>
+                <!-- <p>Future University professional partners</p> -->
             </div>
 
             <div class="container">
                 <div class="row text-center">
 
-                    <div class="col">
+                <div class="col">
                         <div class="col" style="background-color: rgba(255, 255, 255, 0.51);">
-                            <img src="./public/client/img/main_imgs/members/nottingham_university.png" height="150px"
+                            <img src="./public/client/img/main_imgs/members/mmu.png" height="150px"
                                 width="150px" alt="" loading="lazy">
 
-                            <a href="https://www.nottingham.ac.uk/" target="_blank">
-                                <h6 class="text-center" style="margin-top: 10px"><strong>University of Nottingham</strong>
+                            <a href="https://mmu.edu.my/" target="_blank">
+                                <h6 class="text-center" style="margin-top: 10px"><strong>Multimedia University</strong></h6>
+                            </a>
+
+                        </div>
+                    </div>
+                <div class="col">
+                        <div class="col" style="background-color: rgba(255, 255, 255, 0.51);">
+                            <img src="./public/client/img/main_imgs/members/sudan-airways.png" height="150px"
+                                width="150px" alt="" loading="lazy">
+
+                            <a href="https://www.sudanair.com/" target="_blank">
+                                <h6 class="text-center" style="margin-top: 10px"><strong>Sudan Airways</strong>
                                 </h6>
                             </a>
 
@@ -720,27 +731,16 @@
                     </div>
                     <div class="col">
                         <div class="col" style="background-color: rgba(255, 255, 255, 0.51);">
-                            <img src="./public/client/img/main_imgs/members/University_of_Turin.png" height="150px"
+                            <img src="./public/client/img/main_imgs/members/nic.png" height="150px"
                                 width="150px" alt="" loading="lazy">
 
-                            <a href="https://en.unito.it/" target="_blank">
-                                <h6 class="text-center" style="margin-top: 10px"><strong>University of Turin</strong></h6>
+                            <a href="https://www.facebook.com/nicsudan.sd/" target="_blank">
+                                <h6 class="text-center" style="margin-top: 10px"><strong>National Information Center</strong></h6>
                             </a>
 
                         </div>
                     </div>
-                    <div class="col">
-                        <div class="col" style="background-color: rgba(255, 255, 255, 0.51);">
-                            <img src="./public/client/img/main_imgs/members/Pennsylvania_University.png" height="150px"
-                                width="150px" alt="" loading="lazy">
-
-                            <a href="https://www.psu.edu/" target="_blank">
-                                <h6 class="text-center" style="margin-top: 10px"><strong>Pennsylvania State
-                                        University</strong></h6>
-                            </a>
-
-                        </div>
-                    </div>
+                    
                     <div class="col">
                         <div class="col" style="background-color: rgba(255, 255, 255, 0.51);">
                             <img src="./public/client/img/main_imgs/members/jhon.png" height="150px" width="150px"

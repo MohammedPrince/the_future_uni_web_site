@@ -153,9 +153,9 @@
 							  </div>
 							
 						  </div> -->
-						  <p></p>
+						  <!-- <p></p>
 						  <div class="hr-sect new4"><span>Enrollment Process</span></div>
-							<p></p>
+							<p></p> -->
 
 					
 							<div class="container_newenrollprocess">

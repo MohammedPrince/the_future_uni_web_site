@@ -1,6 +1,13 @@
 @extends('components.client-layout')
 @section('main-client-content')
 
+<div class="site-breadcrumb">
+        <div class="container">
+            <a href="{{route('Home')}}"><i class="fa fa-home"></i> Home</a> <i class="fa fa-angle-right"></i>
+            <span style="color: #d1291f;">Fee Structure</span>
+        </div>
+    </div>
+
 <style>
 table {
   border-collapse: collapse;

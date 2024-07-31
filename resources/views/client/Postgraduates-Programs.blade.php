@@ -27,7 +27,7 @@
                         </blockquote>
                         </p> -->
 
-                        <hr class="new4">
+                        <!-- <hr class="new4"> -->
 
                         <div class="container">
 
@@ -44,8 +44,8 @@
 
                             </div> -->
 
-                            <div class="hr-sect new6"><span>Future University Postgraduates Programs</span></div>
-                            <p></p>
+                            <!-- <div class="hr-sect new6"><span>Future University Postgraduates Programs</span></div>
+                            <p></p> -->
 
 
                             <div class="container text-center">

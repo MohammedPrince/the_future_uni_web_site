@@ -35,14 +35,15 @@
 							<table class="table table-bordered table-hover">
 								<tbody>
 									<tr>
-										<td>Nottingham University, Malaysia Campus</td>
-										<td>Boston University, USA</td>
-										<td>Johns Hopkins University, USA</td>
-										<td>Penn State University, USA</td>
+										<td>Multimedia University, Malaysia</td>
+										<td>University Telecom SDN. BHD., Malaysia</td>
+										<td>University of Malaya (UM), Malaysia</td>
+										<td>Perta University Amman Jordan</td>
+										
 									</tr>
 									<tr>
-										<td>Universita Telematica Internazionale UNINETTUNO, Rome</td>
-										<td>Universitas Paramadina, Indonesia</td>
+									    <td>University Telematica, Internazionale UNINETTUNO, Rome, Italey</td>
+										<td>University of Turino, Italy</td>
 										<td>Addis Ababa (AAU), Ethiopia</td>
 										<td>CHUNGNAM University, Korea (CNU)</td>
 									</tr>
@@ -55,13 +56,43 @@
 									<tr>
 										<td>KANGNAM University (KNU), Korea</td>
 										<td>Technical University of SOFIA, Republic of Bulgaria</td>
-										<td>Universita' di Venezia (IUAV), Venice Italy;</td>
+										<td>Universita' di Venezia (IUAV), Venice Italy</td>
 										<td>University of Juba (UOJ), South Sudan</td>
 									</tr>
 									<tr>
 										<td>Universitas Trisakti, Indonesia</td>
 										<td>Islamic University of As-Syafiiyad</td>
 										<td>University of Indonesia</td>
+										<td>TYOTO University, Japan</td>
+									</tr>
+									<tr>
+										<td>Universita' di Venezia (IUAV) Venice Italy</td>
+										<td>Islamic Word Academy of Sciences, Amman-Jordan</td>
+										<td>Sofia University "St. Kliment Ohridski", Bulgaria</td>
+										<td>University of Mining and Geology "St. Ivan Rilski" (UMG), Bulgaria</td>
+									</tr>
+									<tr>
+										<td>Addis Ababa (AAU), Ethiopia</td>
+										<td>University of Juba (UOJ), South Sudan</td>
+										<td>CHUNGNAM University, Korea (CNU)</td>
+										<td>Islamic University, As-Shafiya University, Indonesia</td>
+									</tr>
+									<tr>
+										<td>Paramadina University, Jakarta Indonesia</td>
+										<td>TRISAKYI University, Indonesia</td>
+										<td>Iniversitas of Indonesia</td>
+										<td>Institut Teknolo</td>
+									</tr>
+									<tr>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+									</tr>
+									<tr>
+										<td></td>
+										<td></td>
+										<td></td>
 										<td></td>
 									</tr>
 								</tbody>
@@ -73,9 +104,9 @@
 							<table class="table table-bordered table-hover">
 								<tbody>
 									<tr>
-										<td>University of Bukhat Al Ruda</td>
+										<td>Sudan Airways (SudanAir)</td>
 										<td>Arab Academy of Sciences (AAS)</td>
-										<td>Sudanese National Academy of Sciences (SNAS)</td>
+										<td>National Information Center</td>
 										<td>MOU with the Governor of Khartoum<br>
 											- Human Resources, Development &amp; Labor<br>
 											- Plantation of Trees Along Africa Road</td>
