@@ -47,7 +47,7 @@
                                         <h4>MISSION</h4>
                                     </div>
                                     <div class="desc-wrap">
-                                        <p>
+                                        <p style="text-align: justify;">
                                             Offer access to e-Infrastructure resources to support pilots, prototyping, scaling-up, 
                                             designing, performance verification, testing, demonstration, 
                                             etc. and increase projects visibility on National / International levels.
@@ -61,7 +61,7 @@
                                         <h4>VISION</h4>
                                     </div>
                                     <div class="desc-wrap">
-                                        <p>
+                                        <p style="text-align: justify;">
                                             Providing knowledge through various learning channels in a way that transcends the limitations of time and space, 
                                             as well as integrating visions and concepts to achieve excellence in scientific research.
                                            
@@ -84,11 +84,11 @@
                                     <div class="ts-item">
                                         <div class="row">
                                             <div class="col-md-3">
-                                                <div class="ts-author-pic set-bg" data-setbg="/public/client/img/main_imgs/members/dr_khalid.jpg"></div>
+                                                <div class="ts-author-pic set-bg" data-setbg="{{asset('./public/storage/staff_imgs/IMG_7417.jpg')}}"></div>
                                             </div>
                                             <div class="col-md-9 ts-text">
                                                 <p></p><p></p><p></p><br>
-                                                <h5>Dr. Khalid Sheikhidris Mohamed</h5>
+                                                <h5>Se. Dr. Khalid Sheikhidris Mohamed</h5>
                                                 <span>IRDC Director</span>
                                                 <div class="about-widget">
                                                 <div class="social pt-1">
@@ -103,7 +103,7 @@
                                     <div class="ts-item">
                                         <div class="row">
                                             <div class="col-md-3">
-                                                <div class="ts-author-pic set-bg" data-setbg="/public/client/img/main_imgs/members/"></div>
+                                                <div class="ts-author-pic set-bg" data-setbg="{{asset('./public/storage/staff_imgs/woman_user_noimage.png')}}"></div>
                                             </div>
                                             <div class="col-md-9 ts-text">
                                                 <p></p><p></p><p></p><br>

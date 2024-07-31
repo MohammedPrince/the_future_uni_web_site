@@ -4,7 +4,7 @@
 <div class="site-breadcrumb">
     <div class="container">
         <a href="/Home"><i class="fa fa-home"></i> Home</a> <i class="fa fa-angle-right"></i>
-        <span style="color: #d1291f;">Center of Technological Services</span>
+        <span style="color: #d1291f;">Center of Technical Services</span>
     </div>
 </div>
 
@@ -44,7 +44,7 @@
                                         <h4>MISSION</h4>
                                     </div>
                                     <div class="desc-wrap">
-                                        <p>
+                                        <p style="text-align: justify;">
                                         To provide exceptional technical services and support to empower organizations with reliable and efficient technology solutions. We strive to enhance operational efficiency, productivity, and customer satisfaction by delivering innovative and customized technical services tailored to meet the unique needs of our clients.
                                         </p>
                                     </div>
@@ -56,7 +56,7 @@
                                         <h4>VISION</h4>
                                     </div>
                                     <div class="desc-wrap">
-                                        <p>
+                                        <p style="text-align: justify;">
                                         To be the leading provider of technical services, renowned for our expertise, reliability, and customer-centric approach. We aim to continuously innovate and adapt to emerging technologies, ensuring our clients stay ahead in a rapidly evolving digital landscape. Through our services, we envision enabling organizations to achieve their goals and excel in their respective industries.
                                         </p>
                                     </div>
@@ -271,7 +271,7 @@
 </div>
 </div>
 <h5>Se. Dr. Khalid Sheikhidris Mohamed</h5>
-<p>CTS Director</p>
+<p>CTS Acting Director</p>
 </div>
 </div>
 <div class="col-md-6 col-lg-3">
