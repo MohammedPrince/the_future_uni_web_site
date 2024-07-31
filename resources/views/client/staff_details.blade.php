@@ -63,7 +63,7 @@
     @if(($staff_info_cv?->about)!="")
 
     <tr>
-      <td>About</td>
+      <td style="vertical-align: top; text-align: left;">About</td>
       <td >
         {{-- $staff_info_cv?->about --}}
     <div style="text-align: justify;">
@@ -159,7 +159,7 @@
     @if(($staff_info_cv?->contact)!="")
 
     <tr>
-      <td>Contact</td>
+      <td>Links</td>
       <td >
 
       {{-- $staff_info_cv->contact --}}
