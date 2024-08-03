@@ -10,7 +10,8 @@
 
     <link href="{{ asset('./public/client/img/fu_logo.png') }}" rel="shortcut icon" />
 
-    <link href="https://fonts.googleapis.com/css?family=Rubik:400,400i,500,500i,700,700i" rel="stylesheet">
+    <!-- <link href="https://fonts.googleapis.com/css?family=Rubik:400,400i,500,500i,700,700i" rel="stylesheet"> -->
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu:400,400i,500,500i,700,700i" rel="stylesheet">
 
     <link rel="stylesheet" href="{{ asset('./public/client/css/bootstrap.min.css') }}" />
     <link rel="stylesheet" href="{{ asset('./public/client/css/font-awesome.min.css') }}" />

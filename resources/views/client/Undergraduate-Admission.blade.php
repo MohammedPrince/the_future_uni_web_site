@@ -91,7 +91,7 @@
         <div class="step-content">
           <h3>Ministry of the higher education application</h3>
           <p style="text-align: justify;">Apply to admission system at the Ministry of the higher education  <strong><a
-          href="https://admission.gov.sd" target="_blank">PORTAL</a></strong></p>
+          href="https://admission.gov.sd" target="_blank" style="color:orange">PORTAL</a></strong></p>
         </div>
       </div>
       <div class="step">
@@ -106,7 +106,7 @@
         <div class="step-content">
           <h3>Future University ODMS</h3>
           <p style="text-align: justify;">Fill in the application form using online addmission system <strong><a
-          href="https://odms.fu.edu.sd" target="_blank">(ODMS)</a> </strong></p>
+          href="https://odms.fu.edu.sd" style="color:orange" target="_blank">(ODMS)</a> </strong></p>
         </div>
       </div>
       <div class="step">
