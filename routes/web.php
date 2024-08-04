@@ -182,6 +182,33 @@ Route::middleware(['web', 'visitor'])->group(function () {
     Route::get('/Student-Affairs', function () {
         return view('client.Student-Affairs');
     })->name('Student-Affairs');
+
+
+// new pages
+
+    Route::get('/UNESCO', function () {
+        return view('client.UNESCO');
+    })->name('UNESCO');
+
+    
+    Route::get('/Space-Technology-Center', function () {
+        return view('client.Space-technology-reserch-center');
+    })->name('Space-Technology-Center');
+
+
+    Route::get('/ICDL', function () {
+        return view('client.ICDL');
+    })->name('ICDL');
+
+
+
+
+
+
+
+
+
+
     
     // Staff Directory
 

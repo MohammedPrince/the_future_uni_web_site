@@ -376,7 +376,7 @@
                         </div>
                     </div>
 
-                    <!-- <div class="col-lg-3 col-md-3">
+                    <div class="col-lg-3 col-md-3">
                         <div class="single-feature">
                             <div class="desc-wrap">
                                 <img src="./public/client/img/main_imgs/trustee/eng_osman.png" alt="Board of Trustees">
@@ -388,7 +388,7 @@
                                 <h6>Eng. Osman Mustafa - Member</h6>
                             </div>
                         </div>
-                    </div> -->
+                    </div>
 
 
                     <div class="hr-sect new4"><span>FOUNDERS, INVESTORS, AND REPRESENTATIVES</span></div>

@@ -257,7 +257,7 @@
                                 Horizon Journal</a></li>
                     </ul>
                 </li>
-                <li class="@if (Request::is('CESD') || Request::is('CTS') || Request::is('IRDC')) ActiveMenuMainColor @endif ">
+                <li class="@if (Request::is('CESD') || Request::is('CTS') || Request::is('UNESCO') || Request::is('ICDL') || Request::is('Space-Technology-Center') || Request::is('IRDC')) ActiveMenuMainColor @endif ">
                     <a href="#" class="sub-menu-arrow">Centers</a>
                     <ul class="sub-main-menu">
                         <li><a href="{{ route('CESD') }}" style="text-align: left;">Center of E-learning and Software
@@ -265,7 +265,12 @@
                         <li><a href="{{ route('CTS') }}" style="text-align: left;">Center of Technical Services</a>
                         </li>
                         <li><a href="{{ route('IRDC') }}" style="text-align: left;">Innovation Research and
-                                Development Center</a></li>
+                        Development Center</a></li>
+
+                        <li><a href="{{ route('UNESCO') }}" style="text-align: left;">UNESCO</a></li>
+
+                        <li><a href="{{ route('Space-Technology-Center') }}" style="text-align: left;">Space Technology Research Center</a></li>
+                        <li><a href="{{ route('ICDL') }}" style="text-align: left;">ICDL</a></li>
                     </ul>
                 </li>
             </ul>
