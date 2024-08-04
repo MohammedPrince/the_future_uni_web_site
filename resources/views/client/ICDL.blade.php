@@ -16,29 +16,71 @@
             <div class="section-title ">
                 <div class="post-content">
                     <p></p>
-
+<!-- 
                     <p>
                     <blockquote class="text-center" style="background-color: whitesmoke;">
                         <span style="font-size: 19px;">
                             Innovation Research and Development Center <strong>IRDC</strong>
                         </span>
                     </blockquote>
-                    </p>
+                    </p> -->
 
                     <div class="hr-sect new4"><span>About</span></div>
 
-                    <p style="font-size: 16px;">
-                        Our thump-print is a part of everyone’s life, we develop solutions and make dramatic change of humans’ lives. 
-                        Because we provide excellent chances for those who are enthusiastic to learn and improve using their established skills, 
-                        and motivate them to take on more responsibility for their own socities development and advancement.<br>
-                        For more infomration visit our <a href="https://irdc.fu.edu.sd" target="_blank"><strong style="color:#ef7e22">IRDC</strong></a> Website
+                    <p style="font-size: 16px; text-align:justify">
+                    The ICDL (International Computer Driving Licence) Training Center at Future University is dedicated to providing comprehensive digital literacy education and certification to students, faculty, staff, and the broader community. As an authorized ICDL test center, the facility offers a wide range of ICDL modules and exams to help individuals develop the essential computer and information technology skills required for success in the 21st century.
+
+Core ICDL Program Offerings
+
+The ICDL Training Center at Future University offers the following core ICDL modules and certification exams:
+    <br>
+
+  
+    <p>* Computer Essentials</p>
+    <p>* Online Essentials</p>
+    <p>* Word Processing</p>
+    <p>* Spreadsheets</p>
+    <p>* Presentation</p>
+    <p>* Database</p>
+    <p>* Information Security</p>
+    <p>* Project Planning</p>
+  
+<br>
+<p style="font-size: 16px; text-align:justify"> In addition to the standard ICDL modules, the center also provides specialized training and testing in emerging digital domains, such as:
+Image Editing
+Web Editing
+IT Security
+Advanced Spreadsheet
+
+Hands-On Learning Facilities
+
+The ICDL Training Center is equipped with a modern computer lab featuring the latest hardware and software to support interactive, hands-on learning. Students have access to dedicated workstations, productivity suites, and online learning resources to master the ICDL competencies.
+
+Experienced Instructors and Examiners
+
+The ICDL Training Center is staffed by experienced instructors and ICDL-certified examiners who are committed to helping participants succeed. They provide personalized guidance, lead interactive training sessions, and administer the ICDL certification exams in a proctored environment.
+
+Flexible Training Options
+
+To accommodate the diverse needs of the campus community, the ICDL Training Center offers flexible training options, including:</p>
+<br>
+
+
+    <p>* Scheduled group classes</p>
+    <p>* Self-paced online modules</p>
+    <p>* Private tutoring and coaching</p>
+    <p>* On-demand testing and certification</p>
+
+
+  <br>
+  <p style="font-size: 16px; text-align:justify">By providing accessible, high-quality ICDL education and certification, the ICDL Training Center at Future University empowers individuals to enhance their digital skills and unlock new opportunities for academic and professional advancement.</p>
                     </p>
 
                     <hr class="new4">
 
-                    <div class="container" style="padding-top: 30px;">
+                    <div class="container" style="padding-top: 10px;">
                         
-                        <div class="row" style="padding: 20px;">
+                        <div class="row" style="padding: 10px;">
 
                             <div class="col-lg-6">
                                 <div class="single-feature">
@@ -47,9 +89,9 @@
                                     </div>
                                     <div class="desc-wrap">
                                         <p style="text-align: justify;">
-                                            Offer access to e-Infrastructure resources to support pilots, prototyping, scaling-up, 
-                                            designing, performance verification, testing, demonstration, 
-                                            etc. and increase projects visibility on National / International levels.
+                                        The mission of the ICDL Training Center is to equip students, faculty, staff, and the broader community with the practical computer and IT competencies required for success. Through our immersive, hands-on ICDL training programs, we are committed to developing a digitally literate populace that can leverage technology to enhance productivity, communication, and problem-solving in both educational and professional settings.
+
+Our center is dedicated to delivering an exceptional learning experience that goes beyond just imparting technical skills.
                                         </p>
                                     </div>
                                 </div>
@@ -61,8 +103,7 @@
                                     </div>
                                     <div class="desc-wrap">
                                         <p style="text-align: justify;">
-                                            Providing knowledge through various learning channels in a way that transcends the limitations of time and space, 
-                                            as well as integrating visions and concepts to achieve excellence in scientific research.
+                                        The ICDL Training Center at Future University aspires to be the leading provider of comprehensive digital literacy education and ICDL certification programs. Our vision is to empower individuals of all backgrounds to develop the essential computer and information technology skills needed to thrive in the rapidly evolving digital landscape. By delivering world-class ICDL training, we aim to cultivate a digitally empowered community that can confidently navigate the demands of the 21st century workplace and academia.
                                            
                                         </p>
                                     </div>
@@ -70,127 +111,31 @@
                             </div>
                         </div>
 
-                        <p><div class="hr-sect new6"><span>IRDC Team</span></div></p>
-
-                        <section class="testimonial-section spad" style="background-color: white;padding-top: 0px">
-                            <div class="container">
-                                <div class="section-title text-center">
-                                    
-                                    
-                                </div>
-                                <div class="testimonial-slider owl-carousel text-center" >
-                    
-                                    <div class="ts-item">
-                                        <div class="row">
-                                            <div class="col-md-3">
-                                                <div class="ts-author-pic set-bg" data-setbg="{{asset('./public/storage/staff_imgs/IMG_7417.jpg')}}"></div>
-                                            </div>
-                                            <div class="col-md-9 ts-text">
-                                                <p></p><p></p><p></p><br>
-                                                <h5>Se. Dr. Khalid Sheikhidris Mohamed</h5>
-                                                <span>IRDC Director</span>
-                                                <div class="about-widget">
-                                                <div class="social pt-1">
-                                                    <a href="mailto:khalidkaradh@fu.edu.sd" style="color: #ef7e22"><i class="fa fa-envelope"></i> khalidkaradh@fu.edu.sd</a>
-                                                </div>
-                                                </div>
-                                                <br><br>
-                                            </div>
-                                        </div>
-                                    </div>
-                    
-                                    <div class="ts-item">
-                                        <div class="row">
-                                            <div class="col-md-3">
-                                                <div class="ts-author-pic set-bg" data-setbg="{{asset('./public/storage/staff_imgs/woman_user_noimage.png')}}"></div>
-                                            </div>
-                                            <div class="col-md-9 ts-text">
-                                                <p></p><p></p><p></p><br>
-                                                <h5>Dr. Sayda Mamoun</h5>
-                                                <span>Assistant Director</span>
-                                                <div class="about-widget">
-                                                <div class="social pt-1">
-                                                    <a href="mailto:sayda@fu.edu.sd" style="color: #ef7e22"><i class="fa fa-envelope"></i> sayda@fu.edu.sd</a>
-                                                </div>
-                                                </div>
-                                                <br><br>
-                                            </div>
-                                        </div>
-                                    </div>
-                    
-                                    <div class="ts-item">
-                                        <div class="row">
-                                            <div class="col-md-3">
-                                                <div class="ts-author-pic set-bg" data-setbg="{{asset('./public/storage/staff_imgs/woman_user_noimage.png')}}"></div>
-                                            </div>
-                                            <div class="col-md-9 ts-text">
-                                                <p></p><p></p><p></p><br>
-                                                <h5>Ms. Muhaira Mohamed</h5>
-                                                <span>Administrative Coordinator</span>
-                                                <div class="about-widget">
-                                                <div class="social pt-1">
-                                                    <a href="mailto:muhaira.sharief@fu.edu.sd" style="color: #ef7e22"><i class="fa fa-envelope"></i> muhaira.sharief@fu.edu.sd</a>
-                                                </div>
-                                                </div>
-                                                <br><br>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </section>
 
 
-                        <p><div class="hr-sect new6"><span>IRDC Labs</span></div></p>
-                        <p></p>
 
-           
+                        <div class="hr-sect new4" style="padding-top: 30px"><span>Our Goals</span></div>
 
-                        <div class="row text-center">
-                            <div class="col" style="background-color: rgba(170, 167, 158, 0.51);">
-                                <div class="hr-sect new6"><span>3D Printing Research Lab</span></div>
-                                <p style="color: black;">
-                                    Making innovative and evolutionary futuristic architectures, 
-                                    technologies, and structures a reality all by using the 3d technology in our labs.
-                                </p>
-                            </div>
+                        <p style="font-size: 16px;padding-top: 0px;text-align:justify;">
+                        Our center is dedicated to delivering an exceptional learning experience that goes beyond just imparting technical skills. We strive to instill in our participants a deep understanding of how to effectively apply digital tools and resources to achieve their personal and professional goals. By empowering individuals with ICDL certification, we aim to cultivate a future-ready workforce and student body that can confidently navigate the challenges of the digital age.
+                        <br>
 
-                            <div class="col" style="background-color: rgba(204,102,51,0.53);">
-                                <div class="hr-sect new6"><span>Robotics Research Lab</span></div>
-                                <p style="color: black;">
-                                    Finding reliable solutions to mechanical and automated 
-                                    manufacturing challenges in the era of intelligent robotism is made easy in our labs.
-                                </p>
-                            </div>
+Core Values:
+At the heart of the ICDL Training Center's mission are the core values that guide our actions and decision-making:
 
-                            <div class="col" style="background-color: rgba(51,153,204,0.51);">
-                                <div class="hr-sect new6"><span>IoT Research Lab</span></div>
-                                <p style="color: black;">
-                                    Allowing for intelligent communication in between peripherals and inventing unique solutions 
-                                    using artificial intelligence is only possible in our labs.
-                                </p>
-                            </div>
+Excellence: We are committed to upholding the highest standards of quality in our ICDL training programs, ensuring that our participants receive a world-class learning experience.
+<br>
 
-                            <div class="col" style="background-color: rgba(204,153,51,0.51);">
-                                <div class="hr-sect new6"><span>Artificial Intelligence Research Lab</span></div>
-                                <p style="color: black;">
-                                    Enabling automated machine-based, smart, 
-                                    and fast response to incidental and forecasted challenges using artificial intelligence is made easy in our labs.
-                                </p>
-                            </div>
+Accessibility: We believe that digital literacy should be accessible to all, and we strive to make our programs inclusive and available to individuals from diverse backgrounds and skill levels.
+<br>
 
-                        </div>
+Innovation: We embrace a forward-thinking approach, continuously exploring new technologies, teaching methodologies, and pedagogical strategies to enhance the effectiveness of our ICDL training.
+<br>
 
-                        <!-- <div class="hr-sect new4" style="padding-top: 30px"><span>Service</span></div>
-
-                        <p style="font-size: 16px;padding-top: 0px">
-                            We are committed towards providing extraordinary customer satisfaction models that could aid in approaching and achieving the promotional goals and measures. 
-                            We play an essential role in the creation of creative societies; we collaborate with individuals and teams from all over the world within all industries to 
-                            generate high-quality projects that clearly illustrate the beneficial influence of our services on people's lives. By thinking creatively, sharing expertise and questioning current ways of working, we also encourage potential Developmental initiatives that help enhancing the quality of the ongoing projects. Our services fit together with contributions of others as they are designed, 
-                            developed, and delivered to achieve the organizational goals, strategies, and values.
+Collaboration: We believe in the power of collaboration, working closely with industry partners, educational institutions, and the wider community to develop ICDL programs that meet the evolving needs of the digital landscape.
                         </p>
     
-                        <hr class="new4"> -->
+                        <hr class="new4">
 
                       </div>
                     <p></p>

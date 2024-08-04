@@ -207,7 +207,7 @@ By pursuing this vision, the STRC at Future University aims to position itself a
             </div>
         </div>
     </div>
-</section
+  </section>
 
 
 
