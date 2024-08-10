@@ -22,6 +22,10 @@
     <link rel="stylesheet" href="{{ asset('./public/client/css/owl.theme.default.min.css') }}">
     <link rel="stylesheet" href="{{ asset('./public/client/css/style.css') }}" />
 
+
+
+    <!-- uni centers end  -->
+
     <!-- slide show start -->
     <link rel="stylesheet" href="{{ asset('./public/client/css/splide.min.css') }}" />
 
@@ -410,8 +414,7 @@
         </div>
     </footer>
 
-
-
+    
     <script src="{{ asset('./public/client/js/jquery-3.2.1.min.js') }}"></script>
     <script src="{{ asset('./public/client/js/owl.carousel.min.js') }}"></script>
     <script src="{{ asset('./public/client/js/jquery.countdown.js') }}"></script>

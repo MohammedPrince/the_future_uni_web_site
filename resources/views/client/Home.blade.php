@@ -496,18 +496,11 @@
         <div class="container">
             <div class="section-title text-center">
                 <h3>Future University Centers</h3>
-                <!-- <p>Building a better world, one course at a time</p> -->
             </div>
             <div class="row">
-
                 <div class="container">
-
-
                     <div class="row text-left" style="text-align: justify;">
-
                         <div class="col" style="background-color: rgba(255, 255, 255, 0.51);">
-                            <!--<div class="hr-sect new6"><img src="./public/client/img/main_imgs/centers/cesd.png" height="150px"
-                                        width="150px" alt="" loading="lazy"><span></span></div> -->
                             <p style="color: black;">
                             <p class="text-center"><strong>Center of E-Learning and Software Development<br>CESD</strong>
                             </p>
@@ -515,48 +508,28 @@
                             of technology to transform education and drive digital innovation. By developing innovative
                             e-learning platforms and cutting-edge software solutions, the center empowers students and
                             professionals to thrive in the digital age. <br><br>
-
-							<!-- <a href="{{route('CESD')}}" class="read-more my-eventBtn" style="color:blanchedalmond;">More Details</a> -->
-							
                             </p>
-
+                            
                         </div>
-
                         <div class="col" style="background-color: rgba(255, 255, 255, 0.51);">
-                            <!--<div class="hr-sect new6"><img src="./public/client/img/main_imgs/centers/cesd.png" height="150px"
-                                        width="150px" alt="" loading="lazy"><span></span></div> -->
                             <p style="color: black;">
                             <p class="text-center"><strong>Center of Technological Services<br>CTS</strong></p>
                             The Center of Technological Services is a comprehensive resource hub that provides
                             state-of-the-art facilities and specialized support to students, faculty, and researchers. From
                             advanced computing infrastructure to cutting-edge prototyping tools, the center enables
                             innovation and discovery across disciplines.<br><br>
-
-							<!-- <a href="{{route('CTS')}}" class="read-more my-eventBtn" style="color:blanchedalmond;">More Details</a> -->
-
                             </p>
-
                         </div>
-
                         <div class="col" style="background-color: rgba(255, 255, 255, 0.51);">
-                            <!--<div class="hr-sect new6"><img src="./public/client/img/main_imgs/centers/cesd.png" height="150px"
-                                        width="150px" alt="" loading="lazy"><span></span></div> -->
                             <p style="color: black;">
                             <p class="text-center"><strong>Innovation Research and Development Center<br>IRDC</strong></p>
-
                             The Innovation Research and Development Center is a dynamic hub where pioneering ideas come to
                             life. By fostering cross-disciplinary collaboration and providing access to cutting-edge
                             resources, the center empowers researchers and innovators to push the boundaries of knowledge
                             and develop transformative solutions. <br> <br>
-
-							<!-- <a href="{{route('IRDC')}}" class="read-more my-eventBtn" style="color:blanchedalmond;">More Details</a> -->
-                            
                             </p>
-
                         </div>
-
                     </div>
-
                 </div>
 
             </div>
