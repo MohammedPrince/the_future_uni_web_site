@@ -1,5 +1,55 @@
 @extends('components.client-layout')
 @section('main-client-content')
+
+<style>
+.search-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding: 20px;
+}
+
+.search-input,
+.search-dropdown {
+  flex: 0 0 200px;
+  padding: 8px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.search-button {
+  background-color: #ff9500;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  font-size: 14px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.search-button:hover {
+  background-color: #e68200;
+}
+
+@media (max-width: 768px) {
+  .search-container {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .search-input,
+  .search-dropdown {
+    width: 100%;
+    flex: 0 0 auto;
+  }
+
+  .search-button {
+    width: 100%;
+  }
+}
+</style>
 <div class="site-breadcrumb">
         <div class="container">
             <a href="/Home"><i class="fa fa-home"></i> Home</a> <i class="fa fa-angle-right"></i>
@@ -30,10 +80,22 @@
                     
                             
   <div class="contact-form spad pb-0">
-    <form class="centered-formthenewform comment-form --contact" action="Staff-Directory" method="POST">
+    <form action="Staff-Directory" method="POST">
       @csrf
 
-      <div class="row">
+      <div class="search-container">
+      <select name="staff_dep_id" class="search-dropdown">
+            <option value="">Select Staff Faculty / Department</option>
+            @foreach ($departments as $departments_query)
+              <option value="{{$departments_query->deprt_id}}">{{$departments_query->Department_name_en}}</option>
+            @endforeach
+          </select>
+  <input type="text" name="keyword" placeholder="Search by name" class="search-input">
+  
+  <button class="search-button">Search</button>
+</div>
+
+      <!-- <div class="row">
         <div class="col-lg-8 d-flex justify-content-center">
           <input type="text" name="keyword" placeholder="Search by name" class="text-center">
           
@@ -50,7 +112,7 @@
             <button class="site-btn">Search</button>
           </div>
         </div>
-      </div>
+      </div> -->
 
     </form>
   </div>
@@ -59,10 +121,10 @@
                     
                               <!--  -->
 
-                              <section class="testimonial-section spad" style="display: flex;justify-content: center;" >
+          <section class="testimonial-section spad" style="display: flex;justify-content: center;" >
                               <!-- <section class="testimonial-section spad" style="display: flex;justify-content: center; align-items: center;flex-direction: column; text-align: center;" > -->
      
-            <div id="Board Of Trustees"  >
+            <!-- <div id="Board Of Trustees"  > -->
                 <!-- <h3>FU Board Of Trustees</h3> -->
             
                 <div class="row">
@@ -98,7 +160,7 @@
                     </div>
 
                     
-                </div>
+                <!-- </div> -->
 
        
 
@@ -121,6 +183,7 @@
                   
                                 </span>
                             </div>
+                            
                             <!-- </blockquote> -->
                             </p>
 
