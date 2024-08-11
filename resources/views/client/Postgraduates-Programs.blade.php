@@ -50,7 +50,7 @@
 
                             <div class="container text-center">
                                 <div class="tab">
-                                    <button class="tablinks" onclick="openTab(event, 'Business Administration')">Business
+                                    <button class="tablinks active" onclick="openTab(event, 'Business Administration')">Business
                                         Administration</button>
                                     <button class="tablinks" onclick="openTab(event, 'Information Technology')">Information
                                         Technology</button>
@@ -67,8 +67,8 @@
                             </div>
 
                             <div class="row">
-
-                                <div class="col tabcontent" style="background-color: rgba(255, 255, 255, 0.51);"
+                            <!-- style="display: block;" -->
+                                <div class="col tabcontent" style="background-color: rgba(255, 255, 255, 0.51); display: block;"
                                     id="Business Administration">
                                     <!-- <div class="hr-sect new6"><img src="./public/client/img/main_imgs/faculites/post.jpg"
                                             height="150px" width="150px" alt="Computer Sci"><span></span></div> -->

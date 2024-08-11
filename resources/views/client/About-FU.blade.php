@@ -96,12 +96,12 @@
 
 
             <div class="tab">
-                <button class="tablinks" onclick="openTab(event, 'Board Of Trustees')">Board Of Trustees</button>
+                <button class="tablinks active" onclick="openTab(event, 'Board Of Trustees')">Board Of Trustees</button>
                 <button class="tablinks" onclick="openTab(event, 'President')">President</button>
                 <button class="tablinks" onclick="openTab(event, 'Deputy President')">Deputy President</button>
             </div>
 
-            <div id="Board Of Trustees" class="tabcontent">
+            <div id="Board Of Trustees" class="tabcontent" style="display: block;">
                 <!-- <h3>FU Board Of Trustees</h3> -->
 
                 <div class="row">

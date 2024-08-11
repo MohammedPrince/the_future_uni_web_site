@@ -325,9 +325,12 @@
                         <ul>
                             <li><a href="{{ route('Home') }}">Home</a></li>
                             <li><a href="https://elearning.fu.edu.sd/" target="_blank">E-Learning</a></li>
-                            <!-- <li><a href="About-FU#WhyFutureUniversiy">Why FU ?</a></li> -->
                             <li><a href="https://hdesk.fu.edu.sd/" target="_blank">Help Desk</a></li>
                             <li><a href="https://result.fu.edu.sd/" target="_blank">Students Portal</a></li>
+                            <!-- <li></li> -->
+                            <li><a href="{{ route('About-FU') }}">Why FU ?</a></li>
+
+
                         </ul>
                         <ul>
 
