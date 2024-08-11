@@ -64,9 +64,53 @@
                             </div>
                         </div>
 
-                        <p><div class="hr-sect new6"><span>CESD Team</span></div></p>
+                        <section class="skills aos-init aos-animate" data-aos="fade-up">
+                            <div class="container">
+                      
+                                <p></p>
+                                <div class="hr-sect new6"><span>Services</span></div>
+                                <p></p>
+                      
+                              <div class="skills-content">
+                      
+                                <div class="progress">
+                                  <div class="progress-bar bg-success" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%;">
+                                    <span class="skill">Web Applications<i class="val">100%</i></span>
+                                  </div>
+                                </div>
+                      
+                                <div class="progress">
+                                  <div class="progress-bar bg-info" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width: 100%;">
+                                    <span class="skill">Mobile Apps <i class="val">100%</i></span>
+                                  </div>
+                                </div>
+                      
+                                <div class="progress">
+                                  <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 100%;">
+                                    <span class="skill">System Analysis & Design <i class="val">100%</i></span>
+                                  </div>
+                                </div>
+                      
+                                <div class="progress">
+                                  <div class="progress-bar bg-danger" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100" style="width: 100%;">
+                                    <span class="skill">System Administration<i class="val">100%</i></span>
+                                  </div>
+                                </div>
+                      
+                                <div class="progress">
+                                  <div class="progress-bar bg-dark" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 100%;">
+                                    <span class="skill">Technical Support <i class="val">100%</i></span>
+                                  </div>
+                                </div>
+                      
+                              </div>
+                      
+                            </div>
+                          </section>
 
-                        <section class="testimonial-section spad" style="background-color: white;padding-top: 0px">
+                
+
+                        <!-- <section class="testimonial-section spad" style="background-color: white;padding-top: 0px">
                             <div class="container">
                                 <div class="section-title text-center">
                                     
@@ -187,136 +231,116 @@
                                     </div>
                                 </div>
                             </div>
-                        </section>
+                        </section> -->
 
-                        <section class="skills aos-init aos-animate" data-aos="fade-up">
-                            <div class="container">
-                      
-                                <p></p>
-                                <div class="hr-sect new6"><span>Services</span></div>
-                                <p></p>
-                      
-                              <div class="skills-content">
-                      
-                                <div class="progress">
-                                  <div class="progress-bar bg-success" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%;">
-                                    <span class="skill">Web Applications<i class="val">100%</i></span>
-                                  </div>
-                                </div>
-                      
-                                <div class="progress">
-                                  <div class="progress-bar bg-info" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width: 100%;">
-                                    <span class="skill">Mobile Apps <i class="val">100%</i></span>
-                                  </div>
-                                </div>
-                      
-                                <div class="progress">
-                                  <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 100%;">
-                                    <span class="skill">System Analysis & Design <i class="val">100%</i></span>
-                                  </div>
-                                </div>
-                      
-                                <div class="progress">
-                                  <div class="progress-bar bg-danger" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100" style="width: 100%;">
-                                    <span class="skill">System Administration<i class="val">100%</i></span>
-                                  </div>
-                                </div>
-                      
-                                <div class="progress">
-                                  <div class="progress-bar bg-dark" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 100%;">
-                                    <span class="skill">Technical Support <i class="val">100%</i></span>
-                                  </div>
-                                </div>
-                      
-                              </div>
-                      
-                            </div>
-                          </section>
 
+
+                    
+
+                        
                         <div class="row">
+
+                        <p><div class="hr-sect new6"><span>CESD Team</span></div></p>
+
+                    
+<div class="col-md-6 col-lg-3">
+<div class="member">
+
+<div class="member-pic set-bg" data-setbg="{{asset('public/client/img/main_imgs/members/mave.jpg')}}">
+<div class="member-social">
+<a href = "https://sd.linkedin.com/in/khalidkaradh" target="_blank"><i class="fa fa-linkedin-square"></i></a>
+<!-- <a href = "https://scholar.google.com/citations?user=kzPAeHMAAAAJ&hl=en&oi=ao" target="_blank"><i class="fa fa-graduation-cap"></i></a> -->
+<a href = "mailto:mohammed.beng@fu.edu.sd"><i class="fa fa-envelope" target="_blank"></i></a>
+
+</div>
+</div>
+<h5>Mr. Mohammed Abuelgassim Hussain</h5>
+<p>CESD Director, Software Engineer</p>
+</div>
+</div>
+<div class="col-md-6 col-lg-3">
+<div class="member">
+<div class="member-pic set-bg" data-setbg="{{asset('./public/storage/staff_imgs/mutazCTS.jpg')}}">
+<div class="member-social">
+<a href><i class="fa fa-facebook"></i></a>
+<a href><i class="fa fa-twitter"></i></a>
+<a href><i class="fa fa-pinterest"></i></a>
+</div>
+</div>
+<h5>Mr. Mutaz Abdelmonem</h5>
+<p>Junior Maintenance & Technical Support Engineer</p>
+</div>
+</div>
+<div class="col-md-6 col-lg-3">
+<div class="member">
+<div class="member-pic set-bg" data-setbg="{{asset('./public/storage/staff_imgs/woman_user_noimage.png')}}">
+<div class="member-social">
+<a href><i class="fa fa-facebook"></i></a>
+<a href><i class="fa fa-twitter"></i></a>
+<a href><i class="fa fa-pinterest"></i></a>
+</div>
+</div>
+<h5>Ms. Bashria Saidna</h5>
+<p>Junior Maintenance & Technical Support Engineer</p>
+</div>
+</div>
+<div class="col-md-6 col-lg-3">
+<div class="member">
+<div class="member-pic set-bg" data-setbg="{{asset('./public/storage/staff_imgs/test57992.jpg')}}">
+<div class="member-social">
+<a href><i class="fa fa-facebook"></i></a>
+<a href><i class="fa fa-twitter"></i></a>
+<a href><i class="fa fa-pinterest"></i></a>
+</div>
+</div>
+<h5>Mr. Abdelrahman El-Tijani</h5>
+<p>Junior Maintenance & Technical Support Engineer</p>
+</div>
+</div>
+
+<div class="col-md-6 col-lg-3">
+<div class="member">
+<div class="member-pic set-bg" data-setbg="{{asset('./public/storage/staff_imgs/newmazinCTS.jpg')}}">
+<div class="member-social">
+<a href><i class="fa fa-facebook"></i></a>
+<a href><i class="fa fa-twitter"></i></a>
+<a href><i class="fa fa-pinterest"></i></a>
+</div>
+</div>
+<h5>Mr. Mazen Khalafalla Hassan</h5>
+<p>Junior Network Engineer</p>
+</div>
+</div><div class="col-md-6 col-lg-3">
+<div class="member">
+<div class="member-pic set-bg" data-setbg="{{asset('./public/storage/staff_imgs/asmaCTS.jpg')}}">
+<div class="member-social">
+<a href><i class="fa fa-facebook"></i></a>
+<a href><i class="fa fa-twitter"></i></a>
+<a href><i class="fa fa-pinterest"></i></a>
+</div>
+</div>
+<h5>Ms. Asmaa Aamir</h5>
+<p>Junior Maintenance & Technical Support Engineer</p>
+</div>
+</div><div class="col-md-6 col-lg-3">
+<div class="member">
+<div class="member-pic set-bg" data-setbg="{{asset('./public/storage/staff_imgs/test57992.jpg')}}">
+<div class="member-social">
+<a href><i class="fa fa-facebook"></i></a>
+<a href><i class="fa fa-twitter"></i></a>
+<a href><i class="fa fa-pinterest"></i></a>
+</div>
+</div>
+<h5>Mr. Bahaa A. Mutaal</h5>
+<p>Junior Maintenance & Technical Support Engineer</p>
+</div>
+</div>
+
+                    
 
                           
 
-                            <!-- <div class="col" >
-                                <p></p>
-                                <div class="hr-sect new6"><span>Our Applications</span></div>
-                                <p></p>
-                            
-                                <table  class="table table-bordered table-hover">
-                                    <thead>
-                                      
-                                    </thead>
-                                    <tbody>
-                                      <tr>
-                                        <td style="font-size: 16px;">
-                                            <i class="fa fa-angle-right"> <strong>Staff and Students Infomration System - SIS</strong></i>
-                                        </td>
-                                        <td style="font-size: 16px;">
-                                            <i class="fa fa-angle-right"> <strong>Online Time Table System - OTT</strong></i>
-                                        </td>
-                                        <td style="font-size: 16px;">
-                                            <i class="fa fa-angle-right"> <strong>Electronic Registration System - ERS</strong></i>
-                                        </td>
-                                      </tr>
-                                      <tr>
-                                        <td style="font-size: 16px;">
-                                            <i class="fa fa-angle-right"> <strong>Online Admission System - ODMS</strong></i>
-                                        </td>
-                                        <td style="font-size: 16px;">
-                                            <i class="fa fa-angle-right"> <strong>FU E-Learning System - FLMS</strong></i>
-                                        </td>
-                                        <td style="font-size: 16px;">
-                                            <i class="fa fa-angle-right"> <strong>FU Library (Koha - Dspace)</strong></i>
-                                        </td>
-                                      </tr>
-                                      <tr>
-                                        <td style="font-size: 16px;">
-                                            <i class="fa fa-angle-right"> <strong>FU Help-Desk </strong></i>
-                                        </td>
-                                        <td style="font-size: 16px;">
-                                            <i class="fa fa-angle-right"> <strong>FU Online Result</strong></i>
-                                        </td>
-                                        <td style="font-size: 16px;">
-                                            <i class="fa fa-angle-right"> <strong>Inventory Managment System CTS - IRDC</strong></i>
-                                        </td>
-                                      </tr>
-                                      <tr>
-                                        <td style="font-size: 16px;">
-                                            <i class="fa fa-angle-right"> <strong>Archive Records System - ARS</strong></i>
-                                        </td>
-                                        <td style="font-size: 16px;">
-                                            <i class="fa fa-angle-right"> <strong>IRDC Contect Management System</strong></i>
-                                        </td>
-                                        <td style="font-size: 16px;">
-                                            <i class="fa fa-angle-right"> <strong>FU Students Registry</strong></i>
-                                        </td>
-                                      </tr>
-                                      <tr>
-                                        <td style="font-size: 16px;">
-                                            <i class="fa fa-angle-right"> <strong>Students Desk App - SDFU</strong></i>
-                                        </td>
-                                        <td style="font-size: 16px;">
-                                            <i class="fa fa-angle-right"> <strong>The Future University Website</strong></i>
-                                        </td>
-                                        <td style="font-size: 16px;">
-                                            <i class="fa fa-angle-right"> <strong>Students Attendance App</strong></i>
-                                        </td>
-                                      </tr>
-                                      <tr>
-                                        <td style="font-size: 16px;">
-                                            <i class="fa fa-angle-right"> <strong>The IRDC Website</strong></i>
-                                        </td>
-                                        <td style="font-size: 16px;">
-                                           
-                                        </td>
-                                        <td style="font-size: 16px;">
-                                            <i class="fa fa-angle-right"> <strong>Technology horizon journal (THJ)</strong></i>
-                                        </td>
-                                      </tr>
-                                    </tbody>
-                                  </table>
-                            </div> -->
-
+                        
                           </div>
                       </div>
                     <p></p>
