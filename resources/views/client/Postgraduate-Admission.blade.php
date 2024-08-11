@@ -220,13 +220,12 @@
     </div>
 
 </div>
-<div class="hr-sect new4"><span>Download Forms</span></div>
+
+
+
+<!-- <div class="hr-sect new4"><span>Download Forms</span></div>
 <section class="service-section spad">
 <div class="container services">
-<!-- <div class="section-title text-center">
-<h3>OUR SERVICES</h3>
-<p>We provides the opportunity to prepare for life</p>
-</div> -->
 <div class="row">
 <div class="col-lg-4 col-sm-6 service-item">
 <div class="service-content">
@@ -273,7 +272,8 @@
 </div>
 </div>
 </div>
-</section>
+
+</section> -->
 
 
 <!-- 

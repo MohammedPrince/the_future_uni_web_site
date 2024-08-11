@@ -145,6 +145,9 @@
 							</div>
 							
 						  </div> -->
+						  
+
+<!-- 
 
 						<p><hr class="new4"></p>
 						<p></p>
@@ -183,7 +186,7 @@
 				</div>
 			</div>
 		</div>
-	</section>
+	</section> -->
 
 
 

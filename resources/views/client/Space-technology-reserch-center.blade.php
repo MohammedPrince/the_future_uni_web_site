@@ -61,8 +61,8 @@
                                         <p style="text-align: justify;">
                                         The STRC's vision is to be a premier global destination for space technology innovation and discovery. Through cutting-edge research, state-of-the-art facilities, and interdisciplinary collaboration, the center strives to:
 Foster the next generation of space industry leaders and innovators by providing transformative educational and research opportunities for students.
-Establish strategic partnerships with industry, government, and academic partners to accelerate the translation of space technology advancements into real-world applications and solutions.
-By pursuing this vision, the STRC at Future University aims to position itself as a driving force in the rapidly evolving space technology landscape, contributing to the advancement of human knowledge and the betterment of life on Earth and beyond.
+
+
                                            
                                         </p>
                                     </div>

@@ -28,7 +28,7 @@
 
                                 <section class="contact-page spad pt-0" >
                     
-                                <div class="containerfortheform">
+                            
   <div class="contact-form spad pb-0">
     <form class="centered-formthenewform comment-form --contact" action="Staff-Directory" method="POST">
       @csrf
@@ -36,6 +36,7 @@
       <div class="row">
         <div class="col-lg-8 d-flex justify-content-center">
           <input type="text" name="keyword" placeholder="Search by name" class="text-center">
+          
         </div>
         <div class="col-lg-8">
           <select name="staff_dep_id" class="dropdown-select">
@@ -53,16 +54,19 @@
 
     </form>
   </div>
-</div>
 
-                            <p style="font-size: 16px;color:black;">
+
+                    
                               <!--  -->
-                              <section class="testimonial-section spad">
-        <div class="containerfortheform">
-            <div id="Board Of Trustees" >
-                <!-- <h3>FU Board Of Trustees</h3> -->
 
+                              <section class="testimonial-section spad" style="display: flex;justify-content: center;" >
+                              <!-- <section class="testimonial-section spad" style="display: flex;justify-content: center; align-items: center;flex-direction: column; text-align: center;" > -->
+     
+            <div id="Board Of Trustees"  >
+                <!-- <h3>FU Board Of Trustees</h3> -->
+            
                 <div class="row">
+                  <!-- <div class="row" style="display: flex;justify-content: center;flex-wrap: wrap;"> -->
                 @if(isset($search_data) && $search_data->count() > 0)
                 @foreach($search_data as $search_result)
                     <div class="col-lg-3 col-md-3">
@@ -78,7 +82,7 @@
 
                                 <p class="additional-text text-center">{{ $search_result->staff_position}} <br> 
                     
-                     <a href="{{ route('Staff-Details', base64_encode($search_result->staff_id)) }}" class="btn badge-secondary">View profile</a>                       
+                     <a href="{{ route('Staff-Details', base64_encode($search_result->staff_id)) }}" style="color: whitesmoke;" class="btn badge-secondary">View profile</a>                       
                                           <!-- <a href="{{ route('Staff-Details', $search_result->staff_id) }}" target="_blank" class="btn badge-secondary">View profile</a> -->
                     
                        
@@ -93,13 +97,13 @@
                    
                     </div>
 
-
+                    
                 </div>
 
-            </div>
+       
 
     </section>
-                              
+           
                
 
 @else

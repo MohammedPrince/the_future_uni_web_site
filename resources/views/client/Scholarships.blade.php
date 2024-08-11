@@ -108,7 +108,7 @@
 							<div class="row text-center">
 
 								<div class="col" style="background-color: rgba(255, 255, 255, 0.53);">
-									<a href="Postgraduates-Programs" ><button class="modal-button" >Scholarships Programs</button></a>
+									<a href="{{route('Undergraduate-Programs')}}" ><button class="modal-button" >Scholarships Programs</button></a>
 								</div>
 
 							</div>

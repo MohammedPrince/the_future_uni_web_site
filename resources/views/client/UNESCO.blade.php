@@ -47,7 +47,7 @@
                                     </div>
                                     <div class="desc-wrap">
                                         <p style="text-align: justify;">
-                                        As early as 1942, in wartime, the governments of the European countries, which were confronting Nazi Germany and its allies, met in the United Kingdom for the Conference of Allied Ministers of Education (CAME). World War II was far from over, yet those countries were looking for ways and means to rebuild their education systems once peace was restored. The project quickly gained momentum and soon acquired a universal character. New governments, including that of the United States, decided to join in. Upon the proposal of CAME, a United Nations Conference for the establishment of an educational and cultural organization (ECO/CONF) was convened in London from 1 to 16 November 1945.
+                                        As early as 1942, in wartime, the governments of the European countries, which were confronting Nazi Germany and its allies, met in the United Kingdom for the Conference of Allied Ministers of Education (CAME). World War II was far from over, yet those countries were looking for ways and means to rebuild their education systems once peace was restored. 
                                         </p>
                                     </div>
                                 </div>
@@ -61,7 +61,7 @@
                                         <p style="text-align: justify;">
                                         Political and economic arrangements of governments are not enough to secure the lasting and sincere support of the peoples. Peace must be founded upon dialogue and mutual understanding. Peace must be built upon the intellectual and moral solidarity of humanity.
 
-In this spirit, UNESCO develops educational tools to help people live as global citizens free of hate and intolerance. UNESCO works to ensure that every child and every citizen has access to quality education. By promoting cultural heritage and the equal dignity of all cultures, UNESCO strengthens the bonds between nations.
+
                                            
                                         </p>
                                     </div>

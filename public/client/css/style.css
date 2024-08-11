@@ -2385,11 +2385,12 @@ img {
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
-	background-color: rgba(173, 36, 36, 0.8);
+	/* background-color: #faab3d; */
+	background-color:#ff9500;
 	color: white;
 	padding: 10px;
 	text-align: center;
-	width: 300px;
+	width: 200px;
 }
 
 .desc-wrap:hover .additional-text {
