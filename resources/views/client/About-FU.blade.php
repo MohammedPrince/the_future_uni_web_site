@@ -40,9 +40,9 @@
 
                     </ul>
                 </div>
-                <div class="col-lg-6 pt-5 pt-lg-0">
+                <!-- <div class="col-lg-6 pt-5 pt-lg-0">
                     <img src="./public/client/img/main_imgs/general/fu.jpg" alt>
-                </div>
+                </div> -->
             </div>
 
             <div class="row" style="padding: 20px;" id="WhyFutureUniversiy">
