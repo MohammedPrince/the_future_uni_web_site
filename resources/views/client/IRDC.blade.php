@@ -71,9 +71,9 @@
                             </div>
                         </div>
 
-                        <p><div class="hr-sect new6"><span>IRDC Team</span></div></p>
+                        <!-- <p><div class="hr-sect new6"><span>IRDC Team</span></div></p> -->
 
-                        <section class="testimonial-section spad" style="background-color: white;padding-top: 0px">
+                        <!-- <section class="testimonial-section spad" style="background-color: white;padding-top: 0px">
                             <div class="container">
                                 <div class="section-title text-center">
                                     
@@ -139,7 +139,51 @@
                                     </div>
                                 </div>
                             </div>
-                        </section>
+                        </section> -->
+                        <div class="row">
+
+                        <p><div class="hr-sect new6"><span>IRDC Team</span></div></p>
+
+                    
+<div class="col-md-6 col-lg-3">
+<div class="member">
+
+<div class="member-pic set-bg" data-setbg="{{asset('./public/storage/staff_imgs/IMG_7417.jpg')}}">
+<div class="member-social">
+<a href="mailto:khalidkaradh@fu.edu.sd"><i class="fa fa-envelope"></i></a>
+
+</div>
+</div>
+<h5>Se. Dr. Khalid Sheikhidris Mohamed </h5>
+<p> IRDC Director</p>
+</div>
+</div>
+<div class="col-md-6 col-lg-3">
+<div class="member">
+<div class="member-pic set-bg" data-setbg="{{asset('./public/storage/staff_imgs/woman_user_noimage.png')}}">
+<div class="member-social">
+
+<a href = "mailto:mailto:sayda@fu.edu.sd"><i class="fa fa-envelope" ></i></a>
+</div>
+</div>
+<h5>Dr. Sayda Mamoun</h5>
+<p>Assistant Director</p>
+</div>
+</div>
+<div class="col-md-6 col-lg-3">
+<div class="member">
+<div class="member-pic set-bg" data-setbg="{{asset('./public/storage/staff_imgs/woman_user_noimage.png')}}">
+<div class="member-social">
+<a href = "mailto:mailto:muhaira.sharief@fu.edu.sd"><i class="fa fa-envelope"></i></a>
+</div>
+</div>
+<h5>Ms. Muhaira Mohamed </h5>
+<p>Administrative Coordinator</p>
+</div>
+</div>
+
+</div>
+
 
 
                         <p><div class="hr-sect new6"><span>IRDC Labs</span></div></p>
