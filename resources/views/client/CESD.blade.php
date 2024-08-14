@@ -248,29 +248,57 @@
 
 <div class="member-pic set-bg" data-setbg="{{asset('public/client/img/main_imgs/members/mave.jpg')}}">
 <div class="member-social">
-<a href = "https://sd.linkedin.com/in/khalidkaradh" target="_blank"><i class="fa fa-linkedin-square"></i></a>
+<a href = "https://www.linkedin.com/in/mohammed-abuelgassim/" target="_blank"><i class="fa fa-linkedin-square"></i></a>
 <!-- <a href = "https://scholar.google.com/citations?user=kzPAeHMAAAAJ&hl=en&oi=ao" target="_blank"><i class="fa fa-graduation-cap"></i></a> -->
 <a href = "mailto:mohammed.beng@fu.edu.sd"><i class="fa fa-envelope" target="_blank"></i></a>
 
 </div>
 </div>
-<h5>Mr. Mohammed Abuelgassim Hussain</h5>
+<h5>Mr. Mohammed Abuelgassim</h5>
 <p>CESD Director, Software Engineer</p>
 </div>
 </div>
 <div class="col-md-6 col-lg-3">
 <div class="member">
-<div class="member-pic set-bg" data-setbg="{{asset('./public/storage/staff_imgs/mutazCTS.jpg')}}">
+<div class="member-pic set-bg" data-setbg="{{asset('./public/storage/staff_imgs/cesd2.jpg')}}">
 <div class="member-social">
-<a href><i class="fa fa-facebook"></i></a>
-<a href><i class="fa fa-twitter"></i></a>
-<a href><i class="fa fa-pinterest"></i></a>
+<!-- <a href><i class="fa fa-facebook"></i></a>
+<a href><i class="fa fa-twitter"></i></a> -->
+<a href = "https://eg.linkedin.com/in/hadeel-elmutasim-a24018222?trk=people-guest_people_search-card" target="_blank"><i class="fa fa-linkedin-square"></i></a>
+<a href = "mailto:mailto:hadeel_elmutassim@fu.edu.sd"><i class="fa fa-envelope" target="_blank"></i></a>
 </div>
 </div>
-<h5>Mr. Mutaz Abdelmonem</h5>
-<p>Junior Maintenance & Technical Support Engineer</p>
+<h5>Ms. Hadeel El-Mutassim</h5>
+<p>Senior Software Developer</p>
 </div>
 </div>
+<div class="col-md-6 col-lg-3">
+<div class="member">
+<div class="member-pic set-bg" data-setbg="{{asset('./public/storage/staff_imgs/niceone.jpg')}}">
+<div class="member-social">
+<a href = "https://sd.linkedin.com/in/nader-nageeb-9ab7aa21b?trk=people-guest_people_search-card" target="_blank"><i class="fa fa-linkedin-square"></i></a>
+<a href = "mailto:mailto:nadernageeb@fu.edu.sd"><i class="fa fa-envelope"></i></a>
+<a href = "https://nadernageeb.github.io/Nader_Nageeb_Protofolio/" target="_blank"><i class="fa fa-pinterest"></i></a>
+</div>
+</div>
+<h5>Ms. Nader Nageeb </h5>
+<p>Senior Software Developer</p>
+</div>
+</div>
+<div class="col-md-6 col-lg-3">
+<div class="member">
+<div class="member-pic set-bg" data-setbg="{{asset('./public/storage/staff_imgs/woman_user_noimage.png')}}">
+<div class="member-social">
+<a href><i class="fa fa-linkedin-square"></i></a>
+<a href = "mailto:maraim_alnour@fu.edu.sd"><i class="fa fa-envelope"></i></a>
+<!-- <a href><i class="fa fa-pinterest"></i></a> -->
+</div>
+</div>
+<h5>Ms. Maraim Alnour Ahmed</h5>
+<p>Senior Software Developer</p>
+</div>
+</div>
+
 <div class="col-md-6 col-lg-3">
 <div class="member">
 <div class="member-pic set-bg" data-setbg="{{asset('./public/storage/staff_imgs/woman_user_noimage.png')}}">
@@ -280,35 +308,8 @@
 <a href><i class="fa fa-pinterest"></i></a>
 </div>
 </div>
-<h5>Ms. Bashria Saidna</h5>
-<p>Junior Maintenance & Technical Support Engineer</p>
-</div>
-</div>
-<div class="col-md-6 col-lg-3">
-<div class="member">
-<div class="member-pic set-bg" data-setbg="{{asset('./public/storage/staff_imgs/test57992.jpg')}}">
-<div class="member-social">
-<a href><i class="fa fa-facebook"></i></a>
-<a href><i class="fa fa-twitter"></i></a>
-<a href><i class="fa fa-pinterest"></i></a>
-</div>
-</div>
-<h5>Mr. Abdelrahman El-Tijani</h5>
-<p>Junior Maintenance & Technical Support Engineer</p>
-</div>
-</div>
-
-<div class="col-md-6 col-lg-3">
-<div class="member">
-<div class="member-pic set-bg" data-setbg="{{asset('./public/storage/staff_imgs/newmazinCTS.jpg')}}">
-<div class="member-social">
-<a href><i class="fa fa-facebook"></i></a>
-<a href><i class="fa fa-twitter"></i></a>
-<a href><i class="fa fa-pinterest"></i></a>
-</div>
-</div>
-<h5>Mr. Mazen Khalafalla Hassan</h5>
-<p>Junior Network Engineer</p>
+<h5> </h5>
+<p> </p>
 </div>
 </div><div class="col-md-6 col-lg-3">
 <div class="member">
