@@ -15,7 +15,11 @@
                     <div class="post-item post-details">
 
                         @foreach (array_slice(explode(',', $news->news_imgs), 0, 1) as $image)
-                            <img src="./public/storage/news_imgs/{{ $image }}" alt="Futrue Uinversity">
+                            <!-- <img src="./public/storage/news_imgs/{{ $image }}" alt="Futrue Uinversity"> -->
+                            <!-- <img src="{{ asset('./public/storage/news_imgs/$image') }}" alt="Futrue Uinversity"> -->
+                            <img src="{{ asset('./public/storage/news_imgs/' . $image) }}" alt="Futrue Uinversity">
+
+                           
                         @endforeach
 
                         <div class="post-content">
@@ -43,7 +47,11 @@
                                 <div class="hero-slider owl-carousel">
 
                                     @foreach (explode(',', $news->news_imgs) as $news_image)
-                                        <div class="hs-item set-bg" data-setbg="/public/storage/news_imgs/{{ $news_image }}">
+                                        <!-- <div class="hs-item set-bg" data-setbg="/public/storage/news_imgs/{{ $news_image }}"> -->
+                                        <div class="hs-item set-bg" data-setbg="{{ asset('./public/storage/news_imgs/' . $news_image) }}">
+
+                            <!-- <img src="{{ asset('./public/storage/news_imgs/' . $image) }}" alt="Futrue Uinversity"> -->
+
                                         </div>
                                     @endforeach
 
@@ -79,7 +87,8 @@
 
                                         @foreach (array_slice(explode(',', $event_result->event_imgs), 0, 1) as $image)
                                             <div class="rp-thumb set-bg"
-                                                data-setbg="./public/storage/event_imgs/{{ $image }}"></div>
+                                                data-setbg="{{ asset('./public/storage/event_imgs/' . $image) }}"></div>
+                                                
                                         @endforeach
 
                                         <div class="rp-content">
