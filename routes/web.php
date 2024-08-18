@@ -82,7 +82,7 @@ Route::get('/add_news/{news}/delete/', [NewsController::class, "deleteNews" ]);
 Route::get('/linkage', [LinkageController::class, "index" ])->name('linkage');
 Route::post('/add_linkage', [LinkageController::class, "store" ]);
 Route::get('/edit_linkage/{id}/edit', [LinkageController::class, "show" ]);
-Route::post('/edit_linkage/{id}', [LinkageController::class, "show" ]);
+Route::post('/edit_linkage/{id}', [LinkageController::class, "edit" ])->name('editlinkage');
 
 Route::get('/linkage/{id}/delete', [LinkageController::class, "destroy" ]);
 

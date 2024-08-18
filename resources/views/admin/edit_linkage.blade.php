@@ -43,7 +43,7 @@
 
                             <div class="card">
 <!--  -->
-                                <form action="add_linkage" method="POST" enctype="multipart/form-data">
+                                <form action="{{route('editlinkage',$link_data->link_id)}}" method="POST" enctype="multipart/form-data">
                                     @csrf
                                     <div class="card-header">
                                         <h5 class="card-title mb-0">Link Name</h5>
@@ -131,6 +131,8 @@
                                             </div>
                                         @enderror
                                     </div>
+
+                                    <input type="hidden" value="{{$link_data->link_logo}}" name="old_image"  id="">
                                     
 
                                     <div class="card-header">

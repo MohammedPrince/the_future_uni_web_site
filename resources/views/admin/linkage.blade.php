@@ -135,7 +135,7 @@
                                                 <h5 class="card-title mb-0">Link Logo</h5>
                                             </div>
                                             <div class="card-body">
-                                                <input type="file" value="{{ old('link_logo',) }}" name="link_logo"
+                                                <input type="file" value="{{ old('link_logo') }}" name="link_logo"
                                                     class="form-control" placeholder="Enter Logo">
                                                 @error('link_logo')
                                                     <div class="alert error text-center">
