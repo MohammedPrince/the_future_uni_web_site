@@ -66,8 +66,8 @@
                                              <div class="card-body">
                                                 <select class="form-select mb-3"  name="link_type" required="required">
                                                     <option value="">Select Link Type</option>
-                                                    <option value="1">Local</option>
-                                                    <option value="2">International</option>
+                                                    <option value="Local">Local</option>
+                                                    <option value="International">International</option>
                                                 </select>
                                                 @error('link_type')
                                                     <div class="alert error text-center">
@@ -135,7 +135,7 @@
                                                 <h5 class="card-title mb-0">Link Logo</h5>
                                             </div>
                                             <div class="card-body">
-                                                <input type="file" value="{{ old('link_logo') }}" name="link_logo"
+                                                <input type="file" value="{{ old('link_logo',) }}" name="link_logo"
                                                     class="form-control" placeholder="Enter Logo">
                                                 @error('link_logo')
                                                     <div class="alert error text-center">

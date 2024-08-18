@@ -67,7 +67,7 @@
                                     </div>
                                      <div class="card-body">
                                         <select class="form-select mb-3"  name="link_type" required="required">
-                                            <option value="{{link_data->link_type}}">{{link_data->link_type}}</option>
+                                            <option value="{{$link_data->link_type}}">{{$link_data->link_type}}</option>
                                             <option value="1">Local</option>
                                             <option value="2">International</option>
                                         </select>
@@ -82,7 +82,7 @@
                                         <h5 class="card-title mb-0">Link Date</h5>
                                     </div>
                                     <div class="card-body">
-                                        <input type="date" value="{{ old('link_date') }}"
+                                        <input type="date" value="{{ old('link_date',$link_data->link_date) }}"
                                             name="link_date" class="form-control"
                                             placeholder="Link Date">
                                         @error('link_date')
@@ -96,7 +96,7 @@
                                         <h5 class="card-title mb-0">Link Duration</h5>
                                     </div>
                                     <div class="card-body">
-                                        <input type="text" value="{{ old('link_duration') }}" name="link_duration"
+                                        <input type="text" value="{{ old('link_duration',$link_data->link_duration) }}" name="link_duration"
                                             class="form-control" placeholder="Enter Link Duration">
                                         @error('link_duration')
                                             <div class="alert error text-center">
@@ -109,7 +109,7 @@
                                         <h5 class="card-title mb-0">Link Url</h5>
                                     </div>
                                     <div class="card-body">
-                                        <input type="url" required = "required" value="{{ old('link_url') }}" name="link_url"
+                                        <input type="url" required = "required" value="{{ old('link_url',$link_data->link_url) }}" name="link_url"
                                             class="form-control" title="Include http:// or https://" placeholder="https://example.com" pattern="https?://.+">
                                         @error('link_url')
                                             <div class="alert error text-center">
@@ -123,8 +123,8 @@
                                         <h5 class="card-title mb-0">Link Discription</h5>
                                     </div>
                                     <div class="card-body">
-                                        <textarea type="text" value="{{ old('link_desc') }}" name="link_desc"
-                                            class="form-control" placeholder="Enter Link Description"></textarea>
+                                        <textarea type="text" value="{{ old('link_desc',$link_data->link_desc) }}" name="link_desc"
+                                            class="form-control" placeholder="Enter Link Description">{{$link_data->link_desc}}</textarea>
                                         @error('link_desc')
                                             <div class="alert error text-center">
                                                 <p class="inner">{{ $message }}</p>
@@ -137,8 +137,8 @@
                                         <h5 class="card-title mb-0">Link Logo</h5>
                                     </div>
                                     <div class="card-body">
-                                        <input type="file" value="{{ old('link_logo') }}" name="link_logo"
-                                            class="form-control" placeholder="Enter Logo">
+                                        <input type="file" value="{{ old('link_logo',$link_data->link_logo) }}" name="link_logo"
+                                            class="form-control" placeholder="Enter Logo">{{$link_data->link_logo}}
                                         @error('link_logo')
                                             <div class="alert error text-center">
                                                 <p class="inner">{{ $message }}</p>
@@ -149,7 +149,7 @@
 
                                     <div class="text-center">
 
-                                        <button class="btn btn btn-success">Add Link</button>
+                                        <button class="btn btn btn-success">Edit Link</button>
                                     </div>
                                 </form>
 
