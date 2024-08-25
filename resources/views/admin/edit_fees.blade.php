@@ -27,22 +27,22 @@
 
 <div class="container-fluid p-0">
 
-    <h1 class="h3 mb-3">Manage Fee</h1>
+    <h1 class="h3 mb-3"> Update Fee</h1>
 
 
     <div class="row">
         <div class="col-12">
             <div class="card">
-                <div class="card-header">
+                <!-- <div class="card-header">
                     <h5 class="card-title mb-0">Add Fee </h5>
-                </div>
+                </div> -->
                 <div class="card-body">
                     <div class="row">
                         <div class="col-12 col-lg-6">
 
                             <div class="card">
 
-                                <form action="add_fee" method="POST" enctype="multipart/form-data">
+                                <form action="{{route('update_fee',$fee_data->prog_fees_id)}}" method="POST" enctype="multipart/form-data">
                                     @csrf
                                     <div class="card-header">
                                         <h5 class="card-title mb-0">Addmission Year</h5>
@@ -51,8 +51,7 @@
                                     <div class="card-body">
                                         <select type="text" required = "required" name="admission_year"
                                             class="form-control">
-
-                                            <option value=""> Select Admission Year</option>
+                                            <option value="{{$fee_data->admission_year}}">{{$fee_data->admission_year}}</option>
                                                 @for ($i = 2015; $i <= 2030; $i++)
                                              <option value="{{ $i }}">{{ $i }}</option>
                                                 @endfor
@@ -72,8 +71,8 @@
                                         <h5 class="card-title mb-0">Program</h5>
                                     </div>
                                      <div class="card-body">
-                                        <select class="form-select mb-3"  name="program_code" required="required">
-                                            <option value="">Select Program</option>
+                                        <select class="form-select mb-3"  required = "required"  name="program_code" required="required">
+                                            <option value="{{$fee_data->program_code}}" selected>{{$program_name}}</option>
 
                                             @foreach($program as $program_data)
 
@@ -92,10 +91,10 @@
                                     </div>
 
                                     <div class="card-body">
-                                        <select type="text" required = "required" name="fee_type"
+                                        <select required = "required" name="fee_type"
                                             class="form-control">
 
-                                            <option value=""> Select Fee Type</option>
+                                            <option value="{{$fee_data->fee_type}}" selected> {{$fee_data->fee_type}}</option>
                                              
                                              <option value="Sudanese">Sudanese</option>
                                              <option value="foreigners">foreigners</option>
@@ -115,7 +114,7 @@
                                                 <h5 class="card-title mb-0">Fee</h5>
                                             </div>
                                             <div class="card-body">
-                                                <input type="text" required = "required" value="{{ old('fee') }}" name="fee"
+                                                <input type="text" required = "required" value="{{ old('fee',$fee_data->fee) }}" name="fee"
                                                     class="form-control" placeholder="Enter Program Fee">
                                                 @error('fee')
                                                     <div class="alert error text-center">
@@ -127,7 +126,7 @@
 
                                     <div class="text-center">
 
-                                        <button class="btn btn btn-success">Add Fee</button>
+                                        <button class="btn btn btn-success">Edit Fee</button>
                                     </div>
                                 </form>
 
@@ -138,55 +137,7 @@
             </div>
         </div>
     </div>
-@if(isset($structure_data))  
-        <div class="row">
-            <div class="col-12">
-                <div class="card">
-                    <div class="card-header">
-                        <h5 class="card-title mb-0">View Fee </h5>
-                    </div>
-                    <div class="card-body">
 
-                        <table id="datatables-buttons" class="table table-striped" style="width:100%">
-                            <thead>
-                                <tr>
-                                    <th>admission year</th>
-                                    <th>program code</th>
-                                    <th>fee type</th>
-                                    <th>fee</th>
-
-                                    <th>Action</th>
-
-                            
-                                </tr>
-                            </thead>
-                            <tbody>
-                          @foreach($structure_data as $structures_data)
-                                    <tr>
-                                        <td>{{ $structures_data->admission_year }}</td>
-                                        <td>{{ $structures_data->program_code }} </td>
-                                        <td>{{ $structures_data->fee_type }}  </td>
-                                        <td>{{ $structures_data->fee }} </td>
-                               
-                                        <td><a href="{{route('getfee_data',$structures_data->prog_fees_id)}}" class="btn btn btn-info">Edit</a>
-                                        
-                                        <a href="linkage/{{$structures_data->prog_fees_id}}/delete" class="btn btn btn-danger" onClick="return confirm('Are You Sure You Want to Delete this User ?')">Delete</a>
-                                    
-                                    </td>
-                                        <!-- <td></td> -->
-                                    </tr>
-                              @endforeach
-
-                            </tbody>
-
-                        </table>
-                    
-                    </div>
-                    
-                </div>
-            </div>
-        </div>
-        @endif
 
 
 

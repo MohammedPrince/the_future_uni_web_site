@@ -87,7 +87,14 @@ class Fee_StructureController extends Controller
      */
     public function show($id)
     {
-        //
+        $fees_data = fee_structure::where('prog_fees_id', $id)->first();
+        $program = Programs::all();
+        $program_name = Programs::where('prog_id', $fees_data->program_code)->value("program_name_en");
+
+        // dd($program_name);
+
+         return view('admin.edit_fees' , ['fee_data' => $fees_data,'program'=>$program,'program_name'=>$program_name]);
+
     }
 
     /**
@@ -96,9 +103,43 @@ class Fee_StructureController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($id , Request $request)
     {
-        //
+         $validate = Validator::make($request->all(), [
+            'admission_year' => ['required'],
+            'program_code' => ['required'],
+            'fee_type' => ['required'],
+            'fee' => ['required','numeric'],
+      
+        ],[
+            'admission_year.required' => 'Year is must.',
+            'program_code.required' => 'Program is must.',
+            'fee_type.required' => 'Fee Type is must.',
+            'fee.required' => 'Fee is must.',
+
+
+        ]);
+
+            if(!$validate->fails()){
+                $fee_structure = fee_structure::where('prog_fees_id', $id)
+                ->update([
+                    'admission_year' => $request->input('admission_year'),
+                    'program_code' => $request->input('program_code'),
+                    'fee_type' => $request->input('fee_type'),
+                    'fee' => $request->input('fee'),
+                ]);
+
+            //  $fee_structure = fee_structure::create($request->all());
+
+            if($fee_structure){
+                return redirect('/fee_structure')->with('success','Fee Created Successfully !');
+            }else{
+                 return redirect('/fee_structure')->with('failure','Error While Creating Fee !');
+            }
+         
+            }else{
+                return back()->withErrors($validate->errors())->withInput();
+            }
     }
 
     /**

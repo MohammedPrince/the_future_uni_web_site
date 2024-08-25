@@ -121,8 +121,8 @@
                     
                               <!--  -->
 
-          <section class="testimonial-section spad" style="display: flex;justify-content: center;" >
-                              <!-- <section class="testimonial-section spad" style="display: flex;justify-content: center; align-items: center;flex-direction: column; text-align: center;" > -->
+          <!-- <section class="testimonial-section spad" style="display: flex;justify-content: center;" > -->
+                              <section class="testimonial-section spad" style="display: flex;justify-content: center; align-items: center;flex-direction: column; text-align: center;" >
      
             <!-- <div id="Board Of Trustees"  > -->
                 <!-- <h3>FU Board Of Trustees</h3> -->

@@ -91,6 +91,10 @@ Route::get('/linkage/{id}/delete', [LinkageController::class, "destroy" ]);
 // fee_structure
 Route::get('/fee_structure', [Fee_StructureController::class, "index" ])->name('fee_structure');
 Route::post('/add_fee', [Fee_StructureController::class, "store" ]);
+Route::get('/edit_fee/{id}', [Fee_StructureController::class, "show" ])->name('getfee_data');
+Route::post('/update_fee/{id}', [Fee_StructureController::class, "edit" ])->name('update_fee');
+
+
 
 
 
