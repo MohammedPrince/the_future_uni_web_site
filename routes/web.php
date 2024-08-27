@@ -69,7 +69,7 @@ Route::get('/new_edit_user/{id}/edit/', [UserController::class, "newPage" ]);
     Route::get('/add_event/{event}/delete/', [EventsController::class, "deleteEvent"]);
     Route::get('/add_event/{event}/status/{event_status}', [EventsController::class, "eventStatus"]);
     Route::get('/edit_event/{event}/edit/', [EventsController::class, "showEditForm"])->name('edit_event');
-    Route::post('/edit_event/{event}', [EventsController::class, "editEvent"]);
+    Route::post('/edit_event/{event}', [EventsController::class, "editEvent"])->name('eventsubmit');
 
 //News Routes  middleware and controllers //
 Route::post('/add_news', [NewsController::class, "addNews" ]);
@@ -136,7 +136,7 @@ Route::middleware(['mustBeLoggedIn'])->group(function () {
     Route::get('/add_event/{event}/delete/', [EventsController::class, "deleteEvent"]);
     Route::get('/add_event/{event}/status/{event_status}', [EventsController::class, "eventStatus"]);
     Route::get('/edit_event/{event}/edit/', [EventsController::class, "showEditForm"])->name('edit_event');
-    Route::post('/edit_event/{event}', [EventsController::class, "editEvent"]);
+    Route::post('/edit_event/{event}', [EventsController::class, "editEvent"])->name('eventsubmit');;
 
     //News Routes  middleware and controllers //
     Route::post('/add_news', [NewsController::class, "addNews"]);
