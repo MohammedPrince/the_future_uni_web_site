@@ -168,8 +168,8 @@
                                       <td>{{ $staf_data->staff_phone }}</td>
                                         <td><a href="{{route('edit_staff',$staf_data->staff_id)}}" class="btn btn btn-info">Edit</a>
                                         <a href="saff_cv/{{$staf_data->staff_id}}/staff_cv" target="_blank" class="btn btn btn-info">CV</a>
-                                        <a href="linkage/{{ $staf_data->staff_id  }}/delete" class="btn btn btn-danger" onClick="return confirm('Are You Sure You Want to Delete this User ?')">Delete</a>
-                                    
+                                        <a href="{{ route('deletestaff',$staf_data->staff_id,'delete')  }}" class="btn btn btn-danger" onClick="return confirm('Are You Sure You Want to Delete this Staff ?')">Delete</a>
+                                        
                                     </td>
                                         <!-- <td></td> -->
                                     </tr>

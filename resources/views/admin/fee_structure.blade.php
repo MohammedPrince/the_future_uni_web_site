@@ -170,8 +170,8 @@
                                
                                         <td><a href="{{route('getfee_data',$structures_data->prog_fees_id)}}" class="btn btn btn-info">Edit</a>
                                         
-                                        <a href="linkage/{{$structures_data->prog_fees_id}}/delete" class="btn btn btn-danger" onClick="return confirm('Are You Sure You Want to Delete this User ?')">Delete</a>
-                                    
+                                        <a href="{{route('deletefee',$structures_data->prog_fees_id,'delete')}}" class="btn btn btn-danger" onClick="return confirm('Are You Sure You Want to Delete this Fee ?')">Delete</a>
+                                        
                                     </td>
                                         <!-- <td></td> -->
                                     </tr>

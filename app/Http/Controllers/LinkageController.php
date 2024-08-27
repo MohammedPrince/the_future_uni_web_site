@@ -197,6 +197,7 @@ class LinkageController extends Controller
      */
     public function destroy($id)
     {
+
         if (Linkages::where('link_id',$id)->update(['link_del' => '1'])){
 
             return redirect('/linkage')->with('success','Linke Deleted Successfully !');

@@ -162,6 +162,12 @@ class Fee_StructureController extends Controller
      */
     public function destroy($id)
     {
-        //
+        if (fee_structure::where('prog_fees_id',$id)->update(['fee_del' => '1'])){
+
+            return redirect('/fee_structure')->with('success','Fee Deleted Successfully !');
+
+        }else{
+            return redirect('/fee_structure')->with('failure','Error While Deleted Fee !');
+        }
     }
 }

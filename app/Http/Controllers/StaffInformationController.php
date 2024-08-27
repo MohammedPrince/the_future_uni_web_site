@@ -29,7 +29,9 @@ class StaffInformationController extends Controller
    
         $staff_data = Staff_information::select('staff_information.*', 'department.Department_name_en as Department_name_en')
                 ->join('department', 'staff_information.staff_dep_id', '=', 'department.deprt_id')
+                ->where('staff_information.staff_del', '=', 0)
                 ->get();
+                // echo $staff_data;
         return view("admin.add_staff",['program'=>$program,'staff_data'=>$staff_data,'departments'=>$departments]);
     }
 
@@ -182,8 +184,16 @@ class StaffInformationController extends Controller
      */
     public function destroy($id)
     {
-        //
+        if (Staff_information::where('staff_id',$id)->update(['staff_del' => '1'])){
+
+            return redirect('/staff')->with('success','Staff Deleted Successfully !');
+
+        }else{
+            return redirect('/staff')->with('failure','Error While Deleting Staff !');
+        }
     }
+
+
 
     // //////// CV PART 
 

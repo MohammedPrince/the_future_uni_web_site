@@ -84,7 +84,7 @@ Route::post('/add_linkage', [LinkageController::class, "store" ]);
 Route::get('/edit_linkage/{id}/edit', [LinkageController::class, "show" ]);
 Route::post('/edit_linkage/{id}', [LinkageController::class, "edit" ])->name('editlinkage');
 
-Route::get('/linkage/{id}/delete', [LinkageController::class, "destroy" ]);
+Route::get('/linkage/{id}/delete', [LinkageController::class, "destroy" ])->name('deletelinkage');
 
 
 
@@ -93,6 +93,8 @@ Route::get('/fee_structure', [Fee_StructureController::class, "index" ])->name('
 Route::post('/add_fee', [Fee_StructureController::class, "store" ]);
 Route::get('/edit_fee/{id}', [Fee_StructureController::class, "show" ])->name('getfee_data');
 Route::post('/update_fee/{id}', [Fee_StructureController::class, "edit" ])->name('update_fee');
+Route::get('/fee_structure/{id}/delete', [Fee_StructureController::class, "destroy" ])->name('deletefee');
+
 
 
 
@@ -106,6 +108,8 @@ Route::get('/saff_cv/{id}/staff_cv', [StaffInformationController::class, "Show_c
 Route::post('/saff_cv/{id}/add_cv', [StaffInformationController::class, "Add_cv"]);
 Route::get('/edit_staff/{id}', [StaffInformationController::class, "show"])->name('edit_staff');
 Route::post('/update_staff/{id}', [StaffInformationController::class, "update"])->name('update_staff');
+Route::get('/staff/{id}/delete', [StaffInformationController::class, "destroy" ])->name('deletestaff');
+
 
 
 
