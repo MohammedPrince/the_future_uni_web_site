@@ -75,7 +75,7 @@ Route::get('/new_edit_user/{id}/edit/', [UserController::class, "newPage" ]);
 Route::post('/add_news', [NewsController::class, "addNews" ]);
 Route::get('/add_news', [NewsController::class, "showNews" ])->name('add_news');
 Route::get('/edit_news/{news}/edit/', [NewsController::class, "showEditForm" ]);
-Route::post('/edit_news/{news}', [NewsController::class, "editNews" ]);
+Route::post('/edit_news/{news}', [NewsController::class, "editNews" ])->name('editnews_submit');
 Route::get('/add_news/{news}/delete/', [NewsController::class, "deleteNews" ]);
 
 // Linkages
@@ -142,7 +142,7 @@ Route::middleware(['mustBeLoggedIn'])->group(function () {
     Route::post('/add_news', [NewsController::class, "addNews"]);
     Route::get('/add_news', [NewsController::class, "showNews"])->name('add_news');
     Route::get('/edit_news/{news}/edit/', [NewsController::class, "showEditForm"]);
-    Route::post('/edit_news/{news}', [NewsController::class, "editNews"]);
+    Route::post('/edit_news/{news}', [NewsController::class, "editNews"])->name('editnews_submit');
     Route::get('/add_news/{news}/delete/', [NewsController::class, "deleteNews"]);
 
 });

@@ -219,7 +219,7 @@ $faculty_id='';
                 $incomingFields['news_imgs'] = $incomingFields['news_imgs_old'] ;
             }
             
-            strip_tags($incomingFields) ;
+            // strip_tags($incomingFields) ;
             if(  $news ->update($incomingFields)){
 
                 return redirect('/add_news')->with('success','News Successfully Updated !');
