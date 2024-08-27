@@ -53,7 +53,7 @@ Route::middleware(['adminType'])->group(function () {
 Route::post('/add_user', [UserController::class, "addUser" ])->name('add_user');
 Route::get('/edit_user/{user}/edit/', [UserController::class, "showEditForm" ])->name('edit_user');
 Route::get('/add_user/{user}/delete/', [UserController::class, "deleteUser" ])->name('delete_user');
-Route::put('/edit_user/{user}', [UserController::class, "editUser" ]);
+Route::put('/edit_user/{user}', [UserController::class, "editUser" ])->name('editsubmit');
 Route::get('/add_user', [UserController::class, "showUser" ]);
 Route::get('/add_user/{user:id}/edit', [UserController::class, "showUser" ]);
 Route::get('/profile', [UserController::class, "user_profile" ])->name('profile');
