@@ -84,7 +84,7 @@
                         </a>
                     </li>
                   
-                    <li class="sidebar-header">
+                    <!-- <li class="sidebar-header">
                         page divider
                     </li>
 
@@ -92,7 +92,7 @@
                         <a class='sidebar-link' href='#'>
                             <i class="align-middle" data-feather="cart"></i> <span class="align-middle">Test</span>
                         </a>
-                    </li>
+                    </li> -->
                 </ul>
             </div>
         </nav>
