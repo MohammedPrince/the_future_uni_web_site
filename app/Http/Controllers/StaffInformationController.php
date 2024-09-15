@@ -29,7 +29,9 @@ class StaffInformationController extends Controller
    
         $staff_data = Staff_information::select('staff_information.*', 'department.Department_name_en as Department_name_en')
                 ->join('department', 'staff_information.staff_dep_id', '=', 'department.deprt_id')
+                ->where('staff_information.staff_del', '=', 0)
                 ->get();
+                // echo $staff_data;
         return view("admin.add_staff",['program'=>$program,'staff_data'=>$staff_data,'departments'=>$departments]);
     }
 
@@ -104,7 +106,15 @@ class StaffInformationController extends Controller
      */
     public function show($id)
     {
-        //
+    // $program = Programs::all();
+    $departments = Department::all();
+    $staff_data = Staff_information::select('staff_information.*', 'department.Department_name_en as Department_name_en')
+    ->join('department', 'staff_information.staff_dep_id', '=', 'department.deprt_id')
+    ->where('staff_information.staff_id' , '=' , $id)
+    ->first();
+
+    // dd($staff_data);
+     return view("admin.edit_staff",['staff_data'=>$staff_data,'departments'=>$departments]);
     }
 
     /**
@@ -127,7 +137,43 @@ class StaffInformationController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $validate = Validator::make($request->all(), [
+            'staff_name' => ['required'],
+            'staff_dep_id' => ['required'],
+            'staff_email' => ['required','email','max:255'],
+            'staff_position' => ['required','string','max:255'],
+            'staff_phone' => ['required','string','max:200'],
+            
+        ],[
+            'staff_name.required' => 'Staff Name is Required.',
+            'staff_dep_id.required' => 'Staff Department Required.',
+            'staff_email.required' => 'Staff Email Is Requierd.',
+            'staff_position.required' => 'Staff Position Is Requierd.',
+            'staff_phone.required' => 'Phone Number Requierd.',
+        ]);
+
+            if(!$validate->fails()){
+                
+                $staff_info = Staff_information::where('staff_id', $id)
+                ->update([
+                        'staff_name' => $request->input('staff_name'),
+                        'staff_dep_id' => $request->input('staff_dep_id'),
+                        'staff_email' => $request->input('staff_email'),
+                        'staff_position' => $request->input('staff_position'),
+                        'staff_phone' => $request->input('staff_phone'),        
+                    ]);
+                    // $user = User::create($request->all());
+
+                    if($staff_info){
+                        return redirect('/staff')->with('success','Staff Created Successfully !');
+                    }else{
+                        return redirect('/staff')->with('failure','Error While Creating Staff !');
+                    }
+           
+            }else{
+                return back()->withErrors($validate->errors())->withInput();
+            }
+        
     }
 
     /**
@@ -138,8 +184,16 @@ class StaffInformationController extends Controller
      */
     public function destroy($id)
     {
-        //
+        if (Staff_information::where('staff_id',$id)->update(['staff_del' => '1'])){
+
+            return redirect('/staff')->with('success','Staff Deleted Successfully !');
+
+        }else{
+            return redirect('/staff')->with('failure','Error While Deleting Staff !');
+        }
     }
+
+
 
     // //////// CV PART 
 

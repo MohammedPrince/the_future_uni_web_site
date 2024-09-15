@@ -171,59 +171,62 @@ class EventsController extends Controller
         return view("admin.edit_events" , ['event' => $event,'action' => 'edit']);
     }
 
-    public function editEvent(Request $request , Events $event ){
-
+    public function editEvent(Request $request, Events $event)
+    {
         $incomingFields = $request->validate([
-            'event_title' => ['required' , 'min:5' , 'max:50'] ,
-            'event_desc' =>['required' ] ,
+            'event_title' => ['required', 'min:5', 'max:50'],
+            'event_desc' => ['required'],
             'event_time' => ['required'],
             'event_date' => ['required'],
-            'event_imgs_old'=>[],
-            'event_imgs'=>[],
-        ],[
+            'event_imgs_old' => [],
+            'event_imgs' => [],
+        ], [
             'event_title.required' => 'Event Title is must.',
             'event_desc.required' => 'Event Description is must.',
             'event_time.required' => 'Event Time is must.',
             'event_date.required' => 'Event Date is must.',
         ]);
-
-        $incomingFields['event_by'] = auth()->user()->id ;
-        $incomingFields['faculty_id'] = auth()->user()->user_faculty ;
-
-        strip_tags($incomingFields);
-
-
-            if ($request->hasFile('event_imgs')) {
-
-                foreach($incomingFields['event_imgs']  as $image)
-                    {
-
-                        $name=$image->getClientOriginalName();
-                        $destinationPathThumbnail = public_path('/storage/event_imgs');
-                        $img = Image::make($image->path());
-                        $img->fit(570, 320);
-                        $img->save($destinationPathThumbnail.'/'.$name);
-                        $data[] = $name;  
-                        $fileNameToStore = implode (",", $data);
-
-                   if($incomingFields['event_imgs_old'] !=null) {
-                        foreach(explode(',', $incomingFields['event_imgs_old']) as $image){
-                            $image_path = public_path().'/storage/event_imgs/'.$image;
-                           File::delete($image_path);
-                        }
+    
+        $incomingFields['event_by'] = auth()->user()->id;
+        $incomingFields['faculty_id'] = auth()->user()->user_faculty;
+    
+        // Handle image uploads
+        if ($request->hasFile('event_imgs')) {
+            $data = [];
+            foreach ($incomingFields['event_imgs'] as $image) {
+                $name = $image->getClientOriginalName();
+                $destinationPathThumbnail = public_path('/storage/event_imgs');
+                $img = Image::make($image->path());
+                $img->fit(570, 320);
+                $img->save($destinationPathThumbnail.'/'.$name);
+                $data[] = $name;
+            }
+    
+            // Delete old images if new images are uploaded
+            if (!empty($incomingFields['event_imgs_old'])) {
+                foreach (explode(',', $incomingFields['event_imgs_old']) as $oldImage) {
+                    $image_path = public_path('/storage/event_imgs/'.$oldImage);
+                    if (File::exists($image_path)) {
+                        File::delete($image_path);
                     }
                 }
+            }
     
-                $incomingFields['event_imgs'] = $fileNameToStore ;
-            }else{
-                $incomingFields['event_imgs'] = $incomingFields['event_imgs_old'] ;
-            }
-            
-            if(  $event ->update($incomingFields)){
-
-                return redirect('/add_event')->with('success','Event Successfully Updated !');
-            }else{
-                return redirect('/add_event')->with('failure','Error While Update Event !');
-            }
+            $incomingFields['event_imgs'] = implode(",", $data);
+        } else {
+            $incomingFields['event_imgs'] = $incomingFields['event_imgs_old'];
+        }
+    
+        // Update event
+        if ($event->update($incomingFields)) {
+            return redirect('/add_event')->with('success', 'Event Successfully Updated!');
+        } else {
+            return redirect('/add_event')->with('failure', 'Error While Updating Event!');
+        }
     }
+
+
+
+
+
 }

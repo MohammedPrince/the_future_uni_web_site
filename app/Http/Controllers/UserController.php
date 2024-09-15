@@ -202,7 +202,12 @@ class UserController extends Controller
 
 
     public function logout(){
+
         $user_name = auth()->user()->username;
+
+        if($user_name == ""){
+            $user_name = 'User';
+        }
 
         auth()->logout();
         return redirect("/admin_panel")->with('success', $user_name.' , Logged out successfully !');

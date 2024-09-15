@@ -193,7 +193,9 @@
                                                 </td>
  
                                                 <td><a href="edit_linkage/{{$link_data->link_id}}/edit" class="btn btn btn-info">Edit</a></td>
-                                                <td><a href="linkage/{{$link_data->link_id}}/delete" class="btn btn btn-danger" onClick="return confirm('Are You Sure You Want to Delete this Link ?')">Delete</a></td>
+                                                <td><a href="{{route('deletelinkage',$link_data->link_id,'delete')}}" class="btn btn btn-danger" onClick="return confirm('Are You Sure You Want to Delete this Link ?')">Delete</a></td>
+                                                deletelinkage
+                                                
                                             </tr>
                                       @endforeach
 
