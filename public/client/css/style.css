@@ -42,9 +42,6 @@ Extra Colors
 	color:#fec169 !important;
 }
 
-.ActiveMenuMainColor {
-	background:#fe6601 !important;
-}
 
 
 h2,
@@ -611,7 +608,7 @@ ul {
 	color: #fff;
 	text-transform: uppercase;
 	margin-bottom: 10px;
-	padding-top: 10px;
+	padding-top: 20px;
 }
 
 .counterx-content p {
@@ -2131,7 +2128,7 @@ ul {
 
 .feature-area {
 	position: relative;
-	margin-top: -62px;
+	margin-top: 0px;
 	z-index: 2;
 }
 

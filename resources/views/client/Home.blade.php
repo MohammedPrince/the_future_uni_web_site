@@ -12,8 +12,8 @@
                                 <h2 class="hs-title HeaderMainTxtColor">Inspiring Excellence, Empowering Minds, Transforming
                                     Future</h2>
                                 <!--<p class="hs-des">Education is not just about going to school and getting a degree. It's
-                                        about widening your<br> knowledge and absorbing the truth about life. Knowledge is
-                                        power.</p>  -->
+                                            about widening your<br> knowledge and absorbing the truth about life. Knowledge is
+                                            power.</p>  -->
 
                                 <!-- <div class="site-btn">GET STARTED</div> -->
                             </div>
@@ -30,8 +30,8 @@
                                 <h2 class="hs-title HeaderMainTxtColor">Inspiring Excellence, Empowering Minds, Transforming
                                     Future</h2>
                                 <!-- <p class="hs-des">Education is not just about going to school and getting a degree. It's
-                                        about widening your<br> knowledge and absorbing the truth about life. Knowledge is
-                                        power.</p> -->
+                                            about widening your<br> knowledge and absorbing the truth about life. Knowledge is
+                                            power.</p> -->
                                 <!-- <div class="site-btn">GET STARTED</div> -->
                             </div>
                         </div>
@@ -49,7 +49,7 @@
                 <div class="col-lg-4">
                     <div class="single-feature">
                         <div class="title">
-                            <h4 class="toggle-content" style="color: #7c1104 !important;">Embedded Learning</h4>
+                            <h4 style="color:#ff8d51;">Embedded Learning</h4>
                         </div>
                         <div class="desc-wrap" style="text-align: justify; display: none;">
                             <p style="color: #281e32;">
@@ -66,7 +66,7 @@
                 <div class="col-lg-4">
                     <div class="single-feature">
                         <div class="title">
-                            <h4 class="toggle-content" style="color:#7c1104 !important;">Sustainability Focus</h4>
+                            <h4 style="color:#ff8d51;">Sustainability Focus</h4>
                         </div>
                         <div class="desc-wrap" style="text-align: justify; display: none;">
                             <p style="color: #281e32;">
@@ -83,7 +83,7 @@
                 <div class="col-lg-4">
                     <div class="single-feature">
                         <div class="title">
-                            <h4 class="toggle-content" style="color:#7c1104;">Global Engagement</h4>
+                            <h4 style="color:#ff8d51;">Global Engagement</h4>
                         </div>
                         <div class="desc-wrap" style="text-align: justify; display: none;">
                             <p style="color: #281e32;">
@@ -113,10 +113,6 @@
                     </div>
                     <div class="counterx-content">
                         <h2 style="vertical-align: center;">Future University Life Span</h2>
-                        <!--<p><i class="fa fa-calendar-o"></i>Online and Available no matter what happens...
-                                <a href="https://elearning.fu.edu.sd/" target="_blank" style="color: #ef7e22"><strong>Check
-                                        it</strong></a>
-                            </p> -->
                     </div>
                 </div>
 
@@ -158,141 +154,195 @@
 
                         <!-- Faculty of Information Technology start -->
 
-              <li class="splide__slide slide-1">
-        <p style="color: black;">
-                
-                <div id="IT" >
-                    <p class="text-center"><strong> <h3>Faculty of Information Technology</h3> <br></strong></p>
+                        <li class="splide__slide slide-1">
+                            <p style="color: black;">
 
-                    <div style="text-align: justify;">
-                    faculty of information technology at our university is at the forefront of digital innovation. With a focus on emerging technologies, our curriculum equips students with the skills to design, develop, and deploy transformative IT solutions. 
-                    <br><br>
-                </div>
-            </p>
-        </li>
- 
+                            <div id="IT">
+                                <p class="text-center"><strong>
+                                        <h3>Faculty of Information Technology</h3> <br>
+                                    </strong></p>
 
-      <!-- Faculty of Engineering start -->
-        <li class="splide__slide slide-2">
-        <p style="color: black;">
-               
-<div id="ENG" style="text-align: justify;">
-<p class="text-center"><strong><h3 style="text-align: center;"> Faculty of Engineering </h3> <br></strong></p>
-<div style="text-align: justify;"> Our faculty of engineering is renowned for its cutting-edge curriculum, state-of-the-art facilities, and world-class faculty. By blending theoretical knowledge with practical application, we empower our students to tackle complex challenges and develop innovative solutions that drive progress in various industries.
-                            
-    </div>
-    
-    <br><br>
+                                <div style="text-align: justify;">
+                                    faculty of information technology at our university is at the forefront of digital
+                                    innovation. With a focus on emerging technologies, our curriculum equips students with
+                                    the skills to design, develop, and deploy transformative IT solutions.
+                                    <br><br>
+                                </div>
+                                </p>
+                        </li>
 
-</div>
-</p>
-        </li>
+
+                        <!-- Faculty of Engineering start -->
+                        <li class="splide__slide slide-2">
+                            <p style="color: black;">
+
+                            <div id="ENG" style="text-align: justify;">
+                                <p class="text-center"><strong>
+                                        <h3 style="text-align: center;"> Faculty of Engineering </h3> <br>
+                                    </strong></p>
+                                <div style="text-align: justify;"> Our faculty of engineering is renowned for its
+                                    cutting-edge curriculum, state-of-the-art facilities, and world-class faculty. By
+                                    blending theoretical knowledge with practical application, we empower our students to
+                                    tackle complex challenges and develop innovative solutions that drive progress in
+                                    various industries.
+
+                                </div>
+
+                                <br><br>
+
+                            </div>
+                            </p>
+                        </li>
                         <!-- Faculty of Engineering End -->
 
-        <!-- Faculty of Computer Science start -->
-        <li class="splide__slide slide-3">
-        <p style="color: black;">
-					
-                    <div id="SCI" >
-                        <p class="text-center"><strong><h3>Faculty of Computer Science</h3><br></strong></p>
-                        <div style="text-align: justify;">
-                        Our faculty of computer science is dedicated to cultivating the next generation of innovators and problem-solvers. By blending cutting-edge theory with practical application, we empower our students to master the fundamentals of computer science and push the boundaries of what's possible. 
-                        </div>
-                    </div>
-                </p>
-        </li>
-        <!-- Faculty of Computer Science End -->
-              
-                <!-- Faculty of Telecommunication Engineering start -->
-                <li class="splide__slide slide-4">
-                <p style="color: black;">
-					
-                    <div id="TCOM" >
-                        <p class="text-center"><strong><h3>Faculty of Telecommunication Engineering</h3><br></strong></p>
-                        <div style="text-align: justify;">
-                        The faculty of telecommunication engineering and space technology is at the forefront of technological advancement, committed to shaping the future of communication and space exploration by integrating emerging trends and equipping students with the skills to design, develop, and deploy transformative solutions that redefine the boundaries of what's possible.                        </div>
-                    
-                        </div>
-                </p>
-        </li>
-        
-                               
+                        <!-- Faculty of Computer Science start -->
+                        <li class="splide__slide slide-3">
+                            <p style="color: black;">
+
+                            <div id="SCI">
+                                <div class="service-icon">
+                                    <img src="img/main_imgs/faculites/engineering.jpg" alt="Faculty of Engineering" width="150px" height="150px">
+                                </div>
+                                <div class="course-thumb"></br>
+                                    <div class="course-cat">
+                                        <span>ENG</span>
+                                    </div>
+                                </div>
+                                    <div class="service-content course-item">
+                                        <h4>Faculty of Engineering</h4>
+                                        <p>Lorem ipsum dolor sitdo amet, consectetur dont adipis elit. Vivamus interdum ultrices augue.
+                                            Aenean dos cursus lania.</p>
+                                    </div>
+                            </div>
+
+            
+                            </p>
+                        </li>
+                        <!-- Faculty of Computer Science End -->
+
+                        <!-- Faculty of Telecommunication Engineering start -->
+                        <li class="splide__slide slide-4">
+                            <p style="color: black;">
+
+                            <div id="TCOM">
+                                <p class="text-center"><strong>
+                                        <h3>Faculty of Telecommunication Engineering</h3><br>
+                                    </strong></p>
+                                <div style="text-align: justify;">
+                                    The faculty of telecommunication engineering and space technology is at the forefront of
+                                    technological advancement, committed to shaping the future of communication and space
+                                    exploration by integrating emerging trends and equipping students with the skills to
+                                    design, develop, and deploy transformative solutions that redefine the boundaries of
+                                    what's possible. </div>
+
+                            </div>
+                            </p>
+                        </li>
+
+
                         <!-- Faculty of Telecommunication Engineering End -->
 
-                     <!-- Faculty of Architecture Engineering start -->
-                     <li class="splide__slide slide-5">
-                     <p style="color: black;">
-					
-                    <div id="ARCH" >
-                        <p class="text-center"><strong><h3> Faculty of Architecture Engineering </h3><br></strong></p>
-                        <div style="text-align: justify;">
-                        The faculty of architecture engineering at our university is dedicated to cultivating visionary designers and innovative problem-solvers. By blending the art of architecture with the science of engineering, we empower our students to create sustainable, functional, and aesthetically-pleasing structures that enhance the built environment. 
-                        </div>
-                    </div>
-                </p>
-        </li>
-        <!-- Faculty of Architecture Engineering End -->
-            
+                        <!-- Faculty of Architecture Engineering start -->
+                        <li class="splide__slide slide-5">
+                            <p style="color: black;">
 
-                     <!-- Faculty of Fine Arts and Design start -->
-                     <li class="splide__slide slide-6">
-                     <p style="color: black;">
-					
-                    <div id="FAD">
-                        <p class="text-center"><strong> <h3>Faculty of Fine Arts and Design</h3> <br></strong></p>
-                        <div style="text-align: justify;">
-                        The faculty of fine arts and design at our university is a vibrant hub of creativity and innovation. By nurturing the artistic talents and technical skills of our students, we empower them to express their unique visions through a diverse range of mediums, from visual arts and graphic design to performance and digital media. 
-                        </div>
-                    </div>
-                </p>
-        </li>
-        <!-- Faculty of Fine Arts and Design End -->
-                   
-
-                             <!-- Faculty of Geoinformatics start -->
-                             <li class="splide__slide slide-7">
-                             <p style="color: black;">
-					
-                    <div id="GIS">
-                        <p class="text-center"><strong><h3>Faculty of Geoinformatics</h3><br></strong></p>
-                        <div style="text-align: justify;">
-                        The faculty of geoinformatics at our university is at the forefront of spatial data analysis and visualization. By integrating cutting-edge technologies like GIS, remote sensing, and geospatial modeling, we equip our students with the skills to collect, interpret, and apply geospatial intelligence to solve complex challenges in fields ranging from urban planning to environmental management.
-                        </div>
-            
-                <br><br>
-                    </div>
-                </p>
-        </li>
-        <!-- Faculty of Geoinformatics End -->
+                            <div id="ARCH">
+                                <p class="text-center"><strong>
+                                        <h3> Faculty of Architecture Engineering </h3><br>
+                                    </strong></p>
+                                <div style="text-align: justify;">
+                                    The faculty of architecture engineering at our university is dedicated to cultivating
+                                    visionary designers and innovative problem-solvers. By blending the art of architecture
+                                    with the science of engineering, we empower our students to create sustainable,
+                                    functional, and aesthetically-pleasing structures that enhance the built environment.
+                                </div>
+                            </div>
+                            </p>
+                        </li>
+                        <!-- Faculty of Architecture Engineering End -->
 
 
-                             <!-- Faculty of Business Administration start -->
-                             <li class="splide__slide slide-8">
-                             <p style="color: black;">
-        
-        <div id="BA" >
-            <p class="text-center"><strong><h3>Faculty of Business Administration</h3><br></strong></p>
-            <div style="text-align: justify;">
-            The faculty of business administration at our university is dedicated to nurturing the next generation of business leaders and entrepreneurs. By blending theoretical knowledge with practical application, we empower our students to develop the strategic thinking, decision-making, and problem-solving skills needed to thrive in the dynamic global marketplace. 
-            </div>
-            <br><br>
-        </div>
-    </p>
-        </li>
-        <!-- Faculty of Business Administration End -->
-           
+                        <!-- Faculty of Fine Arts and Design start -->
+                        <li class="splide__slide slide-6">
+                            <p style="color: black;">
+
+                            <div id="FAD">
+                                <p class="text-center"><strong>
+                                        <h3>Faculty of Fine Arts and Design</h3> <br>
+                                    </strong></p>
+                                <div style="text-align: justify;">
+                                    The faculty of fine arts and design at our university is a vibrant hub of creativity and
+                                    innovation. By nurturing the artistic talents and technical skills of our students, we
+                                    empower them to express their unique visions through a diverse range of mediums, from
+                                    visual arts and graphic design to performance and digital media.
+                                </div>
+                            </div>
+                            </p>
+                        </li>
+                        <!-- Faculty of Fine Arts and Design End -->
 
 
-                                     <!-- Faculty of Postgraduate Studies start -->
-                                     <li class="splide__slide slide-8">
-                                     <p style="color: black;">
-					
-                    <div id="POST">
-                         <p class="text-center"><strong><h3>Faculty of Postgraduate Studies</h3><br></strong></p>
-                        <div style="text-align: justify;">
-                        The faculty of postgraduate studies at our university is a hub of advanced research and specialized knowledge. Catering to students seeking to deepen their expertise or transition into academic or research-focused careers, we offer a diverse range of master's and doctoral programs.
-                        </div>
-                         <br><br>
+                        <!-- Faculty of Geoinformatics start -->
+                        <li class="splide__slide slide-7">
+                            <p style="color: black;">
+
+                            <div id="GIS">
+                                <p class="text-center"><strong>
+                                        <h3>Faculty of Geoinformatics</h3><br>
+                                    </strong></p>
+                                <div style="text-align: justify;">
+                                    The faculty of geoinformatics at our university is at the forefront of spatial data
+                                    analysis and visualization. By integrating cutting-edge technologies like GIS, remote
+                                    sensing, and geospatial modeling, we equip our students with the skills to collect,
+                                    interpret, and apply geospatial intelligence to solve complex challenges in fields
+                                    ranging from urban planning to environmental management.
+                                </div>
+
+                                <br><br>
+                            </div>
+                            </p>
+                        </li>
+                        <!-- Faculty of Geoinformatics End -->
+
+
+                        <!-- Faculty of Business Administration start -->
+                        <li class="splide__slide slide-8">
+                            <p style="color: black;">
+
+                            <div id="BA">
+                                <p class="text-center"><strong>
+                                        <h3>Faculty of Business Administration</h3><br>
+                                    </strong></p>
+                                <div style="text-align: justify;">
+                                    The faculty of business administration at our university is dedicated to nurturing the
+                                    next generation of business leaders and entrepreneurs. By blending theoretical knowledge
+                                    with practical application, we empower our students to develop the strategic thinking,
+                                    decision-making, and problem-solving skills needed to thrive in the dynamic global
+                                    marketplace.
+                                </div>
+                                <br><br>
+                            </div>
+                            </p>
+                        </li>
+                        <!-- Faculty of Business Administration End -->
+
+
+
+                        <!-- Faculty of Postgraduate Studies start -->
+                        <li class="splide__slide slide-8">
+                            <p style="color: black;">
+
+                            <div id="POST">
+                                <p class="text-center"><strong>
+                                        <h3>Faculty of Postgraduate Studies</h3><br>
+                                    </strong></p>
+                                <div style="text-align: justify;">
+                                    The faculty of postgraduate studies at our university is a hub of advanced research and
+                                    specialized knowledge. Catering to students seeking to deepen their expertise or
+                                    transition into academic or research-focused careers, we offer a diverse range of
+                                    master's and doctoral programs.
+                                </div>
+                                <br><br>
                             </div>
                             </p>
                         </li>
@@ -376,121 +426,121 @@
 
 
     <section class="fact-section spad set-bg" data-setbg="img/fact-bg.jpg">
-<div class="container">
-<div class="row">
-<div class="col-sm-6 col-lg-3 fact">
-<div class="fact-icon">
-<i class="ti-search"></i>
-</div>
-<div class="fact-text">
-<h2>1991</h2>
-<p>ESTABLISHED</p>
-</div>
-</div>
-<div class="col-sm-6 col-lg-3 fact">
-<div class="fact-icon">
-<i class="ti-briefcase"></i>
-</div>
-<div class="fact-text">
-<h2>35</h2>
-<p>PROGRAMS</p>
-</div>
-</div>
-<div class="col-sm-6 col-lg-3 fact">
-<div class="fact-icon">
-<i class="ti-user"></i>
-</div>
-<div class="fact-text">
-<h2>2000+</h2>
-<p>ACTIVE STUDENTS</p>
-</div>
-</div>
-<div class="col-sm-6 col-lg-3 fact">
-<div class="fact-icon">
-<i class="ti-crown"></i>
-</div>
-<div class="fact-text">
-<h2>8000+</h2>
-<p>GRADUATES</p>
-</div>
-</div>
-</div>
-</div>
-</section>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6 col-lg-3 fact">
+                    <div class="fact-icon">
+                        <i class="ti-search"></i>
+                    </div>
+                    <div class="fact-text">
+                        <h2>1991</h2>
+                        <p>ESTABLISHED</p>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-3 fact">
+                    <div class="fact-icon">
+                        <i class="ti-briefcase"></i>
+                    </div>
+                    <div class="fact-text">
+                        <h2>35</h2>
+                        <p>PROGRAMS</p>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-3 fact">
+                    <div class="fact-icon">
+                        <i class="ti-user"></i>
+                    </div>
+                    <div class="fact-text">
+                        <h2>2000+</h2>
+                        <p>ACTIVE STUDENTS</p>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-3 fact">
+                    <div class="fact-icon">
+                        <i class="ti-crown"></i>
+                    </div>
+                    <div class="fact-text">
+                        <h2>8000+</h2>
+                        <p>GRADUATES</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
 
 
     <!-- <section class="fact-section spad set-bg " data-setbg="./public/client/img/fact-bg.jpg">
 
-        <div class="container">
-            <section class="feature-area">
-                <div class="container">
-                    <div class="row">
+            <div class="container">
+                <section class="feature-area">
+                    <div class="container">
+                        <div class="row">
 
-                        <div class="col-lg-3">
-                            <div class="single-feature">
-                                <div class="title">
-                                    <h4>Graduates</h4>
-                                </div>
-                                <div class="desc-wrap">
-                                    <img src="./public/client/img/main_imgs/general/graduatesII.png" class="circle"
-                                        loading="lazy">
+                            <div class="col-lg-3">
+                                <div class="single-feature">
                                     <div class="title">
-                                        <h4>5000+</h4>
+                                        <h4>Graduates</h4>
+                                    </div>
+                                    <div class="desc-wrap">
+                                        <img src="./public/client/img/main_imgs/general/graduatesII.png" class="circle"
+                                            loading="lazy">
+                                        <div class="title">
+                                            <h4>5000+</h4>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
 
-                        <div class="col-lg-3">
-                            <div class="single-feature">
-                                <div class="title">
-                                    <h4>Programs</h4>
-                                </div>
-                                <div class="desc-wrap">
-                                    <img src="./public/client/img/main_imgs/general/fav.png" class="circle"
-                                        loading="lazy">
+                            <div class="col-lg-3">
+                                <div class="single-feature">
                                     <div class="title">
-                                        <h4>35</h4>
+                                        <h4>Programs</h4>
+                                    </div>
+                                    <div class="desc-wrap">
+                                        <img src="./public/client/img/main_imgs/general/fav.png" class="circle"
+                                            loading="lazy">
+                                        <div class="title">
+                                            <h4>35</h4>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
 
-                        <div class="col-lg-3">
-                            <div class="single-feature">
-                                <div class="title">
-                                    <h4>Established</h4>
-                                </div>
-                                <div class="desc-wrap">
-                                    <img src="./public/client/img/main_imgs/general/established.png" class="circle"
-                                        loading="lazy">
+                            <div class="col-lg-3">
+                                <div class="single-feature">
                                     <div class="title">
-                                        <h4>1991</h4>
+                                        <h4>Established</h4>
+                                    </div>
+                                    <div class="desc-wrap">
+                                        <img src="./public/client/img/main_imgs/general/established.png" class="circle"
+                                            loading="lazy">
+                                        <div class="title">
+                                            <h4>1991</h4>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
 
-                        <div class="col-lg-3">
-                            <div class="single-feature">
-                                <div class="title">
-                                    <h4>Active Students</h4>
-                                </div>
-                                <div class="desc-wrap">
-                                    <img src="./public/client/img/main_imgs/general/students.png" class="circle"
-                                        loading="lazy">
+                            <div class="col-lg-3">
+                                <div class="single-feature">
                                     <div class="title">
-                                        <h4>3000+</h4>
+                                        <h4>Active Students</h4>
+                                    </div>
+                                    <div class="desc-wrap">
+                                        <img src="./public/client/img/main_imgs/general/students.png" class="circle"
+                                            loading="lazy">
+                                        <div class="title">
+                                            <h4>3000+</h4>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </section>
-        </div>
-    </section> -->
+                </section>
+            </div>
+        </section> -->
 
     <section class="courses-section spad">
         <div class="container">
@@ -509,7 +559,7 @@
                             e-learning platforms and cutting-edge software solutions, the center empowers students and
                             professionals to thrive in the digital age. <br><br>
                             </p>
-                            
+
                         </div>
                         <div class="col" style="background-color: rgba(255, 255, 255, 0.51);">
                             <p style="color: black;">
@@ -593,66 +643,66 @@
     </section>
 
     <div class="gallery-section">
-<div class="gallery">
-<div class="grid-sizer"></div>
+        <div class="gallery">
+            <div class="grid-sizer"></div>
 
-<div class="gallery-item gi-big set-bg" data-setbg="{{ asset('./public/client/img/blog/1.jpg') }}">
-<a class="img-popup" href="{{ asset('./public/client/img/blog/1.jpg') }}"><i class="ti-plus"></i></a>
-</div>
+            <div class="gallery-item gi-big set-bg" data-setbg="{{ asset('./public/client/img/blog/1.jpg') }}">
+                <a class="img-popup" href="{{ asset('./public/client/img/blog/1.jpg') }}"><i class="ti-plus"></i></a>
+            </div>
 
-<div class="gallery-item set-bg" data-setbg="{{ asset('./public/client/img/blog/2.jpg') }}">
-<a class="img-popup" href="{{ asset('./public/client/img/blog/2.jpg') }}"><i class="ti-plus"></i></a>
-</div>
-<div class="gallery-item set-bg" data-setbg="{{ asset('./public/client/img/blog/8.jpg') }}">
-<a class="img-popup" href="{{ asset('./public/client/img/blog/8.jpg') }}"><i class="ti-plus"></i></a>
-</div>
-<div class="gallery-item gi-long set-bg" data-setbg="{{ asset('./public/client/img/blog/3.jpg') }}">
-<a class="img-popup" href="{{ asset('./public/client/img/blog/3.jpg') }}"><i class="ti-plus"></i></a>
-</div>
-<div class="gallery-item gi-big set-bg" data-setbg="{{ asset('./public/client/img/blog/10.jpg') }}">
-<a class="img-popup" href="{{ asset('./public/client/img/blog/10.jpg') }}"><i class="ti-plus"></i></a>
-</div>
-<div class="gallery-item gi-long set-bg" data-setbg="{{ asset('./public/client/img/blog/7.jpg') }}">
-<a class="img-popup" href="{{ asset('./public/client/img/blog/7.jpg') }}"><i class="ti-plus"></i></a>
-</div>
+            <div class="gallery-item set-bg" data-setbg="{{ asset('./public/client/img/blog/2.jpg') }}">
+                <a class="img-popup" href="{{ asset('./public/client/img/blog/2.jpg') }}"><i class="ti-plus"></i></a>
+            </div>
+            <div class="gallery-item set-bg" data-setbg="{{ asset('./public/client/img/blog/8.jpg') }}">
+                <a class="img-popup" href="{{ asset('./public/client/img/blog/8.jpg') }}"><i class="ti-plus"></i></a>
+            </div>
+            <div class="gallery-item gi-long set-bg" data-setbg="{{ asset('./public/client/img/blog/3.jpg') }}">
+                <a class="img-popup" href="{{ asset('./public/client/img/blog/3.jpg') }}"><i class="ti-plus"></i></a>
+            </div>
+            <div class="gallery-item gi-big set-bg" data-setbg="{{ asset('./public/client/img/blog/10.jpg') }}">
+                <a class="img-popup" href="{{ asset('./public/client/img/blog/10.jpg') }}"><i class="ti-plus"></i></a>
+            </div>
+            <div class="gallery-item gi-long set-bg" data-setbg="{{ asset('./public/client/img/blog/7.jpg') }}">
+                <a class="img-popup" href="{{ asset('./public/client/img/blog/7.jpg') }}"><i class="ti-plus"></i></a>
+            </div>
 
-<div class="gallery-item set-bg" data-setbg="{{ asset('./public/client/img/blog/13.jpg') }}">
-<a class="img-popup" href="{{ asset('./public/client/img/blog/13.jpg') }}"><i class="ti-plus"></i></a>
-</div>
-<!--  -->
-<div class="gallery-item set-bg" data-setbg="{{ asset('./public/client/img/blog/18.jpg') }}">
-<a class="img-popup" href="{{ asset('./public/client/img/blog/18.jpg') }}"><i class="ti-plus"></i></a>
-</div>
-<!--<div class="gallery-item set-bg" data-setbg="{{ asset('./public/client/img/blog/9.jpg') }}">
-<a class="img-popup" href="{{ asset('./public/client/img/blog/9.jpg') }}"><i class="ti-plus"></i></a>
-</div>
+            <div class="gallery-item set-bg" data-setbg="{{ asset('./public/client/img/blog/13.jpg') }}">
+                <a class="img-popup" href="{{ asset('./public/client/img/blog/13.jpg') }}"><i class="ti-plus"></i></a>
+            </div>
+            <!--  -->
+            <div class="gallery-item set-bg" data-setbg="{{ asset('./public/client/img/blog/18.jpg') }}">
+                <a class="img-popup" href="{{ asset('./public/client/img/blog/18.jpg') }}"><i class="ti-plus"></i></a>
+            </div>
+            <!--<div class="gallery-item set-bg" data-setbg="{{ asset('./public/client/img/blog/9.jpg') }}">
+    <a class="img-popup" href="{{ asset('./public/client/img/blog/9.jpg') }}"><i class="ti-plus"></i></a>
+    </div>
 
 
 
- <div class="gallery-item set-bg" data-setbg="{{ asset('./public/client/img/blog/10.jpg') }}">
-<a class="img-popup" href="{{ asset('./public/client/img/blog/10.jpg') }}"><i class="ti-plus"></i></a>
-</div>
-<div class="gallery-item set-bg" data-setbg="{{ asset('./public/client/img/blog/11.jpg') }}">
-<a class="img-popup" href="{{ asset('./public/client/img/blog/11.jpg') }}"><i class="ti-plus"></i></a>
-</div>
-<div class="gallery-item set-bg" data-setbg="{{ asset('./public/client/img/blog/12.jpg') }}">
-<a class="img-popup" href="{{ asset('./public/client/img/blog/12.jpg') }}"><i class="ti-plus"></i></a>
-</div>
-<div class="gallery-item set-bg" data-setbg="{{ asset('./public/client/img/blog/13.jpg') }}">
-<a class="img-popup" href="{{ asset('./public/client/img/blog/13.jpg') }}"><i class="ti-plus"></i></a>
-</div>
-<div class="gallery-item set-bg" data-setbg="{{ asset('./public/client/img/blog/14.jpg') }}">
-<a class="img-popup" href="{{ asset('./public/client/img/blog/14.jpg') }}"><i class="ti-plus"></i></a>
-</div>
-<div class="gallery-item set-bg" data-setbg="{{ asset('./public/client/img/blog/15.jpg') }}">
-<a class="img-popup" href="{{ asset('./public/client/img/blog/15.jpg') }}"><i class="ti-plus"></i></a>
-</div>
-<div class="gallery-item set-bg" data-setbg="{{ asset('./public/client/img/blog/16.jpg') }}">
-<a class="img-popup" href="{{ asset('./public/client/img/blog/16.jpg') }}"><i class="ti-plus"></i></a>
-</div> -->
+     <div class="gallery-item set-bg" data-setbg="{{ asset('./public/client/img/blog/10.jpg') }}">
+    <a class="img-popup" href="{{ asset('./public/client/img/blog/10.jpg') }}"><i class="ti-plus"></i></a>
+    </div>
+    <div class="gallery-item set-bg" data-setbg="{{ asset('./public/client/img/blog/11.jpg') }}">
+    <a class="img-popup" href="{{ asset('./public/client/img/blog/11.jpg') }}"><i class="ti-plus"></i></a>
+    </div>
+    <div class="gallery-item set-bg" data-setbg="{{ asset('./public/client/img/blog/12.jpg') }}">
+    <a class="img-popup" href="{{ asset('./public/client/img/blog/12.jpg') }}"><i class="ti-plus"></i></a>
+    </div>
+    <div class="gallery-item set-bg" data-setbg="{{ asset('./public/client/img/blog/13.jpg') }}">
+    <a class="img-popup" href="{{ asset('./public/client/img/blog/13.jpg') }}"><i class="ti-plus"></i></a>
+    </div>
+    <div class="gallery-item set-bg" data-setbg="{{ asset('./public/client/img/blog/14.jpg') }}">
+    <a class="img-popup" href="{{ asset('./public/client/img/blog/14.jpg') }}"><i class="ti-plus"></i></a>
+    </div>
+    <div class="gallery-item set-bg" data-setbg="{{ asset('./public/client/img/blog/15.jpg') }}">
+    <a class="img-popup" href="{{ asset('./public/client/img/blog/15.jpg') }}"><i class="ti-plus"></i></a>
+    </div>
+    <div class="gallery-item set-bg" data-setbg="{{ asset('./public/client/img/blog/16.jpg') }}">
+    <a class="img-popup" href="{{ asset('./public/client/img/blog/16.jpg') }}"><i class="ti-plus"></i></a>
+    </div> -->
 
-</div>
-</div>
+        </div>
+    </div>
 
 
     {{-- @if ($news_value) --}}
@@ -708,18 +758,19 @@
             <div class="container">
                 <div class="row text-center">
 
-                <div class="col">
+                    <div class="col">
                         <div class="col" style="background-color: rgba(255, 255, 255, 0.51);">
-                            <img src="./public/client/img/main_imgs/members/mmu.png" height="150px"
-                                width="150px" alt="" loading="lazy">
+                            <img src="./public/client/img/main_imgs/members/mmu.png" height="150px" width="150px"
+                                alt="" loading="lazy">
 
                             <a href="https://mmu.edu.my/" target="_blank">
-                                <h6 class="text-center" style="margin-top: 10px"><strong>Multimedia University</strong></h6>
+                                <h6 class="text-center" style="margin-top: 10px"><strong>Multimedia University</strong>
+                                </h6>
                             </a>
 
                         </div>
                     </div>
-                <div class="col">
+                    <div class="col">
                         <div class="col" style="background-color: rgba(255, 255, 255, 0.51);">
                             <img src="./public/client/img/main_imgs/members/sudan-airways.png" height="150px"
                                 width="150px" alt="" loading="lazy">
@@ -733,20 +784,21 @@
                     </div>
                     <div class="col">
                         <div class="col" style="background-color: rgba(255, 255, 255, 0.51);">
-                            <img src="./public/client/img/main_imgs/members/nic.png" height="150px"
-                                width="150px" alt="" loading="lazy">
+                            <img src="./public/client/img/main_imgs/members/nic.png" height="150px" width="150px"
+                                alt="" loading="lazy">
 
                             <a href="https://www.facebook.com/nicsudan.sd/" target="_blank">
-                                <h6 class="text-center" style="margin-top: 10px"><strong>National Information Center</strong></h6>
+                                <h6 class="text-center" style="margin-top: 10px"><strong>National Information
+                                        Center</strong></h6>
                             </a>
 
                         </div>
                     </div>
-                    
+
                     <div class="col">
                         <div class="col" style="background-color: rgba(255, 255, 255, 0.51);">
-                            <img src="./public/client/img/main_imgs/members/nottingham_university.png" height="150px" width="150px"
-                                alt="" loading="lazy">
+                            <img src="./public/client/img/main_imgs/members/nottingham_university.png" height="150px"
+                                width="150px" alt="" loading="lazy">
 
                             <a href="https://www.nottingham.ac.uk/" target="_blank">
                                 <h6 class="text-center" style="margin-top: 10px"><strong>University of Nottingham</strong>
@@ -756,16 +808,16 @@
                         </div>
                     </div>
                     <!-- <div class="col">
-                        <div class="col" style="background-color: rgba(255, 255, 255, 0.51);">
-                            <img src="./public/client/img/main_imgs/members/boston_uni.png" height="150px" width="150px"
-                                alt="" loading="lazy">
+                            <div class="col" style="background-color: rgba(255, 255, 255, 0.51);">
+                                <img src="./public/client/img/main_imgs/members/boston_uni.png" height="150px" width="150px"
+                                    alt="" loading="lazy">
 
-                            <a href="https://www.bu.edu/" target="_blank">
-                                <h6 class="text-center" style="margin-top: 10px"><strong>Boston University</strong></h6>
-                            </a>
+                                <a href="https://www.bu.edu/" target="_blank">
+                                    <h6 class="text-center" style="margin-top: 10px"><strong>Boston University</strong></h6>
+                                </a>
 
-                        </div>
-                    </div> -->
+                            </div>
+                        </div> -->
                     <div class="col">
                         <div class="col" style="background-color: rgba(255, 255, 255, 0.51);">
                             <img src="./public/client/img/main_imgs/members/uni_of_ini.png" height="150px" width="150px"
@@ -787,102 +839,102 @@
 
 
     <!-- <div class="gallery-section">
-         <div class="gallery">
-          <div class="grid-sizer"></div>
-          <div class="gallery-item gi-big set-bg" data-setbg="img/gallery/1.jpg">
-           <a class="img-popup" href="img/gallery/1.jpg"><i class="ti-plus"></i></a>
-          </div>
-          <div class="gallery-item set-bg" data-setbg="img/gallery/2.jpg">
-           <a class="img-popup" href="img/gallery/2.jpg"><i class="ti-plus"></i></a>
-          </div>
-          <div class="gallery-item set-bg" data-setbg="img/gallery/3.jpg">
-           <a class="img-popup" href="img/gallery/3.jpg"><i class="ti-plus"></i></a>
-          </div>
-          <div class="gallery-item gi-long set-bg" data-setbg="img/gallery/5.jpg">
-           <a class="img-popup" href="img/gallery/5.jpg"><i class="ti-plus"></i></a>
-          </div>
-          <div class="gallery-item gi-big set-bg" data-setbg="img/gallery/8.jpg">
-           <a class="img-popup" href="img/gallery/8.jpg"><i class="ti-plus"></i></a>
-          </div>
-          <div class="gallery-item gi-long set-bg" data-setbg="img/gallery/4.jpg">
-           <a class="img-popup" href="img/gallery/4.jpg"><i class="ti-plus"></i></a>
-          </div>
-          <div class="gallery-item set-bg" data-setbg="img/gallery/6.jpg">
-           <a class="img-popup" href="img/gallery/6.jpg"><i class="ti-plus"></i></a>
-          </div>
-          <div class="gallery-item set-bg" data-setbg="img/gallery/7.jpg">
-           <a class="img-popup" href="img/gallery/7.jpg"><i class="ti-plus"></i></a>
-          </div>
-         </div>
-        </div> -->
+             <div class="gallery">
+              <div class="grid-sizer"></div>
+              <div class="gallery-item gi-big set-bg" data-setbg="img/gallery/1.jpg">
+               <a class="img-popup" href="img/gallery/1.jpg"><i class="ti-plus"></i></a>
+              </div>
+              <div class="gallery-item set-bg" data-setbg="img/gallery/2.jpg">
+               <a class="img-popup" href="img/gallery/2.jpg"><i class="ti-plus"></i></a>
+              </div>
+              <div class="gallery-item set-bg" data-setbg="img/gallery/3.jpg">
+               <a class="img-popup" href="img/gallery/3.jpg"><i class="ti-plus"></i></a>
+              </div>
+              <div class="gallery-item gi-long set-bg" data-setbg="img/gallery/5.jpg">
+               <a class="img-popup" href="img/gallery/5.jpg"><i class="ti-plus"></i></a>
+              </div>
+              <div class="gallery-item gi-big set-bg" data-setbg="img/gallery/8.jpg">
+               <a class="img-popup" href="img/gallery/8.jpg"><i class="ti-plus"></i></a>
+              </div>
+              <div class="gallery-item gi-long set-bg" data-setbg="img/gallery/4.jpg">
+               <a class="img-popup" href="img/gallery/4.jpg"><i class="ti-plus"></i></a>
+              </div>
+              <div class="gallery-item set-bg" data-setbg="img/gallery/6.jpg">
+               <a class="img-popup" href="img/gallery/6.jpg"><i class="ti-plus"></i></a>
+              </div>
+              <div class="gallery-item set-bg" data-setbg="img/gallery/7.jpg">
+               <a class="img-popup" href="img/gallery/7.jpg"><i class="ti-plus"></i></a>
+              </div>
+             </div>
+            </div> -->
 
 
     <!-- <section class="blog-section spad">
-         <div class="container">
-          <div class="section-title text-center">
-           <h3>LATEST NEWS</h3>
-           <p>Get latest breaking news & top stories today</p>
-          </div>
-          <div class="row">
-           <div class="col-xl-6">
-            <div class="blog-item">
-             <div class="blog-thumb set-bg" data-setbg="img/blog/1.jpg"></div>
-             <div class="blog-content">
-              <h4>Parents who try to be their children’s best friends</h4>
-              <div class="blog-meta">
-               <span><i class="fa fa-calendar-o"></i> 24 Mar 2018</span>
-               <span><i class="fa fa-user"></i> Owen Wilson</span>
+             <div class="container">
+              <div class="section-title text-center">
+               <h3>LATEST NEWS</h3>
+               <p>Get latest breaking news & top stories today</p>
               </div>
-              <p>Integer luctus diam ac scerisque consectetur. Vimus dot euismod neganeco lacus sit amet.
-               Aenean interdus mid vitae sed accumsan...</p>
-             </div>
-            </div>
-           </div>
-           <div class="col-xl-6">
-            <div class="blog-item">
-             <div class="blog-thumb set-bg" data-setbg="img/blog/2.jpg"></div>
-             <div class="blog-content">
-              <h4>Graduations could be delayed as external examiners</h4>
-              <div class="blog-meta">
-               <span><i class="fa fa-calendar-o"></i> 23 Mar 2018</span>
-               <span><i class="fa fa-user"></i> Owen Wilson</span>
+              <div class="row">
+               <div class="col-xl-6">
+                <div class="blog-item">
+                 <div class="blog-thumb set-bg" data-setbg="img/blog/1.jpg"></div>
+                 <div class="blog-content">
+                  <h4>Parents who try to be their children’s best friends</h4>
+                  <div class="blog-meta">
+                   <span><i class="fa fa-calendar-o"></i> 24 Mar 2018</span>
+                   <span><i class="fa fa-user"></i> Owen Wilson</span>
+                  </div>
+                  <p>Integer luctus diam ac scerisque consectetur. Vimus dot euismod neganeco lacus sit amet.
+                   Aenean interdus mid vitae sed accumsan...</p>
+                 </div>
+                </div>
+               </div>
+               <div class="col-xl-6">
+                <div class="blog-item">
+                 <div class="blog-thumb set-bg" data-setbg="img/blog/2.jpg"></div>
+                 <div class="blog-content">
+                  <h4>Graduations could be delayed as external examiners</h4>
+                  <div class="blog-meta">
+                   <span><i class="fa fa-calendar-o"></i> 23 Mar 2018</span>
+                   <span><i class="fa fa-user"></i> Owen Wilson</span>
+                  </div>
+                  <p>Integer luctus diam ac scerisque consectetur. Vimus dot euismod neganeco lacus sit amet.
+                   Aenean interdus mid vitae sed accumsan...</p>
+                 </div>
+                </div>
+               </div>
+               <div class="col-xl-6">
+                <div class="blog-item">
+                 <div class="blog-thumb set-bg" data-setbg="img/blog/3.jpg"></div>
+                 <div class="blog-content">
+                  <h4>Private schools adopt a Ucas style application system</h4>
+                  <div class="blog-meta">
+                   <span><i class="fa fa-calendar-o"></i> 24 Mar 2018</span>
+                   <span><i class="fa fa-user"></i> Owen Wilson</span>
+                  </div>
+                  <p>Integer luctus diam ac scerisque consectetur. Vimus dot euismod neganeco lacus sit amet.
+                   Aenean interdus mid vitae sed accumsan...</p>
+                 </div>
+                </div>
+               </div>
+               <div class="col-xl-6">
+                <div class="blog-item">
+                 <div class="blog-thumb set-bg" data-setbg="img/blog/4.jpg"></div>
+                 <div class="blog-content">
+                  <h4>Cambridge digs in at the top of university league table</h4>
+                  <div class="blog-meta">
+                   <span><i class="fa fa-calendar-o"></i> 23 Mar 2018</span>
+                   <span><i class="fa fa-user"></i> Owen Wilson</span>
+                  </div>
+                  <p>Integer luctus diam ac scerisque consectetur. Vimus dot euismod neganeco lacus sit amet.
+                   Aenean interdus mid vitae sed accumsan...</p>
+                 </div>
+                </div>
+               </div>
               </div>
-              <p>Integer luctus diam ac scerisque consectetur. Vimus dot euismod neganeco lacus sit amet.
-               Aenean interdus mid vitae sed accumsan...</p>
              </div>
-            </div>
-           </div>
-           <div class="col-xl-6">
-            <div class="blog-item">
-             <div class="blog-thumb set-bg" data-setbg="img/blog/3.jpg"></div>
-             <div class="blog-content">
-              <h4>Private schools adopt a Ucas style application system</h4>
-              <div class="blog-meta">
-               <span><i class="fa fa-calendar-o"></i> 24 Mar 2018</span>
-               <span><i class="fa fa-user"></i> Owen Wilson</span>
-              </div>
-              <p>Integer luctus diam ac scerisque consectetur. Vimus dot euismod neganeco lacus sit amet.
-               Aenean interdus mid vitae sed accumsan...</p>
-             </div>
-            </div>
-           </div>
-           <div class="col-xl-6">
-            <div class="blog-item">
-             <div class="blog-thumb set-bg" data-setbg="img/blog/4.jpg"></div>
-             <div class="blog-content">
-              <h4>Cambridge digs in at the top of university league table</h4>
-              <div class="blog-meta">
-               <span><i class="fa fa-calendar-o"></i> 23 Mar 2018</span>
-               <span><i class="fa fa-user"></i> Owen Wilson</span>
-              </div>
-              <p>Integer luctus diam ac scerisque consectetur. Vimus dot euismod neganeco lacus sit amet.
-               Aenean interdus mid vitae sed accumsan...</p>
-             </div>
-            </div>
-           </div>
-          </div>
-         </div>
-        </section> -->
+            </section> -->
 
 
 
