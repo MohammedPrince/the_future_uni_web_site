@@ -11,11 +11,6 @@
         <a href="#">SIU</a>
         <a href="#">MARKETING</a>
         <a href="#">DESIGN</a>
-
-        
-        
-        
-
     </div>
 </div>
 <hr class="new4">
@@ -32,12 +27,10 @@
         <li><a href="{{route('About-FU')}}">Why Future Universiy ?</a></li>
         <li><a href="{{route('Fu-Linkages')}}">FU Linkages</a></li>
         <li><a href="{{route('barChart')}}">Facts & Figures</a></li>
- 
+
     </ul>
 </div>
-
 <div class="widget">
-    {{-- <img src="./public/client/img/main_imgs/general/fu.jpg" alt="The Future Univesrity">  --}}
     <hr class="new4">
 </div>
 </div>
