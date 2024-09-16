@@ -97,7 +97,7 @@
 
             <ul class="main-menu">
 
-                <li class="{{ Request::is('Home') ? 'ActiveMenuMainColor' : '' }}">
+                <li class="{{ Request::is('/','Home') ? 'ActiveMenuMainColor' : '' }}">
                     <a href="{{ route('Home') }}">Home</a>
                 </li>
 
