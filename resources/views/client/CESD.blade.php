@@ -155,7 +155,7 @@
                                             </div>
                                         </div>
                                         <h5>Ms. Hadeel El-Mutassim</h5>
-                                        <p>Senior Software Developer</p>
+                                        <p>E-Learning Specialist, Software Developer</p>
                                     </div>
                                 </div>
                                 <div class="col-md-6 col-lg-3">
@@ -173,7 +173,7 @@
                                             </div>
                                         </div>
                                         <h5>Ms. Nader Nageeb </h5>
-                                        <p>Senior Software Developer</p>
+                                        <p>Software Developer</p>
                                     </div>
                                 </div>
                                 <div class="col-md-6 col-lg-3">
@@ -188,7 +188,7 @@
                                             </div>
                                         </div>
                                         <h5>Ms. Maraim Alnour </h5>
-                                        <p>Senior Software Developer</p>
+                                        <p>Software Developer</p>
                                     </div>
                                 </div>
 
@@ -220,7 +220,7 @@
                                             </div>
                                         </div>
                                         <h5>Mr. Mohammed Al-Mamoun</h5>
-                                        <p>Senior Mobile Application Developer</p>
+                                        <p>Mobile Application Developer</p>
                                     </div>
                                 </div>
 
@@ -237,7 +237,7 @@
                                             </div>
                                         </div>
                                         <h5>Mr. Ghazi Abdallah </h5>
-                                        <p>Junior Software Developer</p>
+                                        <p>Software Developer</p>
                                     </div>
                                 </div>
 
