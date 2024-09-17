@@ -81,34 +81,22 @@ a {
 
 .tab-container {
 	max-height: 300px;
-	/* Set the desired height for the scrollable area */
 	overflow-y: auto;
-	/* Enable vertical scrolling */
 }
 
 .tab button {
 	display: block;
-	/* Ensure the buttons are displayed vertically */
 	width: 100%;
-	/* Full width */
 	padding: 50px;
-	/* Add padding to make the buttons more comfortable to click */
 	margin: 5px 0;
-	/* Space between buttons */
 	white-space: normal;
-	/* Allow the button text to wrap to the next line */
 	text-align: left;
-	/* Align text to the left for better readability */
 	box-sizing: border-box;
-	/* Ensure padding and border are included in width */
 }
 
 .tab button.active {
 	background-color: #f1f1f1;
-	/* Highlight the active button if needed */
 }
-
-
 
 .input-field,
 .dropdown-select {
@@ -482,7 +470,7 @@ ul {
 .main-menu {
 	list-style: none;
 	position: relative;
-	/* Add position relative to the main menu */
+	padding-top: 5px;
 
 }
 
@@ -538,7 +526,7 @@ ul {
 	transform: translateX(-50%);
 	z-index: 999;
 	text-transform: none;
-	max-height: 300px;
+	max-height: 150px;
 	overflow-y: auto;
 	scroll-behavior: smooth;
 }
@@ -739,6 +727,7 @@ ul {
 
 .counterx-content {
 	padding-left: 90px;
+	padding-top: 10px ;
 }
 
 .counterx-content h2 {
