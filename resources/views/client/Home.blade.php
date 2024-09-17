@@ -603,45 +603,65 @@
                 <div class="ts-item">
                     <div class="row">
                         <div class="col-md-3">
-                            <div class="ts-author-pic set-bg" data-setbg="./public/client/img/main_imgs/members/mave.jpg">
+                            <div class="ts-author-pic set-bg" data-setbg="./public/storage/fu_alumni/BaraaMohammedBashir-100x100.jpg">
                             </div>
                         </div>
                         <div class="col-md-9 ts-text">
-                            <p>“ I am absolutely delighted with this course in every respect. The innovative approach and
-                                focus on practical application have been truly transformative, enabling me to develop new
-                                strategies for achieving better educational outcomes. ”</p>
-                            <h5>Mr. Mohamed Abuelgasim</h5>
-                            <span>Alumni</span>
+                            <p>“ Computerman as it was called before, now The Future University, is my door to the future. It is a place where my base skills and knowledge started from. ”</p>
+                            <h5>Baraa Mohammed Bashir</h5>
+                            <span>HR Officer, DAL Group.</span>
                         </div>
                     </div>
                 </div>
                 <div class="ts-item">
                     <div class="row">
                         <div class="col-md-3">
-                            <div class="ts-author-pic set-bg" data-setbg="./public/client/img/main_imgs/members/mave.jpg">
+                            <div class="ts-author-pic set-bg" data-setbg="./public/storage/fu_alumni/NajeebAhmadZai-100x100.jpg">
                             </div>
                         </div>
                         <div class="col-md-9 ts-text">
-                            <p>“This program has been a game-changer for me. The cutting-edge curriculum, expert faculty,
-                                and hands-on projects have equipped me with the skills and confidence to tackle complex
-                                challenges in my field. I'm leaving here inspired and ready to make a real impact. ”</p>
-                            <h5>Mr. Amin El-Shazaly</h5>
-                            <span>Alumni</span>
+                            <p>“ Being a FU graduated student, I can say that it is one of the best institutions to learn modern and up-to-date technology education. ”</p>
+                            <h5>Najeeb Ahmad Zai</h5>
+                            <span>Supervisor, Dubai, UAE.</span>
                         </div>
                     </div>
                 </div>
                 <div class="ts-item">
                     <div class="row">
                         <div class="col-md-3">
-                            <div class="ts-author-pic set-bg" data-setbg="./public/client/img/main_imgs/members/mave.jpg">
+                            <div class="ts-author-pic set-bg" data-setbg="./public/storage/fu_alumni/KhalidFaza-100x100.jpg">
                             </div>
                         </div>
                         <div class="col-md-9 ts-text">
-                            <p>“Enrolling in this program was the best decision I've made. The supportive learning
-                                environment, diverse learning opportunities, and dedicated professors have truly transformed
-                                the way I approach problem-solving and creative thinking. ”</p>
-                            <h5>Mr. Ali Ahmed</h5>
-                            <span>Alumni</span>
+                            <p>“ It is really great to be an alumnus of the Future University (Computer Man College) which had such a strong system. I believe that whatever I have achieved today is just because of what I had learned in FU. ”</p>
+                            <h5>Khalid Faza</h5>
+                            <span>Chief Commercial Officer (CCO), Zain.</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="ts-item">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="ts-author-pic set-bg" data-setbg="./public/storage/fu_alumni/Ahmed-Mohammed-Osman-Ali-100x100.jpg">
+                            </div>
+                        </div>
+                        <div class="col-md-9 ts-text">
+                            <p>“ Future University (formerly Computer Man College) is not just a University; it’s a way of life. You learn to see the real world with a broaden mind for its system allows you to easily adapt to the dynamic environment that fosters a culture of professional growth. ”</p>
+                            <h5>Ahmed Mohammed Osman Ali</h5>
+                            <span>Director IT for Sudan & Ethiopia, Ericsson AB- Branch Sudan.</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="ts-item">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="ts-author-pic set-bg" data-setbg="./public/storage/fu_alumni/Amar-Hamdi-100x100.jpg">
+                            </div>
+                        </div>
+                        <div class="col-md-9 ts-text">
+                            <p>“ Future University, as we knew it back then as Computer Man College, gave me so much in many ways.”</p>
+                            <h5>Amar Hamdi</h5>
+                            <span>IT Manager, On Target Consulting Dubai, UAE.</span>
                         </div>
                     </div>
                 </div>
