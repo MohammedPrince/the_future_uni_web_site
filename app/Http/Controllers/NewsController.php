@@ -10,12 +10,18 @@ use App\Models\MainApp;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Crypt;
+
 use Intervention\Image\Facades\Image;
 
 class NewsController extends Controller
 {
     //
 
+    public function index()
+    {
+        return view("client.Home");
+    }
     public function search(Request $request)
     {
         $searchTerm = $request->get('term');
@@ -45,10 +51,11 @@ class NewsController extends Controller
         $events='';
 
         $event_value = false;
-        $news = News::find($news_id);
+        $new_news_id  = base64_decode($news_id);
+        $news = News::find($new_news_id);
 
-        $faculty_id = News :: GetNewsColumn('faculty_id',$news_id);
-        $event_by_id = News :: GetNewsColumn('news_by',$news_id);
+        $faculty_id = News :: GetNewsColumn('faculty_id',$new_news_id);
+        $event_by_id = News :: GetNewsColumn('news_by',$new_news_id);
 
         $news_office = MainApp::getFacultiesAndOffices($faculty_id) ;
 
@@ -75,8 +82,8 @@ class NewsController extends Controller
        if (News::getNews()!= null ){
 
         $news_value = true ;
-        $news = News::getNews() ;
-
+        //$news = News::getNews() ;
+        $news = News::paginate(2);
     
        }
 
@@ -212,7 +219,7 @@ $faculty_id='';
                 $incomingFields['news_imgs'] = $incomingFields['news_imgs_old'] ;
             }
             
-            strip_tags($incomingFields) ;
+            // strip_tags($incomingFields) ;
             if(  $news ->update($incomingFields)){
 
                 return redirect('/add_news')->with('success','News Successfully Updated !');

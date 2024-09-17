@@ -41,7 +41,7 @@
 
                                     <div class="card">
 
-                                        <form action="/add_news" method="POST" enctype="multipart/form-data">
+                                        <form action="add_news" method="POST" enctype="multipart/form-data">
                                             @csrf
                                             <div class="card-header">
                                                 <h5 class="card-title mb-0">Title</h5>
@@ -132,7 +132,7 @@
                                             <th>Faculty</th>
                                             <th>By</th>
                                             <th>Current Status</th>
-                                            <th>Status</th>
+                                            <!-- <th>Status</th> -->
                                             <th>Edit</th>
                                             <th>DEL</th>
                                         </tr>
@@ -154,18 +154,21 @@
                                                     @endif
 
                                                 </td>
-                                                <td>
+                                                {{--
+                                                <!-- <td>
                                                    @if ($new->news_status == '0')
-                                                   <a href="/add_news/{{$new->id}}/status/1" class="btn btn-primary">Published</a>    
+                                                   <a href="add_news/{{$new->id}}/status/1" class="btn btn-primary">Published</a>    
                                                    @endif
                                                    @if ($new->news_status == '1')
-                                                   <a href="/add_news/{{$new->id}}/status/0" class="btn btn-danger">Not</a>   
+                                                   <a href="add_news/{{$new->id}}/status/0" class="btn btn-danger">Not</a>   
                                                    @endif
 
-                                                </td>
+                                                </td> -->
+
+                                                --}}
                                             
-                                                <td><a href="/edit_news/{{$new->id}}/edit" class="btn btn btn-info">Edit</a></td>
-                                                <td><a href="/add_news/{{$new->id}}/delete" class="btn btn btn-danger" onClick="return confirm('Are You Sure You Want to Delete this news ?')">Delete</a></td>
+                                                <td><a href="edit_news/{{$new->id}}/edit" class="btn btn btn-info">Edit</a></td>
+                                                <td><a href="add_news/{{$new->id}}/delete" class="btn btn btn-danger" onClick="return confirm('Are You Sure You Want to Delete this news ?')">Delete</a></td>
                                             </tr>
                                             @endforeach
 

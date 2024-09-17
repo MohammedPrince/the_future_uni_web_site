@@ -40,7 +40,8 @@
 
                                     <div class="card">
 
-                                        <form action="/edit_event/{{ $event->id }}" method="POST" enctype="multipart/form-data">
+                                        <!-- <form action="edit_event/{{ $event->id }}" method="POST" enctype="multipart/form-data"> -->
+                                        <form action="{{route('eventsubmit',$event->id)}}" method="POST" enctype="multipart/form-data">
                                             @csrf
                                             <div class="card-header">
                                                 <h5 class="card-title mb-0">Title</h5>
@@ -101,22 +102,24 @@
 
                                             <input type="hidden" value="{{ $event->event_imgs }}" name="event_imgs_old">
 
-                                            <div class="card-header">
+                                            <!-- <div class="card-header">
                                                 <h5 class="card-title mb-0">Current Images</h5>
-                                            </div>
-                                        <div class="card-body col-6 col-lg-6">
+                                            </div> -->
+                                        <!-- <div class="card-body col-6 col-lg-6">
 
-                                            @foreach (explode(',', $event->event_imgs) as $image)
+                                           {{-- @foreach (explode(',', $event->event_imgs) as $image)
                                             <a  href="/storage/event_imgs/{{$image}}" target="_blank">
                                             <img src="/storage/event_imgs/{{$image}}" style="width:100px;height:100px">
                                             </a>
-                                            @endforeach
-                                        </div>
+                                            @endforeach --}}
+                                           
+                                        </div> -->
 
                                             <div class="card-header">
                                                 <h5 class="card-title mb-0">Upload New Images</h5>
                                             </div>
                                             <div class="card-body col-6 col-lg-6">
+                                            {{ $event->event_imgs }}
                                                 <input type="file" name="event_imgs[]" multiple  class="form-control" placeholder="Select Event Images">
                                                 @error('event_imgs')
                                                     <div class="alert error text-center">
@@ -124,6 +127,7 @@
                                                     </div>
                                                 @enderror
                                             </div>
+                                            
                                            
                                             <div class="text-center">
 

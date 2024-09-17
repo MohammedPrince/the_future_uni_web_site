@@ -2,8 +2,8 @@
 @section('main-client-content')
     <div class="site-breadcrumb">
         <div class="container">
-            <a href="/Home"><i class="fa fa-home"></i> Home</a> <i class="fa fa-angle-right"></i>
-            <span style="color: #d1291f;">Event Details</span>
+            <a href="{{route('Home')}}"><i class="fa fa-home"></i> Home</a> <i class="fa fa-angle-right"></i>
+            <span style="color: #fb8b24;">Event Details</span>
         </div>
     </div>
 
@@ -16,7 +16,10 @@
 
                         @foreach (array_slice(explode(',', $event->event_imgs ), 0,1)  as $image)
 
-					    <img src="/storage/event_imgs/{{$image}}" alt="Futrue Uinversity" >
+					    <!-- <img src="/storage/event_imgs/{{$image}}" alt="Futrue Uinversity" > -->
+					    <img src="{{ asset('./public/storage/event_imgs/' . $image) }}" alt="Futrue Uinversity" >
+
+                        <!-- {{ asset('./public/storage/event_imgs/' . $image) }} -->
 
 					    @endforeach
                         
@@ -41,7 +44,10 @@
 
                                 @foreach (explode(',', $event->event_imgs) as $events_image)
 		
-                                <div class="hs-item set-bg" data-setbg="/storage/event_imgs/{{$events_image}}" ></div>
+                                <!-- <div class="hs-item set-bg" data-setbg="/storage/event_imgs/{{$events_image}}" ></div> -->
+                                <div class="hs-item set-bg" data-setbg="{{ asset('./public/storage/event_imgs/' . $events_image) }}" ></div>
+
+                                <!-- {{ asset('./public/storage/event_imgs/' . $events_image) }} -->
 
                                 @endforeach
 
@@ -73,10 +79,15 @@
                         <div class="recent-post-widget">
                             <div class="rp-item">
                                 @foreach (array_slice(explode(',', $news_result->news_imgs ), 0,1)  as $image)
-                                <div class="rp-thumb set-bg" data-setbg="/storage/news_imgs/{{$image}}"></div>
+                                <!-- <div class="rp-thumb set-bg" data-setbg="/storage/news_imgs/{{$image}}"></div> -->
+                                <div class="rp-thumb set-bg" data-setbg="{{ asset('./public/storage/news_imgs/' . $image) }}"></div>
+                                <!-- {{ asset('./public/storage/news_imgs/' . $image) }} -->
                                 @endforeach
                                 <div class="rp-content">
-                            <h6 style="font-size: 19px"><a href="/News-Details/{{ $news_result->id }}" style="color:black">
+                            <!-- <h6 style="font-size: 19px"><a href="/News-Details/{{ $news_result->id }}" style="color:black"> -->
+                            <h6 style="font-size: 19px"><a href="{{route('newsDetails' , base64_encode($news_result->id))}}" style="color:black">
+
+                            
                                 {{ $news_result->news_title }}</a></h6>
                             <p><i class="fa fa-calendar-o"></i> <strong>{{ $news_result->news_date }}</strong></p>
                                 </div>

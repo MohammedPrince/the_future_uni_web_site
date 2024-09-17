@@ -41,7 +41,7 @@
 
                                     <div class="card">
 
-                                        <form action="/add_event" method="POST" enctype="multipart/form-data">
+                                        <form action="add_event" method="POST" enctype="multipart/form-data">
                                             @csrf
                                             <div class="card-header">
                                                 <h5 class="card-title mb-0">Title</h5>
@@ -173,16 +173,17 @@
                                                 </td>
                                                 <td>
                                                    @if ($event->event_status == '0')
-                                                   <a href="/add_event/{{$event->id}}/status/1" class="btn btn-primary">Published</a>    
+                                                   <a href="add_event/{{$event->id}}/status/1" class="btn btn-primary">Published</a>    
                                                    @endif
                                                    @if ($event->event_status == '1')
-                                                   <a href="/add_event/{{$event->id}}/status/0" class="btn btn-danger">Not</a>   
+                                                   <a href="add_event/{{$event->id}}/status/0" class="btn btn-danger">Not</a>   
                                                    @endif
 
                                                 </td>
                                             
-                                                <td><a href="/edit_event/{{$event->id}}/edit" class="btn btn btn-info">Edit</a></td>
-                                                <td><a href="/add_event/{{$event->id}}/delete" class="btn btn btn-danger" onClick="return confirm('Are You Sure You Want to Delete this event ?')">Delete</a></td>
+                                                <td><a href="{{route('edit_event',$event->id,'edit')}}" class="btn btn btn-info">Edit</a></td>
+                                                <!-- {{-- old - edit_event/{{$event->id}}/edit --}} -->
+                                                <td><a href="add_event/{{$event->id}}/delete" class="btn btn btn-danger" onClick="return confirm('Are You Sure You Want to Delete this event ?')">Delete</a></td>
                                             </tr>
                                             @endforeach
 

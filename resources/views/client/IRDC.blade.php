@@ -3,8 +3,8 @@
 
 <div class="site-breadcrumb">
     <div class="container">
-        <a href="/Home"><i class="fa fa-home"></i> Home</a> <i class="fa fa-angle-right"></i>
-        <span style="color: #d1291f;">Innovation Research and Development Center</span>
+        <a href="{{route('Home')}}"><i class="fa fa-home"></i> Home</a> <i class="fa fa-angle-right"></i>
+        <span style="color: #fb8b24;">Innovation Research and Development Center</span>
     </div>
 </div>
 
@@ -47,7 +47,7 @@
                                         <h4>MISSION</h4>
                                     </div>
                                     <div class="desc-wrap">
-                                        <p>
+                                        <p style="text-align: justify;">
                                             Offer access to e-Infrastructure resources to support pilots, prototyping, scaling-up, 
                                             designing, performance verification, testing, demonstration, 
                                             etc. and increase projects visibility on National / International levels.
@@ -61,7 +61,7 @@
                                         <h4>VISION</h4>
                                     </div>
                                     <div class="desc-wrap">
-                                        <p>
+                                        <p style="text-align: justify;">
                                             Providing knowledge through various learning channels in a way that transcends the limitations of time and space, 
                                             as well as integrating visions and concepts to achieve excellence in scientific research.
                                            
@@ -71,9 +71,9 @@
                             </div>
                         </div>
 
-                        <p><div class="hr-sect new6"><span>IRDC Team</span></div></p>
+                        <!-- <p><div class="hr-sect new6"><span>IRDC Team</span></div></p> -->
 
-                        <section class="testimonial-section spad" style="background-color: white;padding-top: 0px">
+                        <!-- <section class="testimonial-section spad" style="background-color: white;padding-top: 0px">
                             <div class="container">
                                 <div class="section-title text-center">
                                     
@@ -84,11 +84,11 @@
                                     <div class="ts-item">
                                         <div class="row">
                                             <div class="col-md-3">
-                                                <div class="ts-author-pic set-bg" data-setbg="/client/img/main_imgs/members/dr_khalid.jpg"></div>
+                                                <div class="ts-author-pic set-bg" data-setbg="{{asset('./public/storage/staff_imgs/IMG_7417.jpg')}}"></div>
                                             </div>
                                             <div class="col-md-9 ts-text">
                                                 <p></p><p></p><p></p><br>
-                                                <h5>Dr. Khalid Sheikhidris Mohamed</h5>
+                                                <h5>Se. Dr. Khalid Sheikhidris Mohamed</h5>
                                                 <span>IRDC Director</span>
                                                 <div class="about-widget">
                                                 <div class="social pt-1">
@@ -103,7 +103,7 @@
                                     <div class="ts-item">
                                         <div class="row">
                                             <div class="col-md-3">
-                                                <div class="ts-author-pic set-bg" data-setbg="/client/img/main_imgs/members/"></div>
+                                                <div class="ts-author-pic set-bg" data-setbg="{{asset('./public/storage/staff_imgs/woman_user_noimage.png')}}"></div>
                                             </div>
                                             <div class="col-md-9 ts-text">
                                                 <p></p><p></p><p></p><br>
@@ -122,7 +122,7 @@
                                     <div class="ts-item">
                                         <div class="row">
                                             <div class="col-md-3">
-                                                <div class="ts-author-pic set-bg" data-setbg="/client/img/main_imgs/members/"></div>
+                                                <div class="ts-author-pic set-bg" data-setbg="{{asset('./public/storage/staff_imgs/woman_user_noimage.png')}}"></div>
                                             </div>
                                             <div class="col-md-9 ts-text">
                                                 <p></p><p></p><p></p><br>
@@ -139,7 +139,51 @@
                                     </div>
                                 </div>
                             </div>
-                        </section>
+                        </section> -->
+                        <div class="row">
+
+                        <p><div class="hr-sect new6"><span>IRDC Team</span></div></p>
+
+                    
+<div class="col-md-6 col-lg-3">
+<div class="member">
+
+<div class="member-pic set-bg" data-setbg="{{asset('./public/storage/staff_imgs/IMG_7417.jpg')}}">
+<div class="member-social">
+<a href="mailto:khalidkaradh@fu.edu.sd"><i class="fa fa-envelope"></i></a>
+
+</div>
+</div>
+<h5>Se. Dr. Khalid Sheikhidris Mohamed </h5>
+<p> IRDC Director</p>
+</div>
+</div>
+<div class="col-md-6 col-lg-3">
+<div class="member">
+<div class="member-pic set-bg" data-setbg="{{asset('./public/storage/staff_imgs/woman_user_noimage.png')}}">
+<div class="member-social">
+
+<a href = "mailto:mailto:sayda@fu.edu.sd"><i class="fa fa-envelope" ></i></a>
+</div>
+</div>
+<h5>Dr. Sayda Mamoun</h5>
+<p>Assistant Director</p>
+</div>
+</div>
+<div class="col-md-6 col-lg-3">
+<div class="member">
+<div class="member-pic set-bg" data-setbg="{{asset('./public/storage/staff_imgs/woman_user_noimage.png')}}">
+<div class="member-social">
+<a href = "mailto:mailto:muhaira.sharief@fu.edu.sd"><i class="fa fa-envelope"></i></a>
+</div>
+</div>
+<h5>Ms. Muhaira Mohamed </h5>
+<p>Administrative Coordinator</p>
+</div>
+</div>
+
+</div>
+
 
 
                         <p><div class="hr-sect new6"><span>IRDC Labs</span></div></p>
@@ -182,7 +226,7 @@
 
                         </div>
 
-                        <div class="hr-sect new4" style="padding-top: 30px"><span>Service</span></div>
+                        <!-- <div class="hr-sect new4" style="padding-top: 30px"><span>Service</span></div>
 
                         <p style="font-size: 16px;padding-top: 0px">
                             We are committed towards providing extraordinary customer satisfaction models that could aid in approaching and achieving the promotional goals and measures. 
@@ -191,7 +235,7 @@
                             developed, and delivered to achieve the organizational goals, strategies, and values.
                         </p>
     
-                        <hr class="new4">
+                        <hr class="new4"> -->
 
                       </div>
                     <p></p>

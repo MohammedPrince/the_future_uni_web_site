@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Validator;
 use App\Models\User;
+use App\Models\Department;
 use App\Models\MainApp;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
@@ -40,7 +41,7 @@ class UserController extends Controller
 
         $validate = Validator::make($request->all(), [
             'username' => ['required','min:5' , 'max:20' ,Rule::unique('users' ,'username') ],
-            'user_fullname' => ['required','min:5' , 'max:20'],
+            'user_fullname' => ['required','min:5' , 'max:50'],
             'user_phone' => ['required','min:10' , 'max:10'],
             'user_email' => ['required',Rule::unique('users' ,'user_email') ],
             'isAdmin' => ['required'],
@@ -82,13 +83,25 @@ class UserController extends Controller
 
         $user_faculty  = $user->allUsers()->first()->user_faculty  ;
         $dept_name = MainApp::getFacultiesAndOffices($user_faculty);
-       
-        return view('admin.add_user' , ['users' =>$user->allUsers(),'user_dept' => $dept_name]);
+        $departments = Department::all(); 
+
+        return view('admin.add_user' , [
+            'users' =>$user->allUsers(),
+            'user_dept' => $dept_name,
+            'departments' => $departments,
+
+        ]);
     }
 
     public function showEditForm(User $user){
 
         return view("admin.edit_user" , ['user' => $user,'action' => 'edit']);
+    }
+
+    public function user_profile(){
+
+        $user = auth()->user();
+        return view("admin.profile" , ['user' => $user]);
     }
 
     public function editUser(Request $request , User $user){
@@ -170,8 +183,31 @@ class UserController extends Controller
         }
     }
 
+
+    public function newPage($id){
+      
+        $user = User::where('id', $id)->get();
+
+        return view("admin.new_edit_user",['user' => $user,'action' => 'edit']);
+    }
+
+
+
+
+
+
+
+
+
+
+
     public function logout(){
+
         $user_name = auth()->user()->username;
+
+        if($user_name == ""){
+            $user_name = 'User';
+        }
 
         auth()->logout();
         return redirect("/admin_panel")->with('success', $user_name.' , Logged out successfully !');

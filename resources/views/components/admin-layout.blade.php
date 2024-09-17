@@ -10,20 +10,21 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Responsive Admin &amp; Dashboard Template based on Bootstrap 5">
-    <meta name="author" content="AdminKit">
-    <meta name="keywords"
-        content="">
+    <meta name="description" content="The Future University-Admin Panel">
+    <meta name="author" content="The Future University-Admin Panel">
+    <meta name="keywords" content="">
+        
 
     <link rel="preconnect" href="https://fonts.gstatic.com/">
-    <link rel="shortcut icon" href="/admin/img/logos/logo.png" />
+    <link rel="shortcut icon" href="{{asset('./public/admin/img/logos/logo.png')}}" />
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/easymde/dist/easymde.min.css">
+    <link rel="stylesheet" href="{{asset('./public/admin/css/easymde.min.css')}}">
+    <!-- easymde.min.css -->
 
     <title>Fu Website Managment</title>
-    <link href="/admin/css/app.css" rel="stylesheet">
-    <link href="/admin/css/light.css" rel="stylesheet">
-    <link href="/admin/css/alerts.css" rel="stylesheet">
+    <link href="{{asset('./public/admin/css/app.css')}}" rel="stylesheet">
+    <link href="{{asset('./public/admin/css/light.css')}}" rel="stylesheet">
+    <link href="{{asset('./public/admin/css/alerts.css')}}" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&amp;display=swap" rel="stylesheet">
 
 </head>
@@ -32,205 +33,82 @@
     <div class="wrapper">
         <nav id="sidebar" class="sidebar js-sidebar">
             <div class="sidebar-content js-simplebar">
-                <a class='sidebar-brand text-center' href='/add_user'>
-                   <span class="align-middle">Fu-Website</br>Content Managment</span>
+                <a class='sidebar-brand text-center' href='add_user'>
+                   <span class="align-middle">Fu-Website<br>Content Managment</span>
                 </a>
 
                 <ul class="sidebar-nav">
-                    <li class="sidebar-header">
-                       
+                    <li class="sidebar-header"></li>
+
+                    <li class="sidebar-item '@if ( (Request::is('profile')) ) active @endif ' ">
+                        <a class='sidebar-link' href='{{route("profile")}}'>
+                            <i class="align-middle" data-feather="user"></i> <span class="align-middle">My Profile</span>
+                        </a>
                     </li>
 
                     <li class="sidebar-item '@if ( (Request::is('add_user')) || (Request::is('edit_user'))  ) active  @endif' ">
-                        <a class='sidebar-link' href='/add_user'>
+                        <a class='sidebar-link' href='{{route("add_user")}}'>
                             <i class="align-middle" data-feather="users"></i> <span class="align-middle">Manage Users</span>
                         </a>
                     </li>
                  
 
                     <li class="sidebar-item '@if ( (Request::is('add_event')) || (Request::is('edit_event'))  ) active @endif ' ">
-                        <a class='sidebar-link' href='/add_event'>
+                        <a class='sidebar-link' href='{{route("add_event")}}'>
+                        {{--<!-- {{route("add_event")}} --> --}}
                             <i class="align-middle" data-feather="globe"></i> <span class="align-middle">Manage Events</span>
                         </a>
                     </li>
 
                     <li class="sidebar-item '@if ( (Request::is('add_news')) || (Request::is('edit_news'))  ) active @endif ' ">
-                        <a class='sidebar-link' href='/add_news'>
+                        <a class='sidebar-link' href='{{route("add_news")}}'>
+                            {{-- {{route("add_news")}} --}}
                             <i class="align-middle" data-feather="paperclip"></i> <span class="align-middle">Manage News</span>
                         </a>
                     </li>
-
-                  
-                    <li class="sidebar-header">
-                        Tools & Components
-                    </li>
-
-                    <li class="sidebar-item">
-                        <a class='sidebar-link' href='ui-buttons.html'>
-                            <i class="align-middle" data-feather="square"></i> <span class="align-middle">Buttons</span>
+                    <li class="sidebar-item '@if ( (Request::is('linkage')) || (Request::is('edit_linkage'))  ) active @endif ' ">
+                        <a class='sidebar-link' href='{{route("linkage")}}'>
+                            <i class="align-middle" data-feather="link"></i> <span class="align-middle">Manage Linkage</span>
                         </a>
                     </li>
 
-                </ul>
+                    <li class="sidebar-item '@if ( (Request::is('fee_structure')) || (Request::is('edit_fee_structure'))  ) active @endif ' ">
+                        <a class='sidebar-link' href='{{route("fee_structure")}}'>
+                            <i class="align-middle" data-feather="slack"></i> <span class="align-middle">Fee Structure</span>
+                        </a>
+                    </li>
 
+                    <li class="sidebar-item '@if ( (Request::is('staff')) || (Request::is('edit_staff_information'))  ) active @endif ' ">
+                        <a class='sidebar-link' href='{{route("staff")}}'>
+                            <i class="align-middle" data-feather="user-check"></i> <span class="align-middle">Staff Information</span>
+                        </a>
+                    </li>
+                  
+                    <!-- <li class="sidebar-header">
+                        page divider
+                    </li>
+
+                    <li class="sidebar-item">
+                        <a class='sidebar-link' href='#'>
+                            <i class="align-middle" data-feather="cart"></i> <span class="align-middle">Test</span>
+                        </a>
+                    </li> -->
+                </ul>
             </div>
         </nav>
 
         <div class="main">
             <nav class="navbar navbar-expand navbar-light navbar-bg">
+
+
                 <a class="sidebar-toggle js-sidebar-toggle">
                     <i class="hamburger align-self-center"></i>
                 </a>
 
                 <div class="navbar-collapse collapse">
                     <ul class="navbar-nav navbar-align">
-                        <li class="nav-item dropdown">
-                            <a class="nav-icon dropdown-toggle" href="#" id="alertsDropdown"
-                                data-bs-toggle="dropdown">
-                                <div class="position-relative">
-                                    <i class="align-middle" data-feather="bell"></i>
-                                    <span class="indicator">4</span>
-                                </div>
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end py-0"
-                                aria-labelledby="alertsDropdown">
-                                <div class="dropdown-menu-header">
-                                    4 New Notifications
-                                </div>
-                                <div class="list-group">
-                                    <a href="#" class="list-group-item">
-                                        <div class="row g-0 align-items-center">
-                                            <div class="col-2">
-                                                <i class="text-danger" data-feather="alert-circle"></i>
-                                            </div>
-                                            <div class="col-10">
-                                                <div class="text-dark">Update completed</div>
-                                                <div class="text-muted small mt-1">Restart server 12 to complete the
-                                                    update.</div>
-                                                <div class="text-muted small mt-1">30m ago</div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                    <a href="#" class="list-group-item">
-                                        <div class="row g-0 align-items-center">
-                                            <div class="col-2">
-                                                <i class="text-warning" data-feather="bell"></i>
-                                            </div>
-                                            <div class="col-10">
-                                                <div class="text-dark">Lorem ipsum</div>
-                                                <div class="text-muted small mt-1">Aliquam ex eros, imperdiet vulputate
-                                                    hendrerit et.</div>
-                                                <div class="text-muted small mt-1">2h ago</div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                    <a href="#" class="list-group-item">
-                                        <div class="row g-0 align-items-center">
-                                            <div class="col-2">
-                                                <i class="text-primary" data-feather="home"></i>
-                                            </div>
-                                            <div class="col-10">
-                                                <div class="text-dark">Login from 192.186.1.8</div>
-                                                <div class="text-muted small mt-1">5h ago</div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                    <a href="#" class="list-group-item">
-                                        <div class="row g-0 align-items-center">
-                                            <div class="col-2">
-                                                <i class="text-success" data-feather="user-plus"></i>
-                                            </div>
-                                            <div class="col-10">
-                                                <div class="text-dark">New connection</div>
-                                                <div class="text-muted small mt-1">Christina accepted your request.
-                                                </div>
-                                                <div class="text-muted small mt-1">14h ago</div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="dropdown-menu-footer">
-                                    <a href="#" class="text-muted">Show all notifications</a>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-icon dropdown-toggle" href="#" id="messagesDropdown"
-                                data-bs-toggle="dropdown">
-                                <div class="position-relative">
-                                    <i class="align-middle" data-feather="message-square"></i>
-                                </div>
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end py-0"
-                                aria-labelledby="messagesDropdown">
-                                <div class="dropdown-menu-header">
-                                    <div class="position-relative">
-                                        4 New Messages
-                                    </div>
-                                </div>
-                                <div class="list-group">
-                                    <a href="#" class="list-group-item">
-                                        <div class="row g-0 align-items-center">
-                                            <div class="col-2">
-                                                <img src="/admin/img/avatars/avatar-5.jpg"
-                                                    class="avatar img-fluid rounded-circle" alt="Vanessa Tucker">
-                                            </div>
-                                            <div class="col-10 ps-2">
-                                                <div class="text-dark">Vanessa Tucker</div>
-                                                <div class="text-muted small mt-1">Nam pretium turpis et arcu. Duis
-                                                    arcu tortor.</div>
-                                                <div class="text-muted small mt-1">15m ago</div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                    <a href="#" class="list-group-item">
-                                        <div class="row g-0 align-items-center">
-                                            <div class="col-2">
-                                                <img src="/admin/img/avatars/avatar-2.jpg"
-                                                    class="avatar img-fluid rounded-circle" alt="William Harris">
-                                            </div>
-                                            <div class="col-10 ps-2">
-                                                <div class="text-dark">William Harris</div>
-                                                <div class="text-muted small mt-1">Curabitur ligula sapien euismod
-                                                    vitae.</div>
-                                                <div class="text-muted small mt-1">2h ago</div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                    <a href="#" class="list-group-item">
-                                        <div class="row g-0 align-items-center">
-                                            <div class="col-2">
-                                                <img src="/admin/img/avatars/avatar-4.jpg"
-                                                    class="avatar img-fluid rounded-circle" alt="Christina Mason">
-                                            </div>
-                                            <div class="col-10 ps-2">
-                                                <div class="text-dark">Christina Mason</div>
-                                                <div class="text-muted small mt-1">Pellentesque auctor neque nec urna.
-                                                </div>
-                                                <div class="text-muted small mt-1">4h ago</div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                    <a href="#" class="list-group-item">
-                                        <div class="row g-0 align-items-center">
-                                            <div class="col-2">
-                                                <img src="admin/img/avatars/avatar-3.jpg"
-                                                    class="avatar img-fluid rounded-circle" alt="Sharon Lessman">
-                                            </div>
-                                            <div class="col-10 ps-2">
-                                                <div class="text-dark">Sharon Lessman</div>
-                                                <div class="text-muted small mt-1">Aenean tellus metus, bibendum sed,
-                                                    posuere ac, mattis non.</div>
-                                                <div class="text-muted small mt-1">5h ago</div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="dropdown-menu-footer">
-                                    <a href="#" class="text-muted">Show all messages</a>
-                                </div>
-                            </div>
-                        </li>
+                       
+                       
                         <li class="nav-item dropdown">
                             <a class="nav-icon dropdown-toggle d-inline-block d-sm-none" href="#"
                                 data-bs-toggle="dropdown">
@@ -239,21 +117,17 @@
 
                             <a class="nav-link dropdown-toggle d-none d-sm-inline-block" href="#"
                                 data-bs-toggle="dropdown">
-                                <img src="/admin/img/avatars/avatar.jpg" class="avatar img-fluid rounded me-1"
-                                    alt="Charles Hall" /> <span class="text-dark">Charles Hall</span>
+                                <img src="{{asset('./public/admin/img/logos/logo.png')}}" class="avatar img-fluid rounded me-1"
+                                    alt="Charles Hall" /> <span class="text-dark">{{ auth()->user()->user_fullname }}</span>
                             </a>
                             <div class="dropdown-menu dropdown-menu-end">
-                                <a class='dropdown-item' href='pages-profile.html'><i class="align-middle me-1"
+                                <a class='dropdown-item' href='profile'><i class="align-middle me-1"
                                         data-feather="user"></i> Profile</a>
-                                <a class="dropdown-item" href="#"><i class="align-middle me-1"
-                                        data-feather="pie-chart"></i> Analytics</a>
+                               
+                               
                                 <div class="dropdown-divider"></div>
-                                <a class='dropdown-item' href='index.html'><i class="align-middle me-1"
-                                        data-feather="settings"></i> Settings & Privacy</a>
-                                <a class="dropdown-item" href="#"><i class="align-middle me-1"
-                                        data-feather="help-circle"></i> Help Center</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="/logout">Log out</a>
+                               
+                                <a class="dropdown-item" href="logout">Log out</a>
                             </div>
                         </li>
                     </ul>
@@ -268,13 +142,11 @@
                     <div class="row text-muted">
                         <div class="col-6 text-start">
                             <p class="mb-0">
-                                <a class="text-muted" href="https://adminkit.io/"
-                                    target="_blank"><strong>AdminKit</strong></a> - <a class="text-muted"
-                                    href="https://adminkit.io/" target="_blank"><strong>Bootstrap Admin
-                                        Template</strong></a> &copy;
+                                <a class="text-muted" href="{{route('CESD')}}"
+                                    target="_blank"><strong>Designed and Developed by CESD <?php  echo date("Y");  ?></strong></a> 
                             </p>
                         </div>
-                        <div class="col-6 text-end">
+                        <!-- <div class="col-6 text-end">
                             <ul class="list-inline">
                                 <li class="list-inline-item">
                                     <a class="text-muted" href="https://adminkit.io/" target="_blank">Support</a>
@@ -289,7 +161,7 @@
                                     <a class="text-muted" href="https://adminkit.io/" target="_blank">Terms</a>
                                 </li>
                             </ul>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </footer>
@@ -298,13 +170,54 @@
 
     <script src="https://cdn.jsdelivr.net/npm/easymde/dist/easymde.min.js"></script>
         <script>
-            const easyMDE = new EasyMDE({
-                showIcons: ['strikethrough', 'code', 'table', 'redo', 'heading', 'undo', 'heading-bigger', 'heading-smaller', 'heading-1', 'heading-2', 'heading-3', 'clean-block', 'horizontal-rule'],
-                element: document.getElementById('markdown-editor')});
+            // const easyMDE = new EasyMDE({
+            //     showIcons: ['strikethrough', 'code', 'table', 'redo', 'heading', 'undo', 'heading-bigger', 'heading-smaller', 'heading-1', 'heading-2', 'heading-3', 'clean-block', 'horizontal-rule'],
+            //     element: document.getElementById('markdown-editor'),
+            // });
+
+            const aboutMDE = new EasyMDE({
+  showIcons: ['strikethrough', 'code', 'table', 'redo', 'heading', 'undo', 'heading-bigger', 'heading-smaller', 'heading-1', 'heading-2', 'heading-3', 'clean-block', 'horizontal-rule'],
+  element: document.getElementById('markdown-editor-about'),
+});
+
+const educationMDE = new EasyMDE({
+  showIcons: ['strikethrough', 'code', 'table', 'redo', 'heading', 'undo', 'heading-bigger', 'heading-smaller', 'heading-1', 'heading-2', 'heading-3', 'clean-block', 'horizontal-rule'],
+  element: document.getElementById('markdown-Education'),
+});
+
+const skillsMDE = new EasyMDE({
+  showIcons: ['strikethrough', 'code', 'table', 'redo', 'heading', 'undo', 'heading-bigger', 'heading-smaller', 'heading-1', 'heading-2', 'heading-3', 'clean-block', 'horizontal-rule'],
+  element: document.getElementById('markdown-skills'),
+});
+
+const publicationMDE = new EasyMDE({
+  showIcons: ['strikethrough', 'code', 'table', 'redo', 'heading', 'undo', 'heading-bigger', 'heading-smaller', 'heading-1', 'heading-2', 'heading-3', 'clean-block', 'horizontal-rule'],
+  element: document.getElementById('markdown-publication'),
+});
+
+const workExperienceMDE = new EasyMDE({
+  showIcons: ['strikethrough', 'code', 'table', 'redo', 'heading', 'undo', 'heading-bigger', 'heading-smaller', 'heading-1', 'heading-2', 'heading-3', 'clean-block', 'horizontal-rule'],
+  element: document.getElementById('markdown-editor-work-experience'),
+});
+
+const teaching_and_supervisionMDE = new EasyMDE({
+  showIcons: ['strikethrough', 'code', 'table', 'redo', 'heading', 'undo', 'heading-bigger', 'heading-smaller', 'heading-1', 'heading-2', 'heading-3', 'clean-block', 'horizontal-rule'],
+  element: document.getElementById('markdown-teaching_and_supervision'),
+});
+
+const academic_recognition_and_leadershipMDE = new EasyMDE({
+  showIcons: ['strikethrough', 'code', 'table', 'redo', 'heading', 'undo', 'heading-bigger', 'heading-smaller', 'heading-1', 'heading-2', 'heading-3', 'clean-block', 'horizontal-rule'],
+  element: document.getElementById('markdown-academic_recognition_and_leadership'),
+});
+
+const contactMDE = new EasyMDE({
+  showIcons: ['strikethrough', 'code', 'table', 'redo', 'heading', 'undo', 'heading-bigger', 'heading-smaller', 'heading-1', 'heading-2', 'heading-3', 'clean-block', 'horizontal-rule'],
+  element: document.getElementById('markdown-contact'),
+});
         </script>
     <script src="https://code.jquery.com/jquery-3.7.0.js" ></script>
-    <script src="/admin/js/app.js"></script>
-    <script src="/admin/js/datatables.js"></script>
+    <script src="{{asset('./public/admin/js/app.js')}}"></script>
+    <script src="{{asset('./public/admin/js/datatables.js')}}"></script>
     
    
     <script>

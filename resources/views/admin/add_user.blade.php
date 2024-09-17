@@ -43,7 +43,7 @@
 
                                     <div class="card">
 
-                                        <form action="/add_user" method="POST">
+                                        <form action="add_user" method="POST">
                                             @csrf
                                             <div class="card-header">
                                                 <h5 class="card-title mb-0">Username</h5>
@@ -89,7 +89,6 @@
                                                 @enderror
                                             </div>
 
-
                                             <div class="card-header">
                                                 <h5 class="card-title mb-0">User Email</h5>
                                             </div>
@@ -128,23 +127,12 @@
 
                                                 <select class="form-select mb-3" name="user_faculty" required="required">
                                                     <option value="">Select User Faculty / Office</option>
-                                                    <option value="1">Faculty of Engineering</option>
-                                                    <option value="2">Faculty of Computer Science</option>
-                                                    <option value="3">Faculty of Information Technology</option>
-                                                    <option value="4">Faculty of Telecommunication Engineering</option>
-                                                    <option value="5">Faculty of Architecture Engineering</option>
-                                                    <option value="7">Faculty of Fine Arts and Design</option>
-                                                    <option value="14">Faculty of Geoinformatics</option>
-                                                    <option value="21">Faculty of Basic Sciences</option>
-                                                    <option value="22">Faculty of Postgraduate Studies</option>
-                                                    <option value="23">Business Administration</option>
-                                                    <option value="01">CESD</option>
-                                                    <option value="02">CTS</option>
-                                                    <option value="04">IRDC</option>
-                                                    <option value="05">Admission and Registration</option>
-                                                    <option value="06">Marketing</option>
-                                                    <option value="07">Academic Affairs</option>
-                                                    <option value="08">Students Affairs</option>
+                                                    @foreach ($departments as $departments_query)
+
+                                                    <option value="{{$departments_query->faculty_code}}">{{$departments_query->Department_name_en}}</option>
+
+
+                                                    @endforeach
                                                 </select>
                                                 @error('user_faculty')
                                                     <div class="alert error text-center">
@@ -201,8 +189,16 @@
                                                     {{ $user->isAdmin == '1' ? 'Admin' : 'User' }}
                                                 </td>
                                            
-                                                <td><a href="/edit_user/{{$user->id}}/edit" class="btn btn btn-info">Edit</a></td>
-                                                <td><a href="/add_user/{{$user->id}}/delete" class="btn btn btn-danger" onClick="return confirm('Are You Sure You Want to Delete this User ?')">Delete</a></td>
+                                                <td><a href="{{route('edit_user' ,$user->id,'edit')}}" class="btn btn btn-info">Edit</a></td>
+
+                                                <!-- {{-- edit_user/{{$user->id}}/edit -- real one--}} -->
+                                                    
+                                                <!-- <td><a href="" class="btn btn btn-info">Edit</a></td> -->
+
+                                                <td><a href="{{route('delete_user' ,$user->id,'delete')}}" class="btn btn btn-danger" onClick="return confirm('Are You Sure You Want to Delete this User ?')">Delete</a></td>
+                                            
+                                                 <!-- {{-- add_user/{{$user->id}}/delete -- real one --}} -->
+                                                    
                                             </tr>
                                         @endforeach
 

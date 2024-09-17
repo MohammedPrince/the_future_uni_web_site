@@ -18,16 +18,16 @@ class VisitorCounter
      */
     public function handle(Request $request, Closure $next)
     {
-        $filePath = storage_path('app/public/visitor_count.txt');
+        // $filePath = storage_path('app/public/visitor_count.txt');
 
-        // Read the current count
-        $count = (int) file_get_contents($filePath);
+        // // Read the current count
+        // $count = (int) file_get_contents($filePath);
 
-        // Increment the count
-        $count++;
+        // // Increment the count
+        // $count++;
 
-        // Update the count in the file
-        file_put_contents($filePath, $count);
+        // // Update the count in the file
+        // file_put_contents($filePath, $count);
 
         return $next($request);
     }

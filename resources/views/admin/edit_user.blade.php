@@ -42,7 +42,8 @@
 
                                     <div class="card">
 
-                                        <form action="/edit_user/{{$user->id}}" method="POST">
+                                        <!-- <form action="edit_user/{{$user->id}}" method="POST"> -->
+                                        <form action="{{route('editsubmit',$user->id)}}" method="POST">
                                             @csrf
                                             @method('PUT')
                                             <div class="card-header">
@@ -65,7 +66,7 @@
                                                 <h5 class="card-title mb-0">User Full Name</h5>
                                             </div>
                                             <div class="card-body">
-                                                <input type="text" value="{{ old('user_fullname',$user->username) }}"
+                                                <input type="text" value="{{ old('user_fullname',$user->user_fullname) }}"
                                                     name="user_fullname" class="form-control"
                                                     placeholder="Enter User Full Name">
                                                 @error('user_fullname')

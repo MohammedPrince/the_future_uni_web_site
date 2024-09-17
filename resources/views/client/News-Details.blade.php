@@ -2,11 +2,10 @@
 @section('main-client-content')
     <div class="site-breadcrumb">
         <div class="container">
-            <a href="/Home"><i class="fa fa-home"></i> Home</a> <i class="fa fa-angle-right"></i>
-            <span style="color: #d1291f;">News Details</span>
+            <a href="{{route('Home')}}"><i class="fa fa-home"></i> Home</a> <i class="fa fa-angle-right"></i>
+            <span style="color: #fb8b24;">News Details</span>
         </div>
     </div>
-
 
     <section class="blog-page-section spad pt-0">
         <div class="container">
@@ -15,7 +14,10 @@
                     <div class="post-item post-details">
 
                         @foreach (array_slice(explode(',', $news->news_imgs), 0, 1) as $image)
-                            <img src="/storage/news_imgs/{{ $image }}" alt="Futrue Uinversity">
+                            <!-- <img src="./public/storage/news_imgs/{{ $image }}" alt="Futrue Uinversity"> -->
+                            <!-- <img src="{{ asset('./public/storage/news_imgs/$image') }}" alt="Futrue Uinversity"> -->
+                            <img src="{{ asset('./public/storage/news_imgs/' . $image) }}" alt="Futrue Uinversity">
+
                         @endforeach
 
                         <div class="post-content">
@@ -43,7 +45,11 @@
                                 <div class="hero-slider owl-carousel">
 
                                     @foreach (explode(',', $news->news_imgs) as $news_image)
-                                        <div class="hs-item set-bg" data-setbg="/storage/news_imgs/{{ $news_image }}">
+                                        <!-- <div class="hs-item set-bg" data-setbg="/public/storage/news_imgs/{{ $news_image }}"> -->
+                                        <div class="hs-item set-bg" data-setbg="{{ asset('./public/storage/news_imgs/' . $news_image) }}">
+
+                            <!-- <img src="{{ asset('./public/storage/news_imgs/' . $image) }}" alt="Futrue Uinversity"> -->
+
                                         </div>
                                     @endforeach
 
@@ -55,8 +61,6 @@
                         </div>
                     </div>
                 </div>
-
-
                 <div class="col-sm-8 col-md-5 col-lg-4 col-xl-3 offset-xl-1 offset-0 pl-xl-0 sidebar">
 
                     <div class="widget">
@@ -67,24 +71,21 @@
                         </div>
                         <div class="text-center" id="search-results" style="margin-top: 20px;"></div>
                     </div>
-
                     @if ($event_value)
                         <div class="widget">
                             <h5 class="widget-title">Recent Events</h5>
 
                             @foreach ($events as $event_result)
                                 <div class="recent-post-widget">
-
-
                                     <div class="rp-item">
-
                                         @foreach (array_slice(explode(',', $event_result->event_imgs), 0, 1) as $image)
                                             <div class="rp-thumb set-bg"
-                                                data-setbg="/storage/event_imgs/{{ $image }}"></div>
+                                                data-setbg="{{ asset('./public/storage/event_imgs/' . $image) }}"></div>
+                                                
                                         @endforeach
-
                                         <div class="rp-content">
-                                            <h6 style="font-size: 19px"><a href="/Event-Details/{{ $event_result->id }}"
+                                            <!-- <h6 style="font-size: 19px"><a href="./Event-Details/{{ $event_result->id }}" -->
+                                            <h6 style="font-size: 19px"><a href="{{route('eventDetails' ,  base64_encode($event_result->id))}}"
                                                     style="color:black">
                                                     {{ $event_result->event_title }}</a></h6>
                                             <p><i class="fa fa-calendar-o"></i>

@@ -15,14 +15,14 @@
 	<meta name="keywords" content="adminkit, bootstrap, bootstrap 5, admin, dashboard, template, responsive, css, sass, html, theme, front-end, ui kit, web">
 
 	<link rel="preconnect" href="https://fonts.gstatic.com/">
-	<link rel="shortcut icon" href="admin/img/logos/logo.png" />
+	<link rel="shortcut icon" href="./public/admin/img/logos/logo.png" />
 
 	
 
 	<title>Login | Fu Site Management</title>
 
-	<link href="admin/css/app.css" rel="stylesheet">
-	<link href="admin/css/alerts.css" rel="stylesheet">
+	<link href="./public/admin/css/app.css" rel="stylesheet">
+	<link href="./public/admin/css/alerts.css" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&amp;display=swap" rel="stylesheet">
 </head>
 
@@ -36,7 +36,7 @@
 						<div class="text-center mt-4">
 							<h1 class="h2">The Future University Site Management</h1>
 							<div class="rounded text-center"> 
-							<img src="/admin/img/logos/logo.png" alt="logo" height="120px" width="120px" />
+							<img src="./public/admin/img/logos/logo.png" alt="logo" height="120px" width="120px" />
 							</div>
 						</div>
 
@@ -63,7 +63,7 @@
 						@endif
 							<div class="card-body">
 								<div class="m-sm-3">
-									<form  action="/login" method="POST">
+									<form  action="login" method="POST">
                                         @csrf
 										<div class="mb-3">
 											<label class="form-label">Username</label>
@@ -93,7 +93,7 @@
 		</div>
 	</main>
 
-	<script src="admin/js/app.js"></script>
+	<script src="./public/admin/js/app.js"></script>
 
 </body>
 </html>
