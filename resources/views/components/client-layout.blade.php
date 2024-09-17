@@ -91,11 +91,12 @@
                 </li>
 
                 <li
-                    class="{{ Request::is('About-FU', 'Fu-Linkages', 'Facts-Figures', 'Fu-Historical-Gallery') ? 'ActiveMenuMainColor' : '' }}">
-                    <a href="#" class="sub-menu-arrow">About</a>
+                    class="{{ Request::is('About-FU', 'Fu-Linkages', 'Facts-Figures','barChart', 'Fu-Historical-Gallery') ? 'ActiveMenuMainColor' : '' }}">
+                    <a href="javascript:void(0);" class="sub-menu-arrow">About</a>
                     <ul class="sub-main-menu">
                         <li><a href="{{ route('About-FU') }}" style="text-align: left;">History</a></li>
                         {{-- <li><a href="{{ route('Staff-Directory') }}" style="text-align: left;">Staff Directory</a></li> --}}
+                        <li><a href="{{ route('barChart') }}" style="text-align: left;">Facts & Figures</a></li>
                         <li><a href="{{ route('Fu-Linkages') }}" style="text-align: left;">Linkages</a></li>
                         <li><a href="{{ route('Fu-Historical-Gallery') }}" style="text-align: left;">Gallery</a></li>
                     </ul>
@@ -108,7 +109,7 @@
 
                 <li
                     class="{{ Request::is('Undergraduate-Programs', 'Postgraduates-Programs') ? 'ActiveMenuMainColor' : '' }}">
-                    <a href="#" class="sub-menu-arrow">Programs</a>
+                    <a href="javascript:void(0);" class="sub-menu-arrow">Programs</a>
                     <ul class="sub-main-menu">
                         <li><a href="{{ route('Undergraduate-Programs') }}" style="text-align: left;">Undergraduate
                                 Programs</a></li>
@@ -119,7 +120,7 @@
 
                 <li
                     class="{{ Request::is('Undergraduate-Admission', 'Postgraduate-Admission') ? 'ActiveMenuMainColor' : '' }}">
-                    <a href="#" class="sub-menu-arrow">Admission</a>
+                    <a href="javascript:void(0);" class="sub-menu-arrow">Admission</a>
                     <ul class="sub-main-menu">
                         <li><a href="{{ route('Undergraduate-Admission') }}" style="text-align: left;">Undergraduates
                                 Admission</a></li>
@@ -133,7 +134,7 @@
                 </li>
 
                 <li class="{{ Request::is('Student-Affairs', 'Students-Gallery') ? 'ActiveMenuMainColor' : '' }}">
-                    <a href="#" class="sub-menu-arrow">Students</a>
+                    <a href="javascript:void(0);" class="sub-menu-arrow">Students</a>
                     <ul class="sub-main-menu">
                         <li><a href="{{ route('Student-Affairs') }}" style="text-align: left;">Students Affairs</a>
                         </li>
@@ -141,7 +142,7 @@
                 </li>
 
                 <li class="{{ Request::is('Fu-Journal') ? 'ActiveMenuMainColor' : '' }}">
-                    <a href="#" class="sub-menu-arrow">Research & Publications</a>
+                    <a href="javascript:void(0);" class="sub-menu-arrow">Research & Publications</a>
                     <ul class="sub-main-menu">
                         <li><a href="https://thj.fu.edu.sd/" target="_blank" style="text-align: left;">The Technology
                                 Horizon Journal</a></li>
@@ -150,7 +151,7 @@
 
                 <li
                     class="{{ Request::is('CESD', 'CTS', 'UNESCO', 'ICDL', 'Space-Technology-Center', 'IRDC') ? 'ActiveMenuMainColor' : '' }}">
-                    <a href="#" class="sub-menu-arrow">Centers</a>
+                    <a href="javascript:void(0);" class="sub-menu-arrow">Centers</a>
                         <ul class="sub-main-menu">
                             <li><a href="{{ route('CESD') }}" style="text-align: left;">Center of E-learning and
                                     Software Development</a></li>
@@ -310,8 +311,5 @@
     
     {{-- Hide show nav-section End --}}
 
-    
-
 </body>
-
 </html>

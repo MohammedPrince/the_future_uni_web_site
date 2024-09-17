@@ -78,7 +78,6 @@
                                 diverse perspectives through international exchange programs, virtual collaborations, and
                                 cross-cultural learning opportunities. By cultivating a global mindset, we empower our
                                 graduates to navigate the interconnected world and make a lasting impact on a global scale.
-                                <br><br>
                             </p>
 
                         </div>
