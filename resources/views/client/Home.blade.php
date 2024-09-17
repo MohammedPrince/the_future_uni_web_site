@@ -710,9 +710,9 @@
 
 
 
-    {{-- @if ($news_value) --}}
+   @if ($news_value) 
 
-    {{-- <section class="event-section" >
+    <section class="event-section" >
         <div class="container">
             <div class="section-title text-center">
                 <h6>Future University News</h6>
@@ -741,15 +741,15 @@
                                     {!! Str::words($news->news_desc, 20, ' ...') !!}
 
                                 </p>
-                                <a href="./News-Details/{{ $news->id }}" style="color:#ef7e22;" target="_blank">Read More - المزيد</a>
+                                <a href="News-Details/{{ $news->id }}" style="color:#ef7e22;" target="_blank">Read More - المزيد</a>
                             </div>
                         </div>
                     </div>
                 @endforeach
             </div>
         </div>
-    </section> --}}
-    {{-- @endif --}}
+    </section> 
+     @endif 
 
     <section class="team-section spad">
 
