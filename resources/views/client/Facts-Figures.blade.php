@@ -41,7 +41,7 @@
 
                 <div class="row">
                     <div class="col-lg-8">
-                        <div class="hr-sect new4"><span>Total Enrolment from 2010</span></div>
+                        <div class="hr-sect new4"><span>Total Enrolment from 2011</span></div>
                         <p></p>
                         <strong>Total Enrollment</strong><br>
                         <p></p>
