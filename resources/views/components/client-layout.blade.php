@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="description" content="The Future University">
     <meta name="keywords" content="The Future University">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
     <link href="{{ asset('./public/client/img/fu_logo.png') }}" rel="shortcut icon" />
 
@@ -14,8 +14,8 @@
     <link href="https://fonts.googleapis.com/css?family=Ubuntu:400,400i,500,500i,700,700i" rel="stylesheet">
 
     {{-- <link rel="stylesheet" href="{{ asset('./public/client/css/bootstrap.min.css') }}" /> --}}
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"> 
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="{{ asset('./public/client/css/font-awesome.min.css') }}" />
     <link rel="stylesheet" href="{{ asset('./public/client/css/themify-icons.css') }}" />
     <link rel="stylesheet" href="{{ asset('./public/client/css/magnific-popup.css') }}" />
@@ -28,18 +28,12 @@
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     @endif
 
-	@if ( (Request::is('Fu-Historical-Gallery')) || (Request::is('Students-Gallery')  ) )
-
-	<link rel="stylesheet" href="{{asset('./public/client/css/swiper-bundle.min.css')}}"/>
-	<script src="{{asset('./public/client/js/swiper-bundle.min.js')}}"></script>
-   
-		@endif
-	
-
+    @if (Request::is('Fu-Historical-Gallery') || Request::is('Students-Gallery'))
+        <link rel="stylesheet" href="{{ asset('./public/client/css/swiper-bundle.min.css') }}" />
+        <script src="{{ asset('./public/client/js/swiper-bundle.min.js') }}"></script>
+    @endif
 </head>
-
 <body>
-
     <div id="preloder">
         <div class="loader"></div>
     </div>
@@ -71,7 +65,7 @@
     <div class="header-top">
         <div class="container">
             <div class="row">
-                <div class="col-lg-6 col-sm-6 col-8 header-top-left no-padding">
+                <div class="col-lg-3 col-sm-3 col-3 header-top-left no-padding">
                     <ul>
 
                         <a href="https://www.facebook.com/TheFutureUniversity/" target="_blank"><i
@@ -80,13 +74,10 @@
                                 class="fa fa-linkedin-square"></i></a>
                     </ul>
                 </div>
-                <div class="col-lg-6 col-sm-6 col-4 header-top-right no-padding">
-
+                <div class="col-lg-8 col-sm-8 col-8 no-padding">
                     <a href="https://result.fu.edu.sd/" target="_blank">Students Portal</a>
                     <a href="https://elearning.fu.edu.sd/" target="_blank">E-Learning</a>
-                    <!-- <a href="https://irdc.fu.edu.sd" target="_blank">IRDC</a> -->
                     <a href="https://hdesk.fu.edu.sd/" target="_blank">Help Desk</a>
-
                 </div>
             </div>
         </div>
@@ -94,15 +85,15 @@
 
     <nav class="nav-section HeaderMainColor">
         <div class="container">
-
             <ul class="main-menu">
 
-                <li class="{{ Request::is('/','Home') ? 'ActiveMenuMainColor' : '' }}">
+                <li class="{{ Request::is('/', 'Home') ? 'ActiveMenuMainColor' : '' }}">
                     <a href="{{ route('Home') }}">Home</a>
                 </li>
 
-                <li class="{{ Request::is('About-FU', 'Fu-Linkages', 'Facts-Figures', 'Fu-Historical-Gallery') ? 'ActiveMenuMainColor' : '' }}">
-                    <a href="{{ route('About-FU') }}" class="sub-menu-arrow">About</a>
+                <li
+                    class="{{ Request::is('About-FU', 'Fu-Linkages', 'Facts-Figures', 'Fu-Historical-Gallery') ? 'ActiveMenuMainColor' : '' }}">
+                    <a href="#" class="sub-menu-arrow">About</a>
                     <ul class="sub-main-menu">
                         <li><a href="{{ route('About-FU') }}" style="text-align: left;">History</a></li>
                         <li><a href="{{ route('Staff-Directory') }}" style="text-align: left;">Staff Directory</a></li>
@@ -111,56 +102,71 @@
                     </ul>
                 </li>
 
-                <li class="{{ request()->is('News-Details/*') || request()->is('Event-Details/*') || Request::is('News-and-Events') ? 'ActiveMenuMainColor' : '' }}">
+                <li
+                    class="{{ request()->is('News-Details/*') || request()->is('Event-Details/*') || Request::is('News-and-Events') ? 'ActiveMenuMainColor' : '' }}">
                     <a href="{{ route('NewsAndEvents') }}">News & Events</a>
                 </li>
-                
-                <li class="{{ Request::is('Undergraduate-Programs', 'Postgraduates-Programs') ? 'ActiveMenuMainColor' : '' }}">
+
+                <li
+                    class="{{ Request::is('Undergraduate-Programs', 'Postgraduates-Programs') ? 'ActiveMenuMainColor' : '' }}">
                     <a href="#" class="sub-menu-arrow">Programs</a>
                     <ul class="sub-main-menu">
-                        <li><a href="{{ route('Undergraduate-Programs') }}" style="text-align: left;">Undergraduate Programs</a></li>
-                        <li><a href="{{ route('Postgraduates-Programs') }}" style="text-align: left;">Postgraduate Programs</a></li>
+                        <li><a href="{{ route('Undergraduate-Programs') }}" style="text-align: left;">Undergraduate
+                                Programs</a></li>
+                        <li><a href="{{ route('Postgraduates-Programs') }}" style="text-align: left;">Postgraduate
+                                Programs</a></li>
                     </ul>
                 </li>
-                
-                <li class="{{ Request::is('Undergraduate-Admission', 'Postgraduate-Admission') ? 'ActiveMenuMainColor' : '' }}">
+
+                <li
+                    class="{{ Request::is('Undergraduate-Admission', 'Postgraduate-Admission') ? 'ActiveMenuMainColor' : '' }}">
                     <a href="#" class="sub-menu-arrow">Admission</a>
                     <ul class="sub-main-menu">
-                        <li><a href="{{ route('Undergraduate-Admission') }}" style="text-align: left;">Undergraduates Admission</a></li>
-                        <li><a href="{{ route('Postgraduate-Admission') }}" style="text-align: left;">Postgraduates Admission</a></li>
-                        <li><a href="{{ route('External-Transfer') }}" style="text-align: left;">External & Internal Transfer / Bridging</a></li>
+                        <li><a href="{{ route('Undergraduate-Admission') }}" style="text-align: left;">Undergraduates
+                                Admission</a></li>
+                        <li><a href="{{ route('Postgraduate-Admission') }}" style="text-align: left;">Postgraduates
+                                Admission</a></li>
+                        <li><a href="{{ route('External-Transfer') }}" style="text-align: left;">External & Internal
+                                Transfer / Bridging</a></li>
                         <li><a href="{{ route('Fees') }}" style="text-align: left;">Fee Structure</a></li>
                         <li><a href="{{ route('Scholarships') }}" style="text-align: left;">Scholarships</a></li>
                     </ul>
                 </li>
-                
+
                 <li class="{{ Request::is('Student-Affairs', 'Students-Gallery') ? 'ActiveMenuMainColor' : '' }}">
                     <a href="#" class="sub-menu-arrow">Students</a>
                     <ul class="sub-main-menu">
-                        <li><a href="{{ route('Student-Affairs') }}" style="text-align: left;">Students Affairs</a></li>
+                        <li><a href="{{ route('Student-Affairs') }}" style="text-align: left;">Students Affairs</a>
+                        </li>
                     </ul>
                 </li>
-                
+
                 <li class="{{ Request::is('Fu-Journal') ? 'ActiveMenuMainColor' : '' }}">
                     <a href="#" class="sub-menu-arrow">Research & Publications</a>
                     <ul class="sub-main-menu">
-                        <li><a href="https://thj.fu.edu.sd/" target="_blank" style="text-align: left;">The Technology Horizon Journal</a></li>
+                        <li><a href="https://thj.fu.edu.sd/" target="_blank" style="text-align: left;">The Technology
+                                Horizon Journal</a></li>
                     </ul>
                 </li>
-                
-                <li class="{{ Request::is('CESD', 'CTS', 'UNESCO', 'ICDL', 'Space-Technology-Center', 'IRDC') ? 'ActiveMenuMainColor' : '' }}">
+
+                <li
+                    class="{{ Request::is('CESD', 'CTS', 'UNESCO', 'ICDL', 'Space-Technology-Center', 'IRDC') ? 'ActiveMenuMainColor' : '' }}">
                     <a href="#" class="sub-menu-arrow">Centers</a>
-                    <ul class="sub-main-menu">
-                        <li><a href="{{ route('CESD') }}" style="text-align: left;">Center of E-learning and Software Development</a></li>
-                        <li><a href="{{ route('CTS') }}" style="text-align: left;">Center of Technical Services</a></li>
-                        <li><a href="{{ route('IRDC') }}" style="text-align: left;">Innovation Research and Development Center</a></li>
-                        <li><a href="{{ route('UNESCO') }}" style="text-align: left;">UNESCO</a></li>
-                        <li><a href="{{ route('Space-Technology-Center') }}" style="text-align: left;">Space Technology Research Center</a></li>
-                        <li><a href="{{ route('ICDL') }}" style="text-align: left;">ICDL</a></li>
-                    </ul>
+                        <ul class="sub-main-menu">
+                            <li><a href="{{ route('CESD') }}" style="text-align: left;">Center of E-learning and
+                                    Software Development</a></li>
+                            <li><a href="{{ route('CTS') }}" style="text-align: left;">Center of Technical
+                                    Services</a></li>
+                            <li><a href="{{ route('IRDC') }}" style="text-align: left;">Innovation Research and
+                                    Development Center</a></li>
+                            <li><a href="{{ route('UNESCO') }}" style="text-align: left;">UNESCO</a></li>
+                            <li><a href="{{ route('Space-Technology-Center') }}" style="text-align: left;">Space
+                                    Technology Research Center</a></li>
+                            <li><a href="{{ route('ICDL') }}" style="text-align: left;">ICDL</a></li>
+                        </ul>
                 </li>
-                
-               
+
+
             </ul>
         </div>
     </nav>
@@ -182,8 +188,7 @@
 
                 <div class="col-sm-6 col-lg-3 footer-widget">
                     <div class="about-widget">
-                        <img src="{{ asset('./public/client/img/fu_logo.png') }}" alt="The Future University"
-                            width="80px" height="80px" loading="lazy">
+                        <img src="{{ asset('./public/client/img/fu_logo.png') }}" alt="The Future University" width="80px" height="80px" loading="lazy" style="margin-left: 0px;" >
                         <p>
                             The Future University is an institution of higher learning committed in producing well -
                             rounded professionals who will be responsible in providing quality
@@ -255,7 +260,8 @@
                             <div class="social pt-1">
                                 <a href="https://www.facebook.com/TheFutureUniversity/" target="_blank"><i
                                         class="fa fa-facebook-square"></i></a>
-                                <a href="https://www.linkedin.com/school/sudan-civil-aviation-authority" target="_blank"><i class="fa fa-linkedin-square"></i></a>
+                                <a href="https://www.linkedin.com/school/sudan-civil-aviation-authority"
+                                    target="_blank"><i class="fa fa-linkedin-square"></i></a>
 
                             </div>
                         </li>
@@ -277,7 +283,7 @@
             </div>
         </div>
     </footer>
-    
+
     <script src="{{ asset('./public/client/js/jquery-3.2.1.min.js') }}"></script>
     <script src="{{ asset('./public/client/js/owl.carousel.min.js') }}"></script>
     <script src="{{ asset('./public/client/js/jquery.countdown.js') }}"></script>
@@ -300,8 +306,13 @@
                 nav.classList.remove('fixed');
             }
         };
+        
     </script>
+    
     {{-- Hide show nav-section End --}}
 
+    
+
 </body>
+
 </html>

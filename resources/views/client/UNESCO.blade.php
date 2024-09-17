@@ -15,14 +15,7 @@
         <div class="post-item post-details" style="padding-top: 0px;">
             <div class="section-title ">
                 <div class="post-content">
-               
-                    <!-- <p>
-                    <blockquote class="text-center" style="background-color: whitesmoke;">
-                        <span style="font-size: 19px;">
-                            Innovation Research and Development Center <strong>IRDC</strong>
-                        </span>
-                    </blockquote>
-                    </p> -->
+         
 
                     <div class="hr-sect new4"><span>About</span></div>
 

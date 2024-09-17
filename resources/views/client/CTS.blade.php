@@ -3,8 +3,8 @@
 
 <div class="site-breadcrumb">
     <div class="container">
-        <a href="/Home"><i class="fa fa-home"></i> Home</a> <i class="fa fa-angle-right"></i>
-        <span style="color: #d1291f;">Center of Technical Services</span>
+        <a href="{{route('Home')}}"><i class="fa fa-home"></i> Home</a> <i class="fa fa-angle-right"></i>
+        <span style="color: #fb8b24;">Center of Technical Services</span>
     </div>
 </div>
 
@@ -18,13 +18,6 @@
                 <div class="post-content">
                     <p></p>
 
-                    <!--<p>
-                    <blockquote class="text-center" style="background-color: whitesmoke;">
-                        <span style="font-size: 19px;">
-                            Center of Technological Services <strong>CTS</strong>
-                        </span>
-                    </blockquote>
-                    </p>-->
 
                     <div class="hr-sect new4"><span>About</span></div>
 

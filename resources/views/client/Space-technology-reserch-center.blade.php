@@ -3,7 +3,7 @@
     <div class="site-breadcrumb">
         <div class="container">
             <a href="{{route('Home')}}"><i class="fa fa-home"></i> Home</a> <i class="fa fa-angle-right"></i>
-            <span style="color: #d1291f;">Space Technology Research Center</span>
+            <span style="color: #fb8b24;">Space Technology Research Center</span>
         </div>
     </div>
 
@@ -16,13 +16,6 @@
                 <div class="post-content">
                     <p></p>
 
-                    <!-- <p>
-                    <blockquote class="text-center" style="background-color: whitesmoke;">
-                        <span style="font-size: 19px;">
-                            Innovation Research and Development Center <strong>IRDC</strong>
-                        </span>
-                    </blockquote>
-                    </p> -->
 
                     <div class="hr-sect new4"><span>About</span></div>
 
@@ -61,125 +54,12 @@
                                         <p style="text-align: justify;">
                                         The STRC's vision is to be a premier global destination for space technology innovation and discovery. Through cutting-edge research, state-of-the-art facilities, and interdisciplinary collaboration, the center strives to:
 Foster the next generation of space industry leaders and innovators by providing transformative educational and research opportunities for students.
-
-
-                                           
+   
                                         </p>
                                     </div>
                                 </div>
                             </div>
                         </div>
-<!-- 
-                        <p><div class="hr-sect new6"><span>IRDC Team</span></div></p>
-
-                        <section class="testimonial-section spad" style="background-color: white;padding-top: 0px">
-                            <div class="container">
-                                <div class="section-title text-center">
-                                    
-                                    
-                                </div>
-                                <div class="testimonial-slider owl-carousel text-center" >
-                    
-                                    <div class="ts-item">
-                                        <div class="row">
-                                            <div class="col-md-3">
-                                                <div class="ts-author-pic set-bg" data-setbg="{{asset('./public/storage/staff_imgs/IMG_7417.jpg')}}"></div>
-                                            </div>
-                                            <div class="col-md-9 ts-text">
-                                                <p></p><p></p><p></p><br>
-                                                <h5>Se. Dr. Khalid Sheikhidris Mohamed</h5>
-                                                <span>IRDC Director</span>
-                                                <div class="about-widget">
-                                                <div class="social pt-1">
-                                                    <a href="mailto:khalidkaradh@fu.edu.sd" style="color: #ef7e22"><i class="fa fa-envelope"></i> khalidkaradh@fu.edu.sd</a>
-                                                </div>
-                                                </div>
-                                                <br><br>
-                                            </div>
-                                        </div>
-                                    </div>
-                    
-                                    <div class="ts-item">
-                                        <div class="row">
-                                            <div class="col-md-3">
-                                                <div class="ts-author-pic set-bg" data-setbg="{{asset('./public/storage/staff_imgs/woman_user_noimage.png')}}"></div>
-                                            </div>
-                                            <div class="col-md-9 ts-text">
-                                                <p></p><p></p><p></p><br>
-                                                <h5>Dr. Sayda Mamoun</h5>
-                                                <span>Assistant Director</span>
-                                                <div class="about-widget">
-                                                <div class="social pt-1">
-                                                    <a href="mailto:sayda@fu.edu.sd" style="color: #ef7e22"><i class="fa fa-envelope"></i> sayda@fu.edu.sd</a>
-                                                </div>
-                                                </div>
-                                                <br><br>
-                                            </div>
-                                        </div>
-                                    </div>
-                    
-                                    <div class="ts-item">
-                                        <div class="row">
-                                            <div class="col-md-3">
-                                                <div class="ts-author-pic set-bg" data-setbg="{{asset('./public/storage/staff_imgs/woman_user_noimage.png')}}"></div>
-                                            </div>
-                                            <div class="col-md-9 ts-text">
-                                                <p></p><p></p><p></p><br>
-                                                <h5>Ms. Muhaira Mohamed</h5>
-                                                <span>Administrative Coordinator</span>
-                                                <div class="about-widget">
-                                                <div class="social pt-1">
-                                                    <a href="mailto:muhaira.sharief@fu.edu.sd" style="color: #ef7e22"><i class="fa fa-envelope"></i> muhaira.sharief@fu.edu.sd</a>
-                                                </div>
-                                                </div>
-                                                <br><br>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </section> -->
-
-<!-- 
-                        <p><div class="hr-sect new6"><span>IRDC Labs</span></div></p>
-                        <p></p>
-
-           
-
-                        <div class="row text-center">
-                            <div class="col" style="background-color: rgba(170, 167, 158, 0.51);">
-                                <div class="hr-sect new6"><span>3D Printing Research Lab</span></div>
-                                <p style="color: black;">
-                                    Making innovative and evolutionary futuristic architectures, 
-                                    technologies, and structures a reality all by using the 3d technology in our labs.
-                                </p>
-                            </div>
-
-                            <div class="col" style="background-color: rgba(204,102,51,0.53);">
-                                <div class="hr-sect new6"><span>Robotics Research Lab</span></div>
-                                <p style="color: black;">
-                                    Finding reliable solutions to mechanical and automated 
-                                    manufacturing challenges in the era of intelligent robotism is made easy in our labs.
-                                </p>
-                            </div>
-
-                            <div class="col" style="background-color: rgba(51,153,204,0.51);">
-                                <div class="hr-sect new6"><span>IoT Research Lab</span></div>
-                                <p style="color: black;">
-                                    Allowing for intelligent communication in between peripherals and inventing unique solutions 
-                                    using artificial intelligence is only possible in our labs.
-                                </p>
-                            </div>
-
-                            <div class="col" style="background-color: rgba(204,153,51,0.51);">
-                                <div class="hr-sect new6"><span>Artificial Intelligence Research Lab</span></div>
-                                <p style="color: black;">
-                                    Enabling automated machine-based, smart, 
-                                    and fast response to incidental and forecasted challenges using artificial intelligence is made easy in our labs.
-                                </p>
-                            </div>
-
-                        </div> -->
 
                         <div class="hr-sect new4" style="padding-top: 30px"><span>Research Focus and Expertise</span></div>
 

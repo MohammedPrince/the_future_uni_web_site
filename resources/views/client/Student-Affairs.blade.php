@@ -2,8 +2,8 @@
 @section('main-client-content')
     <div class="site-breadcrumb">
         <div class="container">
-            <a href="/Home"><i class="fa fa-home"></i> Home</a> <i class="fa fa-angle-right"></i>
-            <span style="color: #d1291f;">Student Affairs</span>
+            <a href="{{route('Home')}}"><i class="fa fa-home"></i> Home</a> <i class="fa fa-angle-right"></i>
+            <span style="color: #fb8b24;">Student Affairs</span>
         </div>
     </div>
 
@@ -25,33 +25,8 @@
                         </p>
                         <hr class="new4">
 
-                        <!--<p>
-                        <blockquote class="text-center" style="background-color: whitesmoke;">
-
-                            <span style="font-size: 18px;">
-                                The Office of Student Affairs is responsible for enhance student growth and development
-                                and provides a range of support services to the students for their emotional, personal,
-                                physical, psychological well-being.
-                            </span>
-                        </blockquote>
-                        </p> -->
-
-                        <!-- <div class="hr-sect new4"><span>Student Affairs</span></div> -->
-
-
-
                         <div class="container">
-                            <!-- <div class="feature">
-
-                                <div class="circle" style="width: 250px; height: 250px; ">
-                                    <img src="/public/client/img/main_imgs/members/Dr.Nafisa.jpg" alt="">
-                                </div>
-                                <span>
-                                    <p class="image-text"><strong>Dr. Nafisa</strong></p>
-                                    <p class="image-text">Dean - Student Affairs</p>
-                                </span>
-
-                            </div> -->
+                        
 
                             <div class="row text-center">
 

@@ -27,56 +27,165 @@ Extra Colors
 /*----------------------------------------*/
 
 .HeaderMainColor {
-	background:#1d5191 !important;
+	background: #1d5191 !important;
 }
 
 .HeaderMainTxtColor {
-	color:#fe6601 !important;
+	color: #fe6601 !important;
 }
 
 .FooterMainColor {
-	background:#1d5191 !important;
+	background: #1d5191 !important;
 }
 
 .SubFooterText {
-	color:#fec169 !important;
+	color: #fec169 !important;
 }
 
 a {
-    text-decoration: none;
+	text-decoration: none;
 }
 
-.ActiveMenuMainColor{
+.ActiveMenuMainColor {
 	background: #fb8b24;
 }
 
-.ActiveMenuMainColorMenuMainColor{
+.ActiveMenuMainColorMenuMainColor {
 	background: #fb8b24;
 }
 
-.Faculties-Desktop-View{
+.Faculties-Desktop-View {
 	display: block;
 }
 
-.Faculties-Mobile-View{
+.Faculties-Mobile-View {
 	display: none;
 }
 
-.counterx{
+.counterx {
 	display: block;
 }
 
-.HideDiv{
+.HideDiv {
 	display: block;
 }
 
-.Admission-Desktop{
+.Admission-Desktop {
 	display: block;
 }
 
-.Admission-Mobile{
+.Admission-Mobile {
 	display: none;
 }
+
+
+.tab-container {
+	max-height: 300px;
+	/* Set the desired height for the scrollable area */
+	overflow-y: auto;
+	/* Enable vertical scrolling */
+}
+
+.tab button {
+	display: block;
+	/* Ensure the buttons are displayed vertically */
+	width: 100%;
+	/* Full width */
+	padding: 50px;
+	/* Add padding to make the buttons more comfortable to click */
+	margin: 5px 0;
+	/* Space between buttons */
+	white-space: normal;
+	/* Allow the button text to wrap to the next line */
+	text-align: left;
+	/* Align text to the left for better readability */
+	box-sizing: border-box;
+	/* Ensure padding and border are included in width */
+}
+
+.tab button.active {
+	background-color: #f1f1f1;
+	/* Highlight the active button if needed */
+}
+
+
+
+.input-field,
+.dropdown-select {
+	width: 100%;
+	padding: 12px 20px;
+	margin: 8px 0;
+	display: inline-block;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	box-sizing: border-box;
+	font-size: 16px;
+	appearance: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	background-image: url('data:image/svg+xml,%3Csvg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="M7 10l5 5 5-5z"/%3E%3C/svg%3E');
+	background-repeat: no-repeat;
+	background-position: right 12px center;
+	background-size: 24px;
+}
+
+.search-btn {
+	background-color: #ff9500;
+	color: white;
+	padding: 12px 20px;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+	font-size: 16px;
+}
+
+.search-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 10px;
+	padding: 20px;
+  }
+  
+  .search-input,
+  .search-dropdown {
+	flex: 0 0 200px;
+	padding: 8px;
+	font-size: 14px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+  }
+  
+  .search-button {
+	background-color: #ff9500;
+	color: #fff;
+	border: none;
+	padding: 8px 16px;
+	font-size: 14px;
+	border-radius: 4px;
+	cursor: pointer;
+  }
+  
+  .search-button:hover {
+	background-color: #e68200;
+  }
+  
+  @media (max-width: 768px) {
+	.search-container {
+	  flex-direction: column;
+	  align-items: stretch;
+	}
+  
+	.search-input,
+	.search-dropdown {
+	  width: 100%;
+	  flex: 0 0 auto;
+	}
+  
+	.search-button {
+	  width: 100%;
+	}
+  }
 
 h2,
 h3,
@@ -342,11 +451,11 @@ ul {
 }
 
 .nav-section.fixed {
-    position: fixed;
-    top: 0;
-    margin-top: 0;
-    width: 100%;
-    z-index: 1000;
+	position: fixed;
+	top: 0;
+	margin-top: 0;
+	width: 100%;
+	z-index: 1000;
 }
 
 /* .nav-section {
@@ -419,33 +528,28 @@ ul {
 
 .sub-main-menu {
 	list-style: none;
-	background-color: #020031;
+	background-color: #d8d8dd;
 	padding: 2px;
 	margin: 2px;
 	display: none;
-	/* Hide the submenu initially */
 	position: absolute;
 	top: 100%;
-	/* Position the submenu below the parent */
 	left: 50%;
-	/* Center the submenu horizontally */
 	transform: translateX(-50%);
-	/* Adjust the horizontal alignment */
 	z-index: 999;
 	text-transform: none;
-
+	max-height: 300px;
+	overflow-y: auto;
+	scroll-behavior: smooth;
 }
 
 .main-menu li:hover .sub-main-menu {
 	display: block;
-	/* Show the submenu on hover */
-	background: #1d5191;
-
+	background: #69a7f3;
 }
 
 .sub-main-menu li {
 	display: block;
-
 }
 
 .sub-main-menu li a {
@@ -1880,7 +1984,7 @@ ul {
 	}
 
 	.footer-widget {
-		margin-bottom: 40px;
+		margin-bottom: 10px;
 	}
 
 	.testimonial-slider .owl-nav {
@@ -1911,26 +2015,27 @@ ul {
 		padding: 15px 0;
 	}
 
-	.Faculties-Desktop-View{
+	.Faculties-Desktop-View {
 		display: none;
 	}
-	
-	.Faculties-Mobile-View{
+
+	.Faculties-Mobile-View {
 		display: block;
 	}
 
-	.counterx{
+	.counterx {
 		display: none;
 	}
 
-	.HideDiv{
+	.HideDiv {
 		display: none;
 	}
 
-	.Admission-Mobile{
+	.Admission-Mobile {
 		display: block;
 	}
-	.Admission-Desktop{
+
+	.Admission-Desktop {
 		display: none;
 	}
 
@@ -1939,7 +2044,7 @@ ul {
 		right: 30px;
 		font-size: 30px;
 		color: #111;
-		top: 25px;
+		top: 50px;
 		display: block;
 	}
 
@@ -2001,7 +2106,7 @@ ul {
 	}
 
 	.footer-widget {
-		margin-bottom: 40px;
+		margin-bottom: 10px;
 	}
 
 	.testimonial-slider .owl-nav {
@@ -2205,7 +2310,7 @@ ul {
 }
 
 .single-feature .title h4 {
-	color: #8b5132;
+	color: #ffffff;
 }
 
 .single-feature .desc-wrap {
@@ -2243,7 +2348,7 @@ ul {
 	}
 
 	.single-feature .title {
-		background: #f7631b
+		background: #fb8b24;
 	}
 }
 
@@ -2373,7 +2478,6 @@ img {
 /* Style the tab */
 .tab {
 	display: flex;
-	justify-content: center;
 	width: auto;
 }
 
@@ -2437,7 +2541,7 @@ img {
 	left: 50%;
 	transform: translate(-50%, -50%);
 	/* background-color: #faab3d; */
-	background-color:#fb8b24;
+	background-color: #fb8b24;
 	color: white;
 	padding: 10px;
 	text-align: center;
@@ -2839,27 +2943,27 @@ background-color: #f9f9f9; */
 	max-width: 800px;
 	margin: 0 auto;
 	padding: 40px;
-  }
+}
 
-  .header {
+.header {
 	text-align: center;
 	margin-bottom: 40px;
-  }
+}
 
-  .header h1 {
+.header h1 {
 	font-size: 32px;
 	font-weight: 700;
 	color: #333;
-  }
+}
 
-  .enrollment-steps {
+.enrollment-steps {
 	display: grid;
 	/* grid-template-columns: repeat(2, 1fr); */
 	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 	grid-gap: 30px;
-  }
+}
 
-  .step {
+.step {
 	background-color: #fff;
 	border-radius: 8px;
 	box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
@@ -2867,51 +2971,52 @@ background-color: #f9f9f9; */
 	display: flex;
 	align-items: center;
 	transition: transform 0.3s ease-in-out;
-  }
+}
 
-  .step-number {
+.step-number {
 	font-size: 36px;
 	font-weight: 700;
-	color: #E57C23;;
+	color: #E57C23;
+	;
 	margin-right: 20px;
-  }
+}
 
-  .step-content h3 {
+.step-content h3 {
 	font-size: 18px;
 	font-weight: 500;
 	color: #333;
 	margin-bottom: 10px;
-  }
+}
 
-  .step-content p {
+.step-content p {
 	font-size: 14px;
 	color: #666;
 	line-height: 1.6;
-  }
+}
 
-  .step:hover {
+.step:hover {
 	transform: translateY(-5px);
-  }
+}
 
 
-  @media (max-width: 768px) {
+@media (max-width: 768px) {
 	.enrollment-steps {
-	  grid-template-columns: 1fr;
+		grid-template-columns: 1fr;
 	}
 
 	.step {
-	  padding: 30px;
+		padding: 30px;
 	}
 
 	.step-number {
-	  font-size: 40px;
+		font-size: 40px;
 	}
 
 	.step h3 {
-	  font-size: 18px;
+		font-size: 18px;
 	}
 
 	.step p {
-	  font-size: 15px;
+		font-size: 15px;
 	}
-  }
+}

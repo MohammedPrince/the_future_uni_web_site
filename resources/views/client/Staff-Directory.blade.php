@@ -1,199 +1,114 @@
 @extends('components.client-layout')
 @section('main-client-content')
 
-<style>
-.search-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  padding: 20px;
-}
-
-.search-input,
-.search-dropdown {
-  flex: 0 0 200px;
-  padding: 8px;
-  font-size: 14px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-
-.search-button {
-  background-color: #ff9500;
-  color: #fff;
-  border: none;
-  padding: 8px 16px;
-  font-size: 14px;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.search-button:hover {
-  background-color: #e68200;
-}
-
-@media (max-width: 768px) {
-  .search-container {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .search-input,
-  .search-dropdown {
-    width: 100%;
-    flex: 0 0 auto;
-  }
-
-  .search-button {
-    width: 100%;
-  }
-}
-</style>
-<div class="site-breadcrumb">
+    <div class="site-breadcrumb">
         <div class="container">
-            <a href="/Home"><i class="fa fa-home"></i> Home</a> <i class="fa fa-angle-right"></i>
-            <span style="color: #d1291f;">Staff Directory</span>
+            <a href="{{ route('Home') }}"><i class="fa fa-home"></i> Home</a> <i class="fa fa-angle-right"></i>
+            <span style="color: #fb8b24;">Staff Directory</span>
         </div>
     </div>
 
-    <section class="about-section" >
+    <section class="about-section">
 
         <div class="container">
 
             <div class="post-item post-details" style="padding-top: 0px;">
                 <div class="section-title">
                     <div class="post-content">
-                
+
                         <div class="container">
 
-
-                            <!-- <div class="hr-sect new4"><span>Directory of Expertise</span></div> -->
-
                             <p>
-                            <!-- <blockquote  style="background-color: whitesmoke;"> -->
-
                             <div style="background-color: whitesmoke;">
                                 <span style="font-size: 18px;">
 
-                                <section class="contact-page spad pt-0" >
-                    
-                            
-  <div class="contact-form spad pb-0">
-    <form action="Staff-Directory" method="POST">
-      @csrf
+                                    <section class="contact-page spad pt-0">
 
-      <div class="search-container">
-      <select name="staff_dep_id" class="search-dropdown">
-            <option value="">Select Staff Faculty / Department</option>
-            @foreach ($departments as $departments_query)
-              <option value="{{$departments_query->deprt_id}}">{{$departments_query->Department_name_en}}</option>
-            @endforeach
-          </select>
-  <input type="text" name="keyword" placeholder="Search by name" class="search-input">
-  
-  <button class="search-button">Search</button>
-</div>
+                                        <div class="contact-form spad pb-0">
+                                            <form action="Staff-Directory" method="POST">
+                                                @csrf
 
-      <!-- <div class="row">
-        <div class="col-lg-8 d-flex justify-content-center">
-          <input type="text" name="keyword" placeholder="Search by name" class="text-center">
-          
-        </div>
-        <div class="col-lg-8">
-          <select name="staff_dep_id" class="dropdown-select">
-            <option value="">Select Staff Faculty / Department</option>
-            @foreach ($departments as $departments_query)
-              <option value="{{$departments_query->deprt_id}}">{{$departments_query->Department_name_en}}</option>
-            @endforeach
-          </select>
-          <br>
-          <div class="text-center">
-            <button class="site-btn">Search</button>
-          </div>
-        </div>
-      </div> -->
+                                                <div class="search-container">
+                                                    <select name="staff_dep_id" class="search-dropdown">
+                                                        <option value="">Select Staff Faculty / Department</option>
+                                                        @foreach ($departments as $departments_query)
+                                                            <option value="{{ $departments_query->deprt_id }}">
+                                                                {{ $departments_query->Department_name_en }}</option>
+                                                        @endforeach
+                                                    </select>
+                                                    <input type="text" name="keyword" placeholder="Search by name"
+                                                        class="search-input">
 
-    </form>
-  </div>
+                                                    <button class="search-button">Search</button>
+                                                </div>
 
-
-                    
-                              <!--  -->
-
-          <!-- <section class="testimonial-section spad" style="display: flex;justify-content: center;" > -->
-                              <section class="testimonial-section spad" style="display: flex;justify-content: center; align-items: center;flex-direction: column; text-align: center;" >
-     
-            <!-- <div id="Board Of Trustees"  > -->
-                <!-- <h3>FU Board Of Trustees</h3> -->
-            
-                <div class="row">
-                  <!-- <div class="row" style="display: flex;justify-content: center;flex-wrap: wrap;"> -->
-                @if(isset($search_data) && $search_data->count() > 0)
-                @foreach($search_data as $search_result)
-                    <div class="col-lg-3 col-md-3">
-                        <div class="single-feature">
-                            <div class="desc-wrap">
-                           
-                @if(($search_result->cv_image)=="")
-                <img src="{{ asset('/storage/app/public/' . 'test57992.jpg') }}" alt="Board of Trustees">
-                @else
-                <img src="{{ asset('/storage/app/public/staff_imgs/' . $search_result->cv_image) }}" alt="Board of Trustees">
-                @endif
-              
-
-                                <p class="additional-text text-center">{{ $search_result->staff_position}} <br> 
-                    
-                     <a href="{{ route('Staff-Details', base64_encode($search_result->staff_id)) }}" style="color: whitesmoke;" class="btn badge-secondary">View profile</a>                       
-                                          <!-- <a href="{{ route('Staff-Details', $search_result->staff_id) }}" target="_blank" class="btn badge-secondary">View profile</a> -->
-                    
-                       
-                                      </p>
-                            </div>
-                            <div>
-                                <h6>{{ $search_result->staff_name }}</h6>
-                            </div>
-                        </div>
-                    </div>
-                    @endforeach
-                   
-                    </div>
-
-                    
-                <!-- </div> -->
-
-       
-
-    </section>
-           
-               
-
-@else
-
-    <!-- <p>No results found.</p> -->
+                                            </form>
+                                        </div>
 
 
 
-@endif
 
 
-</section>
-                                    
-                                    
-                  
+                                        <!-- <section class="testimonial-section spad" style="display: flex;justify-content: center;" > -->
+                                        <section class="testimonial-section spad"
+                                            style="display: flex;justify-content: center; align-items: center;flex-direction: column; text-align: center;">
+
+                                            <!-- <div id="Board Of Trustees"  > -->
+                                            <!-- <h3>FU Board Of Trustees</h3> -->
+
+                                            <div class="row">
+                                                <!-- <div class="row" style="display: flex;justify-content: center;flex-wrap: wrap;"> -->
+                                                @if (isset($search_data) && $search_data->count() > 0)
+                                                    @foreach ($search_data as $search_result)
+                                                        <div class="col-lg-3 col-md-3">
+                                                            <div class="single-feature">
+                                                                <div class="desc-wrap">
+
+                                                                    @if ($search_result->cv_image == '')
+                                                                        <img src="{{ asset('/storage/app/public/' . 'test57992.jpg') }}"
+                                                                            alt="Board of Trustees">
+                                                                    @else
+                                                                        <img src="{{ asset('/storage/app/public/staff_imgs/' . $search_result->cv_image) }}"
+                                                                            alt="Board of Trustees">
+                                                                    @endif
+
+
+                                                                    <p class="additional-text text-center">
+                                                                        {{ $search_result->staff_position }} <br>
+
+                                                                        <a href="{{ route('Staff-Details', base64_encode($search_result->staff_id)) }}"
+                                                                            style="color: whitesmoke;"
+                                                                            class="btn badge-secondary">View profile</a>
+                                                                        <!-- <a href="{{ route('Staff-Details', $search_result->staff_id) }}" target="_blank" class="btn badge-secondary">View profile</a> -->
+
+
+                                                                    </p>
+                                                                </div>
+                                                                <div>
+                                                                    <h6>{{ $search_result->staff_name }}</h6>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    @endforeach
+
+                                            </div>
+
+                                        </section>
+                                    @else
+                     
+                                        @endif
+
+
+                                    </section>
+
+
+
                                 </span>
                             </div>
-                            
-                            <!-- </blockquote> -->
+
+
                             </p>
 
-                            <!-- <div class="hr-sect new4"><span></span></div> -->
-
-                            <!-- <hr class="hr-sect"> -->
-
-
-                              <!--  -->
-                          
                         </div>
 
                     </div>
