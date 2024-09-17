@@ -95,11 +95,10 @@
                     <div class="big-icon">
                         <i class="fa fa-graduation-cap"></i>
                     </div>
-                    <div class="counterx-content">
-                        <h2>Future University E-Learning Platform</h2>
-                        <p>
-                            <i class="fa fa-calendar-o"></i>Online and Available, No matter what <a
-                                href="https://elearning.fu.edu.sd/" style="color:#ff8d51;" target="_blank">Check Here</a>
+                    <div class="counterx-content" class="text-center">
+                        <h4 class="text-center" style="color: #ff8d51;">E-Learning Platform</h4>
+                        <p style="font-size:12px" class="text-center">
+                          Online and Available, No matter what <a href="https://elearning.fu.edu.sd/" style="color:#ff8d51;" target="_blank">Check Here</a>
                         </p>
                     </div>
                 </div>

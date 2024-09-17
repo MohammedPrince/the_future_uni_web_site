@@ -68,15 +68,14 @@
                 <div class="col-lg-3 col-sm-3 col-3 header-top-left no-padding">
                     <ul>
 
-                        <a href="https://www.facebook.com/TheFutureUniversity/" target="_blank"><i
-                                class="fa fa-facebook-square"></i></a>
-                        <a href="https://www.linkedin.com/school/sudan-civil-aviation-authority" target="_blank"><i
-                                class="fa fa-linkedin-square"></i></a>
+                        <a href="https://www.facebook.com/TheFutureUniversity/" target="_blank"><i class="fa fa-facebook-square"></i></a>
+                        <a href="https://www.linkedin.com/school/sudan-civil-aviation-authority" target="_blank"><i class="fa fa-linkedin-square"></i></a>
+                                
                     </ul>
                 </div>
-                <div class="col-lg-8 col-sm-8 col-8 no-padding">
-                    <a href="https://result.fu.edu.sd/" target="_blank">Students Portal</a>
-                    <a href="https://elearning.fu.edu.sd/" target="_blank">E-Learning</a>
+                <div class="col-lg-9 col-sm-9 col-9" style="text-align: end;">
+                    <a href="https://result.fu.edu.sd/" target="_blank">Students Portal <b style="color: #fec169;">|</b></a>
+                    <a href="https://elearning.fu.edu.sd/" target="_blank">E-Learning <b style="color: #fec169;">|</b></a>
                     <a href="https://hdesk.fu.edu.sd/" target="_blank">Help Desk</a>
                 </div>
             </div>
