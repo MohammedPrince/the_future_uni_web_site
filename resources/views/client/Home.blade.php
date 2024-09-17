@@ -724,7 +724,8 @@
                         <div class="event-thumb">
 
                             @foreach (array_slice(explode(',', $news->news_imgs), 0, 1) as $image)
-                                <img src="./public/storage/news_imgs/{{ $image }}" alt="Futrue Uinversity" loading="lazy">
+                                <img src="public/storage/news_imgs/{{$image}}" alt="Futrue Uinversity" >
+                               
                             @endforeach
 
                             <div class="event-date">
@@ -740,7 +741,8 @@
                                     {!! Str::words($news->news_desc, 20, ' ...') !!}
 
                                 </p>
-                                <a href="News-Details/{{ $news->id }}" style="color:#ef7e22;" target="_blank">Read More - المزيد</a>
+                                
+                                <a href="{{route('newsDetails' , base64_encode($news->id))}}" style="color:#ef7e22;" target="_blank">Read More</a>
                             </div>
                         </div>
                     </div>
