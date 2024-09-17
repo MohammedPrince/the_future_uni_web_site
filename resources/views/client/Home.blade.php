@@ -96,9 +96,9 @@
                         <i class="fa fa-graduation-cap"></i>
                     </div>
                     <div class="counterx-content" class="text-center">
-                        <h4 class="text-center" style="color: #ff8d51;">E-Learning Platform</h4>
+                        <h5 class="text-center" style="color: #fb8b24;">E-Learning Platform</h5>
                         <p style="font-size:12px" class="text-center">
-                          Online and Available, No matter what <a href="https://elearning.fu.edu.sd/" style="color:#ff8d51;" target="_blank">Check Here</a>
+                            Online and Available, No matter what <a href="https://elearning.fu.edu.sd/"style="color:#fb8b24;" target="_blank">Check Here</a>
                         </p>
                     </div>
                 </div>
@@ -141,7 +141,6 @@
                                     </div>
                                     <div class="service-content course-item">
                                         <h6>Faculty of Engineering</h6>
-                                        {{-- <p>Lorem ipsum dolor sitdo amet, consectetur dont adipis elit. Vivamus interdum ultrices augue.</p> --}}
                                     </div>
                                 </div>
                                 <!-- Faculty 2 -->
@@ -259,7 +258,7 @@
         <section class="testimonial-section spad">
             <div class="container">
                 <div class="section-title text-center">
-                    <h6>OUR Faculties</h6>
+                    <h4>Our Faculties</h4>
                     <p>We provides the opportunity to prepare for life</p>
                 </div>
                 <div class="testimonial-slider owl-carousel">
@@ -541,57 +540,85 @@
         </section>
     </div>
 
-    <div class="HideDiv">
         <section class="courses-section spad">
             <div class="container">
                 <div class="section-title text-center">
-                    <h4>Future University Centers</h4>
+                    <h4>Our Centers</h5>
+                    <p>Know more about our techinal Centers</p>
                 </div>
                 <div class="row">
                     <div class="container">
-                        <div class="row text-left" style="text-align: justify;">
-                            <div class="col" style="background-color: rgba(255, 255, 255, 0.51);">
-                                <p style="color: black;">
-                                <p class="text-center"><strong>Center of E-Learning and Software
-                                        Development<br>CESD</strong>
-                                </p>
-                                The Center of E-Learning and Software Development is a cutting-edge hub that harnesses the
-                                power
-                                of technology to transform education and drive digital innovation. By developing innovative
-                                e-learning platforms and cutting-edge software solutions, the center empowers students and
-                                professionals to thrive in the digital age. <br><br>
-                                </p>
-
-                            </div>
-                            <div class="col" style="background-color: rgba(255, 255, 255, 0.51);">
-                                <p style="color: black;">
-                                <p class="text-center"><strong>Center of Technological Services<br>CTS</strong></p>
-                                The Center of Technological Services is a comprehensive resource hub that provides
-                                state-of-the-art facilities and specialized support to students, faculty, and researchers.
-                                From
-                                advanced computing infrastructure to cutting-edge prototyping tools, the center enables
-                                innovation and discovery across disciplines.<br><br>
-                                </p>
-                            </div>
-                            <div class="col" style="background-color: rgba(255, 255, 255, 0.51);">
-                                <p style="color: black;">
-                                <p class="text-center"><strong>Innovation Research and Development Center<br>IRDC</strong>
-                                </p>
-                                The Innovation Research and Development Center is a dynamic hub where pioneering ideas come
-                                to
-                                life. By fostering cross-disciplinary collaboration and providing access to cutting-edge
-                                resources, the center empowers researchers and innovators to push the boundaries of
-                                knowledge
-                                and develop transformative solutions. <br> <br>
-                                </p>
+                        <div id="facultyCarousel" class="carousel slide" data-bs-ride="carousel"
+                            data-bs-interval="3000">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <div class="row">
+                                        <!-- Center 1 -->
+                                        <div class="col-lg-4 col-sm-6 course-item" style="margin-bottom:10px;">
+                                            <div class="service-content course-item">
+                                                <p class="text-center"><strong style="color: #ef7e22;">Center of
+                                                        E-Learning and Software Development<br>CESD</strong>
+                                                </p>
+                                                <p>
+                                                    The Center of E-Learning and Software Development is a cutting-edge hub
+                                                    that harnesses the
+                                                    power
+                                                    of technology to transform education and drive digital innovation. By
+                                                    developing innovative
+                                                    e-learning platforms and cutting-edge software solutions, the center
+                                                    empowers students and
+                                                    professionals to thrive in the digital age<a style="color: #ef7e22"
+                                                        href="{{ route('CESD') }}">...Read More</a>
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <!-- Center 2 -->
+                                        <div class="col-lg-4 col-sm-6 course-item" style="margin-bottom:10px;">
+                                            <div class="service-content course-item">
+                                                <p class="text-center"><strong style="color: #ef7e22;">Center of
+                                                        Technological Services<br>CTS</strong></p>
+                                                <p>
+                                                    The Center of Technological Services is a comprehensive resource hub
+                                                    that provides
+                                                    state-of-the-art facilities and specialized support to students,
+                                                    faculty, and researchers.
+                                                    From
+                                                    advanced computing infrastructure to cutting-edge prototyping tools, the
+                                                    center enables
+                                                    innovation and discovery across disciplines<a style="color: #ef7e22"
+                                                        href="{{ route('CTS') }}">...Read More</a>
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <!-- Center 3 -->
+                                        <div class="col-lg-4 col-sm-6 course-item" style="margin-bottom:10px;">
+                                            <div class="service-content course-item">
+                                                <p class="text-center"><strong style="color: #ef7e22;">Innovation Research
+                                                        and Development Center<br>IRDC</strong>
+                                                </p>
+                                                <p>
+                                                    The Innovation Research and Development Center is a dynamic hub where
+                                                    pioneering ideas
+                                                    come
+                                                    to
+                                                    life. By fostering cross-disciplinary collaboration and providing access
+                                                    to cutting-edge
+                                                    resources, the center empowers researchers and innovators to push the
+                                                    boundaries of
+                                                    knowledge<a style="color: #ef7e22" href="{{ route('IRDC') }}">...Read
+                                                        More</a>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
         </section>
-    </div>
+
 
     <section class="testimonial-section spad">
         <div class="container">
@@ -603,11 +630,13 @@
                 <div class="ts-item">
                     <div class="row">
                         <div class="col-md-3">
-                            <div class="ts-author-pic set-bg" data-setbg="./public/storage/fu_alumni/BaraaMohammedBashir-100x100.jpg">
+                            <div class="ts-author-pic set-bg"
+                                data-setbg="./public/storage/fu_alumni/BaraaMohammedBashir-100x100.jpg">
                             </div>
                         </div>
                         <div class="col-md-9 ts-text">
-                            <p>“ Computerman as it was called before, now The Future University, is my door to the future. It is a place where my base skills and knowledge started from. ”</p>
+                            <p>“ Computerman as it was called before, now The Future University, is my door to the future.
+                                It is a place where my base skills and knowledge started from. ”</p>
                             <h5>Baraa Mohammed Bashir</h5>
                             <span>HR Officer, DAL Group.</span>
                         </div>
@@ -616,11 +645,13 @@
                 <div class="ts-item">
                     <div class="row">
                         <div class="col-md-3">
-                            <div class="ts-author-pic set-bg" data-setbg="./public/storage/fu_alumni/NajeebAhmadZai-100x100.jpg">
+                            <div class="ts-author-pic set-bg"
+                                data-setbg="./public/storage/fu_alumni/NajeebAhmadZai-100x100.jpg">
                             </div>
                         </div>
                         <div class="col-md-9 ts-text">
-                            <p>“ Being a FU graduated student, I can say that it is one of the best institutions to learn modern and up-to-date technology education. ”</p>
+                            <p>“ Being a FU graduated student, I can say that it is one of the best institutions to learn
+                                modern and up-to-date technology education. ”</p>
                             <h5>Najeeb Ahmad Zai</h5>
                             <span>Supervisor, Dubai, UAE.</span>
                         </div>
@@ -629,11 +660,14 @@
                 <div class="ts-item">
                     <div class="row">
                         <div class="col-md-3">
-                            <div class="ts-author-pic set-bg" data-setbg="./public/storage/fu_alumni/KhalidFaza-100x100.jpg">
+                            <div class="ts-author-pic set-bg"
+                                data-setbg="./public/storage/fu_alumni/KhalidFaza-100x100.jpg">
                             </div>
                         </div>
                         <div class="col-md-9 ts-text">
-                            <p>“ It is really great to be an alumnus of the Future University (Computer Man College) which had such a strong system. I believe that whatever I have achieved today is just because of what I had learned in FU. ”</p>
+                            <p>“ It is really great to be an alumnus of the Future University (Computer Man College) which
+                                had such a strong system. I believe that whatever I have achieved today is just because of
+                                what I had learned in FU. ”</p>
                             <h5>Khalid Faza</h5>
                             <span>Chief Commercial Officer (CCO), Zain.</span>
                         </div>
@@ -642,11 +676,14 @@
                 <div class="ts-item">
                     <div class="row">
                         <div class="col-md-3">
-                            <div class="ts-author-pic set-bg" data-setbg="./public/storage/fu_alumni/Ahmed-Mohammed-Osman-Ali-100x100.jpg">
+                            <div class="ts-author-pic set-bg"
+                                data-setbg="./public/storage/fu_alumni/Ahmed-Mohammed-Osman-Ali-100x100.jpg">
                             </div>
                         </div>
                         <div class="col-md-9 ts-text">
-                            <p>“ Future University (formerly Computer Man College) is not just a University; it’s a way of life. You learn to see the real world with a broaden mind for its system allows you to easily adapt to the dynamic environment that fosters a culture of professional growth. ”</p>
+                            <p>“ Future University (formerly Computer Man College) is not just a University; it’s a way of
+                                life. You learn to see the real world with a broaden mind for its system allows you to
+                                easily adapt to the dynamic environment that fosters a culture of professional growth. ”</p>
                             <h5>Ahmed Mohammed Osman Ali</h5>
                             <span>Director IT for Sudan & Ethiopia, Ericsson AB- Branch Sudan.</span>
                         </div>
@@ -655,11 +692,13 @@
                 <div class="ts-item">
                     <div class="row">
                         <div class="col-md-3">
-                            <div class="ts-author-pic set-bg" data-setbg="./public/storage/fu_alumni/Amar-Hamdi-100x100.jpg">
+                            <div class="ts-author-pic set-bg"
+                                data-setbg="./public/storage/fu_alumni/Amar-Hamdi-100x100.jpg">
                             </div>
                         </div>
                         <div class="col-md-9 ts-text">
-                            <p>“ Future University, as we knew it back then as Computer Man College, gave me so much in many ways.”</p>
+                            <p>“ Future University, as we knew it back then as Computer Man College, gave me so much in many
+                                ways.”</p>
                             <h5>Amar Hamdi</h5>
                             <span>IT Manager, On Target Consulting Dubai, UAE.</span>
                         </div>
@@ -668,7 +707,6 @@
             </div>
         </div>
     </section>
-
 
 
 
