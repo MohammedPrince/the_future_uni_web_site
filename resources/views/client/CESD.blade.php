@@ -172,7 +172,7 @@
                                                         aria-hidden="true"></i></a>
                                             </div>
                                         </div>
-                                        <h5>Ms. Nader Nageeb </h5>
+                                        <h5>Mr. Nader Nageeb </h5>
                                         <p>Software Developer</p>
                                     </div>
                                 </div>
