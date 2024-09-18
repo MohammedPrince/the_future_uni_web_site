@@ -726,11 +726,9 @@
                     <div class="event-thumb">
 
                     @foreach (array_slice(explode(',', $event->event_imgs ), 0,1)  as $image)
-						<div class="post-thumb set-bg" data-setbg="public/storage/event_imgs/{{$image}}"></div>
-						<!-- <div class="post-thumb set-bg" data-setbg="{{-- asset('public/storage/event_imgs/' . $image) --}}"></div> -->
-                        <!-- public/storage/event_imgs/{{-- $image --}} -->
-{{$image}}
-						<!-- {{ asset('./public/storage/event_imgs/' . $image) }} -->
+						<!-- <div class="post-thumb set-bg" data-setbg="public/storage/event_imgs/{{$image}}"></div> -->
+                        <img src="public/storage/event_imgs/{{$image}}" class="post-thumb set-bg" alt="Futrue Uinversity" >
+			
 						@endforeach
 
                         <div class="event-date">
