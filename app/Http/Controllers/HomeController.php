@@ -25,14 +25,14 @@ class HomeController extends Controller
 
         $news_value = true ;
         //$news = News::getNews() ;
-        $news = News::paginate(2);
+        $news = News::paginate(3);
     
        }
 
        if (Events :: getEvents() != null ){
             $event_value = true ;
             //$events = Events::getEvents() ;
-            $events = Events::paginate(2);
+            $events = Events::paginate(3);
         }
 
         return view("client.Home" ,compact('events'), ['news'=>$news,'events'=>$events,'news_value' =>$news_value,'event_value' =>$event_value]);

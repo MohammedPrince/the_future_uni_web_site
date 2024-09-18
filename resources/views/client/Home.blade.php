@@ -617,9 +617,199 @@
                 </div>
             </div>
         </section>
+
+        <!-- /////////////////////// -->
+
+        <div class="Faculties-Desktop-View">
+        <section class="service-section spad">
+            <div class="container services">
+                <div class="section-title text-center">
+                <h4>News & Events</h4>
+                <p>Stay updated with our latest news and events!</p>
+                </div>
+                <div id="facultyCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
+                    <div class="carousel-inner">
+                        
+                        <div class="carousel-item active">
+                            <div class="row">
+                            
+
+     <!-- Loop news Here Start -->
+     @if ($news_value)
+     @foreach ($news as $news_data)
+
+     
+
+                                <div class="col-lg-4 col-sm-6 course-item">
+                                <div class="event-thumb">
+                                    <div class="service-icon">
+                                @foreach (array_slice(explode(',', $news_data->news_imgs), 0, 1) as $image)
+                                <img src="public/storage/news_imgs/{{$image}}" width="50%" height="50%" alt="Futrue Uinversity" >
+                                   @endforeach
+                                    </div>
+                                    <!-- <div class="event-date">
+                                <span> {{ $news_data->news_date }} </span>
+                            </div> -->
+                            </div>
+                            <br>
+                                    <div class="service-content course-item">
+                                    <!-- <h4>{{-- $news_data->news_title --}}</h4> -->
+                                    <h4> <a href="{{route('newsDetails' , base64_encode($news_data->id))}}" style="color:#ef7e22;" target="_blank">{{ $news_data->news_title }}</a></h4>
+
+                                    </div>
+                                </div>
+
+                                
+
+                            
+
+     @endforeach
+     @endif                           
+
+     </div>
+     </div>
+     <!-- Loop news Here End -->
+
+     <!-- Loop events Here Start -->
+     <div class="carousel-item">
+     <div class="row">
+    @if ($event_value) 
+    @foreach ($events as $event_data)
+
+    <div class="col-lg-4 col-sm-6 course-item">
+
+                                    <div class="service-icon">
+                                    @foreach (array_slice(explode(',', $event_data->event_imgs ), 0,1)  as $image)
+						
+                        <img src="public/storage/event_imgs/{{$image}}"  width="50%" height="50%"  alt="Futrue Uinversity" >
+			
+						@endforeach
+                                    </div>
+                                    <br>
+                                    
+                                <!-- <div class="event-date">
+                            <span> {{ $event_data->event_date }} </span>
+                             </div> -->
+                                    <div class="service-content course-item">
+                                    <!-- <h4>{{ $event_data->event_title }}</h4> -->
+                                    <h4> <a href="{{route('eventDetails' , base64_encode($event_data->id))}}" style="color:#ef7e22;" target="_blank">{{ $event_data->event_title }}</a></h4>
+
+                                    </div>
+
+                    </div>
+
+    
+
+   @endforeach
+   @endif  
+
+
+     <!-- Loop events Here End -->
+
+
+
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Hidden controls -->
+                    <button class="carousel-control-prev d-none" type="button" data-bs-target="#facultyCarousel"
+                        data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next d-none" type="button" data-bs-target="#facultyCarousel"
+                        data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+
+
+            </div>
+    </div>
+    </section>
+    </div>
+
+    <div class="Faculties-Mobile-View">
+        <section class="testimonial-section spad">
+            <div class="container">
+                <div class="section-title text-center">
+                    <h4>News & Events</h4>
+                    <p>Stay updated with our latest news and events!</p>
+                </div>
+                <div class="testimonial-slider owl-carousel">
+
+<!-- Loop Here Start -->
+
+
+<!-- Loop news Here Start -->
+     @if ($news_value)
+     @foreach ($news as $news_data_mobile)
+
+
+     <div class="ts-item">
+        
+                        <div class="row">
+                            <div class="col-md-3">
+                            @foreach (array_slice(explode(',', $news_data_mobile->news_imgs), 0, 1) as $image)
+                                <!-- <div class="ts-author-pic set-bg"
+                                    data-setbg="public/storage/news_imgs/{{$image}}" width="50%" height="50%"> -->
+                                <!-- <img src="public/storage/news_imgs/{{$image}}" width="30px" height="30px" alt="Futrue Uinversity" > -->
+                                <!-- </div> -->
+                                <div class="ts-author-pic set-bg"
+                                    data-setbg="./public/storage/news_imgs/{{$image}}">
+                                </div>
+                                @endforeach
+                            </div>
+                            <div class="col-md-9 ts-text">
+                                <h6><a href="{{route('newsDetails' , base64_encode($news_data_mobile->id))}}" style="color:#ef7e22;" target="_blank">{{ $news_data_mobile->news_title }}</a></h6>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+            
+@endforeach
+     @endif                           
+     <!-- Loop news Here End -->
+
+     <!-- Loop events Here start -->
+     @if ($event_value) 
+    @foreach ($events as $event_data_mobile)
+ 
+                    <div class="ts-item">
+                        <div class="row">
+                            <div class="col-md-3">
+                            @foreach (array_slice(explode(',', $event_data_mobile->event_imgs ), 0,1)  as $image)
+                            <!-- <img src="public/storage/event_imgs/{{$image}}"  width="30px" height="30px"  alt="Futrue Uinversity" > -->
+                            <div class="ts-author-pic set-bg"
+                                    data-setbg="./public/storage/event_imgs/{{$image}}">
+                                </div>
+
+                                @endforeach
+                            </div>
+                            <div class="col-md-9 ts-text">
+                                <h6><a href="{{route('eventDetails' , base64_encode($event_data_mobile->id))}}" style="color:#ef7e22;" target="_blank">{{ $event_data_mobile->event_title }}</a></h6>
+                            </div>
+                        </div>
+                    </div>
+
+                    @endforeach
+                    @endif 
+                    </div>
+<!-- Loop events Here End -->
+               
+                </div>
+            </div>
+        </section>
+    </div>
         
 
-
+        <!-- //////////////////////  -->
     <section class="testimonial-section spad">
         <div class="container">
             <div class="section-title text-center">
@@ -711,9 +901,9 @@
 <br>
 <br>
 
-    @if ($event_value) 
+ <!-- {{-- @if ($event_value) --}}     -->
 
-<section class="event-section" >
+<!-- <section class="event-section" >
     <div class="container">
         <div class="section-title text-center">
             <h4>Future University Events</h4>
@@ -721,39 +911,39 @@
         </div>
         <div class="row">
 
-            @foreach ($events as $event)
+         {{-- @foreach ($events as $event) --}}   
                 <div class="col-md-6 event-item">
                     <div class="event-thumb">
 
-                    @foreach (array_slice(explode(',', $event->event_imgs ), 0,1)  as $image)
-						<!-- <div class="post-thumb set-bg" data-setbg="public/storage/event_imgs/{{$image}}"></div> -->
-                        <img src="public/storage/event_imgs/{{$image}}" class="post-thumb set-bg" alt="Futrue Uinversity" >
+                    {{-- @foreach (array_slice(explode(',', $event->event_imgs ), 0,1)  as $image)--}} -->
+						<!--  <div class="post-thumb set-bg" data-setbg="public/storage/event_imgs/{{$image}}"></div> -->
+                        <!--<img src="public/storage/event_imgs/{{$image}}" class="post-thumb set-bg" alt="Futrue Uinversity" >
 			
-						@endforeach
+						{{-- @endforeach --}}
 
                         <div class="event-date">
-                            <span> {{ $event->event_date }} </span>
+                            <span> {{-- $event->event_date --}} </span>
                         </div>
                     </div>
                     <div class="event-info">
-                        <h4>{{ $event->event_title }}</h4>
+                        <h4>{{-- $event->event_title --}}</h4>
                         <p><i class="fa fa-map-marker"></i> The Future University</p>
                         <div class="card">
                             <p style="font-size: 17px;">
                                 
-                                {!! Str::words($event->event_desc, 3, '...') !!}
+                                {--!! Str::words($event->event_desc, 3, '...') !!--}
 
                             </p>
                             
-                            <a href="{{route('eventDetails' , base64_encode($event->id))}}" style="color:#ef7e22;" target="_blank">Read More</a>
+                            <a href="{{--route('eventDetails' , base64_encode($event->id))--}}" style="color:#ef7e22;" target="_blank">Read More</a>
                         </div>
                     </div>
                 </div>
-            @endforeach
+       {{--  @endforeach --}}    
         </div>
     </div>
-</section> 
- @endif 
+</section>  -->
+ {{-- <!-- @endif  --> --}}
         
 
 
@@ -761,7 +951,7 @@
 <br>
 <br>
 
-   @if ($news_value) 
+   <!-- {{-- @if ($news_value) --}} 
 
     <section class="event-section" >
         <div class="container">
@@ -771,38 +961,38 @@
             </div>
             <div class="row">
 
-                @foreach ($news as $news)
+              {{-- @foreach ($news as $news) --}}  
                     <div class="col-md-6 event-item">
                         <div class="event-thumb">
 
-                            @foreach (array_slice(explode(',', $news->news_imgs), 0, 1) as $image)
+                         {{-- @foreach (array_slice(explode(',', $news->news_imgs), 0, 1) as $image) --}}   
                                 <img src="public/storage/news_imgs/{{$image}}" alt="Futrue Uinversity" >
                                
-                            @endforeach
+                            {{-- @endforeach --}}
 
                             <div class="event-date">
-                                <span> {{ $news->news_date }} </span>
+                                <span> {{-- $news->news_date --}} </span>
                             </div>
                         </div>
                         <div class="event-info">
-                            <h4>{{ $news->news_title }}</h4>
+                            <h4>{{-- $news->news_title --}}</h4>
                             <p><i class="fa fa-map-marker"></i> The Future University</p>
                             <div class="card">
                                 <p style="font-size: 17px;">
                                     
-                                    {!! Str::words($news->news_desc, 20, ' ...') !!}
+                                    {--!! Str::words($news->news_desc, 20, ' ...') !!--}
 
                                 </p>
                                 
-                                <a href="{{route('newsDetails' , base64_encode($news->id))}}" style="color:#ef7e22;" target="_blank">Read More</a>
+                                <a href="{{--route('newsDetails' , base64_encode($news->id))--}}" style="color:#ef7e22;" target="_blank">Read More</a>
                             </div>
                         </div>
                     </div>
-                @endforeach
+               {{--  @endforeach --}} 
             </div>
         </div>
     </section> 
-     @endif 
+     {{-- @endif --}}  -->
 
     <section class="team-section spad">
 
