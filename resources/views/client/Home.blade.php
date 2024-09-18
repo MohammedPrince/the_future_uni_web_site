@@ -617,6 +617,7 @@
                 </div>
             </div>
         </section>
+        
 
 
     <section class="testimonial-section spad">
@@ -707,14 +708,67 @@
         </div>
     </section>
 
+<br>
+<br>
 
+    @if ($event_value) 
+
+<section class="event-section" >
+    <div class="container">
+        <div class="section-title text-center">
+            <h4>Future University Events</h4>
+
+        </div>
+        <div class="row">
+
+            @foreach ($events as $event)
+                <div class="col-md-6 event-item">
+                    <div class="event-thumb">
+
+                    @foreach (array_slice(explode(',', $event->event_imgs ), 0,1)  as $image)
+						<div class="post-thumb set-bg" data-setbg="public/storage/event_imgs/{{$image}}"></div>
+						<!-- <div class="post-thumb set-bg" data-setbg="{{-- asset('public/storage/event_imgs/' . $image) --}}"></div> -->
+                        <!-- public/storage/event_imgs/{{-- $image --}} -->
+{{$image}}
+						<!-- {{ asset('./public/storage/event_imgs/' . $image) }} -->
+						@endforeach
+
+                        <div class="event-date">
+                            <span> {{ $event->event_date }} </span>
+                        </div>
+                    </div>
+                    <div class="event-info">
+                        <h4>{{ $event->event_title }}</h4>
+                        <p><i class="fa fa-map-marker"></i> The Future University</p>
+                        <div class="card">
+                            <p style="font-size: 17px;">
+                                
+                                {!! Str::words($event->event_desc, 3, '...') !!}
+
+                            </p>
+                            
+                            <a href="{{route('eventDetails' , base64_encode($event->id))}}" style="color:#ef7e22;" target="_blank">Read More</a>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+        </div>
+    </div>
+</section> 
+ @endif 
+        
+
+
+
+<br>
+<br>
 
    @if ($news_value) 
 
     <section class="event-section" >
         <div class="container">
             <div class="section-title text-center">
-                <h6>Future University News</h6>
+                <h4>Future University News</h4>
    
             </div>
             <div class="row">
