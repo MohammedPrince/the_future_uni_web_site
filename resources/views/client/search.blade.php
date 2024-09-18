@@ -7,7 +7,7 @@
             @if($news_value)
             @foreach($news as $news)
             <div class="rp-content" style="margin-top: 10px">
-                <h6 style="font-size: 19px"><a href="/News-Details/{{ ($news->id) }}">
+                <h6 style="font-size: 19px"><a href="/News-Details/{{ base64_encode($news->id) }}">
                     {{ $news->news_title }}</a></h6>
                     <hr class="new4">
                     </div>
