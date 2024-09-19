@@ -3,7 +3,6 @@
 namespace App\Http;
 
 use App\Http\Middleware\AdminType;
-use App\Http\Middleware\MustBeLogged;
 use App\Http\Middleware\MustBeLoggedIn;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
