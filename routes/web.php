@@ -108,17 +108,17 @@ Route::middleware(['adminType'])->group(function () {
     Route::get('/staff/{id}/delete', [StaffInformationController::class, "destroy"])->name('deletestaff');
 
 
-});
+// });
 
 
-Route::middleware(['mustBeLoggedIn'])->group(function () {
+// Route::middleware(['mustBeLoggedIn'])->group(function () {
 
     // Route::get('/add_event', function () {
     //     return view('admin.add_events');
     // });
 
     Route::get('/add_news', function () {
-        return view('admin.add_news');
+        return view(view: 'admin.add_news');
     })->name('add_news');
 
     //Event Routes  middleware and controllers //
