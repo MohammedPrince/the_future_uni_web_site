@@ -15,7 +15,7 @@
                     <p>
                     <blockquote class="text-center" style="background-color: whitesmoke;">
                         <span style="font-size: 18px;">
-                            The Fact & Figures shows the admission and enrollment trend since 2011.
+                            The Fact & Figures shows the admission and enrollment
                         </span>
                     </blockquote>
                     </p>
@@ -31,7 +31,7 @@
             <div class="container" style="flex: 1;">
                 <div class="row">
                     <div class="col-lg-8">
-                        <div class="hr-sect new4"><span>New Intake from 2011</span></div>
+                        <div class="hr-sect new4"><span>New Intake from 2015</span></div>
                         <p></p>
                         <strong>Freshman Admission</strong><br>
                         <p></p>
@@ -41,7 +41,7 @@
 
                 <div class="row">
                     <div class="col-lg-8">
-                        <div class="hr-sect new4"><span>Total Enrolment from 2011</span></div>
+                        <div class="hr-sect new4"><span>Total Enrolment from 2015</span></div>
                         <p></p>
                         <strong>Total Enrollment</strong><br>
                         <p></p>
@@ -60,7 +60,7 @@
                 <div class="row">
                     <div class="col">
 
-                        <div class="hr-sect new4"><span>Foreign Students New Intake 2022</span></div>
+                        <div class="hr-sect new4"><span>Foreign Students Intakes</span></div>
                         <p></p>
                         <strong>Countries</strong><br>
                         <p></p>  
@@ -71,9 +71,9 @@
                 </div>
                 <div class="row">
                     <div class="col">
-                        <div class="hr-sect new4"><span>Foreign Students Faculty Wise 2022</span></div>
+                        <div class="hr-sect new4"><span>Foreign Students Faculty Wise</span></div>
                         <p></p>
-                        <strong>Total Enrollment</strong><br>
+                        <strong>Total enrolment by faculty</strong><br>
                         <p></p>
                         <p></p>
                         <canvas id="pieChart02"></canvas>
@@ -114,10 +114,10 @@
         var ctx = document.getElementById('barChart02').getContext('2d');
         // Define the chart data
         var chartData = {
-            labels: ['2011', '2012', '2013', '2014', '2015', '2016', '2017', '2018'],
+            labels: ['2015', '2016', '2017', '2018', '2019', '2020', '2021', '2022'],
             datasets: [{
                 label: 'Total enrollment',
-                data: [1080, 1822, 2020, 2157, 2504, 2624],
+                data: [513,516,594, 541, 690, 686, 1122, 1008],
                 backgroundColor: 'rgba(255, 0, 0, 0.2)',
                 borderColor: 'rgba(255, 0, 0, 1)',
                 borderWidth: 1,
@@ -162,14 +162,14 @@
         var ctx = document.getElementById('pieChart02').getContext('2d');
         // Define the chart data
         var chartData = {
-            labels: ['Faculty of Engineering', 'Faculty ofTelecommunication', 'Faculty of Architecture',
+            labels: ['Faculty of Engineering', 'Faculty of Telecommunication', 'Faculty of Architecture',
                 'Faculty of Information Technology',
                 'Faculty of Computer Science', 'Faculty of Art & Design', 'Faculty of Geoinformatics',
-                'Faculty of Postgraduate Studies'
+                'Faculty of Business Administration'
             ],
             datasets: [{
                 label: 'Faculty: ',
-                data: [21, 2, 9, 40, 9, 4, 5, 3],
+                data: [246, 42, 59, 292, 58, 104, 10, 197],
                 backgroundColor: ['rgba( 255, 99, 71, 0.9)', 'rgba(54, 162, 235, 0.9)',
                     'rgba(255, 205, 86, 0.9)', 'rgba(75, 192, 192, 0.9)', 'rgba(153, 102, 255, 0.9)',
                     'rgba(255, 159, 64, 0.9)'

@@ -41,7 +41,7 @@
                             <h4 style="color: #fff;">Embedded Learning</h4>
                         </div>
                         <div class="desc-wrap">
-                            <p>
+                            <p style="text-align: justify;">
                                 Our university supports embedded learning by integrating real-world applications into
                                 courses, facilitating experiential opportunities like internships and service-learning
                                 projects, and promoting collaborative research partnerships. This commitment ensures that
@@ -57,7 +57,7 @@
                             <h4 style="color: #fff;">Sustainability Focus</h4>
                         </div>
                         <div class="desc-wrap">
-                            <p>
+                            <p style="text-align: justify;">
                                 Sustainability is at the core of our university's mission as we integrate sustainable
                                 practices and environmental stewardship throughout our curriculum, campus operations, and
                                 community engagement initiatives. By fostering a deep understanding of sustainable
@@ -73,7 +73,7 @@
                             <h4 style="color: #fff;">Global Engagement</h4>
                         </div>
                         <div class="desc-wrap">
-                            <p>
+                            <p style="text-align: justify;">
                                 Our university fosters a globally-minded community, encouraging students to engage with
                                 diverse perspectives through international exchange programs, virtual collaborations, and
                                 cross-cultural learning opportunities. By cultivating a global mindset, we empower our
@@ -637,7 +637,7 @@
                         <div class="text-center" id="search-results" style="margin-top: 20px;"></div>
                     </div>
         
-                    <div id="facultyCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
+                    <div id="facultyCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="30000">
                         <div class="carousel-inner">
         
                             <div class="carousel-item active">
@@ -652,11 +652,11 @@
                                                             @if ($image != '')
                                                                 <img src="public/storage/news_imgs/{{ $image }}"
                                                                     width="100%" alt="Future University"
-                                                                    style="border-radius:20px;">
+                                                                    style="border-radius:20px;object-fit:cover;">
                                                             @else
                                                                 <img src="public/client/img/fu_logo.png"
                                                                     width="100%" alt="Future University"
-                                                                    style="border-radius:20px;">
+                                                                    style="border-radius:20px;object-fit:cover;">
                                                             @endif
                                                         @endforeach
                                                     </div>
@@ -665,7 +665,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="service-content course-item">
-                                                    <h4 style="color:#ef7e22;">{{ $news_data->news_title }}</h4>
+                                                    <h4 style="color:#ef7e22;"><a href="{{ route('newsDetails', base64_encode($news_data->id)) }}" style="color: #ef7e22">{{ $news_data->news_title }}</a></h4>
                                                     <div class="post-meta">
                                                         <span class="cusSpan" style="color: #281e32;">
                                                             <i class="fa fa-clock-o"></i>
@@ -687,7 +687,7 @@
                             <!-- Loop news Here End -->
         
                             <!-- Loop events Here Start -->
-                            <div class="carousel-item">
+                            {{-- <div class="carousel-item">
                                 <div class="row d-flex flex-nowrap">
                                     @if ($event_value)
                                         @foreach ($events as $event_data)
@@ -729,7 +729,7 @@
                                         @endforeach
                                     @endif
                                 </div>
-                            </div>
+                            </div> --}}
                             <!-- Loop events Here End -->
         
                         </div>

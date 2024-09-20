@@ -26,8 +26,7 @@
                             <div class="post-meta">
                                 <span class="cusSpan" style="color: black"><i class="fa fa-calendar-o"></i>
                                     {{ $news->news_date }}</span>
-                                <span class="cusSpan" style="color: black"><i class="fa fa-user"></i>
-                                    {{ $news_by }}</span>
+                           
                                 <span class="cusSpan" style="color: black"><i class="fa fa-home"></i> The Future
                                     University</span>
                             </div>
