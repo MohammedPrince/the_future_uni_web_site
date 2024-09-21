@@ -621,73 +621,75 @@
     @if (!empty($news_value) || !empty($event_value))
         <hr>
         {{-- <div class="Faculties-Desktop-View"> --}}
-            <section class="service-section spad">
-                <div class="container services">
-                    <div class="section-title text-center">
-                        <h4>News & Events</h4>
-                        <p>Stay updated with our latest news and events!</p>
+        <section class="service-section">
+            <div class="container services">
+                <div class="section-title text-center">
+                    <h4>News & Events</h4>
+                    <p>Stay updated with our latest news and events!</p>
+                </div>
+
+                <div class="widget">
+                    <div class="search-widget">
+                        <input type="text" id="search-input" class="form-control"
+                            placeholder="Search for News and Events">
+                        <button><i class="ti-search"></i></button>
                     </div>
-        
-                    <div class="widget">
-                        <div class="search-widget">
-                            <input type="text" id="search-input" class="form-control"
-                                placeholder="Search for News and Events">
-                            <button><i class="ti-search"></i></button>
-                        </div>
-                        <div class="text-center" id="search-results" style="margin-top: 20px;"></div>
-                    </div>
-        
-                    <div id="facultyCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="30000">
-                        <div class="carousel-inner">
-        
-                            <div class="carousel-item active">
-                                <div class="row d-flex flex-nowrap">
-                                    <!-- Loop news Here Start -->
-                                    @if ($news_value)
-                                        @foreach ($news as $news_data)
-                                            <div class="col-lg-4 col-sm-6 event-item">
-                                                <div class="event-thumb">
-                                                    <div class="service-icon">
-                                                        @foreach (array_slice(explode(',', $news_data->news_imgs), 0, 1) as $image)
-                                                            @if ($image != '')
-                                                                <img src="public/storage/news_imgs/{{ $image }}"
-                                                                    width="100%" alt="Future University"
-                                                                    style="border-radius:20px;object-fit:cover;">
-                                                            @else
-                                                                <img src="public/client/img/fu_logo.png"
-                                                                    width="100%" alt="Future University"
-                                                                    style="border-radius:20px;object-fit:cover;">
-                                                            @endif
-                                                        @endforeach
-                                                    </div>
-                                                    <div class="event-date">
-                                                        <span> {{ $news_data->news_date }} </span>
-                                                    </div>
+                    <div class="text-center" id="search-results" style="margin-top: 20px;"></div>
+                </div>
+
+                <div id="facultyCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="30000">
+                    <div class="carousel-inner">
+
+                        <div class="carousel-item active">
+                            <div class="row d-flex flex-nowrap">
+                                <!-- Loop news Here Start -->
+                                @if ($news_value)
+                                    @foreach ($news as $news_data)
+                                        <div class="col-lg-4 col-sm-6 event-item">
+                                            <div class="event-thumb">
+                                                <div class="service-icon">
+                                                    @foreach (array_slice(explode(',', $news_data->news_imgs), 0, 1) as $image)
+                                                        @if ($image != '')
+                                                            <img src="public/storage/news_imgs/{{ $image }}"
+                                                                width="100%" alt="Future University"
+                                                                style="border-radius:20px;object-fit:cover;">
+                                                        @else
+                                                            <img src="public/client/img/fu_logo.png" width="100%"
+                                                                alt="Future University"
+                                                                style="border-radius:20px;object-fit:cover;">
+                                                        @endif
+                                                    @endforeach
                                                 </div>
-                                                <div class="service-content course-item">
-                                                    <h4 style="color:#ef7e22;"><a href="{{ route('newsDetails', base64_encode($news_data->id)) }}" style="color: #ef7e22">{{ $news_data->news_title }}</a></h4>
-                                                    <div class="post-meta">
-                                                        <span class="cusSpan" style="color: #281e32;">
-                                                            <i class="fa fa-clock-o"></i>
-                                                            {{ date('d-M-Y | h:i A', strtotime($news_data->created_at)) }}
-                                                        </span>
-                                                    </div>
-                                                    <p>
-                                                        {{ Str::words($news_data->news_desc, 50, '...') }}<a
-                                                            style="color: #ef7e22"
-                                                            href="{{ route('newsDetails', base64_encode($news_data->id)) }}">Read
-                                                            More</a>
-                                                    </p>
+                                                <div class="event-date">
+                                                    <span> {{ $news_data->news_date }} </span>
                                                 </div>
                                             </div>
-                                        @endforeach
-                                    @endif
-                                </div>
+                                            <div class="service-content course-item">
+                                                <h4 style="color:#ef7e22;"><a
+                                                        href="{{ route('newsDetails', base64_encode($news_data->id)) }}"
+                                                        style="color: #ef7e22">{{ $news_data->news_title }}</a></h4>
+                                                <div class="post-meta">
+                                                    <span class="cusSpan" style="color: #281e32;">
+                                                        <i class="fa fa-clock-o"></i>
+                                                        {{ date('d-M-Y | h:i A', strtotime($news_data->created_at)) }}
+                                                    </span>
+                                                </div>
+                                                <p>
+                                                    {{ Str::words($news_data->news_desc, 50, '...') }}<a
+                                                        style="color: #ef7e22"
+                                                        href="{{ route('newsDetails', base64_encode($news_data->id)) }}">Read
+                                                        More</a>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    @endforeach
+                                @endif
                             </div>
-                            <!-- Loop news Here End -->
-        
-                            <!-- Loop events Here Start -->
-                            {{-- <div class="carousel-item">
+                        </div>
+                        <!-- Loop news Here End -->
+
+                        <!-- Loop events Here Start -->
+                        {{-- <div class="carousel-item">
                                 <div class="row d-flex flex-nowrap">
                                     @if ($event_value)
                                         @foreach ($events as $event_data)
@@ -730,29 +732,65 @@
                                     @endif
                                 </div>
                             </div> --}}
-                            <!-- Loop events Here End -->
-        
-                        </div>
-        
-                        <!-- Hidden controls -->
-                        <button class="carousel-control-prev d-none" type="button" data-bs-target="#facultyCarousel"
-                            data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Previous</span>
-                        </button>
-                        <button class="carousel-control-next d-none" type="button" data-bs-target="#facultyCarousel"
-                            data-bs-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Next</span>
-                        </button>
+                        <!-- Loop events Here End -->
+
                     </div>
+
+                    <!-- Hidden controls -->
+                    <button class="carousel-control-prev d-none" type="button" data-bs-target="#facultyCarousel"
+                        data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next d-none" type="button" data-bs-target="#facultyCarousel"
+                        data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
                 </div>
-            </section>
+            </div>
+        </section>
         {{-- </div> --}}
-        
+
     @endif
 
-    <!-- //////////////////////  -->
+    <section class="newsletter-section">
+        <div class="section-title text-center" style="margin-bottom:0px !important;">
+            <h4 style="color: #fff;">Sneak Peek</h4>
+            <p style="color: #fff;margin-bottom:10px;">Quick view of our community & students activities</p>
+        </div>
+        <div class="gallery-section">
+            <div class="gallery">
+                <div class="grid-sizer"></div>
+                <div class="gallery-item gi-big set-bg" data-setbg="./public/storage/blog/1.jpg">
+                    <a class="img-popup" href="./public/storage/blog/1.jpg"><i class="ti-plus"></i></a>
+                </div>
+                <div class="gallery-item set-bg" data-setbg="./public/storage/blog/2.jpg">
+                    <a class="img-popup" href="./public/storage/blog/2.jpg"><i class="ti-plus"></i></a>
+                </div>
+                <div class="gallery-item set-bg" data-setbg="./public/storage/blog/3.jpg">
+                    <a class="img-popup" href="./public/storage/blog/3.jpg"><i class="ti-plus"></i></a>
+                </div>
+                <div class="gallery-item gi-long set-bg" data-setbg="./public/storage/blog/4.jpg">
+                    <a class="img-popup" href="./public/storage/blog/4.jpg"><i class="ti-plus"></i></a>
+                </div>
+                <div class="gallery-item gi-big set-bg" data-setbg="./public/storage/blog/5.jpg">
+                    <a class="img-popup" href="./public/storage/blog/5.jpg"><i class="ti-plus"></i></a>
+                </div>
+                <div class="gallery-item gi-long set-bg" data-setbg="./public/storage/blog/6.jpg">
+                    <a class="img-popup" href="./public/storage/blog/6.jpg"><i class="ti-plus"></i></a>
+                </div>
+                <div class="gallery-item set-bg" data-setbg="./public/storage/blog/7.jpg">
+                    <a class="img-popup" href="./public/storage/blog/7.jpg"><i class="ti-plus"></i></a>
+                </div>
+                <div class="gallery-item set-bg" data-setbg="./public/storage/blog/8.jpg">
+                    <a class="img-popup" href="./public/storage/blog/8.jpg"><i class="ti-plus"></i></a>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
     <section class="testimonial-section spad">
         <div class="container">
             <div class="section-title text-center">
@@ -918,22 +956,5 @@
 
     </section>
 
-    {{-- <section class="newsletter-section">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-5 col-lg-7">
-                    <div class="section-title mb-md-0">
-                        <h6>NEWSLETTER</h6>
-                        <p>Subscribe and get the latest news and useful tips, advice and best offer.</p>
-                    </div>
-                </div>
-                <div class="col-md-7 col-lg-5">
-                    <form class="newsletter">
-                        <input type="text" placeholder="Enter your email">
-                        <button class="site-btn FooterMainColor">SUBSCRIBE</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section> --}}
+
 @endsection

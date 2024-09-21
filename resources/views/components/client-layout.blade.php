@@ -33,6 +33,7 @@
         <script src="{{ asset('./public/client/js/swiper-bundle.min.js') }}"></script>
     @endif
 </head>
+
 <body>
     <div id="preloder">
         <div class="loader"></div>
@@ -68,14 +69,18 @@
                 <div class="col-lg-3 col-sm-3 col-3 header-top-left no-padding">
                     <ul>
 
-                        <a href="https://www.facebook.com/TheFutureUniversity/" target="_blank"><i class="fa fa-facebook-square"></i></a>
-                        <a href="https://www.linkedin.com/school/sudan-civil-aviation-authority" target="_blank"><i class="fa fa-linkedin-square"></i></a>
-                                
+                        <a href="https://www.facebook.com/TheFutureUniversity/" target="_blank"><i
+                                class="fa fa-facebook-square"></i></a>
+                        <a href="https://www.linkedin.com/school/sudan-civil-aviation-authority" target="_blank"><i
+                                class="fa fa-linkedin-square"></i></a>
+
                     </ul>
                 </div>
                 <div class="col-lg-9 col-sm-9 col-9" style="text-align: end;">
-                    <a href="https://result.fu.edu.sd/" target="_blank">Students Portal <b style="color: #fec169;">|</b></a>
-                    <a href="https://elearning.fu.edu.sd/" target="_blank">E-Learning <b style="color: #fec169;">|</b></a>
+                    <a href="https://result.fu.edu.sd/" target="_blank">Students Portal <b
+                            style="color: #fec169;">|</b></a>
+                    <a href="https://elearning.fu.edu.sd/" target="_blank">E-Learning <b
+                            style="color: #fec169;">|</b></a>
                     <a href="https://hdesk.fu.edu.sd/" target="_blank">Help Desk</a>
                 </div>
             </div>
@@ -91,7 +96,7 @@
                 </li>
 
                 <li
-                    class="{{ Request::is('About-FU', 'Fu-Linkages', 'Facts-Figures','barChart', 'Fu-Historical-Gallery') ? 'ActiveMenuMainColor' : '' }}">
+                    class="{{ Request::is('About-FU', 'Fu-Linkages', 'Facts-Figures', 'barChart', 'Fu-Historical-Gallery') ? 'ActiveMenuMainColor' : '' }}">
                     <a href="javascript:void(0);" class="sub-menu-arrow">About</a>
                     <ul class="sub-main-menu">
                         <li><a href="{{ route('About-FU') }}" style="text-align: left;">History</a></li>
@@ -152,18 +157,18 @@
                 <li
                     class="{{ Request::is('CESD', 'CTS', 'UNESCO', 'ICDL', 'Space-Technology-Center', 'IRDC') ? 'ActiveMenuMainColor' : '' }}">
                     <a href="javascript:void(0);" class="sub-menu-arrow">Centers</a>
-                        <ul class="sub-main-menu">
-                            <li><a href="{{ route('CESD') }}" style="text-align: left;">Center of E-learning and
-                                    Software Development</a></li>
-                            <li><a href="{{ route('CTS') }}" style="text-align: left;">Center of Technical
-                                    Services</a></li>
-                            <li><a href="{{ route('IRDC') }}" style="text-align: left;">Innovation Research and
-                                    Development Center</a></li>
-                            <li><a href="{{ route('UNESCO') }}" style="text-align: left;">UNESCO</a></li>
-                            <li><a href="{{ route('Space-Technology-Center') }}" style="text-align: left;">Space
-                                    Technology Research Center</a></li>
-                            <li><a href="{{ route('ICDL') }}" style="text-align: left;">ICDL</a></li>
-                        </ul>
+                    <ul class="sub-main-menu">
+                        <li><a href="{{ route('CESD') }}" style="text-align: left;">Center of E-learning and
+                                Software Development</a></li>
+                        <li><a href="{{ route('CTS') }}" style="text-align: left;">Center of Technical
+                                Services</a></li>
+                        <li><a href="{{ route('IRDC') }}" style="text-align: left;">Innovation Research and
+                                Development Center</a></li>
+                        <li><a href="{{ route('UNESCO') }}" style="text-align: left;">UNESCO</a></li>
+                        <li><a href="{{ route('Space-Technology-Center') }}" style="text-align: left;">Space
+                                Technology Research Center</a></li>
+                        <li><a href="{{ route('ICDL') }}" style="text-align: left;">ICDL</a></li>
+                    </ul>
                 </li>
 
 
@@ -188,7 +193,8 @@
 
                 <div class="col-sm-6 col-lg-3 footer-widget">
                     <div class="about-widget">
-                        <img src="{{ asset('./public/client/img/fu_logo.png') }}" alt="The Future University" width="80px" height="80px" loading="lazy" style="margin-left: 0px;" >
+                        <img src="{{ asset('./public/client/img/fu_logo.png') }}" alt="The Future University"
+                            width="80px" height="80px" loading="lazy" style="margin-left: 0px;">
                         <p>
                             The Future University is an institution of higher learning committed in producing well -
                             rounded professionals who will be responsible in providing quality
@@ -262,7 +268,7 @@
                                         class="fa fa-facebook-square"></i></a>
                                 <a href="https://www.linkedin.com/school/sudan-civil-aviation-authority"
                                     target="_blank"><i class="fa fa-linkedin-square"></i></a>
-
+                         
                             </div>
                         </li>
                     </ul>
@@ -278,7 +284,8 @@
                         document.write(new Date().getFullYear());
                     </script> All rights reserved for <strong style="color: #fec169">The Future
                         University.</strong> Designed and Developed by
-                    <a href="{{ route('CESD') }}"target="_blank" style="color: #fec169"><strong>CESD</strong></a>
+                    <a href="{{ route('CESD') }}"target="_blank" style="color: #fec169"><strong>CESD</strong></a> &
+                    <a href="{{ route('CTS') }}"target="_blank" style="color: #fec169"><strong>CTS</strong></a>
                 </p>
             </div>
         </div>
@@ -306,10 +313,10 @@
                 nav.classList.remove('fixed');
             }
         };
-        
     </script>
-    
+
     {{-- Hide show nav-section End --}}
 
 </body>
+
 </html>
