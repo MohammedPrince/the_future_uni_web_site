@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 use App\Models\News;
 use App\Models\Events;
+use App\Http\Controllers\VisitorController;
+
+
 
 use Illuminate\Http\Request;
 
@@ -13,7 +16,7 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
 
         $news = '';
@@ -44,6 +47,10 @@ class HomeController extends Controller
             // Replace the original collection with the shuffled one
             $events->setCollection($shuffledEvents);
         }
+
+        $visitorController = new VisitorController();
+        $visitorController->user_log($request);
+        
 
         return view("client.Home", compact('events'), ['news' => $news, 'events' => $events, 'news_value' => $news_value, 'event_value' => $event_value]);
     }
