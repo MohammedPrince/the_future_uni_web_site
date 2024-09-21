@@ -15,27 +15,37 @@ class HomeController extends Controller
      */
     public function index()
     {
-        
-        $news='';
-        $events='';
+
+        $news = '';
+        $events = '';
         $event_value = false;
         $news_value = false;
 
-       if (News::getNews()!= null ){
+        if (News::getNews() != null) {
 
-        $news_value = true ;
-        //$news = News::getNews() ;
-        $news = News::paginate(3);
-    
-       }
+            $news_value = true;
+            //$news = News::getNews() ;
+            $news = News::paginate(3);
 
-       if (Events :: getEvents() != null ){
-            $event_value = true ;
-            //$events = Events::getEvents() ;
-            $events = Events::paginate(3);
+            $shuffledNews = $news->getCollection()->shuffle();
+
+
+            $news->setCollection($shuffledNews);
+
         }
 
-        return view("client.Home" ,compact('events'), ['news'=>$news,'events'=>$events,'news_value' =>$news_value,'event_value' =>$event_value]);
+        if (Events::getEvents() != null) {
+            $event_value = true;
+            //$events = Events::getEvents() ;
+            $events = Events::paginate(3);
+
+            $shuffledEvents = $events->getCollection()->shuffle();
+
+            // Replace the original collection with the shuffled one
+            $events->setCollection($shuffledEvents);
+        }
+
+        return view("client.Home", compact('events'), ['news' => $news, 'events' => $events, 'news_value' => $news_value, 'event_value' => $event_value]);
     }
 
     /**

@@ -637,7 +637,7 @@
                     <div class="text-center" id="search-results" style="margin-top: 20px;"></div>
                 </div>
 
-                <div id="facultyCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="30000">
+                <div id="facultyCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
                     <div class="carousel-inner">
 
                         <div class="carousel-item active">
