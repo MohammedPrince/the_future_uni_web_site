@@ -265,9 +265,7 @@
                            $visitorCount = (new \App\Http\Controllers\VisitorController())->getVisitorCount();
                         @endphp
                         <li>
-                            <a href="#" target="_blank">
-                                <p>Visitor Counter : <strong style="color: #fec169">{{ $visitorCount }}</strong></p>
-                            </a>
+                                <p style="color: #fff;">Visitor Counter: <strong style="color: #fec169">{{ $visitorCount }}</strong></p>
                         </li>
 
                         <li>
@@ -286,11 +284,12 @@
 
         <div class="copyright">
             <div class="container">
-                <p>
+                <p style="color: #fff;">
                     Copyright &copy;
                     <script>
                         document.write(new Date().getFullYear());
-                    </script> All rights reserved for <strong style="color: #fec169">The Future
+                    </script> 
+                    All rights reserved for <strong style="color: #fec169">The Future
                         University.</strong> Designed and Developed by
                     <a href="{{ route('CESD') }}"target="_blank" style="color: #fec169"><strong>CESD</strong></a> &
                     <a href="{{ route('CTS') }}"target="_blank" style="color: #fec169"><strong>CTS</strong></a>
