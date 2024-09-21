@@ -261,6 +261,14 @@
                                 <p><i class="fa fa-envelope"></i> info@fu.edu.sd</p>
                             </a>
                         </li>
+                        @php
+                           $visitorCount = (new \App\Http\Controllers\VisitorController())->getVisitorCount();
+                        @endphp
+                        <li>
+                            <a href="#" target="_blank">
+                                <p>Visitor Counter : <strong style="color: #fec169">{{ $visitorCount }}</strong></p>
+                            </a>
+                        </li>
 
                         <li>
                             <div class="social pt-1">

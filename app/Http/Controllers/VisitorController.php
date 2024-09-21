@@ -151,4 +151,29 @@ class VisitorController extends Controller
     }
 
     }
+
+
+    public function getVisitorCount()
+    {
+        // Execute the query to get the visitor count
+        return $visitorCount = Visitor::count();
+
+       
+
+        // Return the count to the view
+        // return view('your_view_name', ['visitorCount' => $visitorCount]);
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
