@@ -754,43 +754,6 @@
 
     @endif
 
-    <section class="newsletter-section">
-        <div class="section-title text-center" style="margin-bottom:0px !important;">
-            <h4 style="color: #fff;">Sneak Peek</h4>
-            <p style="color: #fff;margin-bottom:10px;">Quick view of our community & students activities</p>
-        </div>
-        <div class="gallery-section">
-            <div class="gallery">
-                <div class="grid-sizer"></div>
-                <div class="gallery-item gi-big set-bg" data-setbg="./public/storage/blog/1.jpg">
-                    <a class="img-popup" href="./public/storage/blog/1.jpg"><i class="ti-plus"></i></a>
-                </div>
-                <div class="gallery-item set-bg" data-setbg="./public/storage/blog/2.jpg">
-                    <a class="img-popup" href="./public/storage/blog/2.jpg"><i class="ti-plus"></i></a>
-                </div>
-                <div class="gallery-item set-bg" data-setbg="./public/storage/blog/3.jpg">
-                    <a class="img-popup" href="./public/storage/blog/3.jpg"><i class="ti-plus"></i></a>
-                </div>
-                <div class="gallery-item gi-long set-bg" data-setbg="./public/storage/blog/4.jpg">
-                    <a class="img-popup" href="./public/storage/blog/4.jpg"><i class="ti-plus"></i></a>
-                </div>
-                <div class="gallery-item gi-big set-bg" data-setbg="./public/storage/blog/5.jpg">
-                    <a class="img-popup" href="./public/storage/blog/5.jpg"><i class="ti-plus"></i></a>
-                </div>
-                <div class="gallery-item gi-long set-bg" data-setbg="./public/storage/blog/6.jpg">
-                    <a class="img-popup" href="./public/storage/blog/6.jpg"><i class="ti-plus"></i></a>
-                </div>
-                <div class="gallery-item set-bg" data-setbg="./public/storage/blog/7.jpg">
-                    <a class="img-popup" href="./public/storage/blog/7.jpg"><i class="ti-plus"></i></a>
-                </div>
-                <div class="gallery-item set-bg" data-setbg="./public/storage/blog/8.jpg">
-                    <a class="img-popup" href="./public/storage/blog/8.jpg"><i class="ti-plus"></i></a>
-                </div>
-            </div>
-        </div>
-
-    </section>
-
     <section class="testimonial-section spad">
         <div class="container">
             <div class="section-title text-center">
