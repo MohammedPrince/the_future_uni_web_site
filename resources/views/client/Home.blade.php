@@ -10,7 +10,7 @@
                             <div class="col-lg-8">
                                 <div class="hs-subtitle" style="color:#ff8d51;">TOP PRIVATE UNIVERSITY</div>
                                 <h2 class="hs-title" style="color:#ff8d51;">Inspiring Excellence, Empowering
-                                    Minds,Transforming.</h2>
+                                    Minds,Transforming Future.</h2>
                             </div>
                         </div>
                     </div>
