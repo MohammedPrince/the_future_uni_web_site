@@ -284,7 +284,7 @@
 
         <div class="copyright">
             <div class="container">
-                <p style="color: #fff;">
+                <p style="color: #fff;font-size:11px;">
                     Copyright &copy;
                     <script>
                         document.write(new Date().getFullYear());
