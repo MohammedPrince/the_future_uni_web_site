@@ -61,7 +61,7 @@ class NewsController extends Controller
 
         $user_name = MainApp::GetUserDetails('user_fullname',$event_by_id);
 
-       strip_tags(Str::markdown($news));
+    //    strip_tags(Str::markdown($news));
 
         if (Events :: getEvents() != null ){
                 $event_value = true ;

@@ -24,7 +24,7 @@
         <li><a href="{{route('Postgraduates-Programs')}}">Postgraduates Programs</a></li>
         <li><a href="{{route('Undergraduate-Admission')}}">Undergraduate Admission</a></li>
         <li><a href="{{route('Postgraduate-Admission')}}">Postgraduate Admission</a></li>
-        <li><a href="{{route('About-FU')}}">Why Future Universiy ?</a></li>
+        <li><a href="{{route('About-FU')}}">Why Future University ?</a></li>
         <li><a href="{{route('Fu-Linkages')}}">FU Linkages</a></li>
         <li><a href="{{route('barChart')}}">Facts & Figures</a></li>
 

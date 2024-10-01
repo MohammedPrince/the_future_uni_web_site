@@ -78,6 +78,10 @@ a {
 	display: none;
 }
 
+.table-container {
+	max-height: 300px;
+	overflow-y: auto;
+}
 
 .tab-container {
 	max-height: 300px;
@@ -133,18 +137,18 @@ a {
 	align-items: center;
 	gap: 10px;
 	padding: 20px;
-  }
-  
-  .search-input,
-  .search-dropdown {
+}
+
+.search-input,
+.search-dropdown {
 	flex: 0 0 200px;
 	padding: 8px;
 	font-size: 14px;
 	border: 1px solid #ccc;
 	border-radius: 4px;
-  }
-  
-  .search-button {
+}
+
+.search-button {
 	background-color: #ff9500;
 	color: #fff;
 	border: none;
@@ -152,28 +156,28 @@ a {
 	font-size: 14px;
 	border-radius: 4px;
 	cursor: pointer;
-  }
-  
-  .search-button:hover {
+}
+
+.search-button:hover {
 	background-color: #e68200;
-  }
-  
-  @media (max-width: 768px) {
+}
+
+@media (max-width: 768px) {
 	.search-container {
-	  flex-direction: column;
-	  align-items: stretch;
+		flex-direction: column;
+		align-items: stretch;
 	}
-  
+
 	.search-input,
 	.search-dropdown {
-	  width: 100%;
-	  flex: 0 0 auto;
+		width: 100%;
+		flex: 0 0 auto;
 	}
-  
+
 	.search-button {
-	  width: 100%;
+		width: 100%;
 	}
-  }
+}
 
 h2,
 h3,
@@ -727,7 +731,7 @@ ul {
 
 .counterx-content {
 	padding-left: 90px;
-	padding-top: 10px ;
+	padding-top: 10px;
 }
 
 .counterx-content h2 {
@@ -832,7 +836,7 @@ ul {
 	top: 0;
 	text-align: center;
 	border-radius: 50px;
-	background: #b41906;
+	background: #fb8b24;
 	font-size: 16px;
 	font-weight: 500;
 	padding-top: 10px;
@@ -1024,7 +1028,7 @@ ul {
 	font-weight: bold;
 	color: #fff;
 	display: inline-block;
-	border-radius: 50px;
+	border-radius: 10px;
 	letter-spacing: 2px;
 }
 
@@ -1179,8 +1183,8 @@ ul {
 -----------------------*/
 
 .newsletter-section {
-	background: #f7f7f7;
-	padding: 50px 0;
+	background: #fb8b24;
+	padding: 20px 15px 20px 25px;
 }
 
 .newsletter-section .newsletter {
@@ -1222,7 +1226,7 @@ ul {
 }
 
 .footer-section .copyright {
-	border-top: 1px solid #312f56;
+	border-top: 1px solid #ffffff;
 	padding: 27px 0;
 	text-align: center;
 }

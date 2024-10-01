@@ -10,7 +10,7 @@
                             <div class="col-lg-8">
                                 <div class="hs-subtitle" style="color:#ff8d51;">TOP PRIVATE UNIVERSITY</div>
                                 <h2 class="hs-title" style="color:#ff8d51;">Inspiring Excellence, Empowering
-                                    Minds,Transforming.</h2>
+                                    Minds,Transforming Future.</h2>
                             </div>
                         </div>
                     </div>
@@ -41,7 +41,7 @@
                             <h4 style="color: #fff;">Embedded Learning</h4>
                         </div>
                         <div class="desc-wrap">
-                            <p>
+                            <p style="text-align: justify;">
                                 Our university supports embedded learning by integrating real-world applications into
                                 courses, facilitating experiential opportunities like internships and service-learning
                                 projects, and promoting collaborative research partnerships. This commitment ensures that
@@ -57,7 +57,7 @@
                             <h4 style="color: #fff;">Sustainability Focus</h4>
                         </div>
                         <div class="desc-wrap">
-                            <p>
+                            <p style="text-align: justify;">
                                 Sustainability is at the core of our university's mission as we integrate sustainable
                                 practices and environmental stewardship throughout our curriculum, campus operations, and
                                 community engagement initiatives. By fostering a deep understanding of sustainable
@@ -73,12 +73,11 @@
                             <h4 style="color: #fff;">Global Engagement</h4>
                         </div>
                         <div class="desc-wrap">
-                            <p>
+                            <p style="text-align: justify;">
                                 Our university fosters a globally-minded community, encouraging students to engage with
                                 diverse perspectives through international exchange programs, virtual collaborations, and
                                 cross-cultural learning opportunities. By cultivating a global mindset, we empower our
                                 graduates to navigate the interconnected world and make a lasting impact on a global scale.
-                                <br><br>
                             </p>
 
                         </div>
@@ -98,7 +97,8 @@
                     <div class="counterx-content" class="text-center">
                         <h5 class="text-center" style="color: #fb8b24;">E-Learning Platform</h5>
                         <p style="font-size:12px" class="text-center">
-                            Online and Available, No matter what <a href="https://elearning.fu.edu.sd/"style="color:#fb8b24;" target="_blank">Check Here</a>
+                            Online and Available, No matter what <a
+                                href="https://elearning.fu.edu.sd/"style="color:#fb8b24;" target="_blank">Check Here</a>
                         </p>
                     </div>
                 </div>
@@ -540,75 +540,73 @@
         </section>
     </div>
 
-        <section class="courses-section spad">
-            <div class="container">
-                <div class="section-title text-center">
-                    <h4>Our Centers</h5>
+    <section class="courses-section spad">
+        <div class="container">
+            <div class="section-title text-center">
+                <h4>Our Centers</h5>
                     <p>Know more about our techinal Centers</p>
-                </div>
-                <div class="row">
-                    <div class="container">
-                        <div id="facultyCarousel" class="carousel slide" data-bs-ride="carousel"
-                            data-bs-interval="3000">
-                            <div class="carousel-inner">
-                                <div class="carousel-item active">
-                                    <div class="row">
-                                        <!-- Center 1 -->
-                                        <div class="col-lg-4 col-sm-6 course-item" style="margin-bottom:10px;">
-                                            <div class="service-content course-item">
-                                                <p class="text-center"><strong style="color: #ef7e22;">Center of
-                                                        E-Learning and Software Development<br>CESD</strong>
-                                                </p>
-                                                <p>
-                                                    The Center of E-Learning and Software Development is a cutting-edge hub
-                                                    that harnesses the
-                                                    power
-                                                    of technology to transform education and drive digital innovation. By
-                                                    developing innovative
-                                                    e-learning platforms and cutting-edge software solutions, the center
-                                                    empowers students and
-                                                    professionals to thrive in the digital age<a style="color: #ef7e22"
-                                                        href="{{ route('CESD') }}">...Read More</a>
-                                                </p>
-                                            </div>
+            </div>
+            <div class="row">
+                <div class="container">
+                    <div id="facultyCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <div class="row">
+                                    <!-- Center 1 -->
+                                    <div class="col-lg-4 col-sm-6 course-item" style="margin-bottom:10px;">
+                                        <div class="service-content course-item">
+                                            <p class="text-center"><strong style="color: #ef7e22;">Center of
+                                                    E-Learning and Software Development<br>CESD</strong>
+                                            </p>
+                                            <p>
+                                                The Center of E-Learning and Software Development is a cutting-edge hub
+                                                that harnesses the
+                                                power
+                                                of technology to transform education and drive digital innovation. By
+                                                developing innovative
+                                                e-learning platforms and cutting-edge software solutions, the center
+                                                empowers students and
+                                                professionals to thrive in the digital age<a style="color: #ef7e22"
+                                                    href="{{ route('CESD') }}">...Read More</a>
+                                            </p>
                                         </div>
-                                        <!-- Center 2 -->
-                                        <div class="col-lg-4 col-sm-6 course-item" style="margin-bottom:10px;">
-                                            <div class="service-content course-item">
-                                                <p class="text-center"><strong style="color: #ef7e22;">Center of
-                                                        Technological Services<br>CTS</strong></p>
-                                                <p>
-                                                    The Center of Technological Services is a comprehensive resource hub
-                                                    that provides
-                                                    state-of-the-art facilities and specialized support to students,
-                                                    faculty, and researchers.
-                                                    From
-                                                    advanced computing infrastructure to cutting-edge prototyping tools, the
-                                                    center enables
-                                                    innovation and discovery across disciplines<a style="color: #ef7e22"
-                                                        href="{{ route('CTS') }}">...Read More</a>
-                                                </p>
-                                            </div>
+                                    </div>
+                                    <!-- Center 2 -->
+                                    <div class="col-lg-4 col-sm-6 course-item" style="margin-bottom:10px;">
+                                        <div class="service-content course-item">
+                                            <p class="text-center"><strong style="color: #ef7e22;">Center of
+                                                    Technological Services<br>CTS</strong></p>
+                                            <p>
+                                                The Center of Technological Services is a comprehensive resource hub
+                                                that provides
+                                                state-of-the-art facilities and specialized support to students,
+                                                faculty, and researchers.
+                                                From
+                                                advanced computing infrastructure to cutting-edge prototyping tools, the
+                                                center enables
+                                                innovation and discovery across disciplines<a style="color: #ef7e22"
+                                                    href="{{ route('CTS') }}">...Read More</a>
+                                            </p>
                                         </div>
-                                        <!-- Center 3 -->
-                                        <div class="col-lg-4 col-sm-6 course-item" style="margin-bottom:10px;">
-                                            <div class="service-content course-item">
-                                                <p class="text-center"><strong style="color: #ef7e22;">Innovation Research
-                                                        and Development Center<br>IRDC</strong>
-                                                </p>
-                                                <p>
-                                                    The Innovation Research and Development Center is a dynamic hub where
-                                                    pioneering ideas
-                                                    come
-                                                    to
-                                                    life. By fostering cross-disciplinary collaboration and providing access
-                                                    to cutting-edge
-                                                    resources, the center empowers researchers and innovators to push the
-                                                    boundaries of
-                                                    knowledge<a style="color: #ef7e22" href="{{ route('IRDC') }}">...Read
-                                                        More</a>
-                                                </p>
-                                            </div>
+                                    </div>
+                                    <!-- Center 3 -->
+                                    <div class="col-lg-4 col-sm-6 course-item" style="margin-bottom:10px;">
+                                        <div class="service-content course-item">
+                                            <p class="text-center"><strong style="color: #ef7e22;">Innovation Research
+                                                    and Development Center<br>IRDC</strong>
+                                            </p>
+                                            <p>
+                                                The Innovation Research and Development Center is a dynamic hub where
+                                                pioneering ideas
+                                                come
+                                                to
+                                                life. By fostering cross-disciplinary collaboration and providing access
+                                                to cutting-edge
+                                                resources, the center empowers researchers and innovators to push the
+                                                boundaries of
+                                                knowledge<a style="color: #ef7e22" href="{{ route('IRDC') }}">...Read
+                                                    More</a>
+                                            </p>
                                         </div>
                                     </div>
                                 </div>
@@ -617,8 +615,144 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
+    <!-- /////////////////////// -->
+    @if (!empty($news_value) || !empty($event_value))
+        <hr>
+        {{-- <div class="Faculties-Desktop-View"> --}}
+        <section class="service-section">
+            <div class="container services">
+                <div class="section-title text-center">
+                    <h4>News & Events</h4>
+                    <p>Stay updated with our latest news and events!</p>
+                </div>
 
+                <div class="widget">
+                    <div class="search-widget">
+                        <input type="text" id="search-input" class="form-control"
+                            placeholder="Search for News and Events">
+                        <button><i class="ti-search"></i></button>
+                    </div>
+                    <div class="text-center" id="search-results" style="margin-top: 20px;"></div>
+                </div>
+
+                <div id="facultyCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
+                    <div class="carousel-inner">
+
+                        <div class="carousel-item active">
+                            <div class="row d-flex flex-nowrap">
+                                <!-- Loop news Here Start -->
+                                @if ($news_value)
+                                    @foreach ($news as $news_data)
+                                        <div class="col-lg-4 col-sm-6 event-item">
+                                            <div class="event-thumb">
+                                                <div class="service-icon">
+                                                    @foreach (array_slice(explode(',', $news_data->news_imgs), 0, 1) as $image)
+                                                        @if ($image != '')
+                                                            <img src="public/storage/news_imgs/{{ $image }}"
+                                                                width="100%" alt="Future University"
+                                                                style="border-radius:20px;object-fit:cover;">
+                                                        @else
+                                                            <img src="public/client/img/fu_logo.png" width="100%"
+                                                                alt="Future University"
+                                                                style="border-radius:20px;object-fit:cover;">
+                                                        @endif
+                                                    @endforeach
+                                                </div>
+                                                <div class="event-date">
+                                                    <span> {{ $news_data->news_date }} </span>
+                                                </div>
+                                            </div>
+                                            <div class="service-content course-item">
+                                                <h4 style="color:#ef7e22;"><a
+                                                        href="{{ route('newsDetails', base64_encode($news_data->id)) }}"
+                                                        style="color: #ef7e22">{{ $news_data->news_title }}</a></h4>
+                                                <div class="post-meta">
+                                                    <span class="cusSpan" style="color: #281e32;">
+                                                        <i class="fa fa-clock-o"></i>
+                                                        {{ date('d-M-Y | h:i A', strtotime($news_data->created_at)) }}
+                                                    </span>
+                                                </div>
+                                                <p>
+                                                    {{ Str::words($news_data->news_desc, 50, '...') }}<a
+                                                        style="color: #ef7e22"
+                                                        href="{{ route('newsDetails', base64_encode($news_data->id)) }}">Read
+                                                        More</a>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    @endforeach
+                                @endif
+                            </div>
+                        </div>
+                        <!-- Loop news Here End -->
+
+                        <!-- Loop events Here Start -->
+                        {{-- <div class="carousel-item">
+                                <div class="row d-flex flex-nowrap">
+                                    @if ($event_value)
+                                        @foreach ($events as $event_data)
+                                            <div class="col-lg-4 col-sm-6 event-item">
+                                                <div class="event-thumb">
+                                                    <div class="service-icon">
+                                                        @foreach (array_slice(explode(',', $event_data->event_imgs), 0, 1) as $image)
+                                                            @if ($image != '')
+                                                                <img src="public/storage/event_imgs/{{ $image }}"
+                                                                    width="100%" alt="Future University"
+                                                                    style="border-radius:20px;">
+                                                            @else
+                                                                <img src="public/client/img/fu_logo.png"
+                                                                    width="100%" alt="Future University"
+                                                                    style="border-radius:20px;">
+                                                            @endif
+                                                        @endforeach
+                                                    </div>
+                                                    <div class="event-date">
+                                                        <span> {{ $event_data->event_date }} </span>
+                                                    </div>
+                                                </div>
+                                                <div class="service-content course-item">
+                                                    <h4 style="color:#ef7e22;">{{ $event_data->event_title }}</h4>
+                                                    <div class="post-meta">
+                                                        <span class="cusSpan" style="color: #281e32;">
+                                                            <i class="fa fa-clock-o"></i>
+                                                            {{ date('d-M-Y | h:i A', strtotime($event_data->created_at)) }}
+                                                        </span>
+                                                    </div>
+                                                    <p>
+                                                        {{ Str::words($event_data->news_desc, 50, '...') }}<a
+                                                            style="color: #ef7e22"
+                                                            href="{{ route('newsDetails', base64_encode($event_data->id)) }}">Read
+                                                            More</a>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        @endforeach
+                                    @endif
+                                </div>
+                            </div> --}}
+                        <!-- Loop events Here End -->
+
+                    </div>
+
+                    <!-- Hidden controls -->
+                    <button class="carousel-control-prev d-none" type="button" data-bs-target="#facultyCarousel"
+                        data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next d-none" type="button" data-bs-target="#facultyCarousel"
+                        data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+        {{-- </div> --}}
+
+    @endif
 
     <section class="testimonial-section spad">
         <div class="container">
@@ -707,50 +841,6 @@
             </div>
         </div>
     </section>
-
-
-
-    {{-- @if ($news_value) --}}
-
-    {{-- <section class="event-section" >
-        <div class="container">
-            <div class="section-title text-center">
-                <h6>Future University News</h6>
-   
-            </div>
-            <div class="row">
-
-                @foreach ($news as $news)
-                    <div class="col-md-6 event-item">
-                        <div class="event-thumb">
-
-                            @foreach (array_slice(explode(',', $news->news_imgs), 0, 1) as $image)
-                                <img src="./public/storage/news_imgs/{{ $image }}" alt="Futrue Uinversity" loading="lazy">
-                            @endforeach
-
-                            <div class="event-date">
-                                <span> {{ $news->news_date }} </span>
-                            </div>
-                        </div>
-                        <div class="event-info">
-                            <h4>{{ $news->news_title }}</h4>
-                            <p><i class="fa fa-map-marker"></i> The Future University</p>
-                            <div class="card">
-                                <p style="font-size: 17px;">
-                                    
-                                    {!! Str::words($news->news_desc, 20, ' ...') !!}
-
-                                </p>
-                                <a href="./News-Details/{{ $news->id }}" style="color:#ef7e22;" target="_blank">Read More - المزيد</a>
-                            </div>
-                        </div>
-                    </div>
-                @endforeach
-            </div>
-        </div>
-    </section> --}}
-    {{-- @endif --}}
-
     <section class="team-section spad">
 
         <div class="container">
@@ -829,22 +919,5 @@
 
     </section>
 
-    {{-- <section class="newsletter-section">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-5 col-lg-7">
-                    <div class="section-title mb-md-0">
-                        <h6>NEWSLETTER</h6>
-                        <p>Subscribe and get the latest news and useful tips, advice and best offer.</p>
-                    </div>
-                </div>
-                <div class="col-md-7 col-lg-5">
-                    <form class="newsletter">
-                        <input type="text" placeholder="Enter your email">
-                        <button class="site-btn FooterMainColor">SUBSCRIBE</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section> --}}
+
 @endsection

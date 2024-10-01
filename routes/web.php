@@ -9,6 +9,9 @@ use App\Http\Controllers\LinkageController;
 use App\Http\Controllers\Fee_StructureController;
 use App\Http\Controllers\StaffInformationController;
 use App\Http\Controllers\StaffDirectoryController;
+use App\Http\Controllers\HomeController;
+
+
 
 
 
@@ -105,17 +108,17 @@ Route::middleware(['adminType'])->group(function () {
     Route::get('/staff/{id}/delete', [StaffInformationController::class, "destroy"])->name('deletestaff');
 
 
-});
+// });
 
 
-Route::middleware(['mustBeLoggedIn'])->group(function () {
+// Route::middleware(['mustBeLoggedIn'])->group(function () {
 
     // Route::get('/add_event', function () {
     //     return view('admin.add_events');
     // });
 
     Route::get('/add_news', function () {
-        return view('admin.add_news');
+        return view(view: 'admin.add_news');
     })->name('add_news');
 
     //Event Routes  middleware and controllers //
@@ -147,13 +150,18 @@ Route::get('/register', [UserController::class, "register"]);
 Route::middleware(['web', 'visitor'])->group(function () {
 
 
-    Route::get('/', function () {
-        return view('client.Home');
-    });
+    // Route::get('/', function () {
+    //     return view('client.Home');
+    // });
 
-    Route::get('/Home', function () {
-        return view('client.Home');
-    })->name('Home');
+    // Route::get('/Home', function () {
+    //     return view('client.Home');
+    // })->name('Home');
+
+    Route::get('/', [HomeController::class, "index"]);
+    Route::get('/Home', [HomeController::class, "index"])->name('Home');
+
+
 
     Route::get('/About-FU', function () {
         return view('client.About-FU');
@@ -265,8 +273,8 @@ Route::middleware(['web', 'visitor'])->group(function () {
 });
 
 
-Route::get('/', [NewsController::class, "NewsAndEvents"]);
-Route::get('/', [NewsController::class, "viewNews"]);
+// Route::get('/', [NewsController::class, "NewsAndEvents"]);
+// Route::get('/', [NewsController::class, "viewNews"]);
 
 // Route::get('/Home', [NewsController::class, "viewNews" ]);
 // Route::get('/Home', [EventsController::class, "viewEvents" ]);

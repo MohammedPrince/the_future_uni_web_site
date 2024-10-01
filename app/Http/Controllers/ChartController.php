@@ -10,9 +10,10 @@ class ChartController extends Controller
     {
         // Replace this with your actual data retrieval logic
         $data = [
-            'labels' => ['2011', '2012', '2013', '2014', '2015','2016','2017','2018'],
-            'data' => [533, 604, 840, 715, 802,793,700,700],
+            'labels' => ['2015', '2016', '2017', '2018', '2019','2020','2021','2022'],
+            'data' => [513, 516, 549, 541, 690,686,1122,1008],
         ];
+
 
         return view('client.Facts-Figures', compact('data'));
     }

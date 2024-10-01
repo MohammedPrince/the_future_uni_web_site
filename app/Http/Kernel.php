@@ -3,8 +3,7 @@
 namespace App\Http;
 
 use App\Http\Middleware\AdminType;
-use App\Http\Middleware\MustBeLogged;
-use App\Http\Middleware\MustBeLoggedIn;
+
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
@@ -58,7 +57,7 @@ class Kernel extends HttpKernel
     protected $routeMiddleware = [
         'visitor' => \App\Http\Middleware\VisitorCounter::class,
         'adminType' => AdminType::class,
-        'mustBeLoggedIn' => MustBeLoggedIn::class,
+        'mustBeLoggedIn' => \App\Http\Middleware\MustBeLoggedIn::class,
         'auth' => \App\Http\Middleware\Authenticate::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'auth.session' => \Illuminate\Session\Middleware\AuthenticateSession::class,
