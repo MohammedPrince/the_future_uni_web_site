@@ -124,7 +124,7 @@
                 </li>
 
                 <li
-                    class="{{ Request::is('Undergraduate-Admission', 'Postgraduate-Admission') ? 'ActiveMenuMainColor' : '' }}">
+                    class="{{ Request::is('Undergraduate-Admission', 'Postgraduate-Admission','External-Transfer','Fee-Structure','Scholarships') ? 'ActiveMenuMainColor' : '' }}">
                     <a href="javascript:void(0);" class="sub-menu-arrow">Admission</a>
                     <ul class="sub-main-menu">
                         <li><a href="{{ route('Undergraduate-Admission') }}" style="text-align: left;">Undergraduates
@@ -284,7 +284,7 @@
 
         <div class="copyright">
             <div class="container">
-                <p style="color: #fff;">
+                <p style="color: #fff;font-size:11px;">
                     Copyright &copy;
                     <script>
                         document.write(new Date().getFullYear());
