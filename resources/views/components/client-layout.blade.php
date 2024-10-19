@@ -182,8 +182,8 @@
 
     <!-- main content End -->.
 
-    <script src="https://static.elfsight.com/platform/platform.js" data-use-service-core defer></script>
-    <div class="elfsight-app-248f02a1-1cba-4ac3-ac06-5b31d8f4b6df" data-elfsight-app-lazy></div>
+    <!-- <script src="https://static.elfsight.com/platform/platform.js" data-use-service-core defer></script>
+    <div class="elfsight-app-248f02a1-1cba-4ac3-ac06-5b31d8f4b6df" data-elfsight-app-lazy></div> -->
 
     <!-- Whatsapp Floating action bottn -->
 
