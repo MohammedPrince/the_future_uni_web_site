@@ -96,11 +96,11 @@
                 </li>
 
                 <li
-                    class="{{ Request::is('About-FU', 'Fu-Linkages', 'Facts-Figures', 'barChart', 'Fu-Historical-Gallery') ? 'ActiveMenuMainColor' : '' }}">
+                    class="{{ Request::is('About-FU', 'Fu-Linkages', 'Facts-Figures', 'barChart', 'Fu-Historical-Gallery','Staff-Directory','Staff-Details') ? 'ActiveMenuMainColor' : '' }}">
                     <a href="javascript:void(0);" class="sub-menu-arrow">About</a>
                     <ul class="sub-main-menu">
                         <li><a href="{{ route('About-FU') }}" style="text-align: left;">History</a></li>
-                        {{-- <li><a href="{{ route('Staff-Directory') }}" style="text-align: left;">Staff Directory</a></li> --}}
+                        <li><a href="{{ route('Staff-Directory') }}" style="text-align: left;">Staff Directory</a></li> 
                         <li><a href="{{ route('barChart') }}" style="text-align: left;">Facts & Figures</a></li>
                         <li><a href="{{ route('Fu-Linkages') }}" style="text-align: left;">Linkages</a></li>
                         <li><a href="{{ route('Fu-Historical-Gallery') }}" style="text-align: left;">Gallery</a></li>
