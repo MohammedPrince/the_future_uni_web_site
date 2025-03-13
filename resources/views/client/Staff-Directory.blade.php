@@ -9,16 +9,12 @@
     </div>
 
     <section class="about-section">
-
         <div class="container">
-
             <div class="post-item post-details" style="padding-top: 0px;">
                 <div class="section-title">
                     <div class="post-content">
 
                         <div class="container">
-
-                            <p>
                             <div style="background-color: whitesmoke;">
                                 <span style="font-size: 18px;">
 
@@ -45,19 +41,10 @@
                                             </form>
                                         </div>
 
-
-
-
-
-                                        <!-- <section class="testimonial-section spad" style="display: flex;justify-content: center;" > -->
                                         <section class="testimonial-section spad"
                                             style="display: flex;justify-content: center; align-items: center;flex-direction: column; text-align: center;">
 
-                                            <!-- <div id="Board Of Trustees"  > -->
-                                            <!-- <h3>FU Board Of Trustees</h3> -->
-
                                             <div class="row">
-                                                <!-- <div class="row" style="display: flex;justify-content: center;flex-wrap: wrap;"> -->
                                                 @if (isset($search_data) && $search_data->count() > 0)
                                                     @foreach ($search_data as $search_result)
                                                         <div class="col-lg-3 col-md-3">
@@ -66,21 +53,19 @@
 
                                                                     @if ($search_result->cv_image == '')
                                                                         <img src="{{ asset('/storage/app/public/' . 'test57992.jpg') }}"
-                                                                            alt="Board of Trustees">
+                                                                            alt="" >
                                                                     @else
                                                                         <img src="{{ asset('/storage/app/public/staff_imgs/' . $search_result->cv_image) }}"
-                                                                            alt="Board of Trustees">
+                                                                            alt="">
                                                                     @endif
 
 
                                                                     <p class="additional-text text-center">
-                                                                        {{ $search_result->staff_position }} <br>
+                                                                      
 
                                                                         <a href="{{ route('Staff-Details', base64_encode($search_result->staff_id)) }}"
                                                                             style="color: whitesmoke;"
                                                                             class="btn badge-secondary">View profile</a>
-                                                                        <!-- <a href="{{ route('Staff-Details', $search_result->staff_id) }}" target="_blank" class="btn badge-secondary">View profile</a> -->
-
 
                                                                     </p>
                                                                 </div>
@@ -90,27 +75,14 @@
                                                             </div>
                                                         </div>
                                                     @endforeach
-
                                             </div>
-
                                         </section>
                                     @else
-                     
                                         @endif
-
-
                                     </section>
-
-
-
                                 </span>
                             </div>
-
-
-                            </p>
-
                         </div>
-
                     </div>
                 </div>
             </div>
