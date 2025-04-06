@@ -96,11 +96,11 @@
                 </li>
 
                 <li
-                    class="{{ Request::is('About-FU', 'Fu-Linkages', 'Facts-Figures', 'barChart', 'Fu-Historical-Gallery','Staff-Directory','Staff-Details') ? 'ActiveMenuMainColor' : '' }}">
+                    class="{{ Request::is('About-FU', 'Fu-Linkages', 'Facts-Figures', 'barChart', 'Fu-Historical-Gallery', 'Staff-Directory', 'Staff-Details') ? 'ActiveMenuMainColor' : '' }}">
                     <a href="javascript:void(0);" class="sub-menu-arrow">About</a>
                     <ul class="sub-main-menu">
                         <li><a href="{{ route('About-FU') }}" style="text-align: left;">History</a></li>
-                        <li><a href="{{ route('Staff-Directory') }}" style="text-align: left;">Staff Directory</a></li> 
+                        <li><a href="{{ route('Staff-Directory') }}" style="text-align: left;">Staff Directory</a></li>
                         <li><a href="{{ route('barChart') }}" style="text-align: left;">Facts & Figures</a></li>
                         <li><a href="{{ route('Fu-Linkages') }}" style="text-align: left;">Linkages</a></li>
                         <li><a href="{{ route('Fu-Historical-Gallery') }}" style="text-align: left;">Gallery</a></li>
@@ -124,7 +124,7 @@
                 </li>
 
                 <li
-                    class="{{ Request::is('Undergraduate-Admission', 'Postgraduate-Admission','External-Transfer','Fee-Structure','Scholarships') ? 'ActiveMenuMainColor' : '' }}">
+                    class="{{ Request::is('Undergraduate-Admission', 'Postgraduate-Admission', 'External-Transfer', 'Fee-Structure', 'Scholarships') ? 'ActiveMenuMainColor' : '' }}">
                     <a href="javascript:void(0);" class="sub-menu-arrow">Admission</a>
                     <ul class="sub-main-menu">
                         <li><a href="{{ route('Undergraduate-Admission') }}" style="text-align: left;">Undergraduates
@@ -182,10 +182,35 @@
 
     <!-- main content End -->.
 
-    <!-- <script src="https://static.elfsight.com/platform/platform.js" data-use-service-core defer></script>
-    <div class="elfsight-app-248f02a1-1cba-4ac3-ac06-5b31d8f4b6df" data-elfsight-app-lazy></div> -->
+    <!-- Zoom Floating Button Start-->
+    <a href="https://fu-edu-sd.zoom.us/my/thefutureuniversity" target="_blank" class="zoom-float"
+        title="Join Zoom Meeting">
+        <img src="https://www.svgrepo.com/show/349580/zoom.svg" alt="Zoom"
+            style="width: 40px; height: 40px;border-radius: 10px;">
+    </a>
+    <style>
+        .zoom-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 80px;
+            right: 20px;
+            background-color: #2D8CFF;
+            color: #fff;
+            border-radius: 50%;
+            text-align: center;
+            box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
 
-    <!-- Whatsapp Floating action bottn -->
+        .zoom-float:hover {
+            background-color: #8eb5e2;
+        }
+    </style>
+    <!-- Zoom Floating Button End-->
 
     <footer class="footer-section FooterMainColor">
         <div class="container footer-top">
@@ -262,10 +287,11 @@
                             </a>
                         </li>
                         @php
-                           $visitorCount = (new \App\Http\Controllers\VisitorController())->getVisitorCount();
+                            $visitorCount = (new \App\Http\Controllers\VisitorController())->getVisitorCount();
                         @endphp
                         <li>
-                                <p style="color: #fff;">Visitor Counter: <strong style="color: #fec169">{{ $visitorCount }}</strong></p>
+                            <p style="color: #fff;">Visitor Counter: <strong
+                                    style="color: #fec169">{{ $visitorCount }}</strong></p>
                         </li>
 
                         <li>
@@ -274,7 +300,7 @@
                                         class="fa fa-facebook-square"></i></a>
                                 <a href="https://www.linkedin.com/school/sudan-civil-aviation-authority"
                                     target="_blank"><i class="fa fa-linkedin-square"></i></a>
-                         
+
                             </div>
                         </li>
                     </ul>
@@ -288,7 +314,7 @@
                     Copyright &copy;
                     <script>
                         document.write(new Date().getFullYear());
-                    </script> 
+                    </script>
                     All rights reserved for <strong style="color: #fec169">The Future
                         University.</strong> Designed and Developed by
                     <a href="{{ route('CESD') }}"target="_blank" style="color: #fec169"><strong>CESD</strong></a> &
