@@ -184,19 +184,19 @@
 
     <!-- Zoom Floating Button Start-->
     <a href="https://fu-edu-sd.zoom.us/my/thefutureuniversity" target="_blank" class="zoom-float"
-        title="Join Zoom Meeting">
-        <img src="https://www.svgrepo.com/show/349580/zoom.svg" alt="Zoom"
-            style="width: 40px; height: 40px;border-radius: 10px;">
+        title="Live Technical Support">
+        <img src="{{ asset('./public/client/img/ts.png') }}" alt="Zoom"
+            style="width: 60px; height: 60px;border-radius: 5px;">
     </a>
     <style>
         .zoom-float {
             position: fixed;
-            width: 60px;
-            height: 60px;
+            width: 80px;
+            height: 80px;
             bottom: 80px;
             right: 20px;
-            background-color: #2D8CFF;
-            color: #fff;
+            background-color: #87420a;
+            /* color: #2D8CFF; */
             border-radius: 50%;
             text-align: center;
             box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3);
@@ -207,7 +207,7 @@
         }
 
         .zoom-float:hover {
-            background-color: #8eb5e2;
+            background-color: #6e4229;
         }
     </style>
     <!-- Zoom Floating Button End-->
