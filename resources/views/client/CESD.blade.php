@@ -176,37 +176,7 @@
                                         <p>Software Developer</p>
                                     </div>
                                 </div>
-                                <div class="col-md-6 col-lg-3">
-                                    <div class="member">
-                                        <div class="member-pic set-bg"
-                                            data-setbg="{{ asset('./public/storage/staff_imgs/woman_user_noimage.png') }}">
-                                            <div class="member-social">
-                                                <a href><i class="fa fa-linkedin-square"></i></a>
-                                                <a href = "mailto:maraim_alnour@fu.edu.sd"><i
-                                                        class="fa fa-envelope"></i></a>
-                                                <!-- <a href><i class="fa fa-pinterest"></i></a> -->
-                                            </div>
-                                        </div>
-                                        <h5>Ms. Maraim Alnour </h5>
-                                        <p>Software Developer</p>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-6 col-lg-3">
-                                    <div class="member">
-                                        <div class="member-pic set-bg"
-                                            data-setbg="{{ asset('./public/storage/staff_imgs/1516631122606.jpg') }}">
-                                            <div class="member-social">
-                                                <a href = "https://www.linkedin.com/in/mohamed-a-wahab-hassabelrasoul/"
-                                                target="_blank"><i class="fa fa-linkedin-square"></i></a>
-                                         
-                                            </div>
-                                        </div>
-                                        <h5>Mr. Mohamed Abd Al-Wahab</h5>
-                                        <p>System Analyst</p>
-                                    </div>
-                                </div>
-
+                               
                                 <div class="col-md-6 col-lg-3">
                                     <div class="member">
                                         <div class="member-pic set-bg"
