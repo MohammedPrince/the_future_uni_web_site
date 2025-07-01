@@ -207,10 +207,9 @@ Route::middleware(['web', 'visitor'])->group(function () {
 
 
     // Staff Directory
-
-    Route::get('/Staff-Directory', [StaffDirectoryController::class, "index"])->name('Staff-Directory');
-    Route::post('/Staff-Directory', [StaffDirectoryController::class, "Search_Staff"])->name('Staff-Directory-POST');
-    Route::get('/staff_details/{encryptedId}', [StaffDirectoryController::class, "showStaffDetails"])->name('Staff-Details');
+    // Route::get('/Staff-Directory', [StaffDirectoryController::class, "index"])->name('Staff-Directory');
+    // Route::post('/Staff-Directory', [StaffDirectoryController::class, "Search_Staff"])->name('Staff-Directory-POST');
+    // Route::get('/staff_details/{encryptedId}', [StaffDirectoryController::class, "showStaffDetails"])->name('Staff-Details');
 
 
     Route::get('/Students-Gallery', function () {
