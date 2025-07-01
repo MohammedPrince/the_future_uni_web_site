@@ -290,8 +290,7 @@
                             $visitorCount = (new \App\Http\Controllers\VisitorController())->getVisitorCount();
                         @endphp
                         <li>
-                            <p style="color: #fff;">Visitor Counter: <strong
-                                    style="color: #fec169">{{ $visitorCount }}</strong></p>
+                            <p style="color: #fff;">Visitor Counter: <strong style="color: #fec169">{{ number_format($visitorCount) }}</strong></p>
                         </li>
 
                         <li>
