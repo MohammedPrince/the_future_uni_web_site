@@ -77,7 +77,9 @@
                     </ul>
                 </div>
                 <div class="col-lg-9 col-sm-9 col-9" style="text-align: end;">
-                    <a href="https://result.fu.edu.sd/" target="_blank">Students Portal <b
+                    {{-- <a href="https://result.fu.edu.sd/" target="_blank">Students Portal <b
+                            style="color: #fec169;">|</b></a> --}}
+                              <a href="https://odms.fu.edu.sd/" target="_blank">Admission <b
                             style="color: #fec169;">|</b></a>
                     <a href="https://elearning.fu.edu.sd/" target="_blank">E-Learning <b
                             style="color: #fec169;">|</b></a>
