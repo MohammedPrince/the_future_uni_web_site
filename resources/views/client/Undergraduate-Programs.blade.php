@@ -2,7 +2,7 @@
 @section('main-client-content')
     <div class="site-breadcrumb">
         <div class="container">
-            <a href="{{route('Home')}}"><i class="fa fa-home"></i> Home</a> <i class="fa fa-angle-right"></i>
+            <a href="{{ route('Home') }}"><i class="fa fa-home"></i> Home</a> <i class="fa fa-angle-right"></i>
             <span style="color: #fb8b24;">Undergraduate Programs</span>
         </div>
     </div>
@@ -56,7 +56,7 @@
                                     style="background-color: rgba(255, 255, 255, 0.51); display: block;"
                                     id="Business Administration">
                                     <!-- <div class="hr-sect new6"><img src="./public/client/img/main_imgs/faculites/post.jpg"
-                                                height="150px" width="150px" alt="Computer Sci"><span></span></div> -->
+                                                    height="150px" width="150px" alt="Computer Sci"><span></span></div> -->
 
                                     <p class="text-center"><strong> Business Administration </strong></p>
                                     <b>Programs:</b>
@@ -65,7 +65,7 @@
                                         <li>Bachelor of Science (Honors) in Business Administration</li>
                                         <li>Bachelor of Science (Honors) in Human Resource</li>
                                         <li>Bachelor of Science (Honors) in Marketing</li>
-
+                                        <li>Bachelor of Science (Honors) in Finance and Accounting</li>
                                     </p>
 
                                 </div>
@@ -73,7 +73,7 @@
                                 <div class="col tabcontent" style="background-color: rgba(255, 255, 255, 0.51);"
                                     id="Information Technology">
                                     <!-- <div class="hr-sect new6"><img src="./public/client/img/main_imgs/faculites/post.jpg"
-                                                height="150px" width="150px" alt="Computer Sci"><span></span></div> -->
+                                                    height="150px" width="150px" alt="Computer Sci"><span></span></div> -->
                                     <p style="color: black; text-align: justify;">
                                     <p class="text-center"><strong>Information Technology</strong>
                                     </p>
@@ -98,7 +98,7 @@
                                 <div class="col tabcontent" style="background-color: rgba(255, 255, 255, 0.51);"
                                     id="Engineering">
                                     <!-- <div class="hr-sect new6"><img src="./public/client/img/main_imgs/faculites/post.jpg"
-                                                height="150px" width="150px" alt="POST"><span></span></div> -->
+                                                    height="150px" width="150px" alt="POST"><span></span></div> -->
                                     <p style="color: black; text-align: justify;">
                                     <p class="text-center"><strong>Engineering</strong>
                                     </p>
@@ -126,7 +126,7 @@
                                 <div class="col tabcontent" style="background-color: rgba(255, 255, 255, 0.51);"
                                     id="Computer Science">
                                     <!-- <div class="hr-sect new6"><img src="./public/client/img/main_imgs/faculites/post.jpg"
-                                                height="150px" width="150px" alt="Computer Sci"><span></span></div> -->
+                                                    height="150px" width="150px" alt="Computer Sci"><span></span></div> -->
                                     <p style="color: black; text-align: justify;">
                                     <p class="text-center"><strong> Computer Science
                                         </strong></p>
@@ -143,7 +143,7 @@
                                 <div class="col tabcontent" style="background-color: rgba(255, 255, 255, 0.51);"
                                     id="Telecommunication & Space Technology">
                                     <!-- <div class="hr-sect new6"><img src="./public/client/img/main_imgs/faculites/post.jpg"
-                                                height="150px" width="150px" alt="Computer Sci"><span></span></div> -->
+                                                    height="150px" width="150px" alt="Computer Sci"><span></span></div> -->
                                     <p style="color: black; text-align: justify;">
                                     <p class="text-center"><strong>Telecommunication & Space Technology</strong></p>
                                     <p style="color: black; text-align: justify;">
@@ -158,7 +158,7 @@
                                 <div class="col tabcontent" style="background-color: rgba(255, 255, 255, 0.51);"
                                     id="Arts & Design">
                                     <!-- <div class="hr-sect new6"><img src="./public/client/img/main_imgs/faculites/post.jpg"
-                                                height="150px" width="150px" alt="Computer Sci"><span></span></div> -->
+                                                    height="150px" width="150px" alt="Computer Sci"><span></span></div> -->
                                     <p style="color: black; text-align: justify;">
                                     <p class="text-center"><strong>Arts & Design</strong></p>
                                     <p style="color: black; text-align: justify;">
@@ -175,7 +175,7 @@
                                 <div class="col tabcontent" style="background-color: rgba(255, 255, 255, 0.51);"
                                     id="Architecture">
                                     <!-- <div class="hr-sect new6"><img src="./public/client/img/main_imgs/faculites/post.jpg"
-                                                height="150px" width="150px" alt="Computer Sci"><span></span></div> -->
+                                                    height="150px" width="150px" alt="Computer Sci"><span></span></div> -->
                                     <p style="color: black; text-align: justify;">
                                     <p class="text-center"><strong>Architecture</strong></p>
                                     <p style="color: black; text-align: justify;">
@@ -189,7 +189,7 @@
                                 <div class="col tabcontent" style="background-color: rgba(255, 255, 255, 0.51);"
                                     id="Geoinformatics">
                                     <!-- <div class="hr-sect new6"><img src="./public/client/img/main_imgs/faculites/post.jpg"
-                                                height="150px" width="150px" alt="Computer Sci"><span></span></div> -->
+                                                    height="150px" width="150px" alt="Computer Sci"><span></span></div> -->
                                     <p style="color: black; text-align: justify;">
                                     <p class="text-center"><strong>Geoinformatics</strong></p>
                                     <p style="color: black; text-align: justify;">
