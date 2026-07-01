@@ -4,11 +4,15 @@
         "dev": "vite",
         "build": "vite build"
     },
+    "dependencies": {
+        "vite": ">=6.4.3",
+        "axios": ">=0.32.0"
+    },
     "devDependencies": {
-       "axios": ">=0.31.1",
+        "axios": ">=0.32.0",
         "laravel-vite-plugin": "^0.6.0",
         "lodash": "^4.17.19",
         "postcss": "^8.1.14",
-        "vite": "^3.0.0"
+        "vite": ">=6.4.3"
     }
 }
