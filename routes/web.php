@@ -25,10 +25,9 @@ use App\Http\Controllers\HomeController;
 |
 */
 
-// Route::get('/temp', function () {
-//     return view('admin.temp');
-// });
-
+Route::get('/test', function () {
+    echo 'Hello!';
+});
 
 //Admin routes////////////////////////////////
 Route::get('/admin_panel', function () {
@@ -105,10 +104,10 @@ Route::middleware(['adminType'])->group(function () {
     Route::get('/staff/{id}/delete', [StaffInformationController::class, "destroy"])->name('deletestaff');
 
 
-// });
+    // });
 
 
-// Route::middleware(['mustBeLoggedIn'])->group(function () {
+    // Route::middleware(['mustBeLoggedIn'])->group(function () {
 
     // Route::get('/add_event', function () {
     //     return view('admin.add_events');
