@@ -8,14 +8,11 @@ use App\Http\Controllers\EventsController;
 use App\Http\Controllers\LinkageController;
 use App\Http\Controllers\Fee_StructureController;
 use App\Http\Controllers\StaffInformationController;
-use App\Http\Controllers\StaffDirectoryController;
 use App\Http\Controllers\HomeController;
 
 
 
 
-
-use App\Http\Controllers\SearchAutoCompleteController;
 
 /*
 |--------------------------------------------------------------------------
