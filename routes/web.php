@@ -9,7 +9,7 @@ use App\Http\Controllers\LinkageController;
 use App\Http\Controllers\Fee_StructureController;
 use App\Http\Controllers\StaffInformationController;
 use App\Http\Controllers\HomeController;
-
+use Illuminate\Support\Facades\Artisan;
 
 
 
@@ -25,9 +25,17 @@ use App\Http\Controllers\HomeController;
 |
 */
 
-Route::get('/test', function () {
-    echo 'Hello!';
-});
+//Clear All route
+Route::get('/clear', function () {
+
+    Artisan::call('optimize');
+    Artisan::call('route:clear');
+    Artisan::call('cache:clear');
+    Artisan::call('config:clear');
+
+    return 'Caching, routes, and configuration cleared successfully.';
+})->name('clear');
+
 
 //Admin routes////////////////////////////////
 Route::get('/admin_panel', function () {
