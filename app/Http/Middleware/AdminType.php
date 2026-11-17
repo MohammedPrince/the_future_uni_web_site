@@ -21,7 +21,9 @@ class AdminType
 
            // dd($user);
 
-            if ($user && $user->isAdmin == '1') {
+            // SECURITY: a disabled account (del = 1) loses access immediately,
+            // even if it still has a session open.
+            if ($user && $user->isAdmin == '1' && (int) $user->del === 0) {
 
                 $request->attributes->add(['userType' => 'Admin']);
 

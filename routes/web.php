@@ -9,6 +9,7 @@ use App\Http\Controllers\LinkageController;
 use App\Http\Controllers\Fee_StructureController;
 use App\Http\Controllers\StaffInformationController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\SecurityScanController;
 use Illuminate\Support\Facades\Artisan;
 
 
@@ -135,6 +136,17 @@ Route::middleware(['adminType'])->group(function () {
     Route::post('/edit_news/{news}', [NewsController::class, "editNews"])->name('editnews_submit');
     Route::get('/add_news/{news}/delete/', [NewsController::class, "deleteNews"]);
 
+});
+
+// Security scanner (admin + SECURITY_SCANNER_KEY). 404 when the key is not set.
+Route::middleware(['adminType', 'throttle:30,1'])->prefix('security_scan')->group(function () {
+    Route::get('/', [SecurityScanController::class, 'index'])->name('security.index');
+    Route::post('/unlock', [SecurityScanController::class, 'unlock'])->middleware('throttle:5,10')->name('security.unlock');
+    Route::post('/lock', [SecurityScanController::class, 'lock'])->name('security.lock');
+    Route::post('/scan', [SecurityScanController::class, 'scan'])->name('security.scan');
+    Route::post('/quarantine', [SecurityScanController::class, 'quarantine'])->name('security.quarantine');
+    Route::post('/restore-index', [SecurityScanController::class, 'restoreIndex'])->name('security.restore');
+    Route::post('/kick', [SecurityScanController::class, 'kick'])->name('security.kick');
 });
 
 Route::get('/logout', [UserController::class, "logout"]);

@@ -20,7 +20,8 @@ class UserController extends Controller
             'loginpassword' => ['required'],
         ]);
       
-        if(auth()->attempt(['username' => $incomingFields['loginusername'] , 'password' => $incomingFields['loginpassword'] ])){
+        // SECURITY: disabled/deleted accounts (del = 1) can no longer log in.
+        if(auth()->attempt(['username' => $incomingFields['loginusername'] , 'password' => $incomingFields['loginpassword'], 'del' => 0 ])){
            
             $request ->session()->regenerate();
             $usey_type = auth()->user()->isAdmin;

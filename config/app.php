@@ -123,6 +123,14 @@ return [
 
     'key' => env('APP_KEY'),
 
+    /*
+    | Security scanner page (/security_scan). Disabled (404) unless a key of
+    | at least 24 characters is set. Remove the key from .env to disable it.
+    | SECURITY_SCAN_ROOT is optional; default is the cPanel home directory.
+    */
+    'security_scanner_key' => env('SECURITY_SCANNER_KEY'),
+    'security_scan_root' => env('SECURITY_SCAN_ROOT'),
+
     'cipher' => 'AES-256-CBC',
 
     /*

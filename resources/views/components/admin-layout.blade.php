@@ -46,6 +46,14 @@
                         </a>
                     </li>
 
+                    @if (strlen((string) config('app.security_scanner_key')) >= 24)
+                    <li class="sidebar-item '@if (Request::is('security_scan*')) active @endif' ">
+                        <a class='sidebar-link' href='{{ route("security.index") }}'>
+                            <i class="align-middle" data-feather="shield"></i> <span class="align-middle">Security Scan</span>
+                        </a>
+                    </li>
+                    @endif
+
                     <li class="sidebar-item '@if ( (Request::is('add_user')) || (Request::is('edit_user'))  ) active  @endif' ">
                         <a class='sidebar-link' href='{{route("add_user")}}'>
                             <i class="align-middle" data-feather="users"></i> <span class="align-middle">Manage Users</span>
