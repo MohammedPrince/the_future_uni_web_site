@@ -215,7 +215,7 @@ class StaffInformationController extends Controller
 
         // echo "done";
         $validate = Validator::make($request->all(), [
-            'cv_image' => ['nullable','mimes:png,jpg,jpeg,ico','max:2048'],
+            'cv_image' => ['nullable','image','mimes:png,jpg,jpeg','max:2048'],
             'about' => ['nullable'],
             'work_experience' => ['nullable'],
             'staff_id' => ['nullable'],
@@ -247,7 +247,7 @@ class StaffInformationController extends Controller
                     $imageName = staff_cv::where('staff_id', $request->input('staff_id'))->value('cv_image');
                     if ($request->hasFile('cv_image')) {
                         $image = $request->file('cv_image');
-                        $imageName = $image->getClientOriginalName();
+                        $imageName = $image->hashName(); // SECURITY: random name + extension from file content
                         $imagePath = $image->storeAs('staff_imgs', $imageName, 'public');
                         $old_image_path = staff_cv::where('staff_id', $request->input('staff_id'))->value('cv_image');
 
@@ -283,7 +283,7 @@ class StaffInformationController extends Controller
                     $imageName = null;
                     if ($request->hasFile('cv_image')) {
                         $image = $request->file('cv_image');
-                        $imageName = $image->getClientOriginalName();
+                        $imageName = $image->hashName(); // SECURITY: random name + extension from file content
                     
                         $imagePath = $image->storeAs('staff_imgs', $imageName, 'public');
 

@@ -58,7 +58,9 @@ class UserController extends Controller
             if(!$validate->fails()){
 
                 $request['user_by'] = auth()->user()->id;
-                $request['password'] =   bcrypt($request['username']."@FU*#" );
+                // SECURITY: random initial password (was the guessable username."@FU*#").
+                $plainPassword = \Illuminate\Support\Str::random(14);
+                $request['password'] = bcrypt($plainPassword);
 
                 if (User::where('username', $request['username'])->count() > 0) {
 
@@ -69,7 +71,7 @@ class UserController extends Controller
                     $user = User::create($request->all());
 
                     if($user){
-                        return redirect('/add_user')->with('success','User Account Created Successfully !');
+                        return redirect('/add_user')->with('success','User Account Created Successfully ! Initial password (shown once): '.$plainPassword);
                     }else{
                         return redirect('/add_user')->with('failure','Error While Creating User Account !');
                     }
@@ -149,39 +151,8 @@ class UserController extends Controller
             return redirect('/add_user')->with('failure','Error While Deleting User Account !');
         }
     }
-    public function register(Request $request){
-
-
-        $username = 'admin';
-        $password = bcrypt('123');
-        $user_fullname = 'Mohammed Prince';
-        $user_phone = '0916554412';
-        $user_email = 'mohammed.beng@gmail.com';
-
-        if (User::where('username', $username)->count() > 0) {
-
-            return redirect('/admin_panel')->with('failure','Account already exists !');
-
-        }else{
-
-            $incomingFields = ([
-
-                'username' => $username,
-                'password' =>$password,
-                'user_fullname' => $user_fullname,
-                'user_phone' => $user_phone,
-                'user_email' => $user_email,
-             
-            ]);
-    
-            $user = User::create($incomingFields);
-            auth()->login($user);
-            if( $user){
-                echo 'Saved !';
-                return redirect('/add_user')->with('success', $user_fullname." , You have successfully logged in.");
-            }
-        }
-    }
+    // SECURITY: register() removed — it created a hardcoded admin/123 account
+    // and logged the visitor in. Create admins with `php artisan tinker` instead.
 
 
     public function newPage($id){

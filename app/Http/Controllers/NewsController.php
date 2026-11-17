@@ -116,7 +116,8 @@ class NewsController extends Controller
             'news_title' => ['required' , 'min:5' , 'max:100' , Rule::unique('fu_news' , 'news_title') ] ,
             'news_desc' =>['required' ] ,
             'news_date' => ['required'],
-            'news_imgs' => 'required|max:10000',
+            'news_imgs' => 'required|array|max:20',
+            'news_imgs.*' => 'image|mimes:jpg,jpeg,png,webp|max:10000',
         ],[
             'news_title.required' => 'News Title is must.',
             'news_desc.required' => 'News Description is must.',
@@ -129,11 +130,12 @@ class NewsController extends Controller
 
         foreach($request->file('news_imgs') as $image)
             {
-                $name=$image->getClientOriginalName();
+                // SECURITY: never trust the client filename; re-encode as JPEG.
+                $name = \Illuminate\Support\Str::random(32).'.jpg';
                 $destinationPathThumbnail = public_path('/storage/news_imgs');
                 $img = Image::make($image->path());
                 $img->fit(570, 320);
-                $img->save($destinationPathThumbnail.'/'.$name);
+                $img->save($destinationPathThumbnail.'/'.$name, 85, 'jpg');
                 $data[] = $name;  
                 $fileNameToStore = implode (",", $data);
             }
@@ -180,8 +182,9 @@ $faculty_id='';
             'news_title' => ['required' , 'min:5' , 'max:100'  ] ,
             'news_desc' =>['required' ] ,
             'news_date' => ['required'],
-            'news_imgs_old'=>[],
-            'news_imgs'=>[],
+            'news_imgs_old'=>['nullable','string'],
+            'news_imgs'=>['nullable','array','max:20'],
+            'news_imgs.*'=>['image','mimes:jpg,jpeg,png,webp','max:10000'],
         ],[
             'news_title.required' => 'News Title is must.',
             'news_desc.required' => 'News Description is must.',
@@ -197,18 +200,19 @@ $faculty_id='';
                 foreach($incomingFields['news_imgs']  as $image)
                     {
 
-                        $name=$image->getClientOriginalName();
+                        $name = \Illuminate\Support\Str::random(32).'.jpg';
                         $destinationPathThumbnail = public_path('/storage/news_imgs');
                         $img = Image::make($image->path());
                         $img->fit(570, 320);
-                        $img->save($destinationPathThumbnail.'/'.$name);
-                        $data[] = $name;  
+                        $img->save($destinationPathThumbnail.'/'.$name, 85, 'jpg');
+                        $data[] = $name;
                         $fileNameToStore = implode (",", $data);
 
-                   if($incomingFields['news_imgs_old'] !=null) {
+                   if(!empty($incomingFields['news_imgs_old'])) {
 
                         foreach(explode(',', $incomingFields['news_imgs_old']) as $image){
-                            $image_path = public_path().'/storage/news_imgs/'.$image;
+                            // SECURITY: basename() blocks ../ path traversal deletes.
+                            $image_path = public_path().'/storage/news_imgs/'.basename($image);
                            File::delete($image_path);
                         }
                     }

@@ -5,6 +5,23 @@
 
     RewriteEngine On
 
+    # ------------------------------------------------------------------
+    # SECURITY: this site is served from the project root, not /public.
+    # Block every path that must never be reachable over HTTP.
+    # ------------------------------------------------------------------
+
+    # Hidden files/dirs: .env, .git, .github, .htaccess, ...
+    RewriteRule (^|/)\. - [F,L]
+
+    # Application source, dependencies, dumps and private storage.
+    # Exception: some views load uploaded images from storage/app/public directly.
+    RewriteCond %{REQUEST_URI} !/storage/app/public/[^?]+\.(jpe?g|png|gif|webp|ico|pdf)$ [NC]
+    RewriteRule ^(app|bootstrap|config|database|db_file|docker|lang|resources|routes|storage|tests|vendor|node_modules)(/|$) - [F,L]
+
+    # Search Console verification files planted by the attacker.
+    # If you ever need a real one, add a specific exception above this line.
+    RewriteRule ^google[0-9a-f]+\.html?$ - [F,L]
+
     # Handle Authorization Header
     RewriteCond %{HTTP:Authorization} .
     RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
@@ -19,3 +36,20 @@
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteRule ^ index.php [L]
 </IfModule>
+
+# Sensitive file types anywhere in the tree
+<FilesMatch "\.(env|sql|sqlite|log|lock|bak|old|orig|swp|sh|yml|yaml|ini|dist|zip|tar|gz|rar|7z)$">
+    Require all denied
+</FilesMatch>
+<FilesMatch "^(composer\.json|package\.json|package-lock\.json|artisan|sail|phpunit\.xml|vite\.config\.js|README\.md|test\.txt|test_for_online_deploy\.txt|beta_website\.code-workspace)$">
+    Require all denied
+</FilesMatch>
+
+# Only the front controller may execute PHP. Any other .php file
+# (e.g. a dropped webshell) returns 403 instead of running.
+<FilesMatch "\.(php[0-9]?|phtml|phar|pht|phps|inc|cgi|pl|py)$">
+    Require all denied
+</FilesMatch>
+<FilesMatch "^index\.php$">
+    Require all granted
+</FilesMatch>

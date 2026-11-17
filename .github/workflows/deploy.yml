@@ -20,11 +20,26 @@ jobs:
           port: ${{ secrets.PORT }}
 
           script: |
+            set -e
             cd /var/www/vhosts/fu.edu.sd/public_html/repositories/the_future_uni_web_site
 
-            git fetch --all
-            git checkout dev
-            git reset --hard origin/dev
+            # --- Integrity check: show anything changed/added outside git ---
+            echo "== Files modified or added on the server since last deploy =="
+            git status --porcelain --untracked-files=all \
+              -- . ':!storage' ':!public/storage' ':!bootstrap/cache' || true
+
+            # Was "dev", a branch that does not exist, so the reset never ran.
+            git fetch --all --prune
+            git checkout -f development
+            git reset --hard origin/development
+
+            # Remove untracked files the attacker drops (e.g. google*.html,
+            # webshells). Ignored files (.env, vendor) and uploads are kept.
+            git clean -fd -e storage -e public/storage -e bootstrap/cache
+
+            # Production must never run in debug mode (it leaks .env values).
+            sed -i 's/^APP_DEBUG=.*/APP_DEBUG=false/' .env
+            sed -i 's/^APP_ENV=.*/APP_ENV=production/' .env
 
             composer install \
               --no-dev \
@@ -39,6 +54,12 @@ jobs:
             php artisan route:cache
             php artisan view:cache
 
+            # Code is read-only; only storage and cache are writable.
+            find . -path ./storage -prune -o -path ./bootstrap/cache -prune \
+              -o -path ./vendor -prune -o -type d -print0 | xargs -0 chmod 755
+            find . -path ./storage -prune -o -path ./bootstrap/cache -prune \
+              -o -path ./vendor -prune -o -type f -print0 | xargs -0 chmod 644
+            chmod 600 .env
             chmod -R 775 storage bootstrap/cache
 
             echo "Deployment completed at $(date)"

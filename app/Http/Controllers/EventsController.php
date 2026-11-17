@@ -82,7 +82,8 @@ class EventsController extends Controller
             'event_desc' =>['required' ] ,
             'event_time' => ['required'],
             'event_date' => ['required'],
-            'event_imgs' => 'required|max:10000',
+            'event_imgs' => 'required|array|max:20',
+            'event_imgs.*' => 'image|mimes:jpg,jpeg,png,webp|max:10000',
         ],[
             'event_title.required' => 'Event Title is must.',
             'event_desc.required' => 'Event Description is must.',
@@ -96,14 +97,16 @@ class EventsController extends Controller
 
         foreach($request->file('event_imgs') as $image)
             {
-                $name=$image->getClientOriginalName();
-                $img_name = $incomingFields['event_title']. '-'. uniqid().'.jpg' ;
-                
+                // SECURITY: never trust the client filename; re-encode as JPEG.
+                // (Also fixes a bug: the file was saved under the client name but
+                // the DB recorded $img_name, so the image never displayed.)
+                $img_name = \Illuminate\Support\Str::random(32).'.jpg';
+
                 $destinationPathThumbnail = public_path('/storage/event_imgs');
                 $img = Image::make($image->path());
 
                 $img->fit(570, 320);
-                $img->save($destinationPathThumbnail.'/'.$name);
+                $img->save($destinationPathThumbnail.'/'.$img_name, 85, 'jpg');
                 $data[] = $img_name;  
                 $fileNameToStore = implode (",", $data);
             }
@@ -178,8 +181,9 @@ class EventsController extends Controller
             'event_desc' => ['required'],
             'event_time' => ['required'],
             'event_date' => ['required'],
-            'event_imgs_old' => [],
-            'event_imgs' => [],
+            'event_imgs_old' => ['nullable', 'string'],
+            'event_imgs' => ['nullable', 'array', 'max:20'],
+            'event_imgs.*' => ['image', 'mimes:jpg,jpeg,png,webp', 'max:10000'],
         ], [
             'event_title.required' => 'Event Title is must.',
             'event_desc.required' => 'Event Description is must.',
@@ -194,18 +198,19 @@ class EventsController extends Controller
         if ($request->hasFile('event_imgs')) {
             $data = [];
             foreach ($incomingFields['event_imgs'] as $image) {
-                $name = $image->getClientOriginalName();
+                $name = \Illuminate\Support\Str::random(32).'.jpg';
                 $destinationPathThumbnail = public_path('/storage/event_imgs');
                 $img = Image::make($image->path());
                 $img->fit(570, 320);
-                $img->save($destinationPathThumbnail.'/'.$name);
+                $img->save($destinationPathThumbnail.'/'.$name, 85, 'jpg');
                 $data[] = $name;
             }
-    
+
             // Delete old images if new images are uploaded
             if (!empty($incomingFields['event_imgs_old'])) {
                 foreach (explode(',', $incomingFields['event_imgs_old']) as $oldImage) {
-                    $image_path = public_path('/storage/event_imgs/'.$oldImage);
+                    // SECURITY: basename() blocks ../ path traversal deletes.
+                    $image_path = public_path('/storage/event_imgs/'.basename($oldImage));
                     if (File::exists($image_path)) {
                         File::delete($image_path);
                     }

@@ -25,24 +25,18 @@ use Illuminate\Support\Facades\Artisan;
 |
 */
 
-//Clear All route
-Route::get('/clear', function () {
-
-    Artisan::call('optimize');
-    Artisan::call('route:clear');
-    Artisan::call('cache:clear');
-    Artisan::call('config:clear');
-
-    return 'Caching, routes, and configuration cleared successfully.';
-})->name('clear');
-
-
 //Admin routes////////////////////////////////
 Route::get('/admin_panel', function () {
     return view('admin.login');
 });
 
 Route::middleware(['adminType'])->group(function () {
+
+    // SECURITY: cache clear is admin-only (was public).
+    Route::get('/clear', function () {
+        Artisan::call('optimize:clear');
+        return 'Caching, routes, and configuration cleared successfully.';
+    })->name('clear');
 
     Route::get('/add_user', function () {
         return view('admin.add_user');
@@ -144,8 +138,10 @@ Route::middleware(['adminType'])->group(function () {
 });
 
 Route::get('/logout', [UserController::class, "logout"]);
-Route::post('/login', [UserController::class, "login"])->middleware('guest');
-Route::get('/register', [UserController::class, "register"]);
+// SECURITY: brute-force protection on login (5 attempts / minute).
+Route::post('/login', [UserController::class, "login"])->middleware(['guest', 'throttle:5,1']);
+// SECURITY: the public /register route was removed. It created and logged in
+// an "admin" account with password "123" for anyone who visited it.
 
 
 
