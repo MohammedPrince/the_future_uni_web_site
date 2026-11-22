@@ -41,10 +41,13 @@ class SecurityScanController extends Controller
     private const PHP_EXT = ['php', 'php3', 'php4', 'php5', 'php7', 'php8', 'phtml', 'phar', 'pht', 'phps', 'inc'];
     private const TEXT_EXT = ['html', 'htm', 'js', 'txt', 'xml'];
 
-    /** Folders where a PHP file should never exist. */
+    /**
+     * Folders where a PHP file should never exist. Kept deliberately narrow:
+     * generic names like media/, files/, images/ hold real code in Moodle,
+     * WordPress plugins, etc. and must NOT be flagged as uploads.
+     */
     private const UPLOAD_MARKERS = [
-        '/storage/app/public/', '/public/storage/', '/uploads/', '/wp-content/uploads/',
-        '/images/', '/img/', '/assets/', '/media/', '/files/',
+        '/storage/app/public/', '/public/storage/', '/wp-content/uploads/', '/uploads/',
     ];
 
     /** Webshell / backdoor patterns (PHP files). */
@@ -174,6 +177,7 @@ PHP;
             'crontab'  => $this->runFixed('crontab -l 2>&1'),
             'procs'    => $this->runFixed('ps x -o pid,user,etime,args 2>&1'),
             'meId'     => auth()->id(),
+            'batches'  => $this->quarantineBatches(),
         ]);
     }
 
@@ -385,6 +389,68 @@ PHP;
             $msg .= ' | Could NOT move ' . count($failed) . ' (permission denied — move them in WHM as root): ' . implode(', ', array_slice($failed, 0, 10));
         }
         return redirect()->route('security.index')->with($failed ? 'failure' : 'success', $msg);
+    }
+
+    /** Undo a quarantine batch: move every file in its manifest back. */
+    public function undo(Request $request)
+    {
+        $this->ensureUnlocked($request);
+        $batch = (string) $request->input('batch');
+        if (!preg_match('~^\d{8}-\d{6}$~', $batch)) {
+            abort(422);
+        }
+        $dir = $this->norm(storage_path('app/security-quarantine/' . $batch));
+        $manifest = $dir . '/manifest.json';
+        $entries = is_file($manifest) ? (json_decode((string) file_get_contents($manifest), true) ?: []) : [];
+
+        $restored = [];
+        $skipped = [];
+        $remaining = [];
+        foreach ($entries as $e) {
+            $from = $this->norm((string) ($e['from'] ?? ''));
+            $to = $this->norm((string) ($e['to'] ?? ''));
+            // Only restore paths that came from this manifest and live inside this batch / account.
+            if ($from === '' || !str_starts_with($to, $dir . '/') || !str_starts_with($from, $this->accountRoot() . '/')) {
+                continue;
+            }
+            if (file_exists($from) || !is_file($to)) {
+                $skipped[] = $from;
+                $remaining[] = $e;
+                continue;
+            }
+            @mkdir(dirname($from), 0755, true);
+            @chmod($to, 0644);
+            if (@rename($to, $from) || (@copy($to, $from) && @unlink($to))) {
+                @chmod($from, 0644);
+                $restored[] = $from;
+            } else {
+                $skipped[] = $from;
+                $remaining[] = $e;
+            }
+        }
+        if (is_file($manifest)) {
+            file_put_contents($manifest, json_encode($remaining, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES));
+        }
+
+        $this->audit('undo-quarantine', ['batch' => $batch, 'restored' => $restored, 'skipped' => $skipped], $request);
+
+        return redirect()->route('security.index')->with($skipped ? 'failure' : 'success',
+            'Restored ' . count($restored) . ' file(s) from batch ' . $batch . '.'
+            . ($skipped ? ' Skipped ' . count($skipped) . ' (already exists or permission denied): ' . implode(', ', array_slice($skipped, 0, 10)) : ''));
+    }
+
+    private function quarantineBatches(): array
+    {
+        $out = [];
+        foreach (glob(storage_path('app/security-quarantine/*/manifest.json')) ?: [] as $m) {
+            $entries = json_decode((string) file_get_contents($m), true) ?: [];
+            $out[] = [
+                'batch' => basename(dirname($m)),
+                'count' => count($entries),
+                'files' => array_column($entries, 'from'),
+            ];
+        }
+        return array_reverse($out);
     }
 
     public function restoreIndex(Request $request)

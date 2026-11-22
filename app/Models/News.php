@@ -21,6 +21,12 @@ class News extends Model
         'news_by' ,
     ];
 
+    /** News that has not been deleted. */
+    public function scopePublished($query)
+    {
+        return $query->where('del', 0);
+    }
+
     public static function getNews(){
         $news = News::where('del','=','0')->where('news_status','1')->get();   
         if ($news->count() === 0){

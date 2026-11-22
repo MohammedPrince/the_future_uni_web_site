@@ -127,7 +127,7 @@
                                     <div class="member">
 
                                         <div class="member-pic set-bg"
-                                            data-setbg="{{ asset('public/client/img/main_imgs/members/mave.jpg') }}">
+                                            style="background-image:url('@img('client/img/main_imgs/members/mave.jpg')')">
                                             <div class="member-social">
                                                 <a href = "https://www.linkedin.com/in/mohammed-abuelgassim/"
                                                     target="_blank"><i class="fa fa-linkedin-square"></i></a>
@@ -144,7 +144,7 @@
                                 <div class="col-md-6 col-lg-3">
                                     <div class="member">
                                         <div class="member-pic set-bg"
-                                            data-setbg="{{ asset('./public/storage/staff_imgs/cesd2.jpg') }}">
+                                            style="background-image:url('@img('storage/staff_imgs/cesd2.jpg')')">
                                             <div class="member-social">
                                                 <!-- <a href><i class="fa fa-facebook"></i></a>
     <a href><i class="fa fa-twitter"></i></a> -->
@@ -161,7 +161,7 @@
                                 <div class="col-md-6 col-lg-3">
                                     <div class="member">
                                         <div class="member-pic set-bg"
-                                            data-setbg="{{ asset('./public/storage/staff_imgs/niceone.jpg') }}">
+                                            style="background-image:url('@img('storage/staff_imgs/niceone.jpg')')">
                                             <div class="member-social">
                                                 <a href = "https://sd.linkedin.com/in/nader-nageeb-9ab7aa21b?trk=people-guest_people_search-card"
                                                     target="_blank"><i class="fa fa-linkedin-square"></i></a>
@@ -180,7 +180,7 @@
                                 <div class="col-md-6 col-lg-3">
                                     <div class="member">
                                         <div class="member-pic set-bg"
-                                            data-setbg="{{ asset('./public/storage/staff_imgs/momunCESD.jpg') }}">
+                                            style="background-image:url('@img('storage/staff_imgs/momunCESD.jpg')')">
                                             <div class="member-social">
                                                 <a href = "https://www.linkedin.com/in/mohamed-mamoun-5472b01aa/"
                                                     target="_blank"><i class="fa fa-linkedin-square"></i></a>
@@ -197,7 +197,7 @@
                                 <div class="col-md-6 col-lg-3">
                                     <div class="member">
                                         <div class="member-pic set-bg"
-                                            data-setbg="{{ asset('./public/storage/staff_imgs/gaziCesd_copy.jpg') }}">
+                                            style="background-image:url('@img('storage/staff_imgs/gaziCesd_copy.jpg')')">
                                             <div class="member-social">
                                                 <!-- <a href><i class="fa fa-facebook"></i></a> -->
                                                 <a href = "https://www.linkedin.com/in/ghazi-abdallah-omer-mustafa-b602361a4/"
@@ -213,7 +213,7 @@
 
                                 <!-- <div class="col-md-6 col-lg-3">
     <div class="member">
-    <div class="member-pic set-bg" data-setbg="{{ asset('./public/storage/staff_imgs/test57992.jpg') }}">
+    <div class="member-pic set-bg" style="background-image:url('@img('storage/staff_imgs/test57992.jpg')')">
     <div class="member-social">
     <a href><i class="fa fa-facebook"></i></a>
     <a href><i class="fa fa-twitter"></i></a>

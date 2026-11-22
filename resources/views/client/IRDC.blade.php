@@ -76,7 +76,7 @@
                                     <div class="member">
 
                                         <div class="member-pic set-bg"
-                                            data-setbg="{{ asset('./public/storage/staff_imgs/IMG_7417.jpg') }}">
+                                            style="background-image:url('@img('storage/staff_imgs/IMG_7417.jpg')')">
                                             <div class="member-social">
                                                 <a href="mailto:khalidkaradh@fu.edu.sd"><i class="fa fa-envelope"></i></a>
 
@@ -89,7 +89,7 @@
                                 <div class="col-md-6 col-lg-3">
                                     <div class="member">
                                         <div class="member-pic set-bg"
-                                            data-setbg="{{ asset('./public/storage/staff_imgs/woman_user_noimage.png') }}">
+                                            style="background-image:url('@img('storage/staff_imgs/woman_user_noimage.png')')">
                                             <div class="member-social">
 
                                                 <a href = "mailto:mailto:sayda@fu.edu.sd"><i class="fa fa-envelope"></i></a>
@@ -102,7 +102,7 @@
                                 <div class="col-md-6 col-lg-3">
                                     <div class="member">
                                         <div class="member-pic set-bg"
-                                            data-setbg="{{ asset('./public/storage/staff_imgs/woman_user_noimage.png') }}">
+                                            style="background-image:url('@img('storage/staff_imgs/woman_user_noimage.png')')">
                                             <div class="member-social">
                                                 <a href = "mailto:mailto:muhaira.sharief@fu.edu.sd"><i
                                                         class="fa fa-envelope"></i></a>

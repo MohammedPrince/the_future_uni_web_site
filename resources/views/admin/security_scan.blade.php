@@ -146,6 +146,30 @@
             </div>
         </div>
 
+        {{-- 2b. Quarantine batches / undo --}}
+        @if (count($batches))
+        <div class="card">
+            <div class="card-header"><h5 class="card-title mb-0">Quarantine (undo a mistake)</h5></div>
+            <div class="card-body">
+                <p>If a site broke after quarantining (e.g. Moodle/elearning), restore the batch, then purge that site's cache.</p>
+                @foreach ($batches as $b)
+                    <details class="mb-2">
+                        <summary><b>{{ $b['batch'] }}</b> — {{ $b['count'] }} file(s)</summary>
+                        <div class="sec-pre">@foreach ($b['files'] as $file){{ $file }}
+@endforeach</div>
+                        @if ($b['count'])
+                        <form method="POST" action="{{ route('security.undo') }}" class="mt-1" onsubmit="return confirm('Move all {{ $b['count'] }} file(s) of this batch back to their original place?')">
+                            @csrf
+                            <input type="hidden" name="batch" value="{{ $b['batch'] }}">
+                            <button class="btn btn-sm btn-outline-danger">Undo this batch</button>
+                        </form>
+                        @endif
+                    </details>
+                @endforeach
+            </div>
+        </div>
+        @endif
+
         {{-- 3. Kick out --}}
         <div class="card">
             <div class="card-header"><h5 class="card-title mb-0">3. Kick the attacker out</h5></div>

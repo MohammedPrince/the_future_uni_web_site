@@ -22,6 +22,12 @@ class Events extends Model
         'event_by' ,
     ];
 
+    /** Events that are switched on and not deleted. */
+    public function scopePublished($query)
+    {
+        return $query->where('del', 0)->where('event_status', '1');
+    }
+
     public static function getEvents(){
 
         $events = Events::where('del','=','0')->where('event_status','1')->get(); 

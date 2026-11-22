@@ -54,8 +54,8 @@ class EventsController extends Controller
         $news='';
         $news_faculty_id='';
         $news_value = false;
-        $new_event_id = base64_decode($event_id);
-        $event = Events::find($new_event_id);
+        $new_event_id = (int) base64_decode($event_id);
+        $event = Events::published()->findOrFail($new_event_id);
 
         $faculty_id = Events :: GetEventColumn('faculty_id',$new_event_id);
         $event_by_id = Events :: GetEventColumn('event_by',$new_event_id);
@@ -113,7 +113,7 @@ class EventsController extends Controller
 
             $incomingFields['event_imgs'] = $fileNameToStore ;
 
-        if (Events::create(strip_tags($incomingFields))){
+        if (Events::create(array_map(fn ($v) => is_string($v) ? strip_tags($v) : $v, $incomingFields))){
 
             return redirect('/add_event')->with('success','Event '.$incomingFields['event_title']. ' Created Successfully !');
         }else{
@@ -146,7 +146,7 @@ class EventsController extends Controller
         if (Events::where('id', $event_id)->update(['del' => '1'])){
 
             foreach($images as $image){
-                $image_path = public_path().'/storage/event_imgs/'.$image;
+                $image_path = public_path().'/storage/event_imgs/'.basename($image);
                 $del = File::delete($image_path);
              }
 
@@ -162,7 +162,7 @@ class EventsController extends Controller
 
     public function eventStatus($event_id , $event_status){
 
-            if (Events::where('id', $event_id)->update(['event_status' => $event_status])){
+            if (Events::where('id', $event_id)->update(['event_status' => $event_status === '1' ? 1 : 0])){
                 return redirect('/add_event')->with('success','Event status successfully updated!');
             }else{
                 return redirect('/add_event')->with('failure','Error while updating event status !');

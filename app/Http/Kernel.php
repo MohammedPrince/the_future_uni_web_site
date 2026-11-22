@@ -19,6 +19,7 @@ class Kernel extends HttpKernel
         // \App\Http\Middleware\TrustHosts::class,
         \App\Http\Middleware\TrustProxies::class,
         \Illuminate\Http\Middleware\HandleCors::class,
+        \App\Http\Middleware\SecurityHeaders::class,
         \App\Http\Middleware\PreventRequestsDuringMaintenance::class,
         \Illuminate\Foundation\Http\Middleware\ValidatePostSize::class,
         \App\Http\Middleware\TrimStrings::class,
@@ -55,9 +56,11 @@ class Kernel extends HttpKernel
      * @var array<string, class-string|string>
      */
     protected $routeMiddleware = [
+        'page.cache' => \App\Http\Middleware\PageCache::class,
+        'same.site' => \App\Http\Middleware\BlockCrossSiteActions::class,
         'visitor' => \App\Http\Middleware\VisitorCounter::class,
         'adminType' => AdminType::class,
-        'mustBeLoggedIn' => \App\Http\Middleware\MustBeLoggedIn::class,
+        'mustBeLoggedIn' => \App\Http\Middleware\MustBeloggedIn::class,
         'auth' => \App\Http\Middleware\Authenticate::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'auth.session' => \Illuminate\Session\Middleware\AuthenticateSession::class,

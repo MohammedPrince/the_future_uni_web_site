@@ -49,6 +49,12 @@ return [
             'lock_connection' => null,
         ],
 
+        // Finished public pages (see App\Http\Middleware\PageCache)
+        'pages' => [
+            'driver' => 'file',
+            'path' => storage_path('framework/cache/pages'),
+        ],
+
         'file' => [
             'driver' => 'file',
             'path' => storage_path('framework/cache/data'),

@@ -69,7 +69,7 @@ class UserController extends Controller
 
                 }else{
 
-                    $user = User::create($request->all());
+                    $user = User::create($request->only(['username', 'user_fullname', 'user_phone', 'user_email', 'isAdmin', 'user_faculty', 'user_by', 'password']));
 
                     if($user){
                         return redirect('/add_user')->with('success','User Account Created Successfully ! Initial password (shown once): '.$plainPassword);
@@ -129,7 +129,9 @@ class UserController extends Controller
 
                 $request['user_by'] = auth()->user()->id;
 
-                    if( $user ->update($request->all())){
+                    $fields = $request->only(['username', 'user_fullname', 'user_phone', 'user_email', 'isAdmin', 'user_faculty', 'user_by']);
+
+                    if( $user ->update($fields)){
 
                         return redirect('/add_user')->with('success','User Account Successfully Updated !');
                     }else{
@@ -173,15 +175,13 @@ class UserController extends Controller
 
 
 
-    public function logout(){
+    public function logout(Request $request){
 
-        $user_name = auth()->user()->username;
-
-        if($user_name == ""){
-            $user_name = 'User';
-        }
+        $user_name = auth()->user()?->username ?: 'User';
 
         auth()->logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
         return redirect("/admin_panel")->with('success', $user_name.' , Logged out successfully !');
        
     }

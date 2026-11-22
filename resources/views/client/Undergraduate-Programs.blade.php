@@ -55,7 +55,7 @@
                                 <div class="col tabcontent"
                                     style="background-color: rgba(255, 255, 255, 0.51); display: block;"
                                     id="Business Administration">
-                                    <!-- <div class="hr-sect new6"><img src="./public/client/img/main_imgs/faculites/post.jpg"
+                                    <!-- <div class="hr-sect new6"><img loading="lazy" decoding="async" src="@img('client/img/main_imgs/faculites/post.jpg')"
                                                     height="150px" width="150px" alt="Computer Sci"><span></span></div> -->
 
                                     <p class="text-center"><strong> Business Administration </strong></p>
@@ -72,7 +72,7 @@
 
                                 <div class="col tabcontent" style="background-color: rgba(255, 255, 255, 0.51);"
                                     id="Information Technology">
-                                    <!-- <div class="hr-sect new6"><img src="./public/client/img/main_imgs/faculites/post.jpg"
+                                    <!-- <div class="hr-sect new6"><img loading="lazy" decoding="async" src="@img('client/img/main_imgs/faculites/post.jpg')"
                                                     height="150px" width="150px" alt="Computer Sci"><span></span></div> -->
                                     <p style="color: black; text-align: justify;">
                                     <p class="text-center"><strong>Information Technology</strong>
@@ -97,7 +97,7 @@
 
                                 <div class="col tabcontent" style="background-color: rgba(255, 255, 255, 0.51);"
                                     id="Engineering">
-                                    <!-- <div class="hr-sect new6"><img src="./public/client/img/main_imgs/faculites/post.jpg"
+                                    <!-- <div class="hr-sect new6"><img loading="lazy" decoding="async" src="@img('client/img/main_imgs/faculites/post.jpg')"
                                                     height="150px" width="150px" alt="POST"><span></span></div> -->
                                     <p style="color: black; text-align: justify;">
                                     <p class="text-center"><strong>Engineering</strong>
@@ -125,7 +125,7 @@
 
                                 <div class="col tabcontent" style="background-color: rgba(255, 255, 255, 0.51);"
                                     id="Computer Science">
-                                    <!-- <div class="hr-sect new6"><img src="./public/client/img/main_imgs/faculites/post.jpg"
+                                    <!-- <div class="hr-sect new6"><img loading="lazy" decoding="async" src="@img('client/img/main_imgs/faculites/post.jpg')"
                                                     height="150px" width="150px" alt="Computer Sci"><span></span></div> -->
                                     <p style="color: black; text-align: justify;">
                                     <p class="text-center"><strong> Computer Science
@@ -142,7 +142,7 @@
 
                                 <div class="col tabcontent" style="background-color: rgba(255, 255, 255, 0.51);"
                                     id="Telecommunication & Space Technology">
-                                    <!-- <div class="hr-sect new6"><img src="./public/client/img/main_imgs/faculites/post.jpg"
+                                    <!-- <div class="hr-sect new6"><img loading="lazy" decoding="async" src="@img('client/img/main_imgs/faculites/post.jpg')"
                                                     height="150px" width="150px" alt="Computer Sci"><span></span></div> -->
                                     <p style="color: black; text-align: justify;">
                                     <p class="text-center"><strong>Telecommunication & Space Technology</strong></p>
@@ -157,7 +157,7 @@
 
                                 <div class="col tabcontent" style="background-color: rgba(255, 255, 255, 0.51);"
                                     id="Arts & Design">
-                                    <!-- <div class="hr-sect new6"><img src="./public/client/img/main_imgs/faculites/post.jpg"
+                                    <!-- <div class="hr-sect new6"><img loading="lazy" decoding="async" src="@img('client/img/main_imgs/faculites/post.jpg')"
                                                     height="150px" width="150px" alt="Computer Sci"><span></span></div> -->
                                     <p style="color: black; text-align: justify;">
                                     <p class="text-center"><strong>Arts & Design</strong></p>
@@ -174,7 +174,7 @@
 
                                 <div class="col tabcontent" style="background-color: rgba(255, 255, 255, 0.51);"
                                     id="Architecture">
-                                    <!-- <div class="hr-sect new6"><img src="./public/client/img/main_imgs/faculites/post.jpg"
+                                    <!-- <div class="hr-sect new6"><img loading="lazy" decoding="async" src="@img('client/img/main_imgs/faculites/post.jpg')"
                                                     height="150px" width="150px" alt="Computer Sci"><span></span></div> -->
                                     <p style="color: black; text-align: justify;">
                                     <p class="text-center"><strong>Architecture</strong></p>
@@ -188,7 +188,7 @@
 
                                 <div class="col tabcontent" style="background-color: rgba(255, 255, 255, 0.51);"
                                     id="Geoinformatics">
-                                    <!-- <div class="hr-sect new6"><img src="./public/client/img/main_imgs/faculites/post.jpg"
+                                    <!-- <div class="hr-sect new6"><img loading="lazy" decoding="async" src="@img('client/img/main_imgs/faculites/post.jpg')"
                                                     height="150px" width="150px" alt="Computer Sci"><span></span></div> -->
                                     <p style="color: black; text-align: justify;">
                                     <p class="text-center"><strong>Geoinformatics</strong></p>

@@ -33,7 +33,7 @@
     <div class="wrapper">
         <nav id="sidebar" class="sidebar js-sidebar">
             <div class="sidebar-content js-simplebar">
-                <a class='sidebar-brand text-center' href='add_user'>
+                <a class='sidebar-brand text-center' href='{{ route("add_user") }}'>
                    <span class="align-middle">Fu-Website<br>Content Managment</span>
                 </a>
 
@@ -53,6 +53,12 @@
                         </a>
                     </li>
                     @endif
+
+                    <li class="sidebar-item '@if (Request::is('server_tools*')) active @endif' ">
+                        <a class='sidebar-link' href='{{ route("tools.index") }}'>
+                            <i class="align-middle" data-feather="server"></i> <span class="align-middle">Server Tools</span>
+                        </a>
+                    </li>
 
                     <li class="sidebar-item '@if ( (Request::is('add_user')) || (Request::is('edit_user'))  ) active  @endif' ">
                         <a class='sidebar-link' href='{{route("add_user")}}'>

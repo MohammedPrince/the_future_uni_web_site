@@ -13,6 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
+        // Already there on existing databases
+        if (Schema::hasTable('visitors')) {
+            return;
+        }
+
         Schema::create('visitors', function (Blueprint $table) {
             $table->id();
             $table->timestamps();

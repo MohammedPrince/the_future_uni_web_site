@@ -10,6 +10,8 @@ use App\Http\Controllers\Fee_StructureController;
 use App\Http\Controllers\StaffInformationController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\SecurityScanController;
+use App\Http\Controllers\ServerToolsController;
+use App\Http\Controllers\SitemapController;
 use Illuminate\Support\Facades\Artisan;
 
 
@@ -27,11 +29,12 @@ use Illuminate\Support\Facades\Artisan;
 */
 
 //Admin routes////////////////////////////////
+// 'guest' sends users who are already logged in to the admin area instead of showing the form again.
 Route::get('/admin_panel', function () {
     return view('admin.login');
-});
+})->middleware('guest');
 
-Route::middleware(['adminType'])->group(function () {
+Route::middleware(['adminType', 'same.site'])->group(function () {
 
     // SECURITY: cache clear is admin-only (was public).
     Route::get('/clear', function () {
@@ -145,8 +148,17 @@ Route::middleware(['adminType', 'throttle:30,1'])->prefix('security_scan')->grou
     Route::post('/lock', [SecurityScanController::class, 'lock'])->name('security.lock');
     Route::post('/scan', [SecurityScanController::class, 'scan'])->name('security.scan');
     Route::post('/quarantine', [SecurityScanController::class, 'quarantine'])->name('security.quarantine');
+    Route::post('/undo', [SecurityScanController::class, 'undo'])->name('security.undo');
     Route::post('/restore-index', [SecurityScanController::class, 'restoreIndex'])->name('security.restore');
     Route::post('/kick', [SecurityScanController::class, 'kick'])->name('security.kick');
+});
+
+// Maintenance commands (admin + own password again).
+Route::middleware(['adminType'])->prefix('server_tools')->group(function () {
+    Route::get('/', [ServerToolsController::class, 'index'])->name('tools.index');
+    Route::post('/unlock', [ServerToolsController::class, 'unlock'])->middleware('throttle:5,10')->name('tools.unlock');
+    Route::post('/lock', [ServerToolsController::class, 'lock'])->name('tools.lock');
+    Route::post('/run', [ServerToolsController::class, 'run'])->middleware('throttle:20,1')->name('tools.run');
 });
 
 Route::get('/logout', [UserController::class, "logout"]);
@@ -159,7 +171,31 @@ Route::post('/login', [UserController::class, "login"])->middleware(['guest', 't
 
 //Client routes //
 
-Route::middleware(['web', 'visitor'])->group(function () {
+// Public pages use no login, so they skip sessions and cookies. That lets the
+// page cache and browsers keep them.
+$noSession = [
+    \App\Http\Middleware\EncryptCookies::class,
+    \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
+    \Illuminate\Session\Middleware\StartSession::class,
+    \Illuminate\View\Middleware\ShareErrorsFromSession::class,
+    \App\Http\Middleware\VerifyCsrfToken::class,
+];
+
+Route::get('/sitemap.xml', [SitemapController::class, 'index'])
+    ->middleware('page.cache')->withoutMiddleware($noSession)->name('sitemap');
+
+// Google Search Console ownership file. Only names listed in config/seo.php work.
+Route::get('/{file}.html', function (string $file) {
+    abort_unless(in_array($file, config('seo.google_files'), true), 404);
+
+    return response("google-site-verification: {$file}.html", 200, ['Content-Type' => 'text/html; charset=UTF-8']);
+})->where('file', 'google[0-9a-f]{16}')->withoutMiddleware($noSession)->name('google.file');
+
+// Old addresses: one page, one URL.
+Route::permanentRedirect('/Home', '/')->withoutMiddleware($noSession);
+Route::permanentRedirect('/news_events', '/News-and-Events')->withoutMiddleware($noSession);
+
+Route::middleware(['visitor', 'page.cache'])->withoutMiddleware($noSession)->group(function () {
 
 
     // Route::get('/', function () {
@@ -170,18 +206,13 @@ Route::middleware(['web', 'visitor'])->group(function () {
     //     return view('client.Home');
     // })->name('Home');
 
-    Route::get('/', [HomeController::class, "index"]);
-    Route::get('/Home', [HomeController::class, "index"])->name('Home');
+    Route::get('/', [HomeController::class, "index"])->name('Home');
 
 
 
     Route::get('/About-FU', function () {
         return view('client.About-FU');
     })->name('About-FU');
-
-    Route::get('/news_events', function () {
-        return view('client.News-and-Events');
-    })->name('news_events');
 
     Route::get('/Fu-Linkages', function () {
         return view('client.Fu-Linkages');
@@ -284,17 +315,12 @@ Route::middleware(['web', 'visitor'])->group(function () {
 });
 
 
-// Route::get('/', [NewsController::class, "NewsAndEvents"]);
-// Route::get('/', [NewsController::class, "viewNews"]);
+Route::middleware(['visitor', 'page.cache'])->withoutMiddleware($noSession)->group(function () {
+    Route::get('/Event-Details/{event}', [EventsController::class, "eventDetails"])->name('eventDetails');
+    Route::get('/News-Details/{news}', [NewsController::class, "newsDetails"])->name('newsDetails');
+    Route::get('/News-and-Events', [NewsController::class, "NewsAndEvents"])->name('NewsAndEvents');
+    Route::get('/Facts-Figures', [ChartController::class, 'barChart'])->name('barChart');
+});
 
-// Route::get('/Home', [NewsController::class, "viewNews" ]);
-// Route::get('/Home', [EventsController::class, "viewEvents" ]);
-Route::get('/Event-Details/{event}', [EventsController::class, "eventDetails"])->name('eventDetails');
-Route::get('/News-Details/{news}', [NewsController::class, "newsDetails"])->name('newsDetails');
-Route::get('/News-and-Events', [NewsController::class, "NewsAndEvents"])->name('NewsAndEvents');
-Route::get('/search', [NewsController::class, 'search'])->name('search');
-Route::get('/Facts-Figures', [ChartController::class, 'barChart'])->name('barChart');
-
-
-
-
+// Live search box. Not cached.
+Route::get('/search', [NewsController::class, 'search'])->middleware('throttle:60,1')->withoutMiddleware($noSession)->name('search');

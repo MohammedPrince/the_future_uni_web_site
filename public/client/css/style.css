@@ -1838,7 +1838,8 @@ ul {
 	margin-bottom: 10px;
 }
 
-.widget .tags a {
+.widget .tags a,
+.widget .tags .tag-off {
 	min-width: 80px;
 	text-transform: uppercase;
 	display: inline-block;

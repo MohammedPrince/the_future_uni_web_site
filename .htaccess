@@ -16,10 +16,11 @@
     # Application source, dependencies, dumps and private storage.
     # Exception: some views load uploaded images from storage/app/public directly.
     RewriteCond %{REQUEST_URI} !/storage/app/public/[^?]+\.(jpe?g|png|gif|webp|ico|pdf)$ [NC]
-    RewriteRule ^(app|bootstrap|config|database|db_file|docker|lang|resources|routes|storage|tests|vendor|node_modules)(/|$) - [F,L]
+    RewriteRule ^(app|bootstrap|config|database|db_file|docker|docs|lang|resources|routes|storage|tests|tools|vendor|node_modules)(/|$) - [F,L]
 
     # Search Console verification files planted by the attacker.
-    # If you ever need a real one, add a specific exception above this line.
+    # Our own file (served by Laravel, see config/seo.php) is the only exception.
+    RewriteCond %{REQUEST_URI} !/googleafbc0ccb2ebc472f\.html$
     RewriteRule ^google[0-9a-f]+\.html?$ - [F,L]
 
     # Handle Authorization Header
@@ -38,7 +39,7 @@
 </IfModule>
 
 # Sensitive file types anywhere in the tree
-<FilesMatch "\.(env|sql|sqlite|log|lock|bak|old|orig|swp|sh|yml|yaml|ini|dist|zip|tar|gz|rar|7z)$">
+<FilesMatch "\.(env|sql|sqlite|log|lock|bak|old|orig|swp|sh|yml|yaml|ini|dist|md|zip|tar|gz|rar|7z)$">
     Require all denied
 </FilesMatch>
 <FilesMatch "^(composer\.json|package\.json|package-lock\.json|artisan|sail|phpunit\.xml|vite\.config\.js|README\.md|test\.txt|test_for_online_deploy\.txt|beta_website\.code-workspace)$">
@@ -53,3 +54,30 @@
 <FilesMatch "^index\.php$">
     Require all granted
 </FilesMatch>
+
+# ------------------------------------------------------------------
+# SPEED: compression and browser caching
+# ------------------------------------------------------------------
+<IfModule mod_mime.c>
+    AddType image/webp .webp
+    AddType image/jpeg .jfif
+    AddType font/woff2 .woff2
+</IfModule>
+
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/css text/plain text/xml application/xml application/javascript text/javascript application/json application/ld+json image/svg+xml image/x-icon
+</IfModule>
+
+<IfModule mod_headers.c>
+    Header always unset X-Powered-By
+
+    # Images and fonts: 30 days. Files with ?v=... in the address get a new
+    # address when they change, so they can stay for a year.
+    <FilesMatch "\.(css|js|jpe?g|jfif|png|gif|webp|svg|ico|woff2?|ttf|eot)$">
+        Header set X-Content-Type-Options "nosniff"
+        Header set Cache-Control "public, max-age=2592000"
+        <If "%{QUERY_STRING} =~ /(^|&)v=/">
+            Header set Cache-Control "public, max-age=31536000, immutable"
+        </If>
+    </FilesMatch>
+</IfModule>

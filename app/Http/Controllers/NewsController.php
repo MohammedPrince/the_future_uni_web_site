@@ -24,12 +24,14 @@ class NewsController extends Controller
     }
     public function search(Request $request)
     {
-        $searchTerm = $request->get('term');
+        // Short plain text only; % and _ are wildcards in LIKE.
+        $term = $request->query('term');
+        $searchTerm = addcslashes(mb_substr(is_string($term) ? trim($term) : '', 0, 60), '%_\\');
         $news_value= false;
         $event_value= false;
 
-    $news = News::where('news_title', 'like', '%'.$searchTerm.'%')->where('del','=','0')->where('news_status','1')->get();
-    $events = Events::where('event_title', 'like', '%'.$searchTerm.'%')->where('del','=','0')->where('event_status','1')->get();
+    $news = News::where('news_title', 'like', '%'.$searchTerm.'%')->where('del','=','0')->where('news_status','1')->take(10)->get();
+    $events = Events::where('event_title', 'like', '%'.$searchTerm.'%')->where('del','=','0')->where('event_status','1')->take(10)->get();
 
     if ($news->count() > 0){
 
@@ -51,8 +53,9 @@ class NewsController extends Controller
         $events='';
 
         $event_value = false;
-        $new_news_id  = base64_decode($news_id);
-        $news = News::find($new_news_id);
+        $new_news_id  = (int) base64_decode($news_id);
+        // Unknown or deleted news gives a 404 page (was a 500 error).
+        $news = News::published()->findOrFail($new_news_id);
 
         $faculty_id = News :: GetNewsColumn('faculty_id',$new_news_id);
         $event_by_id = News :: GetNewsColumn('news_by',$new_news_id);
@@ -83,14 +86,14 @@ class NewsController extends Controller
 
         $news_value = true ;
         //$news = News::getNews() ;
-        $news = News::paginate(2);
+        $news = News::published()->orderByDesc('news_date')->orderByDesc('id')->paginate(2);
     
        }
 
        if (Events :: getEvents() != null ){
             $event_value = true ;
             //$events = Events::getEvents() ;
-            $events = Events::paginate(2);
+            $events = Events::published()->orderByDesc('event_date')->orderByDesc('id')->paginate(2);
         }
 
         return view("client.News-and-Events" ,compact('events'), ['news'=>$news,'events'=>$events,'news_value' =>$news_value,'event_value' =>$event_value]);
@@ -240,7 +243,7 @@ $faculty_id='';
         if (News::where('id', $news_id)->update(['del' => '1'])){
 
             foreach($images as $image){
-                $image_path = public_path().'/storage/news_imgs/'.$image;
+                $image_path = public_path().'/storage/news_imgs/'.basename($image);
                 $del = File::delete($image_path);
              }
 

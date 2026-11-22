@@ -23,7 +23,14 @@ class RedirectIfAuthenticated
 
         foreach ($guards as $guard) {
             if (Auth::guard($guard)->check()) {
-                return redirect(RouteServiceProvider::HOME);
+                // Already logged in: send staff to the admin area, not the public homepage.
+                $user = Auth::guard($guard)->user();
+                if ((int) $user->del === 0) {
+                    return redirect($user->isAdmin == 1 ? '/add_user' : '/add_event');
+                }
+                // Disabled account with a leftover session: log it out.
+                Auth::guard($guard)->logout();
+                return redirect('/admin_panel');
             }
         }
 

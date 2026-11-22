@@ -2,56 +2,47 @@
 <html lang="en">
 
 <head>
-    <title>The Future University</title>
     <meta charset="UTF-8">
-    <meta name="description" content="The Future University">
-    <meta name="keywords" content="The Future University">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    @include('components.client-seo')
+    <meta name="theme-color" content="#1d5191">
 
-    <link href="{{ asset('./public/client/img/fu_logo.png') }}" rel="shortcut icon" />
+    <link rel="icon" href="{{ asset('favicon.ico') }}" sizes="48x48">
+    <link rel="icon" href="@img('client/img/icon-192.png')" type="image/png" sizes="192x192">
+    <link rel="apple-touch-icon" href="@img('client/img/apple-touch-icon.png')">
 
-    <!-- <link href="https://fonts.googleapis.com/css?family=Rubik:400,400i,500,500i,700,700i" rel="stylesheet"> -->
-    <link href="https://fonts.googleapis.com/css?family=Ubuntu:400,400i,500,500i,700,700i" rel="stylesheet">
-
-    {{-- <link rel="stylesheet" href="{{ asset('./public/client/css/bootstrap.min.css') }}" /> --}}
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <link rel="stylesheet" href="{{ asset('./public/client/css/font-awesome.min.css') }}" />
-    <link rel="stylesheet" href="{{ asset('./public/client/css/themify-icons.css') }}" />
-    <link rel="stylesheet" href="{{ asset('./public/client/css/magnific-popup.css') }}" />
-    <link rel="stylesheet" href="{{ asset('./public/client/css/animate.css') }}" />
-    <link rel="stylesheet" href="{{ asset('./public/client/css/owl.carousel.css') }}" />
-    <link rel="stylesheet" href="{{ asset('./public/client/css/owl.theme.default.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('./public/client/css/style.css') }}" />
+    @yield('preload')
+    <link rel="preload" href="{{ asset('public/client/fonts/ubuntu-400.woff2') }}" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="{{ asset('public/client/fonts/ubuntu-500.woff2') }}" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="@img('client/dist/site.min.css')">
 
     @if (Request::is('Facts-Figures'))
-        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script src="@img('client/dist/chart.umd.js')" defer></script>
     @endif
 
     @if (Request::is('Fu-Historical-Gallery') || Request::is('Students-Gallery'))
-        <link rel="stylesheet" href="{{ asset('./public/client/css/swiper-bundle.min.css') }}" />
-        <script src="{{ asset('./public/client/js/swiper-bundle.min.js') }}"></script>
+        <link rel="stylesheet" href="@img('client/css/swiper-bundle.min.css')">
+        <script src="@img('client/js/swiper-bundle.min.js')" defer></script>
     @endif
+    <script src="@img('client/dist/site.min.js')" defer></script>
 </head>
 
 <body>
-    <div id="preloder">
-        <div class="loader"></div>
-    </div>
+    <a class="skip-link" href="#main-content">Skip to content</a>
 
     <header class="header-section">
         <div class="container">
 
-            <a href="Home" class="site-logo"><img src="{{ asset('./public/client/img/fu_logo.png') }}"
-                    height="100px" width="100px" alt></a>
-            <div class="nav-switch">
-                <i class="fa fa-bars"></i>
-            </div>
+            <a href="{{ route('Home') }}" class="site-logo"><img src="@img('client/img/fu_logo.png')"
+                    height="100" width="100" alt="The Future University, home"></a>
+            <button type="button" class="nav-switch" aria-label="Menu" aria-expanded="false">
+                <i class="fa fa-bars" aria-hidden="true"></i>
+            </button>
 
             <div class="header-info" style="margin-top: 20px;float: right;">
                 <div class="hf-item">
                     <i class="fa fa-envelope"></i>
-                    <a href="mailto:info@fu.edu.sd" target="_blank">
+                    <a href="mailto:info@fu.edu.sd" target="_blank" rel="noopener">
                         <p><span>Email</span>info@fu.edu.sd</p>
                     </a>
                 </div>
@@ -67,29 +58,25 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-3 col-sm-3 col-3 header-top-left no-padding">
-                    <ul>
-
-                        <a href="https://www.facebook.com/TheFutureUniversity/" target="_blank"><i
-                                class="fa fa-facebook-square"></i></a>
-                        <a href="https://www.linkedin.com/school/sudan-civil-aviation-authority" target="_blank"><i
-                                class="fa fa-linkedin-square"></i></a>
-
+                    <ul class="social-links">
+                        <li><a href="https://www.facebook.com/TheFutureUniversity/" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa fa-facebook-square" aria-hidden="true"></i></a></li>
+                        <li><a href="https://www.linkedin.com/school/sudan-civil-aviation-authority" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a></li>
                     </ul>
                 </div>
                 <div class="col-lg-9 col-sm-9 col-9" style="text-align: end;">
-                    {{-- <a href="https://result.fu.edu.sd/" target="_blank">Students Portal <b
+                    {{-- <a href="https://result.fu.edu.sd/" target="_blank" rel="noopener">Students Portal <b
                             style="color: #fec169;">|</b></a> --}}
-                              <a href="https://odms.fu.edu.sd/" target="_blank">Admission <b
+                              <a href="https://odms.fu.edu.sd/" target="_blank" rel="noopener">Admission <b
                             style="color: #fec169;">|</b></a>
-                    <a href="https://elearning.fu.edu.sd/" target="_blank">E-Learning <b
+                    <a href="https://elearning.fu.edu.sd/" target="_blank" rel="noopener">E-Learning <b
                             style="color: #fec169;">|</b></a>
-                    <a href="https://hdesk.fu.edu.sd/" target="_blank">Help Desk</a>
+                    <a href="https://hdesk.fu.edu.sd/" target="_blank" rel="noopener">Help Desk</a>
                 </div>
             </div>
         </div>
     </div>
 
-    <nav class="nav-section HeaderMainColor">
+    <nav class="nav-section HeaderMainColor" aria-label="Main">
         <div class="container">
             <ul class="main-menu">
 
@@ -99,7 +86,7 @@
 
                 <li
                     class="{{ Request::is('About-FU', 'Fu-Linkages', 'Facts-Figures', 'barChart', 'Fu-Historical-Gallery', 'Staff-Directory', 'Staff-Details') ? 'ActiveMenuMainColor' : '' }}">
-                    <a href="javascript:void(0);" class="sub-menu-arrow">About</a>
+                    <a role="button" tabindex="0" aria-haspopup="true" aria-expanded="false" class="sub-menu-arrow">About</a>
                     <ul class="sub-main-menu">
                         <li><a href="{{ route('About-FU') }}" style="text-align: left;">History</a></li>
                         {{-- <li><a href="{{ route('Staff-Directory') }}" style="text-align: left;">Staff Directory</a></li> --}}
@@ -116,7 +103,7 @@
 
                 <li
                     class="{{ Request::is('Undergraduate-Programs', 'Postgraduates-Programs') ? 'ActiveMenuMainColor' : '' }}">
-                    <a href="javascript:void(0);" class="sub-menu-arrow">Programs</a>
+                    <a role="button" tabindex="0" aria-haspopup="true" aria-expanded="false" class="sub-menu-arrow">Programs</a>
                     <ul class="sub-main-menu">
                         <li><a href="{{ route('Undergraduate-Programs') }}" style="text-align: left;">Undergraduate
                                 Programs</a></li>
@@ -127,7 +114,7 @@
 
                 <li
                     class="{{ Request::is('Undergraduate-Admission', 'Postgraduate-Admission', 'External-Transfer', 'Fee-Structure', 'Scholarships') ? 'ActiveMenuMainColor' : '' }}">
-                    <a href="javascript:void(0);" class="sub-menu-arrow">Admission</a>
+                    <a role="button" tabindex="0" aria-haspopup="true" aria-expanded="false" class="sub-menu-arrow">Admission</a>
                     <ul class="sub-main-menu">
                         <li><a href="{{ route('Undergraduate-Admission') }}" style="text-align: left;">Undergraduates
                                 Admission</a></li>
@@ -141,7 +128,7 @@
                 </li>
 
                 <li class="{{ Request::is('Student-Affairs', 'Students-Gallery') ? 'ActiveMenuMainColor' : '' }}">
-                    <a href="javascript:void(0);" class="sub-menu-arrow">Students</a>
+                    <a role="button" tabindex="0" aria-haspopup="true" aria-expanded="false" class="sub-menu-arrow">Students</a>
                     <ul class="sub-main-menu">
                         <li><a href="{{ route('Student-Affairs') }}" style="text-align: left;">Students Affairs</a>
                         </li>
@@ -149,16 +136,16 @@
                 </li>
 
                 <li class="{{ Request::is('Fu-Journal') ? 'ActiveMenuMainColor' : '' }}">
-                    <a href="javascript:void(0);" class="sub-menu-arrow">Research & Publications</a>
+                    <a role="button" tabindex="0" aria-haspopup="true" aria-expanded="false" class="sub-menu-arrow">Research & Publications</a>
                     <ul class="sub-main-menu">
-                        <li><a href="https://thj.fu.edu.sd/" target="_blank" style="text-align: left;">The Technology
+                        <li><a href="https://thj.fu.edu.sd/" target="_blank" rel="noopener" style="text-align: left;">The Technology
                                 Horizon Journal</a></li>
                     </ul>
                 </li>
 
                 <li
                     class="{{ Request::is('CESD', 'CTS', 'UNESCO', 'ICDL', 'Space-Technology-Center', 'IRDC') ? 'ActiveMenuMainColor' : '' }}">
-                    <a href="javascript:void(0);" class="sub-menu-arrow">Centers</a>
+                    <a role="button" tabindex="0" aria-haspopup="true" aria-expanded="false" class="sub-menu-arrow">Centers</a>
                     <ul class="sub-main-menu">
                         <li><a href="{{ route('CESD') }}" style="text-align: left;">Center of E-learning and
                                 Software Development</a></li>
@@ -180,15 +167,19 @@
 
     <!-- main content -->
 
-    @yield('main-client-content')
+    <main id="main-content">
+        @unless (Request::is('/'))
+            <h1 class="visually-hidden">{{ $seo['title'] ?? (config('seo.pages.' . trim(request()->path(), '/'))[0] ?? config('seo.site_name')) }}</h1>
+        @endunless
+        @yield('main-client-content')
+    </main>
 
-    <!-- main content End -->.
+    <!-- main content End -->
 
     <!-- Zoom Floating Button Start-->
-    <a href="https://fu-edu-sd.zoom.us/my/thefutureuniversity" target="_blank" class="zoom-float"
+    <a href="https://fu-edu-sd.zoom.us/my/thefutureuniversity" target="_blank" rel="noopener" class="zoom-float"
         title="Live Technical Support">
-        <img src="{{ asset('./public/client/img/ts.png') }}" alt="Zoom"
-            style="width: 60px; height: 60px;border-radius: 5px;">
+        <img src="@img('client/img/ts.png')" alt="Live technical support on Zoom" width="60" height="60" loading="lazy" style="border-radius: 5px;">
     </a>
     <style>
         .zoom-float {
@@ -220,8 +211,8 @@
 
                 <div class="col-sm-6 col-lg-3 footer-widget">
                     <div class="about-widget">
-                        <img src="{{ asset('./public/client/img/fu_logo.png') }}" alt="The Future University"
-                            width="80px" height="80px" loading="lazy" style="margin-left: 0px;">
+                        <img src="@img('client/img/fu_logo.png')" alt="The Future University"
+                            width="80" height="80" loading="lazy" style="margin-left: 0px;">
                         <p>
                             The Future University is an institution of higher learning committed in producing well -
                             rounded professionals who will be responsible in providing quality
@@ -232,13 +223,13 @@
                 </div>
 
                 <div class="col-sm-6 col-lg-3 footer-widget">
-                    <h6 class="fw-title">USEFUL LINK</h6>
+                    <h6 class="fw-title" role="heading" aria-level="2">USEFUL LINK</h6>
                     <div class="dobule-link">
                         <ul>
                             <li><a href="{{ route('Home') }}">Home</a></li>
-                            <li><a href="https://elearning.fu.edu.sd/" target="_blank">E-Learning</a></li>
-                            <li><a href="https://hdesk.fu.edu.sd/" target="_blank">Help Desk</a></li>
-                            <li><a href="https://result.fu.edu.sd/" target="_blank">Students Portal</a></li>
+                            <li><a href="https://elearning.fu.edu.sd/" target="_blank" rel="noopener">E-Learning</a></li>
+                            <li><a href="https://hdesk.fu.edu.sd/" target="_blank" rel="noopener">Help Desk</a></li>
+                            <li><a href="https://result.fu.edu.sd/" target="_blank" rel="noopener">Students Portal</a></li>
                             <li><a href="{{ route('About-FU') }}">Why FU ?</a></li>
                         </ul>
                         <ul>
@@ -253,7 +244,7 @@
                 </div>
 
                 <div class="col-sm-6 col-lg-3 footer-widget">
-                    <h6 class="fw-title">RECENT NEWS</h6>
+                    <h6 class="fw-title" role="heading" aria-level="2">RECENT NEWS</h6>
                     <ul class="recent-post">
                         <li>
                             <p>Launching Future University E-Learning Platform</p>
@@ -267,10 +258,10 @@
                 </div>
 
                 <div class="col-sm-6 col-lg-3 footer-widget">
-                    <h6 class="fw-title">FIND US</h6>
+                    <h6 class="fw-title" role="heading" aria-level="2">FIND US</h6>
                     <ul class="contact">
                         <li>
-                            <a href="https://maps.app.goo.gl/7HzpquiBAVvo6RBt7" target="_blank">
+                            <a href="https://maps.app.goo.gl/7HzpquiBAVvo6RBt7" target="_blank" rel="noopener">
                                 <p><i class="fa fa-map-marker"></i> Africa Street - Khartoum, Sudan</p>
                             </a>
                         </li>
@@ -284,7 +275,7 @@
 						</li> --}}
 
                         <li>
-                            <a href="mailto:info@fu.edu.sd" target="_blank">
+                            <a href="mailto:info@fu.edu.sd" target="_blank" rel="noopener">
                                 <p><i class="fa fa-envelope"></i> info@fu.edu.sd</p>
                             </a>
                         </li>
@@ -297,10 +288,8 @@
 
                         <li>
                             <div class="social pt-1">
-                                <a href="https://www.facebook.com/TheFutureUniversity/" target="_blank"><i
-                                        class="fa fa-facebook-square"></i></a>
-                                <a href="https://www.linkedin.com/school/sudan-civil-aviation-authority"
-                                    target="_blank"><i class="fa fa-linkedin-square"></i></a>
+                                <a href="https://www.facebook.com/TheFutureUniversity/" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa fa-facebook-square" aria-hidden="true"></i></a>
+                                <a href="https://www.linkedin.com/school/sudan-civil-aviation-authority" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a>
 
                             </div>
                         </li>
@@ -313,43 +302,15 @@
             <div class="container">
                 <p style="color: #fff;font-size:11px;">
                     Copyright &copy;
-                    <script>
-                        document.write(new Date().getFullYear());
-                    </script>
+                    {{ date('Y') }}
                     All rights reserved for <strong style="color: #fec169">The Future
                         University.</strong> Designed and Developed by
-                    <a href="{{ route('CESD') }}"target="_blank" style="color: #fec169"><strong>CESD</strong></a> &
-                    <a href="{{ route('CTS') }}"target="_blank" style="color: #fec169"><strong>CTS</strong></a>
+                    <a href="{{ route('CESD') }}" target="_blank" rel="noopener" style="color: #fec169"><strong>CESD</strong></a> &
+                    <a href="{{ route('CTS') }}" target="_blank" rel="noopener" style="color: #fec169"><strong>CTS</strong></a>
                 </p>
             </div>
         </div>
     </footer>
-
-    <script src="{{ asset('./public/client/js/jquery-3.2.1.min.js') }}"></script>
-    <script src="{{ asset('./public/client/js/owl.carousel.min.js') }}"></script>
-    <script src="{{ asset('./public/client/js/jquery.countdown.js') }}"></script>
-    <script src="{{ asset('./public/client/js/masonry.pkgd.min.js') }}"></script>
-    <script src="{{ asset('./public/client/js/magnific-popup.min.js') }}"></script>
-    <script src="{{ asset('./public/client/js/main.js') }}"></script>
-
-    <!-- slide show for Facultys start-->
-    <script src="{{ asset('./public/client/js/splide.min.js') }}"></script>
-
-    {{-- Hide show nav-section Start --}}
-    <script>
-        window.onscroll = function() {
-            const nav = document.querySelector('.nav-section');
-            const headerTop = document.querySelector('.header-top');
-
-            if (window.pageYOffset > headerTop.clientHeight) {
-                nav.classList.add('fixed');
-            } else {
-                nav.classList.remove('fixed');
-            }
-        };
-    </script>
-
-    {{-- Hide show nav-section End --}}
 
 </body>
 

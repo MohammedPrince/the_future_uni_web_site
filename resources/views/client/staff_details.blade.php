@@ -36,12 +36,12 @@
 
                                                         @if ($staff_info_cv?->cv_image == '')
                                                             <div class="circle">
-                                                                <img src="{{ asset('/storage/app/public/' . 'test57992.jpg') }}"
+                                                                <img loading="lazy" decoding="async" src="{{ asset('/storage/app/public/' . 'test57992.jpg') }}"
                                                                     alt="Image">
                                                             </div>
                                                         @else
                                                             <div class="circle">
-                                                                <img src="{{ asset('/storage/app/public/staff_imgs/' . $staff_info_cv->cv_image) }}"
+                                                                <img loading="lazy" decoding="async" src="{{ asset('/storage/app/public/staff_imgs/' . $staff_info_cv->cv_image) }}"
                                                                     alt="Image">
                                                             </div>
                                                         @endif
