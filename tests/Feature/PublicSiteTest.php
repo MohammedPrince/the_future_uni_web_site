@@ -72,6 +72,30 @@ class PublicSiteTest extends TestCase
         $this->assertFalse($this->get('/CESD?junk=1')->headers->has('X-Page-Cache'));
     }
 
+    public function test_cached_pages_are_compressed_for_browsers_that_allow_it()
+    {
+        config(['seo.page_cache' => true]);
+        $plain = $this->get('/CTS', ['Accept-Encoding' => 'identity'])->assertOk();
+        $this->assertFalse($plain->headers->has('Content-Encoding'));
+
+        $gzip = $this->get('/CTS', ['Accept-Encoding' => 'gzip, deflate, br'])->assertOk()->assertHeader('Content-Encoding', 'gzip');
+        $this->assertSame($plain->getContent(), gzdecode($gzip->getContent()));
+        $this->assertSame((string) strlen($gzip->getContent()), $gzip->headers->get('Content-Length'));
+
+        $again = $this->get('/CTS', ['Accept-Encoding' => 'gzip', 'If-None-Match' => $gzip->headers->get('ETag')]);
+        $again->assertStatus(304);
+        $this->assertSame('', $again->getContent());
+        $this->assertFalse($again->headers->has('Content-Encoding'));
+    }
+
+    public function test_home_styles_are_inside_the_page()
+    {
+        $html = $this->get('/')->assertOk()->getContent();
+        $this->assertStringNotContainsString('rel="stylesheet"', $html);
+        $this->assertStringNotContainsString('__BASE__', $html);
+        $this->assertStringContainsString('/public/client/fonts/ubuntu-400-latin.woff2', $html);
+    }
+
     public function test_old_addresses_redirect_and_unknown_news_is_404()
     {
         $this->get('/Home')->assertStatus(301);

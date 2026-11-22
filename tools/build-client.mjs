@@ -40,20 +40,14 @@ const css = [
     read('resources/client/extra.css'),
 ].join('\n');
 
+async function build(name, content, deep) {
 const purged = await new PurgeCSS().purge({
-    content: [
-        path.join(root, 'resources/views/client/**/*.blade.php').replace(/\\/g, '/'),
-        path.join(root, 'resources/views/components/client-*.blade.php').replace(/\\/g, '/'),
-        path.join(root, 'resources/views/vendor/pagination/**/*.blade.php').replace(/\\/g, '/'),
-        path.join(root, 'resources/views/errors/*.blade.php').replace(/\\/g, '/'),
-        path.join(root, 'resources/client/site.js').replace(/\\/g, '/'),
-        path.join(root, 'public/client/js/main.js').replace(/\\/g, '/'),
-    ],
+    content,
     css: [{ raw: css }],
     // Classes that only appear while the page runs, or in text written in the admin panel
     safelist: {
         standard: ['active', 'show', 'fixed', 'expanded', 'html', 'body', 'pagination', 'page-item', 'page-link', 'disabled', 'img-fluid'],
-        deep: [/^owl-/, /^carousel/, /^table/, /^ts-/, /^hs-/, /^modal/, /^pagination/, /^page-/, /blockquote/],
+        deep,
     },
     keyframes: true,
     fontFace: false,
@@ -61,7 +55,27 @@ const purged = await new PurgeCSS().purge({
 
 const small = new CleanCSS({ level: { 1: { specialComments: 0 }, 2: false }, rebase: false }).minify(purged[0].css);
 if (small.errors.length) throw new Error(small.errors.join('\n'));
-fs.writeFileSync(path.join(out, 'site.min.css'), small.styles);
+return small.styles;
+}
+
+const views = (f) => path.join(root, 'resources/views', f).replace(/\\/g, '/');
+
+const site = await build('site', [
+        path.join(root, 'resources/views/client/**/*.blade.php').replace(/\\/g, '/'),
+        path.join(root, 'resources/views/components/client-*.blade.php').replace(/\\/g, '/'),
+        path.join(root, 'resources/views/vendor/pagination/**/*.blade.php').replace(/\\/g, '/'),
+        path.join(root, 'resources/views/errors/*.blade.php').replace(/\\/g, '/'),
+        path.join(root, 'resources/client/site.js').replace(/\\/g, '/'),
+        path.join(root, 'public/client/js/main.js').replace(/\\/g, '/'),
+    ], [/^owl-/, /^carousel/, /^table/, /^ts-/, /^hs-/, /^modal/, /^pagination/, /^page-/, /blockquote/]);
+fs.writeFileSync(path.join(out, 'site.min.css'), site);
+
+// Homepage: only its own rules, printed inside the page so nothing blocks the first paint
+const home = await build('home', [
+    views('client/Home.blade.php'), views('client/search.blade.php'), views('components/client-layout.blade.php'),
+    path.join(root, 'resources/client/site.js').replace(/\\/g, '/'),
+], [/^owl-/, /^carousel/, /^ts-/, /^hs-/]);
+fs.writeFileSync(path.join(out, 'home.min.css'), home.replace(/url\((['"]?)\.\.\//g, 'url($1__BASE__/'));
 
 // ---------- JS
 const main = read('public/client/js/main.js').replace(/\r\n/g, '\n');
@@ -70,4 +84,4 @@ const pageFunctions = main.slice(main.indexOf('function openModal'), main.indexO
 const js = await minify(pageFunctions + '\n' + read('resources/client/site.js'), { compress: true, mangle: true });
 fs.writeFileSync(path.join(out, 'site.min.js'), js.code);
 
-for (const f of ['site.min.css', 'site.min.js']) console.log(f, Math.round(fs.statSync(path.join(out, f)).size / 1024) + ' KB');
+for (const f of ['site.min.css', 'home.min.css', 'site.min.js']) console.log(f, Math.round(fs.statSync(path.join(out, f)).size / 1024) + ' KB');

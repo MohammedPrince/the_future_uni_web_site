@@ -33,9 +33,10 @@ jobs:
             for dir in \
               "/var/www/vhosts/fu.edu.sd/public_html/repositories/the_future_uni_web_site" \
               "$HOME/public_html/repositories/the_future_uni_web_site"; do
-              if [ -f "$dir/artisan" ]; then APP="$dir"; break; fi
+              # A copy without database settings in .env is not the live site.
+              if [ -f "$dir/artisan" ] && grep -qE '^DB_DATABASE=.+' "$dir/.env" 2>/dev/null; then APP="$dir"; break; fi
             done
-            if [ -z "$APP" ]; then echo "STOP: project folder not found"; exit 1; fi
+            if [ -z "$APP" ]; then echo "STOP: project folder with a complete .env not found"; exit 1; fi
             cd "$APP"
             echo "== Folder: $APP"
 

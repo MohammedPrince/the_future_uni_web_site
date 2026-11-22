@@ -18,6 +18,14 @@ class Media
         return self::$cache[$path] ??= self::build($path);
     }
 
+    /** A built stylesheet, ready to print inside a <style> tag. Empty if missing. */
+    public static function inlineCss(string $path): string
+    {
+        $file = public_path($path);
+
+        return is_file($file) ? str_replace('__BASE__', asset('public/client'), file_get_contents($file)) : '';
+    }
+
     private static function build(string $path): string
     {
         $file = public_path($path);

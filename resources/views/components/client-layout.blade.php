@@ -12,9 +12,14 @@
     <link rel="apple-touch-icon" href="@img('client/img/apple-touch-icon.png')">
 
     @yield('preload')
-    <link rel="preload" href="{{ asset('public/client/fonts/ubuntu-400.woff2') }}" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="{{ asset('public/client/fonts/ubuntu-500.woff2') }}" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="@img('client/dist/site.min.css')">
+    @php $homeCss = Request::is('/') ? \App\Support\Media::inlineCss('client/dist/home.min.css') : ''; @endphp
+    @if ($homeCss !== '')
+        <style>{!! $homeCss !!}</style>
+        <link rel="prefetch" href="@img('client/dist/site.min.css')" as="style">
+    @else
+        <link rel="preload" href="{{ asset('public/client/fonts/ubuntu-400-latin.woff2') }}" as="font" type="font/woff2" crossorigin>
+        <link rel="stylesheet" href="@img('client/dist/site.min.css')">
+    @endif
 
     @if (Request::is('Facts-Figures'))
         <script src="@img('client/dist/chart.umd.js')" defer></script>

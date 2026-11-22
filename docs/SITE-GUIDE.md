@@ -143,6 +143,8 @@ To change a title or description, edit `config/seo.php` and deploy. A path added
 |---|---|
 | WebP images | `name.jpg.webp` sits next to each original and is used automatically |
 | One CSS file | `public/client/dist/site.min.css` replaces eight files |
+| Homepage styles | `home.min.css` is printed inside the homepage, so nothing blocks the first paint |
+| Compressed pages | Saved pages are sent with gzip by Laravel, because the server does not compress PHP pages |
 | One JS file | `public/client/dist/site.min.js` (7 KB) replaces jQuery and the plugins |
 | Own fonts | Ubuntu is served from our site; no Google Fonts or CDN requests |
 | Page cache | Finished pages are kept for 10 minutes and cleared after admin changes |
@@ -196,7 +198,13 @@ With root access to WHM, use **Software > EasyApache 4 > Customize**:
 
 Then, in **MultiPHP Manager**, set the domain to `ea-php82` and turn PHP-FPM on.
 
-Also consider a **CDN**, such as the free Cloudflare plan, because many visitors are far from the server.
+**DNS and CDN (the biggest remaining gain).** Measured on 22 November 2026, a DNS lookup of `fu.edu.sd` took 1 to 3.4 seconds through Google and Cloudflare resolvers. Every new visitor can wait for that. Moving DNS to the free Cloudflare plan solves it and also adds HTTP/3, Brotli and servers near the visitors:
+
+1. Add `fu.edu.sd` in Cloudflare and compare **every** DNS record with the current ones, especially `MX`, `TXT` (mail) and all subdomains such as `elearning`, `odms`, `hdesk` and `result`.
+2. Set SSL/TLS to **Full (strict)**.
+3. Turn the proxy (orange cloud) on only for `fu.edu.sd` at first. Keep `mail` as **DNS only**.
+4. Change the name servers at the domain registrar.
+5. Afterwards, let Laravel see the real visitor address (trusted proxies), or the visitor counter and login protection will see Cloudflare's addresses.
 
 ### If a deployment fails
 
@@ -204,17 +212,22 @@ Open GitHub > **Actions** > the red run > **Deploy to Server**.
 
 | Message | What to do |
 |---|---|
-| `project folder not found` | Correct the folder in `.github/workflows/deploy.yml` |
+| `project folder with a complete .env not found` | Correct the folder in `.github/workflows/deploy.yml`, or complete `.env` |
 | `PHP 8.0.2 - 8.2 not found` | Install `ea-php82` in EasyApache 4 |
 | `composer not found` | Install Composer or correct its path |
 | `'artisan migrate' failed` | The code is live; read the **Database** part of the log, then use **Migration status** in Server Tools |
 
-The deployment finds the right PHP and Composer by itself. To run a command by hand on cPanel, name the PHP version:
+The deployment finds the right PHP and Composer by itself, and Server Tools covers the usual commands, so you rarely need SSH.
+
+If you do, use the same folder as the deployment. Its path is in the deployment log after `== Folder:`. Do not run `artisan` as `root`, because files it creates can then not be changed by the website:
 
 ```bash
-cd ~/public_html/repositories/the_future_uni_web_site
-/opt/cpanel/ea-php82/root/usr/bin/php artisan migrate:status
+APP=/path/from/the/deployment/log
+OWNER=$(stat -c %U "$APP")
+sudo -u "$OWNER" /opt/cpanel/ea-php82/root/usr/bin/php "$APP/artisan" migrate:status
 ```
+
+`Access denied for user 'forge'@'localhost'` means that the folder has no database settings: the `.env` file is missing or incomplete, so it is probably not the live folder.
 
 ## 5. Security
 
