@@ -63,7 +63,7 @@
                                                 <h5 class="card-title mb-0">Description</h5>
                                             </div>
                                             <div class="card-body col-12 col-lg-12">
-                                                <textarea name="news_desc" class="form-control " id="markdown-editor" 
+                                                <textarea name="news_desc" class="form-control " data-rich-editor 
                                                     placeholder="Enter News Description" rows="3">{{ old('news_desc') }}</textarea>
                                                 @error('news_desc')
                                                     <div class="alert error text-center">

@@ -683,7 +683,7 @@
                                                     </span>
                                                 </div>
                                                 <p>
-                                                    {{ Str::words($news_data->news_desc, 50, '...') }}<a
+                                                    {{ \App\Support\RichText::excerpt($news_data->news_desc, 50) }}<a
                                                         style="color: #ef7e22"
                                                         href="{{ route('newsDetails', base64_encode($news_data->id)) }}">Read More <span class="visually-hidden">about {{ $news_data->news_title }}</span></a>
                                                 </p>
@@ -728,7 +728,7 @@
                                                         </span>
                                                     </div>
                                                     <p>
-                                                        {{ Str::words(strip_tags($event_data->event_desc), 50, '...') }}<a
+                                                        {{ \App\Support\RichText::excerpt($event_data->event_desc, 50) }}<a
                                                             style="color: #ef7e22"
                                                             href="{{ route('eventDetails', base64_encode($event_data->id)) }}">Read
                                                             More</a>

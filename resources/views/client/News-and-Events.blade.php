@@ -42,7 +42,7 @@
                                     </div>
 
                                     <p>
-										{{ Str::words($newz->news_desc, 50, '...') }}<a
+										{{ \App\Support\RichText::excerpt($newz->news_desc, 50) }}<a
 											style="color: #ef7e22"
 											href="{{ route('newsDetails', base64_encode($newz->id)) }}">Read More <span class="visually-hidden">about {{ $newz->news_title }}</span></a>
 									</p>
@@ -84,7 +84,7 @@
                                     </div>
 
                                     <p style="font-size:17px;">
-                                        {{ Str::words($event->event_desc, 3, '...') }}
+                                        {{ \App\Support\RichText::excerpt($event->event_desc, 3) }}
                                         <!-- <span><a href="Event-Details/{{ $event->id }}" style="color:#d1291f; font-size:16px;" >Read More</a></span> -->
                                         <span><a href="{{ route('eventDetails', base64_encode($event->id)) }}"
                                                 style="color:#d1291f; font-size:16px;">Read More</a></span>

@@ -93,6 +93,12 @@ class EventsController extends Controller
         ]);
 
         $incomingFields['event_by'] = auth()->user()->id ;
+
+        // Description comes from the HTML editor: keep only safe formatting.
+        if (\App\Support\RichText::isEmpty($incomingFields['event_desc'])) {
+            return back()->withInput()->withErrors(['event_desc' => 'Event Description is must.']);
+        }
+        $incomingFields['event_desc'] = \App\Support\RichText::clean($incomingFields['event_desc']);
         $incomingFields['faculty_id'] = auth()->user()->user_faculty ;
         // New events are published at once unless "Publish now" is unticked.
         $incomingFields['event_status'] = $request->boolean('publish', true) ? 1 : 0;
@@ -115,7 +121,7 @@ class EventsController extends Controller
 
             $incomingFields['event_imgs'] = $fileNameToStore ;
 
-        if (Events::create(array_map(fn ($v) => is_string($v) ? strip_tags($v) : $v, $incomingFields))){
+        if (Events::create(collect($incomingFields)->map(fn ($v, $k) => is_string($v) && $k !== 'event_desc' ? strip_tags($v) : $v)->all())){
 
             return redirect('/add_event')->with('success','Event '.$incomingFields['event_title']. ' Created Successfully !');
         }else{
@@ -183,6 +189,12 @@ class EventsController extends Controller
         ]);
     
         $incomingFields['event_by'] = auth()->user()->id;
+
+        // Description comes from the HTML editor: keep only safe formatting.
+        if (\App\Support\RichText::isEmpty($incomingFields['event_desc'])) {
+            return back()->withInput()->withErrors(['event_desc' => 'Event Description is must.']);
+        }
+        $incomingFields['event_desc'] = \App\Support\RichText::clean($incomingFields['event_desc']);
         $incomingFields['faculty_id'] = auth()->user()->user_faculty;
     
         // Handle image uploads

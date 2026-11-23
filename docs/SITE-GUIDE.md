@@ -95,7 +95,7 @@ After login the admin panel opens on the **Dashboard**: website status, counts, 
 | Site Settings > Announcement bar | An orange line at the top of every public page, with an optional link |
 | Site Settings > Contact details and Links | Email, phone, address, map, Facebook, LinkedIn, Admission, E-Learning, Help Desk, Students Portal and the support button. An empty field hides that item |
 | Site Settings > Texts | Footer "about" text and a line above the fee tables |
-| Manage News / Manage Events | Add, edit, delete, and **Publish / Hide**. "Publish now" is ticked by default; untick it to prepare an item and publish it later |
+| Manage News / Manage Events | Add, edit, delete, and **Publish / Hide**. "Publish now" is ticked by default; untick it to prepare an item and publish it later. The description has an HTML editor: headings, bold, lists, links, alignment and right-to-left paragraphs for Arabic. Colors and fonts from pasted text are dropped, so the site style stays the same; scripts and unsafe code are always removed |
 | Fee Structure | The tables on the public Fee Structure page: add, edit, hide, reorder or delete programs and whole tables. Amounts accept `2000000` or `2,000,000` |
 
 The footer "Recent News" shows the two newest published news items automatically.

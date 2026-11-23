@@ -247,6 +247,49 @@ const contactMDE = new EasyMDE({
         </script>
     <script src="https://code.jquery.com/jquery-3.7.0.js" ></script>
     <script src="{{asset('./public/admin/js/app.js')}}"></script>
+
+    {{-- HTML editor (TinyMCE 7, self-hosted in public/admin/vendor/tinymce) for every
+         <textarea data-rich-editor>. Loaded only on pages that have one.
+         The HTML is cleaned again on the server (App\Support\RichText). --}}
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            if (!document.querySelector('textarea[data-rich-editor]')) {
+                return;
+            }
+            var base = @json(asset('public/admin/vendor/tinymce'));
+            var script = document.createElement('script');
+            script.src = base + '/tinymce.min.js?v=7.9.3';
+            script.onload = function () {
+                tinymce.init({
+                    selector: 'textarea[data-rich-editor]',
+                    license_key: 'gpl',
+                    base_url: base,
+                    suffix: '.min',
+                    menubar: false,
+                    branding: false,
+                    promotion: false,
+                    plugins: 'lists advlist link autolink directionality code autoresize wordcount',
+                    toolbar: 'undo redo | blocks | bold italic underline | alignleft aligncenter alignright alignjustify | rtl ltr | bullist numlist outdent indent | blockquote link | removeformat code',
+                    block_formats: 'Paragraph=p; Heading 2=h2; Heading 3=h3; Heading 4=h4',
+                    min_height: 320,
+                    autoresize_bottom_margin: 20,
+                    entity_encoding: 'raw',
+                    convert_urls: false,
+                    link_default_target: '_blank',
+                    link_assume_external_targets: 'https',
+                    // Pasted text keeps its structure but not its fonts and colors.
+                    paste_as_text: false,
+                    paste_webkit_styles: 'none',
+                    invalid_styles: 'color background-color font-family font-size',
+                    content_style: "body { font-family: Ubuntu, 'Segoe UI', Tahoma, Arial, sans-serif; font-size: 15px; line-height: 1.6; }",
+                    setup: function (editor) {
+                        editor.on('change input undo redo', function () { editor.save(); });
+                    }
+                });
+            };
+            document.head.appendChild(script);
+        });
+    </script>
     <script src="{{asset('./public/admin/js/datatables.js')}}"></script>
     
    

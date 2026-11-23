@@ -129,6 +129,12 @@ class NewsController extends Controller
         ]);
 
         $incomingFields['news_by'] = auth()->user()->id ;
+
+        // Description comes from the HTML editor: keep only safe formatting.
+        if (\App\Support\RichText::isEmpty($incomingFields['news_desc'])) {
+            return back()->withInput()->withErrors(['news_desc' => 'News Description is must.']);
+        }
+        $incomingFields['news_desc'] = \App\Support\RichText::clean($incomingFields['news_desc']);
         $incomingFields['faculty_id'] = "1" ;
         // New news is published at once unless "Publish now" is unticked.
         $incomingFields['news_status'] = $request->boolean('publish', true) ? 1 : 0;
@@ -193,6 +199,12 @@ class NewsController extends Controller
         ]);
 
         $incomingFields['news_by'] = auth()->user()->id ;
+
+        // Description comes from the HTML editor: keep only safe formatting.
+        if (\App\Support\RichText::isEmpty($incomingFields['news_desc'])) {
+            return back()->withInput()->withErrors(['news_desc' => 'News Description is must.']);
+        }
+        $incomingFields['news_desc'] = \App\Support\RichText::clean($incomingFields['news_desc']);
         $incomingFields['faculty_id'] = auth()->user()->user_faculty ;
 
             if ($request->hasFile('news_imgs')) {
