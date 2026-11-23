@@ -81,12 +81,6 @@
                         </a>
                     </li>
 
-                    <li class="sidebar-item @if (Request::is('folders*')) active @endif">
-                        <a class='sidebar-link' href='{{ route("folders.index") }}'>
-                            <i class="align-middle" data-feather="folder"></i> <span class="align-middle">Server Folders</span>
-                        </a>
-                    </li>
-
                     <li class="sidebar-item '@if ( (Request::is('add_user')) || (Request::is('edit_user'))  ) active  @endif' ">
                         <a class='sidebar-link' href='{{route("add_user")}}'>
                             <i class="align-middle" data-feather="users"></i> <span class="align-middle">Manage Users</span>
