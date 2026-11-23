@@ -78,7 +78,7 @@ class EventsController extends Controller
 
     public function addEvent(Request $request){
         $incomingFields = $request->validate([
-            'event_title' => ['required' , 'min:5' , 'max:20' , Rule::unique('fu_events' , 'event_title') ] ,
+            'event_title' => ['required' , 'min:5' , 'max:100' , Rule::unique('fu_events' , 'event_title') ] ,
             'event_desc' =>['required' ] ,
             'event_time' => ['required'],
             'event_date' => ['required'],
@@ -94,6 +94,8 @@ class EventsController extends Controller
 
         $incomingFields['event_by'] = auth()->user()->id ;
         $incomingFields['faculty_id'] = auth()->user()->user_faculty ;
+        // New events are published at once unless "Publish now" is unticked.
+        $incomingFields['event_status'] = $request->boolean('publish', true) ? 1 : 0;
 
         foreach($request->file('event_imgs') as $image)
             {
@@ -121,21 +123,10 @@ class EventsController extends Controller
         }
     }
 
-    public function showEvents(Events $events){
-
-        $event_by='';
-        $faculty_id='';
-
-        if ($events->getEvents()->first() != null ){
-            $event_by  = $events->getEvents()->first()->news_by ; 
-            $faculty_id  = $events->getEvents()->first()->faculty_id  ;
-        }
-    
-       
-        $username = MainApp::GetUserDetails('user_fullname',$event_by);
-        $dept_name = MainApp::getFacultiesAndOffices($faculty_id);
- 
-        return view("admin.add_events" , ['events' => $events->getEvents(),'event_by'=>$username,'dept_name'=>$dept_name]);
+    public function showEvents(){
+        // All events that are not deleted, published or hidden. (Before, new events
+        // were saved hidden and this list showed only published ones, so they vanished.)
+        return view("admin.add_events" , ['events' => Events::forAdmin()]);
     }
 
     public function deleteEvent($event_id){
@@ -177,7 +168,7 @@ class EventsController extends Controller
     public function editEvent(Request $request, Events $event)
     {
         $incomingFields = $request->validate([
-            'event_title' => ['required', 'min:5', 'max:50'],
+            'event_title' => ['required', 'min:5', 'max:100'],
             'event_desc' => ['required'],
             'event_time' => ['required'],
             'event_date' => ['required'],

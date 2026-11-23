@@ -22,7 +22,9 @@
     $image = config('seo.url') . '/public/' . ($seo['image'] ?? config('seo.share_image'));
     $isArticle = ($seo['type'] ?? '') === 'article';
 
-    $organization = [
+    // Contact details and social links come from Admin > Site Settings.
+    $contact = \App\Models\Setting::allValues();
+    $organization = array_filter([
         '@type' => 'CollegeOrUniversity',
         '@id' => config('seo.url') . '/#organization',
         'name' => $siteName,
@@ -30,17 +32,17 @@
         'url' => config('seo.url') . '/',
         'logo' => config('seo.url') . '/public/client/img/fu_logo.png',
         'image' => config('seo.url') . '/public/' . config('seo.share_image'),
-        'email' => 'info@fu.edu.sd',
-        'telephone' => '+249183411818',
+        'email' => $contact['contact_email'] ?? '',
+        'telephone' => preg_replace('/[^0-9+]/', '', (string) ($contact['contact_phone'] ?? '')),
         'address' => [
             '@type' => 'PostalAddress',
             'streetAddress' => 'Africa Street',
             'addressLocality' => 'Khartoum',
             'addressCountry' => 'SD',
         ],
-        'hasMap' => 'https://maps.app.goo.gl/7HzpquiBAVvo6RBt7',
-        'sameAs' => ['https://www.facebook.com/TheFutureUniversity/'],
-    ];
+        'hasMap' => $contact['map_url'] ?? '',
+        'sameAs' => array_values(array_filter([$contact['facebook_url'] ?? ''])),
+    ]);
 
     $graph = [$organization];
 

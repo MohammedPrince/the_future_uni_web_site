@@ -27,7 +27,7 @@ class UserController extends Controller
             $usey_type = auth()->user()->isAdmin;
 
             if($usey_type == 1){
-                return redirect('/add_user')->with('success', $incomingFields['loginusername']." , You have successfully logged in.");
+                return redirect('/dashboard')->with('success', $incomingFields['loginusername']." , You have successfully logged in.");
             }elseif($usey_type == 0){
                 return redirect('/add_event')->with('success', $incomingFields['loginusername']." , You have successfully logged in.");
             }

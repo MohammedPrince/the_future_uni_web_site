@@ -19,12 +19,19 @@ class News extends Model
         'news_imgs',
         'faculty_id' ,
         'news_by' ,
+        'news_status' ,
     ];
 
-    /** News that has not been deleted. */
+    /** News that is published (not hidden) and not deleted. */
     public function scopePublished($query)
     {
-        return $query->where('del', 0);
+        return $query->where('del', 0)->where('news_status', 1);
+    }
+
+    /** Everything an admin can manage: published and hidden, newest first. */
+    public static function forAdmin()
+    {
+        return static::with('users')->where('del', 0)->orderByDesc('news_date')->orderByDesc('id')->get();
     }
 
     public static function getNews(){

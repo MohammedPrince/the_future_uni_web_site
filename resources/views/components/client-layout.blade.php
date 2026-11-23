@@ -33,7 +33,23 @@
 </head>
 
 <body>
+    @php
+        // Managed in Admin > Site Settings (defaults in config/site.php).
+        $site = \App\Models\Setting::allValues();
+        $footerNews = rescue(fn () => \App\Models\News::published()->orderByDesc('news_date')->orderByDesc('id')->take(2)->get(['id', 'news_title', 'news_date']), collect(), false);
+    @endphp
     <a class="skip-link" href="#main-content">Skip to content</a>
+
+    @if (($site['announcement_enabled'] ?? '0') === '1' && !empty($site['announcement_text']))
+        <div class="site-announcement" role="region" aria-label="Announcement"
+            style="background: #fb8b24; color: #fff; text-align: center; padding: 8px 16px; font-size: 15px; line-height: 1.4;">
+            @if (!empty($site['announcement_url']))
+                <a href="{{ $site['announcement_url'] }}" style="color: #fff; text-decoration: underline;">{{ $site['announcement_text'] }}</a>
+            @else
+                {{ $site['announcement_text'] }}
+            @endif
+        </div>
+    @endif
 
     <header class="header-section">
         <div class="container">
@@ -45,16 +61,20 @@
             </button>
 
             <div class="header-info" style="margin-top: 20px;float: right;">
+                @if (!empty($site['contact_email']))
                 <div class="hf-item">
                     <i class="fa fa-envelope"></i>
-                    <a href="mailto:info@fu.edu.sd" target="_blank" rel="noopener">
-                        <p><span>Email</span>info@fu.edu.sd</p>
+                    <a href="mailto:{{ $site['contact_email'] }}" target="_blank" rel="noopener">
+                        <p><span>Email</span>{{ $site['contact_email'] }}</p>
                     </a>
                 </div>
+                @endif
+                @if (!empty($site['contact_phone']))
                 <div class="hf-item">
                     <i class="fa fa-phone"></i>
-                    <p><span>Phone:</span>(+249) 183 411 818</p>
+                    <p><span>Phone:</span>{{ $site['contact_phone'] }}</p>
                 </div>
+                @endif
             </div>
         </div>
     </header>
@@ -64,18 +84,28 @@
             <div class="row">
                 <div class="col-lg-3 col-sm-3 col-3 header-top-left no-padding">
                     <ul class="social-links">
-                        <li><a href="https://www.facebook.com/TheFutureUniversity/" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa fa-facebook-square" aria-hidden="true"></i></a></li>
-                        <li><a href="https://www.linkedin.com/school/sudan-civil-aviation-authority" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a></li>
+                        @if (!empty($site['facebook_url']))
+                        <li><a href="{{ $site['facebook_url'] }}" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa fa-facebook-square" aria-hidden="true"></i></a></li>
+                        @endif
+                        @if (!empty($site['linkedin_url']))
+                        <li><a href="{{ $site['linkedin_url'] }}" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a></li>
+                        @endif
                     </ul>
                 </div>
                 <div class="col-lg-9 col-sm-9 col-9" style="text-align: end;">
                     {{-- <a href="https://result.fu.edu.sd/" target="_blank" rel="noopener">Students Portal <b
                             style="color: #fec169;">|</b></a> --}}
-                              <a href="https://odms.fu.edu.sd/" target="_blank" rel="noopener">Admission <b
-                            style="color: #fec169;">|</b></a>
-                    <a href="https://elearning.fu.edu.sd/" target="_blank" rel="noopener">E-Learning <b
-                            style="color: #fec169;">|</b></a>
-                    <a href="https://hdesk.fu.edu.sd/" target="_blank" rel="noopener">Help Desk</a>
+                    @php
+                        $topLinks = array_filter([
+                            'Admission' => $site['admission_url'] ?? '',
+                            'E-Learning' => $site['elearning_url'] ?? '',
+                            'Help Desk' => $site['helpdesk_url'] ?? '',
+                        ]);
+                    @endphp
+                    @foreach ($topLinks as $label => $url)
+                        <a href="{{ $url }}" target="_blank" rel="noopener">{{ $label }}@unless ($loop->last) <b
+                            style="color: #fec169;">|</b>@endunless</a>
+                    @endforeach
                 </div>
             </div>
         </div>
@@ -182,10 +212,12 @@
     <!-- main content End -->
 
     <!-- Zoom Floating Button Start-->
-    <a href="https://fu-edu-sd.zoom.us/my/thefutureuniversity" target="_blank" rel="noopener" class="zoom-float"
+    @if (!empty($site['support_url']))
+    <a href="{{ $site['support_url'] }}" target="_blank" rel="noopener" class="zoom-float"
         title="Live Technical Support">
         <img src="@img('client/img/ts.png')" alt="Live technical support on Zoom" width="60" height="60" loading="lazy" style="border-radius: 5px;">
     </a>
+    @endif
     <style>
         .zoom-float {
             position: fixed;
@@ -219,9 +251,7 @@
                         <img src="@img('client/img/fu_logo.png')" alt="The Future University"
                             width="80" height="80" loading="lazy" style="margin-left: 0px;">
                         <p>
-                            The Future University is an institution of higher learning committed in producing well -
-                            rounded professionals who will be responsible in providing quality
-                            of life in the society.
+                            {{ $site['footer_about'] ?? '' }}
                         </p>
 
                     </div>
@@ -232,9 +262,15 @@
                     <div class="dobule-link">
                         <ul>
                             <li><a href="{{ route('Home') }}">Home</a></li>
-                            <li><a href="https://elearning.fu.edu.sd/" target="_blank" rel="noopener">E-Learning</a></li>
-                            <li><a href="https://hdesk.fu.edu.sd/" target="_blank" rel="noopener">Help Desk</a></li>
-                            <li><a href="https://result.fu.edu.sd/" target="_blank" rel="noopener">Students Portal</a></li>
+                            @if (!empty($site['elearning_url']))
+                            <li><a href="{{ $site['elearning_url'] }}" target="_blank" rel="noopener">E-Learning</a></li>
+                            @endif
+                            @if (!empty($site['helpdesk_url']))
+                            <li><a href="{{ $site['helpdesk_url'] }}" target="_blank" rel="noopener">Help Desk</a></li>
+                            @endif
+                            @if (!empty($site['students_portal_url']))
+                            <li><a href="{{ $site['students_portal_url'] }}" target="_blank" rel="noopener">Students Portal</a></li>
+                            @endif
                             <li><a href="{{ route('About-FU') }}">Why FU ?</a></li>
                         </ul>
                         <ul>
@@ -251,39 +287,51 @@
                 <div class="col-sm-6 col-lg-3 footer-widget">
                     <h6 class="fw-title" role="heading" aria-level="2">RECENT NEWS</h6>
                     <ul class="recent-post">
+                        @forelse ($footerNews as $recent)
                         <li>
-                            <p>Launching Future University E-Learning Platform</p>
-                            <span><i class="fa fa-clock-o SubFooterText"></i>05 MAY 2019</span>
+                            <a href="{{ route('newsDetails', base64_encode($recent->id)) }}"><p>{{ \Illuminate\Support\Str::limit($recent->news_title, 70) }}</p></a>
+                            <span><i class="fa fa-clock-o SubFooterText"></i>{{ \Illuminate\Support\Carbon::parse($recent->news_date)->format('d M Y') }}</span>
                         </li>
+                        @empty
                         <li>
-                            <p>Launching Future University Student Desk Mobile App</p>
-                            <span><i class="fa fa-clock-o SubFooterText"></i>11 Sep 2020</span>
+                            <a href="{{ route('NewsAndEvents') }}"><p>News &amp; Events</p></a>
                         </li>
+                        @endforelse
                     </ul>
                 </div>
 
                 <div class="col-sm-6 col-lg-3 footer-widget">
                     <h6 class="fw-title" role="heading" aria-level="2">FIND US</h6>
                     <ul class="contact">
+                        @if (!empty($site['address']))
                         <li>
-                            <a href="https://maps.app.goo.gl/7HzpquiBAVvo6RBt7" target="_blank" rel="noopener">
-                                <p><i class="fa fa-map-marker"></i> Africa Street - Khartoum, Sudan</p>
+                            @if (!empty($site['map_url']))
+                            <a href="{{ $site['map_url'] }}" target="_blank" rel="noopener">
+                                <p><i class="fa fa-map-marker"></i> {{ $site['address'] }}</p>
                             </a>
+                            @else
+                            <p><i class="fa fa-map-marker"></i> {{ $site['address'] }}</p>
+                            @endif
                         </li>
+                        @endif
 
+                        @if (!empty($site['contact_phone']))
                         <li>
-                            <p><i class="fa fa-phone"></i> (+249) 183 411 818</p>
+                            <p><i class="fa fa-phone"></i> {{ $site['contact_phone'] }}</p>
                         </li>
+                        @endif
 
                         {{-- <li>
 							<p>Fax:  (+249) 155 182 880</p>
 						</li> --}}
 
+                        @if (!empty($site['contact_email']))
                         <li>
-                            <a href="mailto:info@fu.edu.sd" target="_blank" rel="noopener">
-                                <p><i class="fa fa-envelope"></i> info@fu.edu.sd</p>
+                            <a href="mailto:{{ $site['contact_email'] }}" target="_blank" rel="noopener">
+                                <p><i class="fa fa-envelope"></i> {{ $site['contact_email'] }}</p>
                             </a>
                         </li>
+                        @endif
                         @php
                             $visitorCount = (new \App\Http\Controllers\VisitorController())->getVisitorCount();
                         @endphp
@@ -293,8 +341,12 @@
 
                         <li>
                             <div class="social pt-1">
-                                <a href="https://www.facebook.com/TheFutureUniversity/" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa fa-facebook-square" aria-hidden="true"></i></a>
-                                <a href="https://www.linkedin.com/school/sudan-civil-aviation-authority" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a>
+                                @if (!empty($site['facebook_url']))
+                                <a href="{{ $site['facebook_url'] }}" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa fa-facebook-square" aria-hidden="true"></i></a>
+                                @endif
+                                @if (!empty($site['linkedin_url']))
+                                <a href="{{ $site['linkedin_url'] }}" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a>
+                                @endif
 
                             </div>
                         </li>

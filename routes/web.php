@@ -6,7 +6,9 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\ChartController;
 use App\Http\Controllers\EventsController;
 use App\Http\Controllers\LinkageController;
-use App\Http\Controllers\Fee_StructureController;
+use App\Http\Controllers\FeeController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\SiteSettingsController;
 use App\Http\Controllers\StaffInformationController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\SecurityScanController;
@@ -36,49 +38,37 @@ Route::get('/admin_panel', function () {
 
 Route::middleware(['adminType', 'same.site'])->group(function () {
 
+    // Admin home: website status, counts and shortcuts.
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+
     // SECURITY: cache clear is admin-only (was public).
     Route::get('/clear', function () {
         Artisan::call('optimize:clear');
         return 'Caching, routes, and configuration cleared successfully.';
     })->name('clear');
 
-    Route::get('/add_user', function () {
-        return view('admin.add_user');
-    });
-
-    Route::get('/add_event', function () {
-        return view('admin.add_events');
-    })->name('add_event');
-
-    Route::get('/add_news', function () {
-        return view('admin.add_news');
-    })->name('add_news');
-
     //Users//
+    Route::get('/add_user', [UserController::class, "showUser"]);
     Route::post('/add_user', [UserController::class, "addUser"])->name('add_user');
     Route::get('/edit_user/{user}/edit/', [UserController::class, "showEditForm"])->name('edit_user');
     Route::get('/add_user/{user}/delete/', [UserController::class, "deleteUser"])->name('delete_user');
     Route::put('/edit_user/{user}', [UserController::class, "editUser"])->name('editsubmit');
-    Route::get('/add_user', [UserController::class, "showUser"]);
     Route::get('/add_user/{user:id}/edit', [UserController::class, "showUser"]);
     Route::get('/profile', [UserController::class, "user_profile"])->name('profile');
-    // 
-
     Route::get('/new_edit_user/{id}/edit/', [UserController::class, "newPage"]);
 
-    // 
-
-    //Event Routes  middleware and controllers //
-    Route::post('/add_event', [EventsController::class, "addEvent"]);
+    //Events//
     Route::get('/add_event', [EventsController::class, "showEvents"])->name('add_event');
+    Route::post('/add_event', [EventsController::class, "addEvent"]);
     Route::get('/add_event/{event}/delete/', [EventsController::class, "deleteEvent"]);
     Route::get('/add_event/{event}/status/{event_status}', [EventsController::class, "eventStatus"]);
     Route::get('/edit_event/{event}/edit/', [EventsController::class, "showEditForm"])->name('edit_event');
     Route::post('/edit_event/{event}', [EventsController::class, "editEvent"])->name('eventsubmit');
 
-    //News Routes  middleware and controllers //
-    Route::post('/add_news', [NewsController::class, "addNews"]);
+    //News//
     Route::get('/add_news', [NewsController::class, "showNews"])->name('add_news');
+    Route::post('/add_news', [NewsController::class, "addNews"]);
+    Route::get('/add_news/{news}/status/{news_status}', [NewsController::class, "newsStatus"]);
     Route::get('/edit_news/{news}/edit/', [NewsController::class, "showEditForm"]);
     Route::post('/edit_news/{news}', [NewsController::class, "editNews"])->name('editnews_submit');
     Route::get('/add_news/{news}/delete/', [NewsController::class, "deleteNews"]);
@@ -88,19 +78,27 @@ Route::middleware(['adminType', 'same.site'])->group(function () {
     Route::post('/add_linkage', [LinkageController::class, "store"]);
     Route::get('/edit_linkage/{id}/edit', [LinkageController::class, "show"]);
     Route::post('/edit_linkage/{id}', [LinkageController::class, "edit"])->name('editlinkage');
-
     Route::get('/linkage/{id}/delete', [LinkageController::class, "destroy"])->name('deletelinkage');
 
-    // fee_structure
-    Route::get('/fee_structure', [Fee_StructureController::class, "index"])->name('fee_structure');
-    Route::post('/add_fee', [Fee_StructureController::class, "store"]);
-    Route::get('/edit_fee/{id}', [Fee_StructureController::class, "show"])->name('getfee_data');
-    Route::post('/update_fee/{id}', [Fee_StructureController::class, "edit"])->name('update_fee');
-    Route::get('/fee_structure/{id}/delete', [Fee_StructureController::class, "destroy"])->name('deletefee');
+    // Fee Structure: the tables on the public /Fee-Structure page.
+    Route::get('/fee_structure', [FeeController::class, 'index'])->name('fee_structure');
+    Route::post('/fee_structure/sections', [FeeController::class, 'storeSection'])->name('fees.sections.store');
+    Route::get('/fee_structure/sections/{section}/edit', [FeeController::class, 'editSection'])->name('fees.sections.edit');
+    Route::put('/fee_structure/sections/{section}', [FeeController::class, 'updateSection'])->name('fees.sections.update');
+    Route::delete('/fee_structure/sections/{section}', [FeeController::class, 'destroySection'])->name('fees.sections.destroy');
+    Route::post('/fee_structure/items', [FeeController::class, 'storeItem'])->name('fees.items.store');
+    Route::get('/fee_structure/items/{item}/edit', [FeeController::class, 'editItem'])->name('fees.items.edit');
+    Route::put('/fee_structure/items/{item}', [FeeController::class, 'updateItem'])->name('fees.items.update');
+    Route::post('/fee_structure/items/{item}/toggle', [FeeController::class, 'toggleItem'])->name('fees.items.toggle');
+    Route::delete('/fee_structure/items/{item}', [FeeController::class, 'destroyItem'])->name('fees.items.destroy');
 
+    // Site Settings: contact details, links, announcement bar, maintenance mode.
+    Route::get('/site_settings', [SiteSettingsController::class, 'index'])->name('site_settings');
+    Route::post('/site_settings', [SiteSettingsController::class, 'update'])->name('site_settings.update');
+    Route::post('/site_settings/maintenance', [SiteSettingsController::class, 'maintenance'])->name('site_settings.maintenance');
+    Route::get('/site_settings/preview', [SiteSettingsController::class, 'preview'])->name('site_settings.preview');
 
-    // Staff information 
-
+    // Staff information
     Route::get('/staff', [StaffInformationController::class, "index"])->name('staff');
     Route::post('/add_staff', [StaffInformationController::class, "store"]);
     Route::get('/saff_cv/{id}/staff_cv', [StaffInformationController::class, "Show_cv"]);
@@ -108,37 +106,6 @@ Route::middleware(['adminType', 'same.site'])->group(function () {
     Route::get('/edit_staff/{id}', [StaffInformationController::class, "show"])->name('edit_staff');
     Route::post('/update_staff/{id}', [StaffInformationController::class, "update"])->name('update_staff');
     Route::get('/staff/{id}/delete', [StaffInformationController::class, "destroy"])->name('deletestaff');
-
-
-    // });
-
-
-    // Route::middleware(['mustBeLoggedIn'])->group(function () {
-
-    // Route::get('/add_event', function () {
-    //     return view('admin.add_events');
-    // });
-
-    Route::get('/add_news', function () {
-        return view(view: 'admin.add_news');
-    })->name('add_news');
-
-    //Event Routes  middleware and controllers //
-    Route::post('/add_event', [EventsController::class, "addEvent"]);
-    Route::get('/add_event', [EventsController::class, "showEvents"])->name('add_event');
-    Route::get('/add_event/{event}/delete/', [EventsController::class, "deleteEvent"]);
-    Route::get('/add_event/{event}/status/{event_status}', [EventsController::class, "eventStatus"]);
-    Route::get('/edit_event/{event}/edit/', [EventsController::class, "showEditForm"])->name('edit_event');
-    Route::post('/edit_event/{event}', [EventsController::class, "editEvent"])->name('eventsubmit');
-    ;
-
-    //News Routes  middleware and controllers //
-    Route::post('/add_news', [NewsController::class, "addNews"]);
-    Route::get('/add_news', [NewsController::class, "showNews"])->name('add_news');
-    Route::get('/edit_news/{news}/edit/', [NewsController::class, "showEditForm"]);
-    Route::post('/edit_news/{news}', [NewsController::class, "editNews"])->name('editnews_submit');
-    Route::get('/add_news/{news}/delete/', [NewsController::class, "deleteNews"]);
-
 });
 
 // Security scanner (admin + SECURITY_SCANNER_KEY). 404 when the key is not set.
@@ -195,7 +162,7 @@ Route::get('/{file}.html', function (string $file) {
 Route::permanentRedirect('/Home', '/')->withoutMiddleware($noSession);
 Route::permanentRedirect('/news_events', '/News-and-Events')->withoutMiddleware($noSession);
 
-Route::middleware(['visitor', 'page.cache'])->withoutMiddleware($noSession)->group(function () {
+Route::middleware(['site.maintenance', 'visitor', 'page.cache'])->withoutMiddleware($noSession)->group(function () {
 
 
     // Route::get('/', function () {
@@ -296,17 +263,7 @@ Route::middleware(['visitor', 'page.cache'])->withoutMiddleware($noSession)->gro
     })->name('IRDC');
 
 
-    Route::get('/Fee-Structure', function () {
-        return view('client.Fee-structure');
-    })->name('Fees');
-
-    Route::get('/Scholarships', function () {
-        return view('client.Scholarships');
-    })->name('Scholarships');
-
-    Route::get('/Fee-Structure', function () {
-        return view('client.Fee-structure');
-    })->name('Fees');
+    Route::get('/Fee-Structure', [FeeController::class, 'page'])->name('Fees');
 
     Route::get('/Scholarships', function () {
         return view('client.Scholarships');
@@ -315,7 +272,7 @@ Route::middleware(['visitor', 'page.cache'])->withoutMiddleware($noSession)->gro
 });
 
 
-Route::middleware(['visitor', 'page.cache'])->withoutMiddleware($noSession)->group(function () {
+Route::middleware(['site.maintenance', 'visitor', 'page.cache'])->withoutMiddleware($noSession)->group(function () {
     Route::get('/Event-Details/{event}', [EventsController::class, "eventDetails"])->name('eventDetails');
     Route::get('/News-Details/{news}', [NewsController::class, "newsDetails"])->name('newsDetails');
     Route::get('/News-and-Events', [NewsController::class, "NewsAndEvents"])->name('NewsAndEvents');
@@ -323,4 +280,4 @@ Route::middleware(['visitor', 'page.cache'])->withoutMiddleware($noSession)->gro
 });
 
 // Live search box. Not cached.
-Route::get('/search', [NewsController::class, 'search'])->middleware('throttle:60,1')->withoutMiddleware($noSession)->name('search');
+Route::get('/search', [NewsController::class, 'search'])->middleware(['site.maintenance', 'throttle:60,1'])->withoutMiddleware($noSession)->name('search');

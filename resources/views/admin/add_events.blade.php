@@ -113,6 +113,14 @@
                                                 @enderror
                                             </div>
                                            
+                                            <div class="card-body">
+                                                <input type="hidden" name="publish" value="0">
+                                                <label class="form-check">
+                                                    <input class="form-check-input" type="checkbox" name="publish" value="1" {{ old('publish', '1') === '1' ? 'checked' : '' }}>
+                                                    <span class="form-check-label">Publish now (untick to save it hidden and publish it later)</span>
+                                                </label>
+                                            </div>
+
                                             <div class="text-center">
 
                                                 <button class="btn btn btn-success">Add Event</button>
@@ -127,12 +135,14 @@
                 </div>
             </div>
 
-            @if ($events != false)
+            @if ($events->isNotEmpty())
+
                 <div class="row">
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
                                 <h5 class="card-title mb-0">View Website Events</h5>
+                                <p class="text-muted mb-0">Hidden items stay here but are not shown on the website. Press Publish to show them.</p>
                             </div>
                             <div class="card-body">
 
@@ -153,39 +163,29 @@
                                     <tbody>
                                         @foreach ($events as $event)
                                             <tr>
-                                                <td>{{ $event->event_title  }}</td>
-                            
+                                                <td>{{ $event->event_title }}</td>
                                                 <td>{{ $event->event_time }}</td>
                                                 <td>{{ $event->event_date }}</td>
-                                                <td>{{ $dept_name }}</td>
-
-                                                
-                                                <td>{{ $event_by}}</td>
-                                                <td> 
-
-                                                    @if ($event->event_status == '0')
-                                                    Not Published
-                                                    @endif
+                                                <td>{{ \App\Models\MainApp::getFacultiesAndOffices($event->faculty_id) }}</td>
+                                                <td>{{ optional($event->users)->user_fullname }}</td>
+                                                <td>
                                                     @if ($event->event_status == '1')
-                                                    Published
+                                                        <span class="badge bg-success">Published</span>
+                                                    @else
+                                                        <span class="badge bg-secondary">Hidden</span>
                                                     @endif
-
                                                 </td>
                                                 <td>
-                                                   @if ($event->event_status == '0')
-                                                   <a href="add_event/{{$event->id}}/status/1" class="btn btn-primary">Published</a>    
-                                                   @endif
-                                                   @if ($event->event_status == '1')
-                                                   <a href="add_event/{{$event->id}}/status/0" class="btn btn-danger">Not</a>   
-                                                   @endif
-
+                                                    @if ($event->event_status == '1')
+                                                        <a href="{{ url('add_event/' . $event->id . '/status/0') }}" class="btn btn-danger">Hide</a>
+                                                    @else
+                                                        <a href="{{ url('add_event/' . $event->id . '/status/1') }}" class="btn btn-primary">Publish</a>
+                                                    @endif
                                                 </td>
-                                            
-                                                <td><a href="{{route('edit_event',$event->id,'edit')}}" class="btn btn btn-info">Edit</a></td>
-                                                <!-- {{-- old - edit_event/{{$event->id}}/edit --}} -->
-                                                <td><a href="add_event/{{$event->id}}/delete" class="btn btn btn-danger" onClick="return confirm('Are You Sure You Want to Delete this event ?')">Delete</a></td>
+                                                <td><a href="{{ route('edit_event', $event->id) }}" class="btn btn btn-info">Edit</a></td>
+                                                <td><a href="{{ url('add_event/' . $event->id . '/delete') }}" class="btn btn btn-danger" onClick="return confirm('Are You Sure You Want to Delete this event ?')">Delete</a></td>
                                             </tr>
-                                            @endforeach
+                                        @endforeach
 
                                     </tbody>
 

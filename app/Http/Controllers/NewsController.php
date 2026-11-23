@@ -130,6 +130,8 @@ class NewsController extends Controller
 
         $incomingFields['news_by'] = auth()->user()->id ;
         $incomingFields['faculty_id'] = "1" ;
+        // New news is published at once unless "Publish now" is unticked.
+        $incomingFields['news_status'] = $request->boolean('publish', true) ? 1 : 0;
 
         foreach($request->file('news_imgs') as $image)
             {
@@ -155,23 +157,18 @@ class NewsController extends Controller
 
 
     }
-    public function showNews(News $news){
-            
-$news_by ='';
-$faculty_id='';
+    public function showNews(){
+        // All news that is not deleted, published or hidden, so admins can manage every item.
+        return view("admin.add_news" , ['news' => News::forAdmin()]);
+    }
 
-        if ($news->getNews()->first() != null ){
+    public function newsStatus($news_id , $news_status){
 
-            $news_by  = $news->getNews()->first()->news_by ; 
-            $faculty_id  = $news->getNews()->first()->faculty_id  ;
+        if (News::where('id', $news_id)->where('del', 0)->update(['news_status' => $news_status === '1' ? 1 : 0])){
+            return redirect('/add_news')->with('success', $news_status === '1' ? 'News published.' : 'News hidden from the website.');
         }
 
-        
-        $username = MainApp::GetUserDetails('user_fullname',$news_by);
-
-        $dept_name = MainApp::getFacultiesAndOffices($faculty_id);
-
-        return view("admin.add_news" , ['news' => $news->getNews(),'news_by'=>$username,'dept_name'=>$dept_name]);
+        return redirect('/add_news')->with('failure','Error while updating news status !');
     }
 
     public function showEditForm(News $news){

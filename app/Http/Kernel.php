@@ -57,6 +57,7 @@ class Kernel extends HttpKernel
      */
     protected $routeMiddleware = [
         'page.cache' => \App\Http\Middleware\PageCache::class,
+        'site.maintenance' => \App\Http\Middleware\SiteMaintenance::class,
         'same.site' => \App\Http\Middleware\BlockCrossSiteActions::class,
         'visitor' => \App\Http\Middleware\VisitorCounter::class,
         'adminType' => AdminType::class,

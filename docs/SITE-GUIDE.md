@@ -84,6 +84,26 @@ Open **Server Tools** in the admin menu and enter your own password. The page lo
 
 Every run is recorded in `storage/logs/server-tools.log`.
 
+### Admin panel: what you can change
+
+After login the admin panel opens on the **Dashboard**: website status, counts, latest news and events, and shortcuts.
+
+| Menu | What it controls |
+|---|---|
+| Dashboard | Overview. Shows a red warning while maintenance mode is on |
+| Site Settings > Maintenance mode | Closes the public website. Visitors see a "We will be back soon" page (status 503, so Google keeps the pages). The admin panel keeps working. **Preview the site** lets your own browser see the website meanwhile |
+| Site Settings > Announcement bar | An orange line at the top of every public page, with an optional link |
+| Site Settings > Contact details and Links | Email, phone, address, map, Facebook, LinkedIn, Admission, E-Learning, Help Desk, Students Portal and the support button. An empty field hides that item |
+| Site Settings > Texts | Footer "about" text and a line above the fee tables |
+| Manage News / Manage Events | Add, edit, delete, and **Publish / Hide**. "Publish now" is ticked by default; untick it to prepare an item and publish it later |
+| Fee Structure | The tables on the public Fee Structure page: add, edit, hide, reorder or delete programs and whole tables. Amounts accept `2000000` or `2,000,000` |
+
+The footer "Recent News" shows the two newest published news items automatically.
+
+Public pages update as soon as you save, because every admin change clears the saved pages.
+
+Each maintenance switch and settings save is written to `storage/logs/laravel.log` with the admin's username.
+
 ### Roll back
 
 ```bash
@@ -186,6 +206,7 @@ php artisan view:clear
 
 ```bash
 php artisan test --filter=PublicSiteTest
+php artisan test --filter=AdminControlTest
 ```
 
 ### Server settings that still help

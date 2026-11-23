@@ -33,12 +33,27 @@
     <div class="wrapper">
         <nav id="sidebar" class="sidebar js-sidebar">
             <div class="sidebar-content js-simplebar">
-                <a class='sidebar-brand text-center' href='{{ route("add_user") }}'>
+                <a class='sidebar-brand text-center' href='{{ route("dashboard") }}'>
                    <span class="align-middle">Fu-Website<br>Content Managment</span>
                 </a>
 
                 <ul class="sidebar-nav">
                     <li class="sidebar-header"></li>
+
+                    <li class="sidebar-item @if (Request::is('dashboard')) active @endif">
+                        <a class='sidebar-link' href='{{ route("dashboard") }}'>
+                            <i class="align-middle" data-feather="home"></i> <span class="align-middle">Dashboard</span>
+                        </a>
+                    </li>
+
+                    <li class="sidebar-item @if (Request::is('site_settings*')) active @endif">
+                        <a class='sidebar-link' href='{{ route("site_settings") }}'>
+                            <i class="align-middle" data-feather="sliders"></i> <span class="align-middle">Site Settings</span>
+                            @if (\App\Models\Setting::enabled('maintenance_enabled'))
+                                <span class="badge bg-danger ms-1">Maintenance</span>
+                            @endif
+                        </a>
+                    </li>
 
                     <li class="sidebar-item '@if ( (Request::is('profile')) ) active @endif ' ">
                         <a class='sidebar-link' href='{{route("profile")}}'>
@@ -86,7 +101,7 @@
                         </a>
                     </li>
 
-                    <li class="sidebar-item '@if ( (Request::is('fee_structure')) || (Request::is('edit_fee_structure'))  ) active @endif ' ">
+                    <li class="sidebar-item @if (Request::is('fee_structure*')) active @endif ">
                         <a class='sidebar-link' href='{{route("fee_structure")}}'>
                             <i class="align-middle" data-feather="slack"></i> <span class="align-middle">Fee Structure</span>
                         </a>
@@ -135,13 +150,14 @@
                                     alt="Charles Hall" /> <span class="text-dark">{{ auth()->user()->user_fullname }}</span>
                             </a>
                             <div class="dropdown-menu dropdown-menu-end">
-                                <a class='dropdown-item' href='profile'><i class="align-middle me-1"
+                                <a class='dropdown-item' href='{{ url("profile") }}'><i class="align-middle me-1"
                                         data-feather="user"></i> Profile</a>
-                               
-                               
+                                <a class='dropdown-item' href='{{ url("/") }}' target="_blank" rel="noopener"><i class="align-middle me-1"
+                                        data-feather="external-link"></i> Open the website</a>
+
                                 <div class="dropdown-divider"></div>
-                               
-                                <a class="dropdown-item" href="logout">Log out</a>
+
+                                <a class="dropdown-item" href="{{ url('logout') }}">Log out</a>
                             </div>
                         </li>
                     </ul>
