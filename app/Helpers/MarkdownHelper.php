@@ -20,7 +20,7 @@ class MarkdownHelper
         }
 
         $config = [
-            'html_input' => 'allow',
+            'html_input' => 'strip',
             'allow_unsafe_links' => false,
         ];
 

@@ -1,2 +1,4 @@
 User-agent: *
-Disallow:
+Disallow: /search
+
+Sitemap: https://fu.edu.sd/sitemap.xml

@@ -24,12 +24,14 @@ class NewsController extends Controller
     }
     public function search(Request $request)
     {
-        $searchTerm = $request->get('term');
+        // Short plain text only; % and _ are wildcards in LIKE.
+        $term = $request->query('term');
+        $searchTerm = addcslashes(mb_substr(is_string($term) ? trim($term) : '', 0, 60), '%_\\');
         $news_value= false;
         $event_value= false;
 
-    $news = News::where('news_title', 'like', '%'.$searchTerm.'%')->where('del','=','0')->where('news_status','1')->get();
-    $events = Events::where('event_title', 'like', '%'.$searchTerm.'%')->where('del','=','0')->where('event_status','1')->get();
+    $news = News::where('news_title', 'like', '%'.$searchTerm.'%')->where('del','=','0')->where('news_status','1')->take(10)->get();
+    $events = Events::where('event_title', 'like', '%'.$searchTerm.'%')->where('del','=','0')->where('event_status','1')->take(10)->get();
 
     if ($news->count() > 0){
 
@@ -51,8 +53,9 @@ class NewsController extends Controller
         $events='';
 
         $event_value = false;
-        $new_news_id  = base64_decode($news_id);
-        $news = News::find($new_news_id);
+        $new_news_id  = (int) base64_decode($news_id);
+        // Unknown or deleted news gives a 404 page (was a 500 error).
+        $news = News::published()->findOrFail($new_news_id);
 
         $faculty_id = News :: GetNewsColumn('faculty_id',$new_news_id);
         $event_by_id = News :: GetNewsColumn('news_by',$new_news_id);
@@ -83,14 +86,14 @@ class NewsController extends Controller
 
         $news_value = true ;
         //$news = News::getNews() ;
-        $news = News::paginate(2);
+        $news = News::published()->orderByDesc('news_date')->orderByDesc('id')->paginate(2);
     
        }
 
        if (Events :: getEvents() != null ){
             $event_value = true ;
             //$events = Events::getEvents() ;
-            $events = Events::paginate(2);
+            $events = Events::published()->orderByDesc('event_date')->orderByDesc('id')->paginate(2);
         }
 
         return view("client.News-and-Events" ,compact('events'), ['news'=>$news,'events'=>$events,'news_value' =>$news_value,'event_value' =>$event_value]);
@@ -116,7 +119,8 @@ class NewsController extends Controller
             'news_title' => ['required' , 'min:5' , 'max:100' , Rule::unique('fu_news' , 'news_title') ] ,
             'news_desc' =>['required' ] ,
             'news_date' => ['required'],
-            'news_imgs' => 'required|max:10000',
+            'news_imgs' => 'required|array|max:20',
+            'news_imgs.*' => 'image|mimes:jpg,jpeg,png,webp|max:10000',
         ],[
             'news_title.required' => 'News Title is must.',
             'news_desc.required' => 'News Description is must.',
@@ -125,15 +129,24 @@ class NewsController extends Controller
         ]);
 
         $incomingFields['news_by'] = auth()->user()->id ;
+
+        // Description comes from the HTML editor: keep only safe formatting.
+        if (\App\Support\RichText::isEmpty($incomingFields['news_desc'])) {
+            return back()->withInput()->withErrors(['news_desc' => 'News Description is must.']);
+        }
+        $incomingFields['news_desc'] = \App\Support\RichText::clean($incomingFields['news_desc']);
         $incomingFields['faculty_id'] = "1" ;
+        // New news is published at once unless "Publish now" is unticked.
+        $incomingFields['news_status'] = $request->boolean('publish', true) ? 1 : 0;
 
         foreach($request->file('news_imgs') as $image)
             {
-                $name=$image->getClientOriginalName();
+                // SECURITY: never trust the client filename; re-encode as JPEG.
+                $name = \Illuminate\Support\Str::random(32).'.jpg';
                 $destinationPathThumbnail = public_path('/storage/news_imgs');
                 $img = Image::make($image->path());
                 $img->fit(570, 320);
-                $img->save($destinationPathThumbnail.'/'.$name);
+                $img->save($destinationPathThumbnail.'/'.$name, 85, 'jpg');
                 $data[] = $name;  
                 $fileNameToStore = implode (",", $data);
             }
@@ -150,23 +163,18 @@ class NewsController extends Controller
 
 
     }
-    public function showNews(News $news){
-            
-$news_by ='';
-$faculty_id='';
+    public function showNews(){
+        // All news that is not deleted, published or hidden, so admins can manage every item.
+        return view("admin.add_news" , ['news' => News::forAdmin()]);
+    }
 
-        if ($news->getNews()->first() != null ){
+    public function newsStatus($news_id , $news_status){
 
-            $news_by  = $news->getNews()->first()->news_by ; 
-            $faculty_id  = $news->getNews()->first()->faculty_id  ;
+        if (News::where('id', $news_id)->where('del', 0)->update(['news_status' => $news_status === '1' ? 1 : 0])){
+            return redirect('/add_news')->with('success', $news_status === '1' ? 'News published.' : 'News hidden from the website.');
         }
 
-        
-        $username = MainApp::GetUserDetails('user_fullname',$news_by);
-
-        $dept_name = MainApp::getFacultiesAndOffices($faculty_id);
-
-        return view("admin.add_news" , ['news' => $news->getNews(),'news_by'=>$username,'dept_name'=>$dept_name]);
+        return redirect('/add_news')->with('failure','Error while updating news status !');
     }
 
     public function showEditForm(News $news){
@@ -180,8 +188,9 @@ $faculty_id='';
             'news_title' => ['required' , 'min:5' , 'max:100'  ] ,
             'news_desc' =>['required' ] ,
             'news_date' => ['required'],
-            'news_imgs_old'=>[],
-            'news_imgs'=>[],
+            'news_imgs_old'=>['nullable','string'],
+            'news_imgs'=>['nullable','array','max:20'],
+            'news_imgs.*'=>['image','mimes:jpg,jpeg,png,webp','max:10000'],
         ],[
             'news_title.required' => 'News Title is must.',
             'news_desc.required' => 'News Description is must.',
@@ -190,6 +199,12 @@ $faculty_id='';
         ]);
 
         $incomingFields['news_by'] = auth()->user()->id ;
+
+        // Description comes from the HTML editor: keep only safe formatting.
+        if (\App\Support\RichText::isEmpty($incomingFields['news_desc'])) {
+            return back()->withInput()->withErrors(['news_desc' => 'News Description is must.']);
+        }
+        $incomingFields['news_desc'] = \App\Support\RichText::clean($incomingFields['news_desc']);
         $incomingFields['faculty_id'] = auth()->user()->user_faculty ;
 
             if ($request->hasFile('news_imgs')) {
@@ -197,18 +212,19 @@ $faculty_id='';
                 foreach($incomingFields['news_imgs']  as $image)
                     {
 
-                        $name=$image->getClientOriginalName();
+                        $name = \Illuminate\Support\Str::random(32).'.jpg';
                         $destinationPathThumbnail = public_path('/storage/news_imgs');
                         $img = Image::make($image->path());
                         $img->fit(570, 320);
-                        $img->save($destinationPathThumbnail.'/'.$name);
-                        $data[] = $name;  
+                        $img->save($destinationPathThumbnail.'/'.$name, 85, 'jpg');
+                        $data[] = $name;
                         $fileNameToStore = implode (",", $data);
 
-                   if($incomingFields['news_imgs_old'] !=null) {
+                   if(!empty($incomingFields['news_imgs_old'])) {
 
                         foreach(explode(',', $incomingFields['news_imgs_old']) as $image){
-                            $image_path = public_path().'/storage/news_imgs/'.$image;
+                            // SECURITY: basename() blocks ../ path traversal deletes.
+                            $image_path = public_path().'/storage/news_imgs/'.basename($image);
                            File::delete($image_path);
                         }
                     }
@@ -236,7 +252,7 @@ $faculty_id='';
         if (News::where('id', $news_id)->update(['del' => '1'])){
 
             foreach($images as $image){
-                $image_path = public_path().'/storage/news_imgs/'.$image;
+                $image_path = public_path().'/storage/news_imgs/'.basename($image);
                 $del = File::delete($image_path);
              }
 

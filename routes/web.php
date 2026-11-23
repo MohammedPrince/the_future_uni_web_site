@@ -6,16 +6,18 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\ChartController;
 use App\Http\Controllers\EventsController;
 use App\Http\Controllers\LinkageController;
-use App\Http\Controllers\Fee_StructureController;
+use App\Http\Controllers\FeeController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\SiteSettingsController;
 use App\Http\Controllers\StaffInformationController;
-use App\Http\Controllers\StaffDirectoryController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\SecurityScanController;
+use App\Http\Controllers\ServerToolsController;
+use App\Http\Controllers\SitemapController;
+use Illuminate\Support\Facades\Artisan;
 
 
 
-
-
-use App\Http\Controllers\SearchAutoCompleteController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,55 +30,45 @@ use App\Http\Controllers\SearchAutoCompleteController;
 |
 */
 
-// Route::get('/temp', function () {
-//     return view('admin.temp');
-// });
-
-
 //Admin routes////////////////////////////////
+// 'guest' sends users who are already logged in to the admin area instead of showing the form again.
 Route::get('/admin_panel', function () {
     return view('admin.login');
-});
+})->middleware('guest');
 
-Route::middleware(['adminType'])->group(function () {
+Route::middleware(['adminType', 'same.site'])->group(function () {
 
-    Route::get('/add_user', function () {
-        return view('admin.add_user');
-    });
+    // Admin home: website status, counts and shortcuts.
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
-    Route::get('/add_event', function () {
-        return view('admin.add_events');
-    })->name('add_event');
-
-    Route::get('/add_news', function () {
-        return view('admin.add_news');
-    })->name('add_news');
+    // SECURITY: cache clear is admin-only (was public).
+    Route::get('/clear', function () {
+        Artisan::call('optimize:clear');
+        return 'Caching, routes, and configuration cleared successfully.';
+    })->name('clear');
 
     //Users//
+    Route::get('/add_user', [UserController::class, "showUser"]);
     Route::post('/add_user', [UserController::class, "addUser"])->name('add_user');
     Route::get('/edit_user/{user}/edit/', [UserController::class, "showEditForm"])->name('edit_user');
     Route::get('/add_user/{user}/delete/', [UserController::class, "deleteUser"])->name('delete_user');
     Route::put('/edit_user/{user}', [UserController::class, "editUser"])->name('editsubmit');
-    Route::get('/add_user', [UserController::class, "showUser"]);
     Route::get('/add_user/{user:id}/edit', [UserController::class, "showUser"]);
     Route::get('/profile', [UserController::class, "user_profile"])->name('profile');
-    // 
-
     Route::get('/new_edit_user/{id}/edit/', [UserController::class, "newPage"]);
 
-    // 
-
-    //Event Routes  middleware and controllers //
-    Route::post('/add_event', [EventsController::class, "addEvent"]);
+    //Events//
     Route::get('/add_event', [EventsController::class, "showEvents"])->name('add_event');
+    Route::post('/add_event', [EventsController::class, "addEvent"]);
     Route::get('/add_event/{event}/delete/', [EventsController::class, "deleteEvent"]);
     Route::get('/add_event/{event}/status/{event_status}', [EventsController::class, "eventStatus"]);
     Route::get('/edit_event/{event}/edit/', [EventsController::class, "showEditForm"])->name('edit_event');
     Route::post('/edit_event/{event}', [EventsController::class, "editEvent"])->name('eventsubmit');
 
-    //News Routes  middleware and controllers //
-    Route::post('/add_news', [NewsController::class, "addNews"]);
+    //News//
     Route::get('/add_news', [NewsController::class, "showNews"])->name('add_news');
+    Route::post('/add_news', [NewsController::class, "addNews"]);
+    Route::get('/add_news/{news}/status/{news_status}', [NewsController::class, "newsStatus"]);
     Route::get('/edit_news/{news}/edit/', [NewsController::class, "showEditForm"]);
     Route::post('/edit_news/{news}', [NewsController::class, "editNews"])->name('editnews_submit');
     Route::get('/add_news/{news}/delete/', [NewsController::class, "deleteNews"]);
@@ -86,19 +78,27 @@ Route::middleware(['adminType'])->group(function () {
     Route::post('/add_linkage', [LinkageController::class, "store"]);
     Route::get('/edit_linkage/{id}/edit', [LinkageController::class, "show"]);
     Route::post('/edit_linkage/{id}', [LinkageController::class, "edit"])->name('editlinkage');
-
     Route::get('/linkage/{id}/delete', [LinkageController::class, "destroy"])->name('deletelinkage');
 
-    // fee_structure
-    Route::get('/fee_structure', [Fee_StructureController::class, "index"])->name('fee_structure');
-    Route::post('/add_fee', [Fee_StructureController::class, "store"]);
-    Route::get('/edit_fee/{id}', [Fee_StructureController::class, "show"])->name('getfee_data');
-    Route::post('/update_fee/{id}', [Fee_StructureController::class, "edit"])->name('update_fee');
-    Route::get('/fee_structure/{id}/delete', [Fee_StructureController::class, "destroy"])->name('deletefee');
+    // Fee Structure: the tables on the public /Fee-Structure page.
+    Route::get('/fee_structure', [FeeController::class, 'index'])->name('fee_structure');
+    Route::post('/fee_structure/sections', [FeeController::class, 'storeSection'])->name('fees.sections.store');
+    Route::get('/fee_structure/sections/{section}/edit', [FeeController::class, 'editSection'])->name('fees.sections.edit');
+    Route::put('/fee_structure/sections/{section}', [FeeController::class, 'updateSection'])->name('fees.sections.update');
+    Route::delete('/fee_structure/sections/{section}', [FeeController::class, 'destroySection'])->name('fees.sections.destroy');
+    Route::post('/fee_structure/items', [FeeController::class, 'storeItem'])->name('fees.items.store');
+    Route::get('/fee_structure/items/{item}/edit', [FeeController::class, 'editItem'])->name('fees.items.edit');
+    Route::put('/fee_structure/items/{item}', [FeeController::class, 'updateItem'])->name('fees.items.update');
+    Route::post('/fee_structure/items/{item}/toggle', [FeeController::class, 'toggleItem'])->name('fees.items.toggle');
+    Route::delete('/fee_structure/items/{item}', [FeeController::class, 'destroyItem'])->name('fees.items.destroy');
 
+    // Site Settings: contact details, links, announcement bar, maintenance mode.
+    Route::get('/site_settings', [SiteSettingsController::class, 'index'])->name('site_settings');
+    Route::post('/site_settings', [SiteSettingsController::class, 'update'])->name('site_settings.update');
+    Route::post('/site_settings/maintenance', [SiteSettingsController::class, 'maintenance'])->name('site_settings.maintenance');
+    Route::get('/site_settings/preview', [SiteSettingsController::class, 'preview'])->name('site_settings.preview');
 
-    // Staff information 
-
+    // Staff information
     Route::get('/staff', [StaffInformationController::class, "index"])->name('staff');
     Route::post('/add_staff', [StaffInformationController::class, "store"]);
     Route::get('/saff_cv/{id}/staff_cv', [StaffInformationController::class, "Show_cv"]);
@@ -106,48 +106,63 @@ Route::middleware(['adminType'])->group(function () {
     Route::get('/edit_staff/{id}', [StaffInformationController::class, "show"])->name('edit_staff');
     Route::post('/update_staff/{id}', [StaffInformationController::class, "update"])->name('update_staff');
     Route::get('/staff/{id}/delete', [StaffInformationController::class, "destroy"])->name('deletestaff');
+});
 
+// Security scanner (admin + SECURITY_SCANNER_KEY). 404 when the key is not set.
+Route::middleware(['adminType', 'throttle:30,1'])->prefix('security_scan')->group(function () {
+    Route::get('/', [SecurityScanController::class, 'index'])->name('security.index');
+    Route::post('/unlock', [SecurityScanController::class, 'unlock'])->middleware('throttle:5,10')->name('security.unlock');
+    Route::post('/lock', [SecurityScanController::class, 'lock'])->name('security.lock');
+    Route::post('/scan', [SecurityScanController::class, 'scan'])->name('security.scan');
+    Route::post('/quarantine', [SecurityScanController::class, 'quarantine'])->name('security.quarantine');
+    Route::post('/undo', [SecurityScanController::class, 'undo'])->name('security.undo');
+    Route::post('/restore-index', [SecurityScanController::class, 'restoreIndex'])->name('security.restore');
+    Route::post('/kick', [SecurityScanController::class, 'kick'])->name('security.kick');
+});
 
-// });
-
-
-// Route::middleware(['mustBeLoggedIn'])->group(function () {
-
-    // Route::get('/add_event', function () {
-    //     return view('admin.add_events');
-    // });
-
-    Route::get('/add_news', function () {
-        return view(view: 'admin.add_news');
-    })->name('add_news');
-
-    //Event Routes  middleware and controllers //
-    Route::post('/add_event', [EventsController::class, "addEvent"]);
-    Route::get('/add_event', [EventsController::class, "showEvents"])->name('add_event');
-    Route::get('/add_event/{event}/delete/', [EventsController::class, "deleteEvent"]);
-    Route::get('/add_event/{event}/status/{event_status}', [EventsController::class, "eventStatus"]);
-    Route::get('/edit_event/{event}/edit/', [EventsController::class, "showEditForm"])->name('edit_event');
-    Route::post('/edit_event/{event}', [EventsController::class, "editEvent"])->name('eventsubmit');
-    ;
-
-    //News Routes  middleware and controllers //
-    Route::post('/add_news', [NewsController::class, "addNews"]);
-    Route::get('/add_news', [NewsController::class, "showNews"])->name('add_news');
-    Route::get('/edit_news/{news}/edit/', [NewsController::class, "showEditForm"]);
-    Route::post('/edit_news/{news}', [NewsController::class, "editNews"])->name('editnews_submit');
-    Route::get('/add_news/{news}/delete/', [NewsController::class, "deleteNews"]);
-
+// Maintenance commands (admin + own password again).
+Route::middleware(['adminType'])->prefix('server_tools')->group(function () {
+    Route::get('/', [ServerToolsController::class, 'index'])->name('tools.index');
+    Route::post('/unlock', [ServerToolsController::class, 'unlock'])->middleware('throttle:5,10')->name('tools.unlock');
+    Route::post('/lock', [ServerToolsController::class, 'lock'])->name('tools.lock');
+    Route::post('/run', [ServerToolsController::class, 'run'])->middleware('throttle:20,1')->name('tools.run');
 });
 
 Route::get('/logout', [UserController::class, "logout"]);
-Route::post('/login', [UserController::class, "login"])->middleware('guest');
-Route::get('/register', [UserController::class, "register"]);
+// SECURITY: brute-force protection on login (5 attempts / minute).
+Route::post('/login', [UserController::class, "login"])->middleware(['guest', 'throttle:5,1']);
+// SECURITY: the public /register route was removed. It created and logged in
+// an "admin" account with password "123" for anyone who visited it.
 
 
 
 //Client routes //
 
-Route::middleware(['web', 'visitor'])->group(function () {
+// Public pages use no login, so they skip sessions and cookies. That lets the
+// page cache and browsers keep them.
+$noSession = [
+    \App\Http\Middleware\EncryptCookies::class,
+    \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
+    \Illuminate\Session\Middleware\StartSession::class,
+    \Illuminate\View\Middleware\ShareErrorsFromSession::class,
+    \App\Http\Middleware\VerifyCsrfToken::class,
+];
+
+Route::get('/sitemap.xml', [SitemapController::class, 'index'])
+    ->middleware('page.cache')->withoutMiddleware($noSession)->name('sitemap');
+
+// Google Search Console ownership file. Only names listed in config/seo.php work.
+Route::get('/{file}.html', function (string $file) {
+    abort_unless(in_array($file, config('seo.google_files'), true), 404);
+
+    return response("google-site-verification: {$file}.html", 200, ['Content-Type' => 'text/html; charset=UTF-8']);
+})->where('file', 'google[0-9a-f]{16}')->withoutMiddleware($noSession)->name('google.file');
+
+// Old addresses: one page, one URL.
+Route::permanentRedirect('/Home', '/')->withoutMiddleware($noSession);
+Route::permanentRedirect('/news_events', '/News-and-Events')->withoutMiddleware($noSession);
+
+Route::middleware(['site.maintenance', 'visitor', 'page.cache'])->withoutMiddleware($noSession)->group(function () {
 
 
     // Route::get('/', function () {
@@ -158,18 +173,13 @@ Route::middleware(['web', 'visitor'])->group(function () {
     //     return view('client.Home');
     // })->name('Home');
 
-    Route::get('/', [HomeController::class, "index"]);
-    Route::get('/Home', [HomeController::class, "index"])->name('Home');
+    Route::get('/', [HomeController::class, "index"])->name('Home');
 
 
 
     Route::get('/About-FU', function () {
         return view('client.About-FU');
     })->name('About-FU');
-
-    Route::get('/news_events', function () {
-        return view('client.News-and-Events');
-    })->name('news_events');
 
     Route::get('/Fu-Linkages', function () {
         return view('client.Fu-Linkages');
@@ -253,17 +263,7 @@ Route::middleware(['web', 'visitor'])->group(function () {
     })->name('IRDC');
 
 
-    Route::get('/Fee-Structure', function () {
-        return view('client.Fee-structure');
-    })->name('Fees');
-
-    Route::get('/Scholarships', function () {
-        return view('client.Scholarships');
-    })->name('Scholarships');
-
-    Route::get('/Fee-Structure', function () {
-        return view('client.Fee-structure');
-    })->name('Fees');
+    Route::get('/Fee-Structure', [FeeController::class, 'page'])->name('Fees');
 
     Route::get('/Scholarships', function () {
         return view('client.Scholarships');
@@ -272,17 +272,12 @@ Route::middleware(['web', 'visitor'])->group(function () {
 });
 
 
-// Route::get('/', [NewsController::class, "NewsAndEvents"]);
-// Route::get('/', [NewsController::class, "viewNews"]);
+Route::middleware(['site.maintenance', 'visitor', 'page.cache'])->withoutMiddleware($noSession)->group(function () {
+    Route::get('/Event-Details/{event}', [EventsController::class, "eventDetails"])->name('eventDetails');
+    Route::get('/News-Details/{news}', [NewsController::class, "newsDetails"])->name('newsDetails');
+    Route::get('/News-and-Events', [NewsController::class, "NewsAndEvents"])->name('NewsAndEvents');
+    Route::get('/Facts-Figures', [ChartController::class, 'barChart'])->name('barChart');
+});
 
-// Route::get('/Home', [NewsController::class, "viewNews" ]);
-// Route::get('/Home', [EventsController::class, "viewEvents" ]);
-Route::get('/Event-Details/{event}', [EventsController::class, "eventDetails"])->name('eventDetails');
-Route::get('/News-Details/{news}', [NewsController::class, "newsDetails"])->name('newsDetails');
-Route::get('/News-and-Events', [NewsController::class, "NewsAndEvents"])->name('NewsAndEvents');
-Route::get('/search', [NewsController::class, 'search'])->name('search');
-Route::get('/Facts-Figures', [ChartController::class, 'barChart'])->name('barChart');
-
-
-
-
+// Live search box. Not cached.
+Route::get('/search', [NewsController::class, 'search'])->middleware(['site.maintenance', 'throttle:60,1'])->withoutMiddleware($noSession)->name('search');

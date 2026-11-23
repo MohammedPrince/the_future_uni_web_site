@@ -65,8 +65,8 @@
                                                 <h5 class="card-title mb-0">Description</h5>
                                             </div>
                                             <div class="card-body col-12 col-lg-12">
-                                                <textarea name="news_desc" class="form-control" id="markdown-editor"
-                                                    placeholder="Enter Event Description">{{ old('news_desc',$news->news_desc) }}</textarea>
+                                                <textarea name="news_desc" class="form-control" data-rich-editor
+                                                    placeholder="Enter News Description">{{ old('news_desc', \App\Support\RichText::forEditor($news->news_desc)) }}</textarea>
                                                 @error('news_desc')
                                                     <div class="alert error text-center">
                                                         <p class="inner">{{ $message }}</p>
@@ -97,11 +97,7 @@
                                             </div>
                                         <div class="card-body col-6 col-lg-6">
 
-                                            @foreach (explode(',', $news->news_imgs) as $image)
-                                            <a  href="/storage/news_imgs/{{$image}}" target="_blank">
-                                            <img src="/storage/news_imgs/{{$image}}" style="width:100px;height:100px">
-                                            </a>
-                                            @endforeach
+                                            @include('admin.partials.current_images', ['folder' => 'news_imgs', 'images' => $news->news_imgs])
                                         </div>
 
                                             <div class="card-header">

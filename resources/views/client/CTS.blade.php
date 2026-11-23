@@ -109,7 +109,7 @@
                     
 <div class="col-md-6 col-lg-3">
 <div class="member">
-<div class="member-pic set-bg" data-setbg="{{asset('./public/storage/staff_imgs/IMG_7417.jpg')}}">
+<div class="member-pic set-bg" style="background-image:url('@img('storage/staff_imgs/IMG_7417.jpg')')">
 <div class="member-social">
 <a href = "https://sd.linkedin.com/in/khalidkaradh" target="_blank"><i class="fa fa-linkedin-square"></i></a>
 <a href = "https://scholar.google.com/citations?user=kzPAeHMAAAAJ&hl=en&oi=ao" target="_blank"><i class="fa fa-graduation-cap"></i></a>
@@ -123,7 +123,7 @@
 </div>
 <div class="col-md-6 col-lg-3">
 <div class="member">
-<div class="member-pic set-bg" data-setbg="{{asset('./public/storage/staff_imgs/mutazCTS.jpg')}}">
+<div class="member-pic set-bg" style="background-image:url('@img('storage/staff_imgs/mutazCTS.jpg')')">
 <div class="member-social">
 <a href><i class="fa fa-facebook"></i></a>
 <a href><i class="fa fa-twitter"></i></a>
@@ -136,7 +136,7 @@
 </div>
 <div class="col-md-6 col-lg-3">
 <div class="member">
-<div class="member-pic set-bg" data-setbg="{{asset('./public/storage/staff_imgs/woman_user_noimage.png')}}">
+<div class="member-pic set-bg" style="background-image:url('@img('storage/staff_imgs/woman_user_noimage.png')')">
 <div class="member-social">
 <a href><i class="fa fa-facebook"></i></a>
 <a href><i class="fa fa-twitter"></i></a>
@@ -149,7 +149,7 @@
 </div>
 <div class="col-md-6 col-lg-3">
 <div class="member">
-<div class="member-pic set-bg" data-setbg="{{asset('./public/storage/staff_imgs/test57992.jpg')}}">
+<div class="member-pic set-bg" style="background-image:url('@img('storage/staff_imgs/test57992.jpg')')">
 <div class="member-social">
 <a href><i class="fa fa-facebook"></i></a>
 <a href><i class="fa fa-twitter"></i></a>
@@ -163,7 +163,7 @@
 
 <div class="col-md-6 col-lg-3">
 <div class="member">
-<div class="member-pic set-bg" data-setbg="{{asset('./public/storage/staff_imgs/newmazinCTS.jpg')}}">
+<div class="member-pic set-bg" style="background-image:url('@img('storage/staff_imgs/newmazinCTS.jpg')')">
 <div class="member-social">
 <a href><i class="fa fa-facebook"></i></a>
 <a href><i class="fa fa-twitter"></i></a>
@@ -175,7 +175,7 @@
 </div>
 </div><div class="col-md-6 col-lg-3">
 <div class="member">
-<div class="member-pic set-bg" data-setbg="{{asset('./public/storage/staff_imgs/asmaCTS.jpg')}}">
+<div class="member-pic set-bg" style="background-image:url('@img('storage/staff_imgs/asmaCTS.jpg')')">
 <div class="member-social">
 <a href><i class="fa fa-facebook"></i></a>
 <a href><i class="fa fa-twitter"></i></a>
@@ -187,7 +187,7 @@
 </div>
 </div><div class="col-md-6 col-lg-3">
 <div class="member">
-<div class="member-pic set-bg" data-setbg="{{asset('./public/storage/staff_imgs/test57992.jpg')}}">
+<div class="member-pic set-bg" style="background-image:url('@img('storage/staff_imgs/test57992.jpg')')">
 <div class="member-social">
 <a href><i class="fa fa-facebook"></i></a>
 <a href><i class="fa fa-twitter"></i></a>

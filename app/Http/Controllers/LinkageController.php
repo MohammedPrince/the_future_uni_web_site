@@ -48,7 +48,7 @@ class LinkageController extends Controller
             'link_duration' => ['nullable','string','max:255'],
             'link_url' =>  ['required','url','max:200',Rule::unique('linkages' ,'link_url')],
             'link_desc' => ['nullable','string','max:200'],
-            'link_logo' => ['nullable','mimes:png,jpg,jpeg,ico','max:2048'],
+            'link_logo' => ['nullable','image','mimes:png,jpg,jpeg','max:2048'],
             
         ],[
             'link_name.required' => 'Link Name is must.',
@@ -70,7 +70,7 @@ class LinkageController extends Controller
                     $imageName = null;
                     if ($request->hasFile('link_logo')) {
                         $image = $request->file('link_logo');
-                        $imageName = $image->getClientOriginalName();
+                        $imageName = $image->hashName(); // SECURITY: random name + extension from file content
                         $imagePath = $image->storeAs('linkages', $imageName, 'public');
                     }
                 
@@ -128,7 +128,7 @@ class LinkageController extends Controller
         'link_duration' => ['nullable','string','max:255'],
         'link_url' =>  ['required','url','max:200'],
         'link_desc' => ['nullable','string','max:200'],
-        'link_logo' => ['nullable','mimes:png,jpg,jpeg,ico','max:2048'],
+        'link_logo' => ['nullable','image','mimes:png,jpg,jpeg','max:2048'],
         
     ],[
         'link_name.required' => 'Link Name is must.',
@@ -142,7 +142,7 @@ class LinkageController extends Controller
                 $imageName = $request->input('old_image');
                 if ($request->hasFile('link_logo')) {
                     $image = $request->file('link_logo');
-                    $imageName = $image->getClientOriginalName();
+                    $imageName = $image->hashName(); // SECURITY: random name + extension from file content
                     $imagePath = $image->storeAs('linkages', $imageName, 'public');
 
                     $old_image = $request->input('old_image');

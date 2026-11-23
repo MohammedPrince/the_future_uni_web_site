@@ -12,6 +12,7 @@ class EncryptCookies extends Middleware
      * @var array<int, string>
      */
     protected $except = [
-        //
+        // Signed by SiteMaintenance itself; public pages have no cookie decryption.
+        \App\Http\Middleware\SiteMaintenance::PREVIEW_COOKIE,
     ];
 }

@@ -52,10 +52,10 @@
                                                                 <div class="desc-wrap">
 
                                                                     @if ($search_result->cv_image == '')
-                                                                        <img src="{{ asset('/storage/app/public/' . 'test57992.jpg') }}"
+                                                                        <img loading="lazy" decoding="async" src="{{ asset('/storage/app/public/' . 'test57992.jpg') }}"
                                                                             alt="" >
                                                                     @else
-                                                                        <img src="{{ asset('/storage/app/public/staff_imgs/' . $search_result->cv_image) }}"
+                                                                        <img loading="lazy" decoding="async" src="{{ asset('/storage/app/public/staff_imgs/' . $search_result->cv_image) }}"
                                                                             alt="">
                                                                     @endif
 

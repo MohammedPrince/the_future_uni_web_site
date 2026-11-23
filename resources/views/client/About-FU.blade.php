@@ -41,7 +41,7 @@
                     </ul>
                 </div>
                 <!-- <div class="col-lg-6 pt-5 pt-lg-0">
-                        <img src="./public/client/img/main_imgs/general/fu.jpg" alt>
+                        <img loading="lazy" decoding="async" src="@img('client/img/main_imgs/general/fu.jpg')" alt>
                     </div> -->
             </div>
 
@@ -120,7 +120,7 @@
                     <div class="col-lg-3 col-md-3">
                         <div class="single-feature">
                             <div class="desc-wrap">
-                                <img src="./public/client/img/main_imgs/trustee/dr_ghassan.png" alt="Board of Trustees">
+                                <img loading="lazy" decoding="async" src="@img('client/img/main_imgs/trustee/dr_ghassan.png')" alt="Board of Trustees">
                                 <p class="additional-text">Dr. Ghassan Abubaker Mustafa</p>
                             </div>
                             <div>
@@ -132,7 +132,7 @@
                     <div class="col-lg-3 col-md-3">
                         <div class="single-feature">
                             <div class="desc-wrap">
-                                <img src="./public/client/img/main_imgs/trustee/dr_abubaker.png" alt="Board of Trustees">
+                                <img loading="lazy" decoding="async" src="@img('client/img/main_imgs/trustee/dr_abubaker.png')" alt="Board of Trustees">
                                 <p class="additional-text text-center">Chairman of the Board of Trustees; Founder; Investor
                                 </p>
                             </div>
@@ -145,7 +145,7 @@
                     <div class="col-lg-3 col-md-3">
                         <div class="single-feature">
                             <div class="desc-wrap">
-                                <img src="./public/client/img/main_imgs/trustee/azeb.png" alt="Board of Trustees">
+                                <img loading="lazy" decoding="async" src="@img('client/img/main_imgs/trustee/azeb.png')" alt="Board of Trustees">
                                 <p class="additional-text text-center">The Former First Lady of The Republic of Ethiopia;
                                     Vice President of Organization of African First Ladies Against
                                     HIV/AIDS; Founder and Patron of Ethiopia's National Initiative for Mental Health.</p>
@@ -159,7 +159,7 @@
                     <div class="col-lg-3 col-md-3">
                         <div class="single-feature">
                             <div class="desc-wrap">
-                                <img src="./public/client/img/main_imgs/trustee/madam_francine.png" alt="Board of Trustees">
+                                <img loading="lazy" decoding="async" src="@img('client/img/main_imgs/trustee/madam_francine.png')" alt="Board of Trustees">
                                 <p class="additional-text">
                                     Chairperson of Cousteau Society, Paris France.
                                 </p>
@@ -173,7 +173,7 @@
                     <div class="col-lg-3 col-md-3">
                         <div class="single-feature">
                             <div class="desc-wrap">
-                                <img src="./public/client/img/main_imgs/trustee/dr_Bruce.png" alt="Board of Trustees">
+                                <img loading="lazy" decoding="async" src="@img('client/img/main_imgs/trustee/dr_Bruce.png')" alt="Board of Trustees">
                                 <p class="additional-text">
                                     Chancellors Leadership Chair in Biochemistry & Biophysics for Science &
                                     Education of California & Education of California, San Francisco USA; Former
@@ -195,7 +195,7 @@
                     <div class="col-lg-3 col-md-3">
                         <div class="single-feature">
                             <div class="desc-wrap">
-                                <img src="./public/client/img/main_imgs/trustee/pro_adnan.png" alt="Board of Trustees">
+                                <img loading="lazy" decoding="async" src="@img('client/img/main_imgs/trustee/pro_adnan.png')" alt="Board of Trustees">
                                 <p class="additional-text">Chairman of the Board of Trustees,
                                     University of Jordan; President of Arab Academy of Sciences; Former President of
                                     Petra University; Former Prime Minister of Jordan; Former Deputy Director General of
@@ -210,7 +210,7 @@
                     <div class="col-lg-3 col-md-3">
                         <div class="single-feature">
                             <div class="desc-wrap">
-                                <img src="./public/client/img/main_imgs/trustee/pro_maged.png" alt="Board of Trustees">
+                                <img loading="lazy" decoding="async" src="@img('client/img/main_imgs/trustee/pro_maged.png')" alt="Board of Trustees">
                                 <p class="additional-text">Senior Advisor to Kuwait Institute for Scientific Research,
                                     Kuwait; Former President of the Academy of the Scientific Research and
                                     Technology (ASRT), EGYPT; Former Assistant Minister of Higher Education and Scientific
@@ -225,7 +225,7 @@
                     <div class="col-lg-3 col-md-3">
                         <div class="single-feature">
                             <div class="desc-wrap">
-                                <img src="./public/client/img/main_imgs/trustee/prof_abdul.png" alt="Board of Trustees">
+                                <img loading="lazy" decoding="async" src="@img('client/img/main_imgs/trustee/prof_abdul.png')" alt="Board of Trustees">
                                 <p class="additional-text">Co-Chair of the International Scientific Advisory Board to
                                     United
                                     Nation Secretary General; Science Advisor to the Prime Minister, Malaysia; Chairman of
@@ -241,7 +241,7 @@
                     <div class="col-lg-3 col-md-3">
                         <div class="single-feature">
                             <div class="desc-wrap">
-                                <img src="./public/client/img/main_imgs/trustee/prof_farouk.png" alt="Board of Trustees">
+                                <img loading="lazy" decoding="async" src="@img('client/img/main_imgs/trustee/prof_farouk.png')" alt="Board of Trustees">
                                 <p class="additional-text">President, Technology Development Corporation, USA; Former
                                     Science Advisor to NATO, US-State Dept.; Advisor to the two Former US Presidents
                                     (President Richard Nixon
@@ -256,7 +256,7 @@
                     <div class="col-lg-3 col-md-3">
                         <div class="single-feature">
                             <div class="desc-wrap">
-                                <img src="./public/client/img/main_imgs/trustee/prof_firouz.png" alt="Board of Trustees">
+                                <img loading="lazy" decoding="async" src="@img('client/img/main_imgs/trustee/prof_firouz.png')" alt="Board of Trustees">
                                 <p class="additional-text">President, Technology Development Corporation, USA; Former
                                     Science advisor to NATO, US-State Dept.;
                                     Advisor to the two former US Presidents (President Richard Nixon and President Ronald
@@ -271,7 +271,7 @@
                     <div class="col-lg-3 col-md-3">
                         <div class="single-feature">
                             <div class="desc-wrap">
-                                <img src="./public/client/img/main_imgs/trustee/dato_lee.png" alt="Board of Trustees">
+                                <img loading="lazy" decoding="async" src="@img('client/img/main_imgs/trustee/dato_lee.png')" alt="Board of Trustees">
                                 <p class="additional-text">Chairman, Governing Board, ISTIC KL, Malaysia; Chairman of the
                                     Global Committee for Science Education (IAP)</p>
                             </div>
@@ -284,7 +284,7 @@
                     <div class="col-lg-3 col-md-3">
                         <div class="single-feature">
                             <div class="desc-wrap">
-                                <img src="./public/client/img/main_imgs/trustee/prof_mohamed.png" alt="Board of Trustees">
+                                <img loading="lazy" decoding="async" src="@img('client/img/main_imgs/trustee/prof_mohamed.png')" alt="Board of Trustees">
                                 <p class="additional-text">Member of Pontifical Academy of Sciences in Vatican City;
                                     Co-Chairman of IAP, The Global Network of Science Academies;
                                     Chairman of the Sudan National Academy of Science (SNAS); Chairman of the Council of the
@@ -302,7 +302,7 @@
                     <div class="col-lg-3 col-md-3">
                         <div class="single-feature">
                             <div class="desc-wrap">
-                                <img src="./public/client/img/main_imgs/trustee/prof_elias.png" alt="Board of Trustees">
+                                <img loading="lazy" decoding="async" src="@img('client/img/main_imgs/trustee/prof_elias.png')" alt="Board of Trustees">
                                 <p class="additional-text">Professor of Biology Department, American University Beirut;
                                     Secretary General of
                                     Arab Academy of Sciences- Beirut; Member of Third World Academy of Sciences (TWAS)</p>
@@ -316,7 +316,7 @@
                     <div class="col-lg-3 col-md-3">
                         <div class="single-feature">
                             <div class="desc-wrap">
-                                <img src="./public/client/img/main_imgs/trustee/dr_gilbert.png" alt="Board of Trustees">
+                                <img loading="lazy" decoding="async" src="@img('client/img/main_imgs/trustee/dr_gilbert.png')" alt="Board of Trustees">
                                 <p class="additional-text">International Consultant; Former Director at Paris School of
                                     Mining (GRANDE ECOLE);
                                     Adviser to several International Companies; Adviser to several Countries.
@@ -332,7 +332,7 @@
                     <div class="col-lg-3 col-md-3">
                         <div class="single-feature">
                             <div class="desc-wrap">
-                                <img src="./public/client/img/main_imgs/trustee/prof_abdelhafiz.png"
+                                <img loading="lazy" decoding="async" src="@img('client/img/main_imgs/trustee/prof_abdelhafiz.png')"
                                     alt="Board of Trustees">
                                 <p class="additional-text">Director – General of the Private and Foreign Higher Education.
                                 </p>
@@ -346,7 +346,7 @@
                     <div class="col-lg-3 col-md-3">
                         <div class="single-feature">
                             <div class="desc-wrap">
-                                <img src="./public/client/img/main_imgs/trustee/ust_dafa_alla.png"
+                                <img loading="lazy" decoding="async" src="@img('client/img/main_imgs/trustee/ust_dafa_alla.png')"
                                     alt="Board of Trustees">
                                 <p class="additional-text">Former Chief of the Judiciary; Former Chairman, Computer Man
                                     College; Former Minister of Justice</p>
@@ -360,7 +360,7 @@
                     <div class="col-lg-3 col-md-3">
                         <div class="single-feature">
                             <div class="desc-wrap">
-                                <img src="./public/client/img/main_imgs/trustee/ust_abdel_basit.png"
+                                <img loading="lazy" decoding="async" src="@img('client/img/main_imgs/trustee/ust_abdel_basit.png')"
                                     alt="Board of Trustees">
                                 <p class="additional-text">Former Minister of Justice, Federal Governance, Parliamentary
                                     Affairs, Culture and Information
@@ -376,7 +376,7 @@
                     <div class="col-lg-3 col-md-3">
                         <div class="single-feature">
                             <div class="desc-wrap">
-                                <img src="./public/client/img/main_imgs/trustee/prof_alec.png" alt="Board of Trustees">
+                                <img loading="lazy" decoding="async" src="@img('client/img/main_imgs/trustee/prof_alec.png')" alt="Board of Trustees">
                                 <p class="additional-text">Prof. Alec Boksenberg
                                 </p>
                             </div>
@@ -389,7 +389,7 @@
                     <div class="col-lg-3 col-md-3">
                         <div class="single-feature">
                             <div class="desc-wrap">
-                                <img src="./public/client/img/main_imgs/trustee/dr_eltayeb_murkaz.png"
+                                <img loading="lazy" decoding="async" src="@img('client/img/main_imgs/trustee/dr_eltayeb_murkaz.png')"
                                     alt="Board of Trustees">
                                 <p class="additional-text">Former Dean of the Faculty of Law, Khartoum University.</p>
                             </div>
@@ -403,7 +403,7 @@
                     <div class="col-lg-3 col-md-3">
                         <div class="single-feature">
                             <div class="desc-wrap">
-                                <img src="./public/client/img/main_imgs/trustee/prof_ali_shomo.png"
+                                <img loading="lazy" decoding="async" src="@img('client/img/main_imgs/trustee/prof_ali_shomo.png')"
                                     alt="Board of Trustees">
                                 <p class="additional-text">Former Minister of Information Media Expert and University
                                     Lecturer Head National Council
@@ -418,7 +418,7 @@
                     <div class="col-lg-3 col-md-3">
                         <div class="single-feature">
                             <div class="desc-wrap">
-                                <img src="./public/client/img/main_imgs/trustee/eng_osman.png" alt="Board of Trustees">
+                                <img loading="lazy" decoding="async" src="@img('client/img/main_imgs/trustee/eng_osman.png')" alt="Board of Trustees">
                                 <p class="additional-text">Advisor at Future University Former President, Engineering
                                     Society Former
                                     Deputy Dean for Administrative and Finance, Computer Man College
@@ -439,7 +439,7 @@
                     <div class="col-lg-3 col-md-3">
                         <div class="single-feature">
                             <div class="desc-wrap">
-                                <img src="./public/client/img/main_imgs/trustee/dr_abubaker.png"
+                                <img loading="lazy" decoding="async" src="@img('client/img/main_imgs/trustee/dr_abubaker.png')"
                                     alt="FOUNDERS, INVESTORS, AND REPRESENTATIVES">
 
                             </div>
@@ -452,7 +452,7 @@
                     <div class="col-lg-3 col-md-3">
                         <div class="single-feature">
                             <div class="desc-wrap">
-                                <img src="./public/client/img/main_imgs/trustee/dr_ghassan.png"
+                                <img loading="lazy" decoding="async" src="@img('client/img/main_imgs/trustee/dr_ghassan.png')"
                                     alt="FOUNDERS, INVESTORS, AND REPRESENTATIVES">
 
                             </div>
@@ -466,7 +466,7 @@
                     <div class="col-lg-3 col-md-3">
                         <div class="single-feature">
                             <div class="desc-wrap">
-                                <img src="./public/client/img/main_imgs/trustee/mrs_dahlia.png"
+                                <img loading="lazy" decoding="async" src="@img('client/img/main_imgs/trustee/mrs_dahlia.png')"
                                     alt="FOUNDERS, INVESTORS, AND REPRESENTATIVES">
 
                             </div>
@@ -479,7 +479,7 @@
                     <div class="col-lg-3 col-md-3">
                         <div class="single-feature">
                             <div class="desc-wrap">
-                                <img src="./public/client/img/main_imgs/trustee/madam_mona.png"
+                                <img loading="lazy" decoding="async" src="@img('client/img/main_imgs/trustee/madam_mona.png')"
                                     alt="FOUNDERS, INVESTORS, AND REPRESENTATIVES">
 
                             </div>
@@ -500,7 +500,7 @@
                         <div class="col">
                             <div class="single-feature">
                                 <div class="desc-wrap">
-                                    <img src="./public/client/img/main_imgs/trustee/dr_isam.png" alt="OTHER MEMBERS">
+                                    <img loading="lazy" decoding="async" src="@img('client/img/main_imgs/trustee/dr_isam.png')" alt="OTHER MEMBERS">
                                     <p class="additional-text">Deputy President of Academic Affairs</p>
                                 </div>
                                 <div>
@@ -513,7 +513,7 @@
                         <div class="col">
                             <div class="single-feature">
                                 <div class="desc-wrap">
-                                    <img src="./public/client/img/main_imgs/trustee/dr_tarig.png" alt="OTHER MEMBERS">
+                                    <img loading="lazy" decoding="async" src="@img('client/img/main_imgs/trustee/dr_tarig.png')" alt="OTHER MEMBERS">
                                     <p class="additional-text">Medical Specialist, UK</p>
                                 </div>
                                 <div>
@@ -526,7 +526,7 @@
                         <div class="col">
                             <div class="single-feature">
                                 <div class="desc-wrap">
-                                    <img src="./public/client/img/main_imgs/trustee/dr_salih.png" alt="OTHER MEMBERS">
+                                    <img loading="lazy" decoding="async" src="@img('client/img/main_imgs/trustee/dr_salih.png')" alt="OTHER MEMBERS">
                                     <p class="additional-text">The Librarian</p>
                                 </div>
                                 <div>
@@ -539,7 +539,7 @@
                         <div class="col">
                             <div class="single-feature">
                                 <div class="desc-wrap">
-                                    <img src="./public/client/img/main_imgs/trustee/ust_kawther.png" alt="OTHER MEMBERS">
+                                    <img loading="lazy" decoding="async" src="@img('client/img/main_imgs/trustee/ust_kawther.png')" alt="OTHER MEMBERS">
                                     <p class="additional-text">The Director for Admission and Registration</p>
                                 </div>
                                 <div>
@@ -552,7 +552,7 @@
                         <div class="col">
                             <div class="single-feature">
                                 <div class="desc-wrap">
-                                    <img src="./public/client/img/main_imgs/trustee/prof_abdelhafiz.png"
+                                    <img loading="lazy" decoding="async" src="@img('client/img/main_imgs/trustee/prof_abdelhafiz.png')"
                                         alt="OTHER MEMBERS">
                                     <p class="additional-text">Director – General of the Private and Foreign Higher
                                         Education</p>
@@ -575,7 +575,7 @@
 
                 <div class="feature">
                     <div class="circle" style="width: 120%; height: 120%; ">
-                        <img src="./public/client/img/main_imgs/trustee/dr_ghassan.png" width= "50%" height= "50%"
+                        <img loading="lazy" decoding="async" src="@img('client/img/main_imgs/trustee/dr_ghassan.png')" width= "50%" height= "50%"
                             alt="Image">
                     </div>
                     <div>
@@ -615,7 +615,7 @@
             <div id="Deputy President" class="tabcontent">
                 <div class="feature">
                     <div class="circle" style="width: 50%; height: 50%; ">
-                        <img src="./public/client/img/main_imgs/trustee/dr_isam.png" alt="Image">
+                        <img loading="lazy" decoding="async" src="@img('client/img/main_imgs/trustee/dr_isam.png')" alt="Image">
                     </div>
                     <div>
                         <p></p>

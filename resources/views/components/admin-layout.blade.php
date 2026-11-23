@@ -33,16 +33,45 @@
     <div class="wrapper">
         <nav id="sidebar" class="sidebar js-sidebar">
             <div class="sidebar-content js-simplebar">
-                <a class='sidebar-brand text-center' href='add_user'>
+                <a class='sidebar-brand text-center' href='{{ route("dashboard") }}'>
                    <span class="align-middle">Fu-Website<br>Content Managment</span>
                 </a>
 
                 <ul class="sidebar-nav">
                     <li class="sidebar-header"></li>
 
+                    <li class="sidebar-item @if (Request::is('dashboard')) active @endif">
+                        <a class='sidebar-link' href='{{ route("dashboard") }}'>
+                            <i class="align-middle" data-feather="home"></i> <span class="align-middle">Dashboard</span>
+                        </a>
+                    </li>
+
+                    <li class="sidebar-item @if (Request::is('site_settings*')) active @endif">
+                        <a class='sidebar-link' href='{{ route("site_settings") }}'>
+                            <i class="align-middle" data-feather="sliders"></i> <span class="align-middle">Site Settings</span>
+                            @if (\App\Models\Setting::enabled('maintenance_enabled'))
+                                <span class="badge bg-danger ms-1">Maintenance</span>
+                            @endif
+                        </a>
+                    </li>
+
                     <li class="sidebar-item '@if ( (Request::is('profile')) ) active @endif ' ">
                         <a class='sidebar-link' href='{{route("profile")}}'>
                             <i class="align-middle" data-feather="user"></i> <span class="align-middle">My Profile</span>
+                        </a>
+                    </li>
+
+                    @if (strlen((string) config('app.security_scanner_key')) >= 24)
+                    <li class="sidebar-item '@if (Request::is('security_scan*')) active @endif' ">
+                        <a class='sidebar-link' href='{{ route("security.index") }}'>
+                            <i class="align-middle" data-feather="shield"></i> <span class="align-middle">Security Scan</span>
+                        </a>
+                    </li>
+                    @endif
+
+                    <li class="sidebar-item '@if (Request::is('server_tools*')) active @endif' ">
+                        <a class='sidebar-link' href='{{ route("tools.index") }}'>
+                            <i class="align-middle" data-feather="server"></i> <span class="align-middle">Server Tools</span>
                         </a>
                     </li>
 
@@ -72,7 +101,7 @@
                         </a>
                     </li>
 
-                    <li class="sidebar-item '@if ( (Request::is('fee_structure')) || (Request::is('edit_fee_structure'))  ) active @endif ' ">
+                    <li class="sidebar-item @if (Request::is('fee_structure*')) active @endif ">
                         <a class='sidebar-link' href='{{route("fee_structure")}}'>
                             <i class="align-middle" data-feather="slack"></i> <span class="align-middle">Fee Structure</span>
                         </a>
@@ -121,13 +150,14 @@
                                     alt="Charles Hall" /> <span class="text-dark">{{ auth()->user()->user_fullname }}</span>
                             </a>
                             <div class="dropdown-menu dropdown-menu-end">
-                                <a class='dropdown-item' href='profile'><i class="align-middle me-1"
+                                <a class='dropdown-item' href='{{ url("profile") }}'><i class="align-middle me-1"
                                         data-feather="user"></i> Profile</a>
-                               
-                               
+                                <a class='dropdown-item' href='{{ url("/") }}' target="_blank" rel="noopener"><i class="align-middle me-1"
+                                        data-feather="external-link"></i> Open the website</a>
+
                                 <div class="dropdown-divider"></div>
-                               
-                                <a class="dropdown-item" href="logout">Log out</a>
+
+                                <a class="dropdown-item" href="{{ url('logout') }}">Log out</a>
                             </div>
                         </li>
                     </ul>
@@ -217,6 +247,49 @@ const contactMDE = new EasyMDE({
         </script>
     <script src="https://code.jquery.com/jquery-3.7.0.js" ></script>
     <script src="{{asset('./public/admin/js/app.js')}}"></script>
+
+    {{-- HTML editor (TinyMCE 7, self-hosted in public/admin/vendor/tinymce) for every
+         <textarea data-rich-editor>. Loaded only on pages that have one.
+         The HTML is cleaned again on the server (App\Support\RichText). --}}
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            if (!document.querySelector('textarea[data-rich-editor]')) {
+                return;
+            }
+            var base = @json(asset('public/admin/vendor/tinymce'));
+            var script = document.createElement('script');
+            script.src = base + '/tinymce.min.js?v=7.9.3';
+            script.onload = function () {
+                tinymce.init({
+                    selector: 'textarea[data-rich-editor]',
+                    license_key: 'gpl',
+                    base_url: base,
+                    suffix: '.min',
+                    menubar: false,
+                    branding: false,
+                    promotion: false,
+                    plugins: 'lists advlist link autolink directionality code autoresize wordcount',
+                    toolbar: 'undo redo | blocks | bold italic underline | alignleft aligncenter alignright alignjustify | rtl ltr | bullist numlist outdent indent | blockquote link | removeformat code',
+                    block_formats: 'Paragraph=p; Heading 2=h2; Heading 3=h3; Heading 4=h4',
+                    min_height: 320,
+                    autoresize_bottom_margin: 20,
+                    entity_encoding: 'raw',
+                    convert_urls: false,
+                    link_default_target: '_blank',
+                    link_assume_external_targets: 'https',
+                    // Pasted text keeps its structure but not its fonts and colors.
+                    paste_as_text: false,
+                    paste_webkit_styles: 'none',
+                    invalid_styles: 'color background-color font-family font-size',
+                    content_style: "body { font-family: Ubuntu, 'Segoe UI', Tahoma, Arial, sans-serif; font-size: 15px; line-height: 1.6; }",
+                    setup: function (editor) {
+                        editor.on('change input undo redo', function () { editor.save(); });
+                    }
+                });
+            };
+            document.head.appendChild(script);
+        });
+    </script>
     <script src="{{asset('./public/admin/js/datatables.js')}}"></script>
     
    

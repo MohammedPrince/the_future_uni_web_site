@@ -20,7 +20,20 @@ class Events extends Model
         'event_imgs' ,
         'faculty_id' ,
         'event_by' ,
+        'event_status' ,
     ];
+
+    /** Everything an admin can manage: published and hidden, newest first. */
+    public static function forAdmin()
+    {
+        return static::with('users')->where('del', 0)->orderByDesc('event_date')->orderByDesc('id')->get();
+    }
+
+    /** Events that are switched on and not deleted. */
+    public function scopePublished($query)
+    {
+        return $query->where('del', 0)->where('event_status', '1');
+    }
 
     public static function getEvents(){
 

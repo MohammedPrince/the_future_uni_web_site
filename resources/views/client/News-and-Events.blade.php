@@ -27,7 +27,7 @@
                             <div class="post-item">
                                 @foreach (array_slice(explode(',', $newz->news_imgs), 0, 1) as $image)
                                     <div class="post-thumb set-bg"
-                                        data-setbg="public/storage/news_imgs/{{ $image }}"></div>
+                                        style="background-image:url('@img('storage/news_imgs/' . $image)')"></div>
                                 @endforeach
                                 <div class="post-content">
                                     <!-- <h3><a href="News-Details/{{ $newz->id }}">{{ $newz->news_title }}</a></h3> -->
@@ -42,10 +42,9 @@
                                     </div>
 
                                     <p>
-										{{ Str::words($newz->news_desc, 50, '...') }}<a
+										{{ \App\Support\RichText::excerpt($newz->news_desc, 50) }}<a
 											style="color: #ef7e22"
-											href="{{ route('newsDetails', base64_encode($newz->id)) }}">Read
-											More</a>
+											href="{{ route('newsDetails', base64_encode($newz->id)) }}">Read More <span class="visually-hidden">about {{ $newz->news_title }}</span></a>
 									</p>
                                 </div>
                             </div>
@@ -66,9 +65,9 @@
                             <div class="post-item">
 
                                 @foreach (array_slice(explode(',', $event->event_imgs), 0, 1) as $image)
-                                    <!-- <div class="post-thumb set-bg" data-setbg="public/storage/event_imgs/{{ $image }}"></div> -->
+                                    <!-- <div class="post-thumb set-bg" style="background-image:url('@img('storage/event_imgs/' . $image)')"></div> -->
                                     <div class="post-thumb set-bg"
-                                        data-setbg="{{ asset('./public/storage/event_imgs/' . $image) }}"></div>
+                                        style="background-image:url('@img('storage/event_imgs/' . $image)')"></div>
 
                                     <!-- {{ asset('./public/storage/event_imgs/' . $image) }} -->
                                 @endforeach
@@ -85,7 +84,7 @@
                                     </div>
 
                                     <p style="font-size:17px;">
-                                        {{ Str::words($event->event_desc, 3, '...') }}
+                                        {{ \App\Support\RichText::excerpt($event->event_desc, 3) }}
                                         <!-- <span><a href="Event-Details/{{ $event->id }}" style="color:#d1291f; font-size:16px;" >Read More</a></span> -->
                                         <span><a href="{{ route('eventDetails', base64_encode($event->id)) }}"
                                                 style="color:#d1291f; font-size:16px;">Read More</a></span>
@@ -109,7 +108,7 @@
                         <div class="search-widget">
                             <input type="text" id="search-input" class="form-control"
                                 placeholder="Search for News and Events">
-                            <button><i class="ti-search"></i></button>
+                            <button type="button" aria-label="Search"><i class="ti-search" aria-hidden="true"></i></button>
                         </div>
                         <div class="text-center" id="search-results" style="margin-top: 20px;"></div>
                     </div>

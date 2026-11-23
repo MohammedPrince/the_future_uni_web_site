@@ -20,13 +20,14 @@ class UserController extends Controller
             'loginpassword' => ['required'],
         ]);
       
-        if(auth()->attempt(['username' => $incomingFields['loginusername'] , 'password' => $incomingFields['loginpassword'] ])){
+        // SECURITY: disabled/deleted accounts (del = 1) can no longer log in.
+        if(auth()->attempt(['username' => $incomingFields['loginusername'] , 'password' => $incomingFields['loginpassword'], 'del' => 0 ])){
            
             $request ->session()->regenerate();
             $usey_type = auth()->user()->isAdmin;
 
             if($usey_type == 1){
-                return redirect('/add_user')->with('success', $incomingFields['loginusername']." , You have successfully logged in.");
+                return redirect('/dashboard')->with('success', $incomingFields['loginusername']." , You have successfully logged in.");
             }elseif($usey_type == 0){
                 return redirect('/add_event')->with('success', $incomingFields['loginusername']." , You have successfully logged in.");
             }
@@ -58,7 +59,9 @@ class UserController extends Controller
             if(!$validate->fails()){
 
                 $request['user_by'] = auth()->user()->id;
-                $request['password'] =   bcrypt($request['username']."@FU*#" );
+                // SECURITY: random initial password (was the guessable username."@FU*#").
+                $plainPassword = \Illuminate\Support\Str::random(14);
+                $request['password'] = bcrypt($plainPassword);
 
                 if (User::where('username', $request['username'])->count() > 0) {
 
@@ -66,10 +69,10 @@ class UserController extends Controller
 
                 }else{
 
-                    $user = User::create($request->all());
+                    $user = User::create($request->only(['username', 'user_fullname', 'user_phone', 'user_email', 'isAdmin', 'user_faculty', 'user_by', 'password']));
 
                     if($user){
-                        return redirect('/add_user')->with('success','User Account Created Successfully !');
+                        return redirect('/add_user')->with('success','User Account Created Successfully ! Initial password (shown once): '.$plainPassword);
                     }else{
                         return redirect('/add_user')->with('failure','Error While Creating User Account !');
                     }
@@ -126,7 +129,9 @@ class UserController extends Controller
 
                 $request['user_by'] = auth()->user()->id;
 
-                    if( $user ->update($request->all())){
+                    $fields = $request->only(['username', 'user_fullname', 'user_phone', 'user_email', 'isAdmin', 'user_faculty', 'user_by']);
+
+                    if( $user ->update($fields)){
 
                         return redirect('/add_user')->with('success','User Account Successfully Updated !');
                     }else{
@@ -149,39 +154,8 @@ class UserController extends Controller
             return redirect('/add_user')->with('failure','Error While Deleting User Account !');
         }
     }
-    public function register(Request $request){
-
-
-        $username = 'admin';
-        $password = bcrypt('123');
-        $user_fullname = 'Mohammed Prince';
-        $user_phone = '0916554412';
-        $user_email = 'mohammed.beng@gmail.com';
-
-        if (User::where('username', $username)->count() > 0) {
-
-            return redirect('/admin_panel')->with('failure','Account already exists !');
-
-        }else{
-
-            $incomingFields = ([
-
-                'username' => $username,
-                'password' =>$password,
-                'user_fullname' => $user_fullname,
-                'user_phone' => $user_phone,
-                'user_email' => $user_email,
-             
-            ]);
-    
-            $user = User::create($incomingFields);
-            auth()->login($user);
-            if( $user){
-                echo 'Saved !';
-                return redirect('/add_user')->with('success', $user_fullname." , You have successfully logged in.");
-            }
-        }
-    }
+    // SECURITY: register() removed — it created a hardcoded admin/123 account
+    // and logged the visitor in. Create admins with `php artisan tinker` instead.
 
 
     public function newPage($id){
@@ -201,15 +175,13 @@ class UserController extends Controller
 
 
 
-    public function logout(){
+    public function logout(Request $request){
 
-        $user_name = auth()->user()->username;
-
-        if($user_name == ""){
-            $user_name = 'User';
-        }
+        $user_name = auth()->user()?->username ?: 'User';
 
         auth()->logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
         return redirect("/admin_panel")->with('success', $user_name.' , Logged out successfully !');
        
     }

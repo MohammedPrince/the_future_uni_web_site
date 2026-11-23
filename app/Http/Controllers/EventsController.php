@@ -54,8 +54,8 @@ class EventsController extends Controller
         $news='';
         $news_faculty_id='';
         $news_value = false;
-        $new_event_id = base64_decode($event_id);
-        $event = Events::find($new_event_id);
+        $new_event_id = (int) base64_decode($event_id);
+        $event = Events::published()->findOrFail($new_event_id);
 
         $faculty_id = Events :: GetEventColumn('faculty_id',$new_event_id);
         $event_by_id = Events :: GetEventColumn('event_by',$new_event_id);
@@ -78,11 +78,12 @@ class EventsController extends Controller
 
     public function addEvent(Request $request){
         $incomingFields = $request->validate([
-            'event_title' => ['required' , 'min:5' , 'max:20' , Rule::unique('fu_events' , 'event_title') ] ,
+            'event_title' => ['required' , 'min:5' , 'max:100' , Rule::unique('fu_events' , 'event_title') ] ,
             'event_desc' =>['required' ] ,
             'event_time' => ['required'],
             'event_date' => ['required'],
-            'event_imgs' => 'required|max:10000',
+            'event_imgs' => 'required|array|max:20',
+            'event_imgs.*' => 'image|mimes:jpg,jpeg,png,webp|max:10000',
         ],[
             'event_title.required' => 'Event Title is must.',
             'event_desc.required' => 'Event Description is must.',
@@ -92,25 +93,35 @@ class EventsController extends Controller
         ]);
 
         $incomingFields['event_by'] = auth()->user()->id ;
+
+        // Description comes from the HTML editor: keep only safe formatting.
+        if (\App\Support\RichText::isEmpty($incomingFields['event_desc'])) {
+            return back()->withInput()->withErrors(['event_desc' => 'Event Description is must.']);
+        }
+        $incomingFields['event_desc'] = \App\Support\RichText::clean($incomingFields['event_desc']);
         $incomingFields['faculty_id'] = auth()->user()->user_faculty ;
+        // New events are published at once unless "Publish now" is unticked.
+        $incomingFields['event_status'] = $request->boolean('publish', true) ? 1 : 0;
 
         foreach($request->file('event_imgs') as $image)
             {
-                $name=$image->getClientOriginalName();
-                $img_name = $incomingFields['event_title']. '-'. uniqid().'.jpg' ;
-                
+                // SECURITY: never trust the client filename; re-encode as JPEG.
+                // (Also fixes a bug: the file was saved under the client name but
+                // the DB recorded $img_name, so the image never displayed.)
+                $img_name = \Illuminate\Support\Str::random(32).'.jpg';
+
                 $destinationPathThumbnail = public_path('/storage/event_imgs');
                 $img = Image::make($image->path());
 
                 $img->fit(570, 320);
-                $img->save($destinationPathThumbnail.'/'.$name);
+                $img->save($destinationPathThumbnail.'/'.$img_name, 85, 'jpg');
                 $data[] = $img_name;  
                 $fileNameToStore = implode (",", $data);
             }
 
             $incomingFields['event_imgs'] = $fileNameToStore ;
 
-        if (Events::create(strip_tags($incomingFields))){
+        if (Events::create(collect($incomingFields)->map(fn ($v, $k) => is_string($v) && $k !== 'event_desc' ? strip_tags($v) : $v)->all())){
 
             return redirect('/add_event')->with('success','Event '.$incomingFields['event_title']. ' Created Successfully !');
         }else{
@@ -118,21 +129,10 @@ class EventsController extends Controller
         }
     }
 
-    public function showEvents(Events $events){
-
-        $event_by='';
-        $faculty_id='';
-
-        if ($events->getEvents()->first() != null ){
-            $event_by  = $events->getEvents()->first()->news_by ; 
-            $faculty_id  = $events->getEvents()->first()->faculty_id  ;
-        }
-    
-       
-        $username = MainApp::GetUserDetails('user_fullname',$event_by);
-        $dept_name = MainApp::getFacultiesAndOffices($faculty_id);
- 
-        return view("admin.add_events" , ['events' => $events->getEvents(),'event_by'=>$username,'dept_name'=>$dept_name]);
+    public function showEvents(){
+        // All events that are not deleted, published or hidden. (Before, new events
+        // were saved hidden and this list showed only published ones, so they vanished.)
+        return view("admin.add_events" , ['events' => Events::forAdmin()]);
     }
 
     public function deleteEvent($event_id){
@@ -143,7 +143,7 @@ class EventsController extends Controller
         if (Events::where('id', $event_id)->update(['del' => '1'])){
 
             foreach($images as $image){
-                $image_path = public_path().'/storage/event_imgs/'.$image;
+                $image_path = public_path().'/storage/event_imgs/'.basename($image);
                 $del = File::delete($image_path);
              }
 
@@ -159,7 +159,7 @@ class EventsController extends Controller
 
     public function eventStatus($event_id , $event_status){
 
-            if (Events::where('id', $event_id)->update(['event_status' => $event_status])){
+            if (Events::where('id', $event_id)->update(['event_status' => $event_status === '1' ? 1 : 0])){
                 return redirect('/add_event')->with('success','Event status successfully updated!');
             }else{
                 return redirect('/add_event')->with('failure','Error while updating event status !');
@@ -174,12 +174,13 @@ class EventsController extends Controller
     public function editEvent(Request $request, Events $event)
     {
         $incomingFields = $request->validate([
-            'event_title' => ['required', 'min:5', 'max:50'],
+            'event_title' => ['required', 'min:5', 'max:100'],
             'event_desc' => ['required'],
             'event_time' => ['required'],
             'event_date' => ['required'],
-            'event_imgs_old' => [],
-            'event_imgs' => [],
+            'event_imgs_old' => ['nullable', 'string'],
+            'event_imgs' => ['nullable', 'array', 'max:20'],
+            'event_imgs.*' => ['image', 'mimes:jpg,jpeg,png,webp', 'max:10000'],
         ], [
             'event_title.required' => 'Event Title is must.',
             'event_desc.required' => 'Event Description is must.',
@@ -188,24 +189,31 @@ class EventsController extends Controller
         ]);
     
         $incomingFields['event_by'] = auth()->user()->id;
+
+        // Description comes from the HTML editor: keep only safe formatting.
+        if (\App\Support\RichText::isEmpty($incomingFields['event_desc'])) {
+            return back()->withInput()->withErrors(['event_desc' => 'Event Description is must.']);
+        }
+        $incomingFields['event_desc'] = \App\Support\RichText::clean($incomingFields['event_desc']);
         $incomingFields['faculty_id'] = auth()->user()->user_faculty;
     
         // Handle image uploads
         if ($request->hasFile('event_imgs')) {
             $data = [];
             foreach ($incomingFields['event_imgs'] as $image) {
-                $name = $image->getClientOriginalName();
+                $name = \Illuminate\Support\Str::random(32).'.jpg';
                 $destinationPathThumbnail = public_path('/storage/event_imgs');
                 $img = Image::make($image->path());
                 $img->fit(570, 320);
-                $img->save($destinationPathThumbnail.'/'.$name);
+                $img->save($destinationPathThumbnail.'/'.$name, 85, 'jpg');
                 $data[] = $name;
             }
-    
+
             // Delete old images if new images are uploaded
             if (!empty($incomingFields['event_imgs_old'])) {
                 foreach (explode(',', $incomingFields['event_imgs_old']) as $oldImage) {
-                    $image_path = public_path('/storage/event_imgs/'.$oldImage);
+                    // SECURITY: basename() blocks ../ path traversal deletes.
+                    $image_path = public_path('/storage/event_imgs/'.basename($oldImage));
                     if (File::exists($image_path)) {
                         File::delete($image_path);
                     }

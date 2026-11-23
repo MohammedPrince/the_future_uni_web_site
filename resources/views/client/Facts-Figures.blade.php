@@ -88,6 +88,7 @@
     </section>
 
     <script>
+        document.addEventListener('DOMContentLoaded', function() {
         // Get the canvas element for barChart01 -- BarCharts --
         var ctx = document.getElementById('barChart01').getContext('2d');
         var barChart01 = new Chart(ctx, {
@@ -183,6 +184,7 @@
             options: {
                 responsive: true
             }
+        });
         });
     </script>
 @endsection

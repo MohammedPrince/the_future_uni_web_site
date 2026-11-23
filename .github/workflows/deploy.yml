@@ -5,6 +5,11 @@ on:
     branches:
       - development
 
+# Two pushes in a row deploy one after the other, never at the same time.
+concurrency:
+  group: deploy-production
+  cancel-in-progress: false
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -18,27 +23,105 @@ jobs:
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.SSH_KEY }}
           port: ${{ secrets.PORT }}
+          command_timeout: 15m
 
           script: |
-            cd /var/www/vhosts/fu.edu.sd/public_html/repositories/the_future_uni_web_site
+            set -e
 
-            git fetch --all
-            git checkout dev
-            git reset --hard origin/dev
+            # --- Project folder ---
+            APP=""
+            for dir in \
+              "/var/www/vhosts/fu.edu.sd/public_html/repositories/the_future_uni_web_site" \
+              "$HOME/public_html/repositories/the_future_uni_web_site"; do
+              # A copy without database settings in .env is not the live site.
+              if [ -f "$dir/artisan" ] && grep -qE '^DB_DATABASE=.+' "$dir/.env" 2>/dev/null; then APP="$dir"; break; fi
+            done
+            if [ -z "$APP" ]; then echo "STOP: project folder with a complete .env not found"; exit 1; fi
+            cd "$APP"
+            echo "== Folder: $APP"
 
-            composer install \
+            # --- PHP 8.0.2 to 8.2 (Laravel 9). The default "php" on cPanel can
+            #     be another version, so look for the cPanel ones too. ---
+            PHP=""
+            for bin in php /opt/cpanel/ea-php82/root/usr/bin/php /opt/cpanel/ea-php81/root/usr/bin/php /opt/cpanel/ea-php80/root/usr/bin/php; do
+              if command -v "$bin" >/dev/null 2>&1 && \
+                 "$bin" -r 'exit(PHP_SAPI === "cli" && PHP_VERSION_ID >= 80002 && PHP_VERSION_ID < 80300 ? 0 : 1);' >/dev/null 2>&1; then
+                PHP="$(command -v "$bin")"; break
+              fi
+            done
+            if [ -z "$PHP" ]; then
+              echo "STOP: PHP 8.0.2 - 8.2 not found. Default php is: $(php -v 2>&1 | head -n 1)"; exit 1
+            fi
+            echo "== PHP: $PHP $("$PHP" -r 'echo PHP_VERSION;')"
+
+            # --- Composer, always run with the PHP chosen above ---
+            COMPOSER=""
+            for file in "$(command -v composer 2>/dev/null || true)" /opt/cpanel/composer/bin/composer "$HOME/bin/composer"; do
+              if [ -n "$file" ] && [ -f "$file" ]; then COMPOSER="$file"; break; fi
+            done
+            if [ -z "$COMPOSER" ]; then echo "STOP: composer not found"; exit 1; fi
+            if head -n 1 "$COMPOSER" | grep -q "php"; then
+              run_composer() { "$PHP" -d memory_limit=-1 "$COMPOSER" "$@"; }
+            else
+              run_composer() { PATH="$(dirname "$PHP"):$PATH" "$COMPOSER" "$@"; }
+            fi
+            run_composer --version --no-ansi
+
+            # --- Integrity check: show anything changed/added outside git ---
+            echo "== Files modified or added on the server since last deploy =="
+            git status --porcelain --untracked-files=all \
+              -- . ':!storage' ':!public/storage' ':!bootstrap/cache' || true
+
+            git fetch --all --prune
+            git checkout -f development
+            git reset --hard origin/development
+
+            # Remove untracked files the attacker drops (e.g. google*.html,
+            # webshells). Ignored files (.env, vendor) and uploads are kept.
+            git clean -fd -e storage -e public/storage -e bootstrap/cache
+
+            # Production must never run in debug mode (it leaks .env values).
+            sed -i 's/^APP_DEBUG=.*/APP_DEBUG=false/' .env
+            sed -i 's/^APP_ENV=.*/APP_ENV=production/' .env
+
+            echo "== Packages"
+            run_composer install \
               --no-dev \
               --prefer-dist \
               --optimize-autoloader \
-              --no-interaction
+              --no-interaction \
+              --no-progress \
+              --no-ansi
 
-            php artisan migrate --force
+            # Old caches must go before anything else reads them.
+            "$PHP" artisan optimize:clear
+            "$PHP" artisan cache:clear pages || true
 
-            php artisan optimize:clear
-            php artisan config:cache
-            php artisan route:cache
-            php artisan view:cache
+            # A failed migration must not leave the site without its caches, so
+            # finish the deployment first and report the problem at the end.
+            echo "== Database"
+            MIGRATE_OK=1
+            "$PHP" artisan migrate --force || MIGRATE_OK=0
 
+            echo "== Caches"
+            "$PHP" artisan config:cache
+            "$PHP" artisan route:cache
+            "$PHP" artisan view:cache
+
+            # Small WebP copies of images uploaded in the admin panel
+            "$PHP" artisan media:webp storage || echo "media:webp skipped"
+
+            # Code is read-only; only storage and cache are writable.
+            find . -path ./storage -prune -o -path ./bootstrap/cache -prune \
+              -o -path ./vendor -prune -o -type d -print0 | xargs -0 chmod 755
+            find . -path ./storage -prune -o -path ./bootstrap/cache -prune \
+              -o -path ./vendor -prune -o -type f -print0 | xargs -0 chmod 644
+            chmod 600 .env
             chmod -R 775 storage bootstrap/cache
+
+            if [ "$MIGRATE_OK" != "1" ]; then
+              echo "STOP: the code is deployed, but 'artisan migrate' failed. Read the Database part above."
+              exit 1
+            fi
 
             echo "Deployment completed at $(date)"

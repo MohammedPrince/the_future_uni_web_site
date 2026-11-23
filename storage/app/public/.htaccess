@@ -1,0 +1,5 @@
+# SECURITY: upload folder. Serve static files only; never execute scripts.
+Options -Indexes -ExecCGI
+<FilesMatch "\.(php[0-9]?|phtml|phar|pht|phps|inc|cgi|pl|py|sh|htaccess|html?|svg|js)$">
+    Require all denied
+</FilesMatch>

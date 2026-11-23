@@ -63,8 +63,8 @@
                                                 <h5 class="card-title mb-0">Description</h5>
                                             </div>
                                             <div class="card-body col-12 col-lg-12">
-                                                <textarea name="event_desc" class="form-control" id="markdown-editor"
-                                                    placeholder="Enter Event Description">{{ old('event_desc',$event->event_desc) }}</textarea>
+                                                <textarea name="event_desc" class="form-control" data-rich-editor
+                                                    placeholder="Enter Event Description">{{ old('event_desc', \App\Support\RichText::forEditor($event->event_desc)) }}</textarea>
                                                 @error('event_desc')
                                                     <div class="alert error text-center">
                                                         <p class="inner">{{ $message }}</p>
@@ -102,24 +102,18 @@
 
                                             <input type="hidden" value="{{ $event->event_imgs }}" name="event_imgs_old">
 
-                                            <!-- <div class="card-header">
+                                            <div class="card-header">
                                                 <h5 class="card-title mb-0">Current Images</h5>
-                                            </div> -->
-                                        <!-- <div class="card-body col-6 col-lg-6">
-
-                                           {{-- @foreach (explode(',', $event->event_imgs) as $image)
-                                            <a  href="/storage/event_imgs/{{$image}}" target="_blank">
-                                            <img src="/storage/event_imgs/{{$image}}" style="width:100px;height:100px">
-                                            </a>
-                                            @endforeach --}}
-                                           
-                                        </div> -->
+                                            </div>
+                                            <div class="card-body col-6 col-lg-6">
+                                                @include('admin.partials.current_images', ['folder' => 'event_imgs', 'images' => $event->event_imgs])
+                                            </div>
 
                                             <div class="card-header">
                                                 <h5 class="card-title mb-0">Upload New Images</h5>
+                                                <p class="text-muted mb-0">Uploading new images replaces the current ones.</p>
                                             </div>
                                             <div class="card-body col-6 col-lg-6">
-                                            {{ $event->event_imgs }}
                                                 <input type="file" name="event_imgs[]" multiple  class="form-control" placeholder="Select Event Images">
                                                 @error('event_imgs')
                                                     <div class="alert error text-center">

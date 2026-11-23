@@ -8,9 +8,9 @@
         <a href="{{route('CESD')}}">CESD</a>
         <a href="{{route('CTS')}}">CTS</a>
         <a href="{{route('IRDC')}}">IRDC</a>
-        <a href="#">SIU</a>
-        <a href="#">MARKETING</a>
-        <a href="#">DESIGN</a>
+        <span class="tag-off">SIU</span>
+        <span class="tag-off">MARKETING</span>
+        <span class="tag-off">DESIGN</span>
     </div>
 </div>
 <hr class="new4">

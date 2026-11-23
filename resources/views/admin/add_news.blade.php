@@ -63,7 +63,7 @@
                                                 <h5 class="card-title mb-0">Description</h5>
                                             </div>
                                             <div class="card-body col-12 col-lg-12">
-                                                <textarea name="news_desc" class="form-control " id="markdown-editor" 
+                                                <textarea name="news_desc" class="form-control " data-rich-editor 
                                                     placeholder="Enter News Description" rows="3">{{ old('news_desc') }}</textarea>
                                                 @error('news_desc')
                                                     <div class="alert error text-center">
@@ -100,6 +100,14 @@
                                                 @enderror
                                             </div>
                                            
+                                            <div class="card-body">
+                                                <input type="hidden" name="publish" value="0">
+                                                <label class="form-check">
+                                                    <input class="form-check-input" type="checkbox" name="publish" value="1" {{ old('publish', '1') === '1' ? 'checked' : '' }}>
+                                                    <span class="form-check-label">Publish now (untick to save it hidden and publish it later)</span>
+                                                </label>
+                                            </div>
+
                                             <div class="text-center">
 
                                                 <button class="btn btn btn-success">Add News</button>
@@ -114,13 +122,14 @@
                 </div>
             </div>
 
-            @if ($news != false)
+            @if ($news->isNotEmpty())
 
                 <div class="row">
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
                                 <h5 class="card-title mb-0">View Website News</h5>
+                                <p class="text-muted mb-0">Hidden items stay here but are not shown on the website. Press Publish to show them.</p>
                             </div>
                             <div class="card-body">
 
@@ -132,7 +141,7 @@
                                             <th>Faculty</th>
                                             <th>By</th>
                                             <th>Current Status</th>
-                                            <!-- <th>Status</th> -->
+                                            <th>Status</th>
                                             <th>Edit</th>
                                             <th>DEL</th>
                                         </tr>
@@ -142,35 +151,26 @@
                                             <tr>
                                                 <td>{{ $new->news_title }}</td>
                                                 <td>{{ $new->news_date }}</td>
-                                                <td>{{ $dept_name }}</td>
-                                                <td>{{ $news_by}}</td>
-                                                <td> 
-
-                                                    @if ($new->news_status == '0')
-                                                    Not Published
-                                                    @endif
+                                                <td>{{ \App\Models\MainApp::getFacultiesAndOffices($new->faculty_id) }}</td>
+                                                <td>{{ optional($new->users)->user_fullname }}</td>
+                                                <td>
                                                     @if ($new->news_status == '1')
-                                                    Published
+                                                        <span class="badge bg-success">Published</span>
+                                                    @else
+                                                        <span class="badge bg-secondary">Hidden</span>
                                                     @endif
-
                                                 </td>
-                                                {{--
-                                                <!-- <td>
-                                                   @if ($new->news_status == '0')
-                                                   <a href="add_news/{{$new->id}}/status/1" class="btn btn-primary">Published</a>    
-                                                   @endif
-                                                   @if ($new->news_status == '1')
-                                                   <a href="add_news/{{$new->id}}/status/0" class="btn btn-danger">Not</a>   
-                                                   @endif
-
-                                                </td> -->
-
-                                                --}}
-                                            
-                                                <td><a href="edit_news/{{$new->id}}/edit" class="btn btn btn-info">Edit</a></td>
-                                                <td><a href="add_news/{{$new->id}}/delete" class="btn btn btn-danger" onClick="return confirm('Are You Sure You Want to Delete this news ?')">Delete</a></td>
+                                                <td>
+                                                    @if ($new->news_status == '1')
+                                                        <a href="{{ url('add_news/' . $new->id . '/status/0') }}" class="btn btn-danger">Hide</a>
+                                                    @else
+                                                        <a href="{{ url('add_news/' . $new->id . '/status/1') }}" class="btn btn-primary">Publish</a>
+                                                    @endif
+                                                </td>
+                                                <td><a href="{{ url('edit_news/' . $new->id . '/edit') }}" class="btn btn btn-info">Edit</a></td>
+                                                <td><a href="{{ url('add_news/' . $new->id . '/delete') }}" class="btn btn btn-danger" onClick="return confirm('Are You Sure You Want to Delete this news ?')">Delete</a></td>
                                             </tr>
-                                            @endforeach
+                                        @endforeach
 
                                     </tbody>
 

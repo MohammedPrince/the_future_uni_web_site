@@ -1,4 +1,11 @@
-@extends('components.client-layout')
+@extends('components.client-layout', ['seo' => [
+    'title' => $news->news_title,
+    'description' => $news->news_desc,
+    'image' => 'storage/news_imgs/' . rawurlencode(trim(explode(',', (string) $news->news_imgs)[0])),
+    'type' => 'article',
+    'date' => $news->news_date,
+    'modified' => optional($news->updated_at)->toAtomString(),
+]])
 @section('main-client-content')
     <div class="site-breadcrumb">
         <div class="container">
@@ -14,9 +21,9 @@
                     <div class="post-item post-details">
 
                         @foreach (array_slice(explode(',', $news->news_imgs), 0, 1) as $image)
-                            <!-- <img src="./public/storage/news_imgs/{{ $image }}" alt="Futrue Uinversity"> -->
-                            <!-- <img src="{{ asset('./public/storage/news_imgs/$image') }}" alt="Futrue Uinversity"> -->
-                            <img src="{{ asset('./public/storage/news_imgs/' . $image) }}" alt="Futrue Uinversity">
+                            <!-- <img loading="lazy" decoding="async" src="@img('storage/news_imgs/' . $image)" alt="Futrue Uinversity"> -->
+                            <!-- <img loading="lazy" decoding="async" src="@img('storage/news_imgs/$image')" alt="Futrue Uinversity"> -->
+                            <img src="@img('storage/news_imgs/' . $image)" alt="{{ $news->news_title }}" fetchpriority="high">
 
                         @endforeach
 
@@ -42,15 +49,17 @@
                                 </p>
 
                                 <div class="hero-slider owl-carousel">
+                                    <div class="owl-stage-outer">
 
                                     @foreach (explode(',', $news->news_imgs) as $news_image)
-                                        <!-- <div class="hs-item set-bg" data-setbg="/public/storage/news_imgs/{{ $news_image }}"> -->
-                                        <div class="hs-item set-bg" data-setbg="{{ asset('./public/storage/news_imgs/' . $news_image) }}">
+                                        <!-- <div class="hs-item set-bg" style="background-image:url('@img('storage/news_imgs/' . $news_image)')"> -->
+                                        <div class="owl-item {{ $loop->first ? 'active' : '' }}"><div class="hs-item set-bg" style="background-image:url('@img('storage/news_imgs/' . $news_image)')">
 
-                            <!-- <img src="{{ asset('./public/storage/news_imgs/' . $image) }}" alt="Futrue Uinversity"> -->
+                            <!-- <img loading="lazy" decoding="async" src="@img('storage/news_imgs/' . $image)" alt="Futrue Uinversity"> -->
 
-                                        </div>
+                                        </div></div>
                                     @endforeach
+                                    </div>
 
                                 </div>
                             @endif
@@ -66,7 +75,7 @@
                         <div class="search-widget">
                             <input type="text" id="search-input" class="form-control"
                                 placeholder="Search for News and Events">
-                            <button><i class="ti-search"></i></button>
+                            <button type="button" aria-label="Search"><i class="ti-search" aria-hidden="true"></i></button>
                         </div>
                         <div class="text-center" id="search-results" style="margin-top: 20px;"></div>
                     </div>
@@ -79,7 +88,7 @@
                                     <div class="rp-item">
                                         @foreach (array_slice(explode(',', $event_result->event_imgs), 0, 1) as $image)
                                             <div class="rp-thumb set-bg"
-                                                data-setbg="{{ asset('./public/storage/event_imgs/' . $image) }}"></div>
+                                                style="background-image:url('@img('storage/event_imgs/' . $image)')"></div>
                                                 
                                         @endforeach
                                         <div class="rp-content">

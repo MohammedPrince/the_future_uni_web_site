@@ -17,3 +17,7 @@ yarn-error.log
 /.idea
 /.vscode
 beta_website.code-workspace
+
+# SECURITY: never commit database dumps
+/db_file
+*.sql

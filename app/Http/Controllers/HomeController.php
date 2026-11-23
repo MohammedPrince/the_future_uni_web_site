@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 use App\Models\News;
 use App\Models\Events;
-use App\Http\Controllers\VisitorController;
 
 
 
@@ -19,40 +18,15 @@ class HomeController extends Controller
     public function index(Request $request)
     {
 
-        $news = '';
-        $events = '';
-        $event_value = false;
-        $news_value = false;
+        $news = News::published()->orderByDesc('news_date')->orderByDesc('id')->take(3)->get();
+        $events = Events::published()->orderByDesc('event_date')->orderByDesc('id')->take(3)->get();
 
-        if (News::getNews() != null) {
-
-            $news_value = true;
-            //$news = News::getNews() ;
-            $news = News::paginate(3);
-
-            $shuffledNews = $news->getCollection()->shuffle();
-
-
-            $news->setCollection($shuffledNews);
-
-        }
-
-        if (Events::getEvents() != null) {
-            $event_value = true;
-            //$events = Events::getEvents() ;
-            $events = Events::paginate(3);
-
-            $shuffledEvents = $events->getCollection()->shuffle();
-
-            // Replace the original collection with the shuffled one
-            $events->setCollection($shuffledEvents);
-        }
-
-        $visitorController = new VisitorController();
-        $visitorController->user_log($request);
-        
-
-        return view("client.Home", compact('events'), ['news' => $news, 'events' => $events, 'news_value' => $news_value, 'event_value' => $event_value]);
+        return view('client.Home', [
+            'news' => $news,
+            'events' => $events,
+            'news_value' => $news->isNotEmpty(),
+            'event_value' => $events->isNotEmpty(),
+        ]);
     }
 
     /**

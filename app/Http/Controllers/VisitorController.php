@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Visitor;
+use Illuminate\Support\Facades\Cache;
 
 
 class VisitorController extends Controller
@@ -100,7 +101,7 @@ class VisitorController extends Controller
 
         $date = date("Y-m-d");
         
-        if (Visitor::where('ip_address', $ipAddress)->count() > 0) {
+        if (Visitor::where('ip_address', $ipAddress)->exists()) {
 
         }else{
 
@@ -118,7 +119,8 @@ class VisitorController extends Controller
 
     public function getVisitorCount()
     {
-        return $visitorCount = Visitor::count();
+        // Falls back to a direct count if the cache folder is not writable.
+        return rescue(fn () => Cache::remember('visitor-count', 600, fn () => Visitor::count()), fn () => Visitor::count());
     }
 
 

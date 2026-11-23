@@ -1,34 +1,134 @@
+{{--
+    Shared layout for every error page (404, 403, 500, ...) and the maintenance page.
+    Each page sets: title, code, message, and optionally description, arabic, actions.
+    Kept self-contained (inline styles, no database needed) so it still works when
+    the rest of the site is broken.
+--}}
+@php
+    $contact = rescue(fn () => \App\Models\Setting::allValues(), config('site.defaults', []), false);
+    $logo = rescue(fn () => \App\Support\Media::url('client/img/fu_logo.png'), asset('public/client/img/fu_logo.png'), false);
+@endphp
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>@yield('title')</title>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex">
+    <meta name="theme-color" content="#1d5191">
+    <title>@yield('title') | The Future University</title>
+    <link rel="icon" href="{{ asset('favicon.ico') }}" sizes="48x48">
+    <style>
+        @font-face {
+            font-family: Ubuntu;
+            font-weight: 400;
+            font-display: swap;
+            src: url("{{ asset('public/client/fonts/ubuntu-400-latin.woff2') }}") format("woff2");
+        }
 
-        <style>
-            /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}a{background-color:transparent}code{font-family:monospace,monospace;font-size:1em}[hidden]{display:none}html{font-family:system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;line-height:1.5}*,:after,:before{box-sizing:border-box;border:0 solid #e2e8f0}a{color:inherit;text-decoration:inherit}code{font-family:Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace}svg,video{display:block;vertical-align:middle}video{max-width:100%;height:auto}.bg-white{--bg-opacity:1;background-color:#fff;background-color:rgba(255,255,255,var(--bg-opacity))}.bg-gray-100{--bg-opacity:1;background-color:#f7fafc;background-color:rgba(247,250,252,var(--bg-opacity))}.border-gray-200{--border-opacity:1;border-color:#edf2f7;border-color:rgba(237,242,247,var(--border-opacity))}.border-gray-400{--border-opacity:1;border-color:#cbd5e0;border-color:rgba(203,213,224,var(--border-opacity))}.border-t{border-top-width:1px}.border-r{border-right-width:1px}.flex{display:flex}.grid{display:grid}.hidden{display:none}.items-center{align-items:center}.justify-center{justify-content:center}.font-semibold{font-weight:600}.h-5{height:1.25rem}.h-8{height:2rem}.h-16{height:4rem}.text-sm{font-size:.875rem}.text-lg{font-size:1.125rem}.leading-7{line-height:1.75rem}.mx-auto{margin-left:auto;margin-right:auto}.ml-1{margin-left:.25rem}.mt-2{margin-top:.5rem}.mr-2{margin-right:.5rem}.ml-2{margin-left:.5rem}.mt-4{margin-top:1rem}.ml-4{margin-left:1rem}.mt-8{margin-top:2rem}.ml-12{margin-left:3rem}.-mt-px{margin-top:-1px}.max-w-xl{max-width:36rem}.max-w-6xl{max-width:72rem}.min-h-screen{min-height:100vh}.overflow-hidden{overflow:hidden}.p-6{padding:1.5rem}.py-4{padding-top:1rem;padding-bottom:1rem}.px-4{padding-left:1rem;padding-right:1rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.pt-8{padding-top:2rem}.fixed{position:fixed}.relative{position:relative}.top-0{top:0}.right-0{right:0}.shadow{box-shadow:0 1px 3px 0 rgba(0,0,0,.1),0 1px 2px 0 rgba(0,0,0,.06)}.text-center{text-align:center}.text-gray-200{--text-opacity:1;color:#edf2f7;color:rgba(237,242,247,var(--text-opacity))}.text-gray-300{--text-opacity:1;color:#e2e8f0;color:rgba(226,232,240,var(--text-opacity))}.text-gray-400{--text-opacity:1;color:#cbd5e0;color:rgba(203,213,224,var(--text-opacity))}.text-gray-500{--text-opacity:1;color:#a0aec0;color:rgba(160,174,192,var(--text-opacity))}.text-gray-600{--text-opacity:1;color:#718096;color:rgba(113,128,150,var(--text-opacity))}.text-gray-700{--text-opacity:1;color:#4a5568;color:rgba(74,85,104,var(--text-opacity))}.text-gray-900{--text-opacity:1;color:#1a202c;color:rgba(26,32,44,var(--text-opacity))}.uppercase{text-transform:uppercase}.underline{text-decoration:underline}.antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.tracking-wider{letter-spacing:.05em}.w-5{width:1.25rem}.w-8{width:2rem}.w-auto{width:auto}.grid-cols-1{grid-template-columns:repeat(1,minmax(0,1fr))}@-webkit-keyframes spin{0%{transform:rotate(0deg)}to{transform:rotate(1turn)}}@keyframes spin{0%{transform:rotate(0deg)}to{transform:rotate(1turn)}}@-webkit-keyframes ping{0%{transform:scale(1);opacity:1}75%,to{transform:scale(2);opacity:0}}@keyframes ping{0%{transform:scale(1);opacity:1}75%,to{transform:scale(2);opacity:0}}@-webkit-keyframes pulse{0%,to{opacity:1}50%{opacity:.5}}@keyframes pulse{0%,to{opacity:1}50%{opacity:.5}}@-webkit-keyframes bounce{0%,to{transform:translateY(-25%);-webkit-animation-timing-function:cubic-bezier(.8,0,1,1);animation-timing-function:cubic-bezier(.8,0,1,1)}50%{transform:translateY(0);-webkit-animation-timing-function:cubic-bezier(0,0,.2,1);animation-timing-function:cubic-bezier(0,0,.2,1)}}@keyframes bounce{0%,to{transform:translateY(-25%);-webkit-animation-timing-function:cubic-bezier(.8,0,1,1);animation-timing-function:cubic-bezier(.8,0,1,1)}50%{transform:translateY(0);-webkit-animation-timing-function:cubic-bezier(0,0,.2,1);animation-timing-function:cubic-bezier(0,0,.2,1)}}@media (min-width:640px){.sm\:rounded-lg{border-radius:.5rem}.sm\:block{display:block}.sm\:items-center{align-items:center}.sm\:justify-start{justify-content:flex-start}.sm\:justify-between{justify-content:space-between}.sm\:h-20{height:5rem}.sm\:ml-0{margin-left:0}.sm\:px-6{padding-left:1.5rem;padding-right:1.5rem}.sm\:pt-0{padding-top:0}.sm\:text-left{text-align:left}.sm\:text-right{text-align:right}}@media (min-width:768px){.md\:border-t-0{border-top-width:0}.md\:border-l{border-left-width:1px}.md\:grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}}@media (min-width:1024px){.lg\:px-8{padding-left:2rem;padding-right:2rem}}@media (prefers-color-scheme:dark){.dark\:bg-gray-800{--bg-opacity:1;background-color:#2d3748;background-color:rgba(45,55,72,var(--bg-opacity))}.dark\:bg-gray-900{--bg-opacity:1;background-color:#1a202c;background-color:rgba(26,32,44,var(--bg-opacity))}.dark\:border-gray-700{--border-opacity:1;border-color:#4a5568;border-color:rgba(74,85,104,var(--border-opacity))}.dark\:text-white{--text-opacity:1;color:#fff;color:rgba(255,255,255,var(--text-opacity))}.dark\:text-gray-400{--text-opacity:1;color:#cbd5e0;color:rgba(203,213,224,var(--text-opacity))}}
-        </style>
+        @font-face {
+            font-family: Ubuntu;
+            font-weight: 700;
+            font-display: swap;
+            src: url("{{ asset('public/client/fonts/ubuntu-700-latin.woff2') }}") format("woff2");
+        }
 
-        <style>
-            body {
-                font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-            }
-        </style>
-    </head>
-    <body class="antialiased">
-        <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center sm:pt-0">
-            <div class="max-w-xl mx-auto sm:px-6 lg:px-8">
-                <div class="flex items-center pt-8 sm:justify-start sm:pt-0">
-                    <div class="px-4 text-lg text-gray-500 border-r border-gray-400 tracking-wider">
-                        @yield('code')
-                    </div>
+        * { box-sizing: border-box; }
+        html, body { min-height: 100%; margin: 0; }
+        body {
+            display: flex; flex-direction: column; min-height: 100vh;
+            background: #f5f7fb; color: #281e32;
+            font-family: Ubuntu, "Segoe UI", Roboto, Arial, sans-serif;
+        }
+        .topbar { height: 6px; background: #1d5191; }
+        .wrap {
+            flex: 1; display: flex; align-items: center; justify-content: center;
+            padding: 32px 16px;
+        }
+        .card {
+            width: 100%; max-width: 600px; background: #fff; text-align: center;
+            border-top: 6px solid #fb8b24; border-radius: 6px;
+            padding: 40px 28px 32px; box-shadow: 0 6px 24px rgba(29, 81, 145, .12);
+        }
+        .logo { width: 96px; height: 96px; }
+        .code { margin: 14px 0 0; font-size: 72px; line-height: 1; font-weight: 700; color: #fb8b24; }
+        h1 { margin: 14px 0 6px; font-size: 26px; color: #1d5191; }
+        .arabic-title { margin: 0 0 18px; font-size: 22px; font-weight: 400; color: #1d5191; }
+        .message { margin: 0 0 8px; font-size: 17px; line-height: 1.6; white-space: pre-line; }
+        .message-ar { margin: 0 0 24px; font-size: 17px; line-height: 1.7; color: #555; }
+        .actions { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin: 8px 0 26px; }
+        .btn {
+            display: inline-block; padding: 10px 22px; border-radius: 4px; font: inherit; font-size: 15px;
+            text-decoration: none; cursor: pointer; border: 2px solid #1d5191;
+        }
+        .btn-primary { background: #fb8b24; border-color: #fb8b24; color: #fff; }
+        .btn-primary:hover { background: #ef7e22; border-color: #ef7e22; }
+        .btn-outline { background: #fff; color: #1d5191; }
+        .btn-outline:hover { background: #1d5191; color: #fff; }
+        .contact { margin: 0; padding-top: 18px; border-top: 1px solid #eee; font-size: 15px; color: #555; }
+        .contact a { color: #ef7e22; text-decoration: none; }
+        .contact a, .contact span { white-space: nowrap; }
+        footer {
+            background: #1d5191; color: #fff; text-align: center; font-size: 12px; padding: 14px 16px;
+        }
+        footer strong { color: #fec169; }
+    </style>
+</head>
 
-                    <div class="ml-4 text-lg text-gray-500 uppercase tracking-wider">
-                        @yield('message')
-                    </div>
+<body>
+    <div class="topbar"></div>
+
+    <div class="wrap">
+        <main class="card">
+            <a href="{{ url('/') }}"><img class="logo" src="{{ $logo }}" width="96" height="96" alt="The Future University, home"></a>
+
+            @hasSection('code')
+                <p class="code">@yield('code')</p>
+            @endif
+
+            <h1>@yield('message')</h1>
+            @hasSection('arabic_title')
+                <h2 class="arabic-title" lang="ar" dir="rtl">@yield('arabic_title')</h2>
+            @endif
+
+            @hasSection('description')
+                <p class="message">@yield('description')</p>
+            @endif
+            @hasSection('arabic')
+                <p class="message-ar" lang="ar" dir="rtl">@yield('arabic')</p>
+            @endif
+
+            @unless (View::hasSection('hide_actions'))
+                <div class="actions">
+                    @hasSection('actions')
+                        @yield('actions')
+                    @else
+                        <a class="btn btn-primary" href="{{ url('/') }}">Home page</a>
+                        <a class="btn btn-outline" href="{{ url('/') }}" onclick="if (history.length > 1) { history.back(); return false; }">Go back</a>
+                    @endif
                 </div>
-            </div>
-        </div>
-    </body>
+            @endunless
+
+            @if (!empty($contact['contact_email']) || !empty($contact['contact_phone']))
+                <p class="contact">
+                    Need help?
+                    @if (!empty($contact['contact_email']))
+                        <a href="mailto:{{ $contact['contact_email'] }}">{{ $contact['contact_email'] }}</a>
+                    @endif
+                    @if (!empty($contact['contact_email']) && !empty($contact['contact_phone']))
+                        &nbsp;|&nbsp;
+                    @endif
+                    @if (!empty($contact['contact_phone']))
+                        <span dir="ltr">{{ $contact['contact_phone'] }}</span>
+                    @endif
+                </p>
+            @endif
+        </main>
+    </div>
+
+    <footer>
+        Copyright &copy; {{ date('Y') }} All rights reserved for <strong>The Future University.</strong>
+    </footer>
+</body>
+
 </html>
