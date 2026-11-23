@@ -9,6 +9,8 @@ use App\Http\Controllers\LinkageController;
 use App\Http\Controllers\FeeController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\SiteSettingsController;
+use App\Http\Controllers\DatabaseBackupsController;
+use App\Http\Controllers\FolderManagerController;
 use App\Http\Controllers\StaffInformationController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\SecurityScanController;
@@ -126,6 +128,25 @@ Route::middleware(['adminType'])->prefix('server_tools')->group(function () {
     Route::post('/unlock', [ServerToolsController::class, 'unlock'])->middleware('throttle:5,10')->name('tools.unlock');
     Route::post('/lock', [ServerToolsController::class, 'lock'])->name('tools.lock');
     Route::post('/run', [ServerToolsController::class, 'run'])->middleware('throttle:20,1')->name('tools.run');
+});
+
+// Database backup files (admin + own password again).
+Route::middleware(['adminType'])->prefix('db_backups')->group(function () {
+    Route::get('/', [DatabaseBackupsController::class, 'index'])->name('backups.index');
+    Route::post('/unlock', [DatabaseBackupsController::class, 'unlock'])->middleware('throttle:5,10')->name('backups.unlock');
+    Route::post('/lock', [DatabaseBackupsController::class, 'lock'])->name('backups.lock');
+    Route::get('/file/{file}', [DatabaseBackupsController::class, 'download'])->where('file', '[^/\\\\]+')->name('backups.download');
+    Route::post('/zip', [DatabaseBackupsController::class, 'downloadZip'])->name('backups.zip');
+    Route::post('/delete', [DatabaseBackupsController::class, 'delete'])->middleware('throttle:20,1')->name('backups.delete');
+    Route::post('/protect', [DatabaseBackupsController::class, 'protect'])->name('backups.protect');
+});
+
+// Server folders: browse and delete (admin + own password again).
+Route::middleware(['adminType'])->prefix('folders')->group(function () {
+    Route::get('/', [FolderManagerController::class, 'index'])->name('folders.index');
+    Route::post('/unlock', [FolderManagerController::class, 'unlock'])->middleware('throttle:5,10')->name('folders.unlock');
+    Route::post('/lock', [FolderManagerController::class, 'lock'])->name('folders.lock');
+    Route::post('/delete', [FolderManagerController::class, 'delete'])->middleware('throttle:10,1')->name('folders.delete');
 });
 
 Route::get('/logout', [UserController::class, "logout"]);

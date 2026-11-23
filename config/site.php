@@ -6,6 +6,24 @@
 */
 return [
 
+    // Admin > Database Backups lists, downloads and deletes the files in this folder.
+    // Default: public_html/databases, two levels above this app
+    // (/home/fuedusd/public_html/repositories/the_future_uni_web_site -> /home/fuedusd/public_html/databases).
+    'db_backups_path' => env('DB_BACKUPS_PATH', dirname(base_path(), 2) . DIRECTORY_SEPARATOR . 'databases'),
+
+    // Admin > Folders: where admins may browse and delete folders (comma separated).
+    // Only folders that exist on the server are offered.
+    'folder_roots' => array_values(array_filter(array_map('trim', explode(',', (string) env(
+        'FOLDER_MANAGER_ROOTS',
+        '/var/www/vhosts/fu.edu.sd,/var/www/vhosts,/var/www/vhosts/fu.edu.sd/public_html'
+    ))))),
+
+    // Folder names that can never be deleted, wherever they are (Plesk/cPanel system folders).
+    'folder_protected_names' => [
+        'system', 'chroot', 'default', '.skel', 'fs', 'fs-passwd', 'conf', 'etc', 'bin', 'dev', 'lib', 'lib64', 'usr', 'tmp', 'var',
+        'httpdocs', 'public_html', 'logs', 'mail', 'ssl', '.ssh', '.git', 'repositories',
+    ],
+
     'defaults' => [
         // Contact
         'contact_email' => 'info@fu.edu.sd',
