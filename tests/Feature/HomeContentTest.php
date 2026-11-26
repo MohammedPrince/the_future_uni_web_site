@@ -156,6 +156,18 @@ class HomeContentTest extends TestCase
             'event_time' => '10:00', 'faculty_id' => '999'])->assertSessionHasErrors('faculty_id');
     }
 
+    public function test_news_slider_cannot_make_the_page_wider_than_a_phone()
+    {
+        // The hidden "about ..." text in each card is position:absolute. Without a
+        // positioned track it escaped the sideways scroll and made the page ~1150px
+        // wide on phones (Samsung J6, 26 Nov 2026).
+        foreach (['home.min.css', 'site.min.css'] as $file) {
+            $css = file_get_contents(public_path('client/dist/' . $file));
+            $this->assertMatchesRegularExpression('/\.ne-track\{position:relative[;}]/', $css, $file);
+            $this->assertStringContainsString('grid-template-columns:repeat(3,minmax(0,1fr))', $css, $file);
+        }
+    }
+
     public function test_home_order_comes_first_then_newest()
     {
         $item = fn ($title, $order, $date) => ['title' => $title, 'order' => $order, 'sort' => $date];
