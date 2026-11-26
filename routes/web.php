@@ -10,6 +10,8 @@ use App\Http\Controllers\FeeController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\SiteSettingsController;
 use App\Http\Controllers\DatabaseBackupsController;
+use App\Http\Controllers\HomeSlidesController;
+use App\Http\Controllers\TestimonialsController;
 use App\Http\Controllers\StaffInformationController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\SecurityScanController;
@@ -98,6 +100,21 @@ Route::middleware(['adminType', 'same.site'])->group(function () {
     Route::post('/site_settings', [SiteSettingsController::class, 'update'])->name('site_settings.update');
     Route::post('/site_settings/maintenance', [SiteSettingsController::class, 'maintenance'])->name('site_settings.maintenance');
     Route::get('/site_settings/preview', [SiteSettingsController::class, 'preview'])->name('site_settings.preview');
+
+    // Home page: top slider and alumni testimonials.
+    Route::get('/home_slider', [HomeSlidesController::class, 'index'])->name('slides.index');
+    Route::post('/home_slider', [HomeSlidesController::class, 'store'])->name('slides.store');
+    Route::get('/home_slider/{slide}/edit', [HomeSlidesController::class, 'edit'])->name('slides.edit');
+    Route::put('/home_slider/{slide}', [HomeSlidesController::class, 'update'])->name('slides.update');
+    Route::post('/home_slider/{slide}/toggle', [HomeSlidesController::class, 'toggle'])->name('slides.toggle');
+    Route::delete('/home_slider/{slide}', [HomeSlidesController::class, 'destroy'])->name('slides.destroy');
+
+    Route::get('/testimonials', [TestimonialsController::class, 'index'])->name('testimonials.index');
+    Route::post('/testimonials', [TestimonialsController::class, 'store'])->name('testimonials.store');
+    Route::get('/testimonials/{testimonial}/edit', [TestimonialsController::class, 'edit'])->name('testimonials.edit');
+    Route::put('/testimonials/{testimonial}', [TestimonialsController::class, 'update'])->name('testimonials.update');
+    Route::post('/testimonials/{testimonial}/toggle', [TestimonialsController::class, 'toggle'])->name('testimonials.toggle');
+    Route::delete('/testimonials/{testimonial}', [TestimonialsController::class, 'destroy'])->name('testimonials.destroy');
 
     // Staff information
     Route::get('/staff', [StaffInformationController::class, "index"])->name('staff');

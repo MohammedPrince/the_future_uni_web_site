@@ -88,6 +88,8 @@
                                             </div>
 
 
+                                            @include('admin.partials.faculty_order_fields', ['item' => null])
+
                                             <div class="card-header">
                                                 <h5 class="card-title mb-0">Image</h5>
                                             </div>
@@ -140,6 +142,7 @@
                                             <th>Date</th>
                                             <th>Faculty</th>
                                             <th>By</th>
+                                            <th>Home Order</th>
                                             <th>Current Status</th>
                                             <th>Status</th>
                                             <th>Edit</th>
@@ -153,6 +156,7 @@
                                                 <td>{{ $new->news_date }}</td>
                                                 <td>{{ \App\Models\MainApp::getFacultiesAndOffices($new->faculty_id) }}</td>
                                                 <td>{{ optional($new->users)->user_fullname }}</td>
+                                                <td>{{ $new->home_order ?: '-' }}</td>
                                                 <td>
                                                     @if ($new->news_status == '1')
                                                         <span class="badge bg-success">Published</span>

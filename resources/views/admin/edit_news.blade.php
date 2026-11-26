@@ -92,6 +92,8 @@
 
                                             <input type="hidden" value="{{ $news->news_imgs }}" name="news_imgs_old">
 
+                                            @include('admin.partials.faculty_order_fields', ['item' => $news])
+
                                             <div class="card-header">
                                                 <h5 class="card-title mb-0">Current Images</h5>
                                             </div>

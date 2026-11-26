@@ -119,9 +119,12 @@ class NewsController extends Controller
             'news_title' => ['required' , 'min:5' , 'max:100' , Rule::unique('fu_news' , 'news_title') ] ,
             'news_desc' =>['required' ] ,
             'news_date' => ['required'],
+            'faculty_id' => ['required', 'string', \Illuminate\Validation\Rule::in(array_map('strval', array_keys(\App\Models\MainApp::facultyCodes())))],
+            'home_order' => ['nullable', 'integer', 'min:1', 'max:99'],
             'news_imgs' => 'required|array|max:20',
             'news_imgs.*' => 'image|mimes:jpg,jpeg,png,webp|max:10000',
         ],[
+            'faculty_id.required' => 'Choose the faculty or department.',
             'news_title.required' => 'News Title is must.',
             'news_desc.required' => 'News Description is must.',
             'news_date.required' => 'News Date is must.',
@@ -135,7 +138,7 @@ class NewsController extends Controller
             return back()->withInput()->withErrors(['news_desc' => 'News Description is must.']);
         }
         $incomingFields['news_desc'] = \App\Support\RichText::clean($incomingFields['news_desc']);
-        $incomingFields['faculty_id'] = "1" ;
+        // Faculty / department chosen in the form (validated above).
         // New news is published at once unless "Publish now" is unticked.
         $incomingFields['news_status'] = $request->boolean('publish', true) ? 1 : 0;
 
@@ -188,6 +191,8 @@ class NewsController extends Controller
             'news_title' => ['required' , 'min:5' , 'max:100'  ] ,
             'news_desc' =>['required' ] ,
             'news_date' => ['required'],
+            'faculty_id' => ['required', 'string', \Illuminate\Validation\Rule::in(array_map('strval', array_keys(\App\Models\MainApp::facultyCodes())))],
+            'home_order' => ['nullable', 'integer', 'min:1', 'max:99'],
             'news_imgs_old'=>['nullable','string'],
             'news_imgs'=>['nullable','array','max:20'],
             'news_imgs.*'=>['image','mimes:jpg,jpeg,png,webp','max:10000'],
@@ -205,7 +210,7 @@ class NewsController extends Controller
             return back()->withInput()->withErrors(['news_desc' => 'News Description is must.']);
         }
         $incomingFields['news_desc'] = \App\Support\RichText::clean($incomingFields['news_desc']);
-        $incomingFields['faculty_id'] = auth()->user()->user_faculty ;
+        // Faculty / department chosen in the form (validated above).
 
             if ($request->hasFile('news_imgs')) {
 

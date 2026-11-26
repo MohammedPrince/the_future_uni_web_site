@@ -1,55 +1,51 @@
 @extends('components.client-layout')
 @section('preload')
-    <link rel="preload" as="image" fetchpriority="high" href="{{ asset('public/client/img/hero-slider/1-1024.webp') }}"
-        imagesrcset="{{ asset('public/client/img/hero-slider/1-640.webp') }} 640w, {{ asset('public/client/img/hero-slider/1-1024.webp') }} 1024w, {{ asset('public/client/img/hero-slider/1-1600.webp') }} 1600w, {{ asset('public/client/img/hero-slider/1-2200.webp') }} 2200w"
-        imagesizes="(max-width: 767px) 585px, 100vw">
+    {{-- The first slide is the largest thing on the page: start loading it at once. --}}
+    @if ($first = $slides->first())
+        <link rel="preload" as="image" fetchpriority="high" href="{{ $first->src() }}"
+            imagesrcset="{{ $first->srcset() }}" imagesizes="(max-width: 767px) 585px, 100vw">
+    @endif
 @endsection
 
 @section('main-client-content')
-    @php
-        $heroSet = fn($n) => collect([640, 1024, 1600, 2200])
-            ->map(fn($w) => asset("public/client/img/hero-slider/{$n}-{$w}.webp") . " {$w}w")
-            ->implode(', ');
-    @endphp
+    {{-- Slides are managed in Admin > Home Slider. --}}
     <section class="hero-section">
         <div class="hero-slider owl-carousel">
             <div class="owl-stage-outer">
-                <div class="owl-item active">
-                    <div class="hs-item">
-                        <img class="hs-bg" src="@img('client/img/hero-slider/1-1024.webp')"
-                            srcset="{{ $heroSet(1) }}" sizes="(max-width: 767px) 585px, 100vw" width="2200" height="1467"
-                            alt="Students of The Future University" fetchpriority="high">
-                        <div class="hs-text">
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-lg-8">
-                                        <div class="hs-subtitle" style="color:#ff8d51;">TOP PRIVATE UNIVERSITY</div>
-                                        <h1 class="hs-title" style="color:#ff8d51;">Inspiring Excellence, Empowering
-                                            Minds,Transforming Future.</h1>
+                @foreach ($slides as $slide)
+                    <div class="owl-item {{ $loop->first ? 'active' : '' }}">
+                        <div class="hs-item">
+                            @if ($loop->first)
+                                <img class="hs-bg" src="{{ $slide->src() }}" srcset="{{ $slide->srcset() }}"
+                                    sizes="(max-width: 767px) 585px, 100vw" width="{{ $slide->img_width }}" height="{{ $slide->img_height }}"
+                                    alt="{{ $slide->alt ?: $slide->title }}" fetchpriority="high">
+                            @else
+                                <img class="hs-bg" data-src="{{ $slide->src() }}" data-srcset="{{ $slide->srcset() }}"
+                                    sizes="(max-width: 767px) 585px, 100vw" width="{{ $slide->img_width }}" height="{{ $slide->img_height }}"
+                                    alt="{{ $slide->alt ?: $slide->title }}">
+                            @endif
+                            <div class="hs-text">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-lg-8">
+                                            @if ($slide->subtitle)
+                                                <div class="hs-subtitle" style="color:#ff8d51;">{{ $slide->subtitle }}</div>
+                                            @endif
+                                            @if ($loop->first)
+                                                <h1 class="hs-title" style="color:#ff8d51;">{{ $slide->title }}</h1>
+                                            @else
+                                                <h2 class="hs-title" style="color:#ff8d51;">{{ $slide->title }}</h2>
+                                            @endif
+                                            @if ($slide->button_text && $slide->button_url)
+                                                <a href="{{ $slide->button_url }}" class="site-btn">{{ $slide->button_text }}</a>
+                                            @endif
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="owl-item">
-                    <div class="hs-item">
-                        <img class="hs-bg" data-src="@img('client/img/hero-slider/2-1024.webp')"
-                            data-srcset="{{ $heroSet(2) }}" sizes="(max-width: 767px) 585px, 100vw" width="2200"
-                            height="1467" alt="A student of The Future University at her desk">
-                        <div class="hs-text">
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-lg-8">
-                                        <div class="hs-subtitle" style="color:#ff8d51;">Why The Future University?</div>
-                                        <h2 class="hs-title" style="color:#ff8d51;">An investment in knowledge pays the best
-                                            interest.</h2>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </section>
@@ -626,9 +622,8 @@
         </div>
     </section>
     <!-- /////////////////////// -->
-    @if (!empty($news_value) || !empty($event_value))
+    @if ($homeItems->isNotEmpty())
         <hr>
-        {{-- <div class="Faculties-Desktop-View"> --}}
         <section class="service-section">
             <div class="container services">
                 <div class="section-title text-center">
@@ -645,110 +640,58 @@
                     <div class="text-center" id="search-results" style="margin-top: 20px;"></div>
                 </div>
 
-                <div class="carousel slide">
-                    <div class="carousel-inner">
-
-                        <div class="carousel-item active">
-                            <div class="row d-flex flex-nowrap">
-                                <!-- Loop news Here Start -->
-                                @if ($news_value)
-                                    @foreach ($news as $news_data)
-                                        <div class="col-lg-4 col-sm-6 event-item">
-                                            <div class="event-thumb">
-                                                <div class="service-icon">
-                                                    @foreach (array_slice(explode(',', $news_data->news_imgs), 0, 1) as $image)
-                                                        @if ($image != '')
-                                                            <img loading="lazy" decoding="async" src="@img('storage/news_imgs/' . $image)"
-                                                                width="570" height="320" alt="{{ $news_data->news_title }}"
-                                                                style="border-radius:20px;object-fit:cover;">
-                                                        @else
-                                                            <img loading="lazy" decoding="async" src="@img('client/img/fu_logo.png')" width="100%"
-                                                                alt="Future University"
-                                                                style="border-radius:20px;object-fit:cover;">
-                                                        @endif
-                                                    @endforeach
-                                                </div>
-                                                <div class="event-date">
-                                                    <span> {{ $news_data->news_date }} </span>
-                                                </div>
-                                            </div>
-                                            <div class="service-content course-item">
-                                                <h4 role="heading" aria-level="2" style="color:#ef7e22;"><a
-                                                        href="{{ route('newsDetails', base64_encode($news_data->id)) }}"
-                                                        style="color: #ef7e22">{{ $news_data->news_title }}</a></h4>
-                                                <div class="post-meta">
-                                                    <span class="cusSpan" style="color: #281e32;">
-                                                        <i class="fa fa-clock-o"></i>
-                                                        {{ date('d-M-Y | h:i A', strtotime($news_data->created_at)) }}
-                                                    </span>
-                                                </div>
-                                                <p>
-                                                    {{ \App\Support\RichText::excerpt($news_data->news_desc, 50) }}<a
-                                                        style="color: #ef7e22"
-                                                        href="{{ route('newsDetails', base64_encode($news_data->id)) }}">Read More <span class="visually-hidden">about {{ $news_data->news_title }}</span></a>
-                                                </p>
-                                            </div>
-                                        </div>
-                                    @endforeach
-                                @endif
-                            </div>
-                        </div>
-                        <!-- Loop news Here End -->
-
-                        <!-- Loop events Here Start -->
-                        {{-- <div class="carousel-item">
-                                <div class="row d-flex flex-nowrap">
-                                    @if ($event_value)
-                                        @foreach ($events as $event_data)
-                                            <div class="col-lg-4 col-sm-6 event-item">
-                                                <div class="event-thumb">
-                                                    <div class="service-icon">
-                                                        @foreach (array_slice(explode(',', $event_data->event_imgs), 0, 1) as $image)
-                                                            @if ($image != '')
-                                                                <img loading="lazy" decoding="async" src="@img('storage/event_imgs/' . $image)"
-                                                                    width="100%" alt="Future University"
-                                                                    style="border-radius:20px;">
-                                                            @else
-                                                                <img loading="lazy" decoding="async" src="@img('client/img/fu_logo.png')"
-                                                                    width="100%" alt="Future University"
-                                                                    style="border-radius:20px;">
-                                                            @endif
-                                                        @endforeach
-                                                    </div>
-                                                    <div class="event-date">
-                                                        <span> {{ $event_data->event_date }} </span>
-                                                    </div>
-                                                </div>
-                                                <div class="service-content course-item">
-                                                    <h4 role="heading" aria-level="2" style="color:#ef7e22;">{{ $event_data->event_title }}</h4>
-                                                    <div class="post-meta">
-                                                        <span class="cusSpan" style="color: #281e32;">
-                                                            <i class="fa fa-clock-o"></i>
-                                                            {{ date('d-M-Y | h:i A', strtotime($event_data->created_at)) }}
-                                                        </span>
-                                                    </div>
-                                                    <p>
-                                                        {{ \App\Support\RichText::excerpt($event_data->event_desc, 50) }}<a
-                                                            style="color: #ef7e22"
-                                                            href="{{ route('eventDetails', base64_encode($event_data->id)) }}">Read
-                                                            More</a>
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        @endforeach
-                                    @endif
+                {{-- Order: Admin > Manage News / Manage Events > "Order on the home page". --}}
+                <div class="ne-slider" data-ne-slider>
+                    <div class="ne-track" tabindex="0" role="region" aria-label="News and events">
+                        @foreach ($homeItems as $item)
+                            <div class="ne-slide event-item">
+                                <div class="event-thumb">
+                                    <div class="service-icon">
+                                        @if ($item['image'])
+                                            <img loading="lazy" decoding="async" src="@img($item['image'])"
+                                                width="570" height="320" alt="{{ $item['title'] }}"
+                                                style="border-radius:20px;object-fit:cover;">
+                                        @else
+                                            <img loading="lazy" decoding="async" src="@img('client/img/fu_logo.png')"
+                                                width="570" height="320" alt="The Future University"
+                                                style="border-radius:20px;object-fit:contain;">
+                                        @endif
+                                    </div>
+                                    <div class="event-date">
+                                        <span> {{ $item['date'] }} </span>
+                                    </div>
                                 </div>
-                            </div> --}}
-                        <!-- Loop events Here End -->
-
+                                <div class="service-content course-item">
+                                    <h4 role="heading" aria-level="2" style="color:#ef7e22;"><a
+                                            href="{{ $item['url'] }}" style="color: #ef7e22">{{ $item['title'] }}</a></h4>
+                                    <div class="post-meta">
+                                        <span class="cusSpan" style="color: #281e32;">
+                                            <span class="ne-type">{{ $item['type'] }}</span>
+                                            <i class="fa fa-clock-o"></i>
+                                            {{ $item['meta'] }}
+                                        </span>
+                                    </div>
+                                    <p>
+                                        {{ $item['excerpt'] }}<a style="color: #ef7e22" href="{{ $item['url'] }}">Read More <span
+                                                class="visually-hidden">about {{ $item['title'] }}</span></a>
+                                    </p>
+                                </div>
+                            </div>
+                        @endforeach
                     </div>
+                    <button type="button" class="ne-arrow ne-prev" aria-label="Previous news" hidden><i class="fa fa-angle-left" aria-hidden="true"></i></button>
+                    <button type="button" class="ne-arrow ne-next" aria-label="Next news" hidden><i class="fa fa-angle-right" aria-hidden="true"></i></button>
+                    <div class="ne-dots"></div>
+                </div>
+                <div class="text-center" style="margin: 10px 0 60px;">
+                    <a href="{{ route('NewsAndEvents') }}" class="site-btn">All News &amp; Events</a>
                 </div>
             </div>
         </section>
-        {{-- </div> --}}
-
     @endif
 
+    {{-- Managed in Admin > Testimonials. --}}
+    @if ($testimonials->isNotEmpty())
     <section class="testimonial-section spad">
         <div class="container">
             <div class="section-title text-center">
@@ -756,86 +699,28 @@
                 <p>1991-Now</p>
             </div>
             <div class="testimonial-slider owl-carousel">
-                <div class="ts-item">
-                    <div class="row">
-                        <div class="col-md-3">
-                            <div class="ts-author-pic set-bg"
-                                style="background-image:url('@img('storage/fu_alumni/BaraaMohammedBashir-100x100.jpg')')">
+                @foreach ($testimonials as $t)
+                    <div class="ts-item">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="ts-author-pic set-bg"
+                                    style="background-image:url('@img($t->photo ?: 'client/img/fu_logo.png')')">
+                                </div>
+                            </div>
+                            <div class="col-md-9 ts-text">
+                                <p>“ {{ $t->quote }} ”</p>
+                                <h5 role="heading" aria-level="3">{{ $t->name }}</h5>
+                                @if ($t->position)
+                                    <span>{{ $t->position }}</span>
+                                @endif
                             </div>
                         </div>
-                        <div class="col-md-9 ts-text">
-                            <p>“ Computerman as it was called before, now The Future University, is my door to the future.
-                                It is a place where my base skills and knowledge started from. ”</p>
-                            <h5 role="heading" aria-level="3">Baraa Mohammed Bashir</h5>
-                            <span>HR Officer, DAL Group.</span>
-                        </div>
                     </div>
-                </div>
-                <div class="ts-item">
-                    <div class="row">
-                        <div class="col-md-3">
-                            <div class="ts-author-pic set-bg"
-                                style="background-image:url('@img('storage/fu_alumni/NajeebAhmadZai-100x100.jpg')')">
-                            </div>
-                        </div>
-                        <div class="col-md-9 ts-text">
-                            <p>“ Being a FU graduated student, I can say that it is one of the best institutions to learn
-                                modern and up-to-date technology education. ”</p>
-                            <h5 role="heading" aria-level="3">Najeeb Ahmad Zai</h5>
-                            <span>Supervisor, Dubai, UAE.</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="ts-item">
-                    <div class="row">
-                        <div class="col-md-3">
-                            <div class="ts-author-pic set-bg"
-                                style="background-image:url('@img('storage/fu_alumni/KhalidFaza-100x100.jpg')')">
-                            </div>
-                        </div>
-                        <div class="col-md-9 ts-text">
-                            <p>“ It is really great to be an alumnus of the Future University (Computer Man College) which
-                                had such a strong system. I believe that whatever I have achieved today is just because of
-                                what I had learned in FU. ”</p>
-                            <h5 role="heading" aria-level="3">Khalid Faza</h5>
-                            <span>Chief Commercial Officer (CCO), Zain.</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="ts-item">
-                    <div class="row">
-                        <div class="col-md-3">
-                            <div class="ts-author-pic set-bg"
-                                style="background-image:url('@img('storage/fu_alumni/Ahmed-Mohammed-Osman-Ali-100x100.jpg')')">
-                            </div>
-                        </div>
-                        <div class="col-md-9 ts-text">
-                            <p>“ Future University (formerly Computer Man College) is not just a University; it’s a way of
-                                life. You learn to see the real world with a broaden mind for its system allows you to
-                                easily adapt to the dynamic environment that fosters a culture of professional growth. ”</p>
-                            <h5 role="heading" aria-level="3">Ahmed Mohammed Osman Ali</h5>
-                            <span>Director IT for Sudan & Ethiopia, Ericsson AB- Branch Sudan.</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="ts-item">
-                    <div class="row">
-                        <div class="col-md-3">
-                            <div class="ts-author-pic set-bg"
-                                style="background-image:url('@img('storage/fu_alumni/Amar-Hamdi-100x100.jpg')')">
-                            </div>
-                        </div>
-                        <div class="col-md-9 ts-text">
-                            <p>“ Future University, as we knew it back then as Computer Man College, gave me so much in many
-                                ways.”</p>
-                            <h5 role="heading" aria-level="3">Amar Hamdi</h5>
-                            <span>IT Manager, On Target Consulting Dubai, UAE.</span>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </section>
+    @endif
     <section class="team-section spad">
 
         <div class="container">

@@ -102,6 +102,8 @@
 
                                             <input type="hidden" value="{{ $event->event_imgs }}" name="event_imgs_old">
 
+                                            @include('admin.partials.faculty_order_fields', ['item' => $event])
+
                                             <div class="card-header">
                                                 <h5 class="card-title mb-0">Current Images</h5>
                                             </div>

@@ -82,9 +82,12 @@ class EventsController extends Controller
             'event_desc' =>['required' ] ,
             'event_time' => ['required'],
             'event_date' => ['required'],
+            'faculty_id' => ['required', 'string', \Illuminate\Validation\Rule::in(array_map('strval', array_keys(\App\Models\MainApp::facultyCodes())))],
+            'home_order' => ['nullable', 'integer', 'min:1', 'max:99'],
             'event_imgs' => 'required|array|max:20',
             'event_imgs.*' => 'image|mimes:jpg,jpeg,png,webp|max:10000',
         ],[
+            'faculty_id.required' => 'Choose the faculty or department.',
             'event_title.required' => 'Event Title is must.',
             'event_desc.required' => 'Event Description is must.',
             'event_time.required' => 'Event Time is must.',
@@ -99,7 +102,7 @@ class EventsController extends Controller
             return back()->withInput()->withErrors(['event_desc' => 'Event Description is must.']);
         }
         $incomingFields['event_desc'] = \App\Support\RichText::clean($incomingFields['event_desc']);
-        $incomingFields['faculty_id'] = auth()->user()->user_faculty ;
+        // Faculty / department chosen in the form (validated above).
         // New events are published at once unless "Publish now" is unticked.
         $incomingFields['event_status'] = $request->boolean('publish', true) ? 1 : 0;
 
@@ -178,6 +181,8 @@ class EventsController extends Controller
             'event_desc' => ['required'],
             'event_time' => ['required'],
             'event_date' => ['required'],
+            'faculty_id' => ['required', 'string', \Illuminate\Validation\Rule::in(array_map('strval', array_keys(\App\Models\MainApp::facultyCodes())))],
+            'home_order' => ['nullable', 'integer', 'min:1', 'max:99'],
             'event_imgs_old' => ['nullable', 'string'],
             'event_imgs' => ['nullable', 'array', 'max:20'],
             'event_imgs.*' => ['image', 'mimes:jpg,jpeg,png,webp', 'max:10000'],
@@ -195,7 +200,7 @@ class EventsController extends Controller
             return back()->withInput()->withErrors(['event_desc' => 'Event Description is must.']);
         }
         $incomingFields['event_desc'] = \App\Support\RichText::clean($incomingFields['event_desc']);
-        $incomingFields['faculty_id'] = auth()->user()->user_faculty;
+        // Faculty / department chosen in the form (validated above).
     
         // Handle image uploads
         if ($request->hasFile('event_imgs')) {

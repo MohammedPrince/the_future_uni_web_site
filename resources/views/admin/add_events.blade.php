@@ -101,6 +101,8 @@
                                             </div>
 
 
+                                            @include('admin.partials.faculty_order_fields', ['item' => null])
+
                                             <div class="card-header">
                                                 <h5 class="card-title mb-0">Image</h5>
                                             </div>
@@ -154,6 +156,7 @@
                                             <th>Date</th>
                                             <th>Faculty</th>
                                             <th>By</th>
+                                            <th>Home Order</th>
                                             <th>Current Status</th>
                                             <th>Status</th>
                                             <th>Edit</th>
@@ -168,6 +171,7 @@
                                                 <td>{{ $event->event_date }}</td>
                                                 <td>{{ \App\Models\MainApp::getFacultiesAndOffices($event->faculty_id) }}</td>
                                                 <td>{{ optional($event->users)->user_fullname }}</td>
+                                                <td>{{ $event->home_order ?: '-' }}</td>
                                                 <td>
                                                     @if ($event->event_status == '1')
                                                         <span class="badge bg-success">Published</span>

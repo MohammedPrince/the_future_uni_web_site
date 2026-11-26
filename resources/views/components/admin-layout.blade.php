@@ -101,6 +101,16 @@
                             <i class="align-middle" data-feather="paperclip"></i> <span class="align-middle">Manage News</span>
                         </a>
                     </li>
+                    <li class="sidebar-item @if (Request::is('home_slider*')) active @endif">
+                        <a class='sidebar-link' href='{{ route("slides.index") }}'>
+                            <i class="align-middle" data-feather="image"></i> <span class="align-middle">Home Slider</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-item @if (Request::is('testimonials*')) active @endif">
+                        <a class='sidebar-link' href='{{ route("testimonials.index") }}'>
+                            <i class="align-middle" data-feather="message-square"></i> <span class="align-middle">Testimonials</span>
+                        </a>
+                    </li>
                     <li class="sidebar-item '@if ( (Request::is('linkage')) || (Request::is('edit_linkage'))  ) active @endif ' ">
                         <a class='sidebar-link' href='{{route("linkage")}}'>
                             <i class="align-middle" data-feather="link"></i> <span class="align-middle">Manage Linkage</span>

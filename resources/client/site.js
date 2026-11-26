@@ -106,6 +106,94 @@
         rotate(root, all('.ts-item', root), 'is-active', { nav: true });
     });
 
+    /* ---------- News & Events slider (home) ----------
+       A row that scrolls sideways (works by swipe even without this code).
+       Adds arrows, dots and a slow auto-advance that stops on hover, focus,
+       touch, a hidden tab or "reduce motion". */
+    all('[data-ne-slider]').forEach(function (root) {
+        var track = root.querySelector('.ne-track');
+        var slides = all('.ne-slide', track);
+        var prev = root.querySelector('.ne-prev');
+        var next = root.querySelector('.ne-next');
+        var dotsBox = root.querySelector('.ne-dots');
+        if (!track || slides.length < 2) return;
+
+        var timer, paused = false, dots = [], ticking = false;
+
+        function perView() {
+            return Math.max(1, Math.round(track.clientWidth / slides[0].getBoundingClientRect().width));
+        }
+        function pages() { return Math.max(1, Math.ceil(slides.length / perView())); }
+        function page() {
+            var max = track.scrollWidth - track.clientWidth;
+            if (max <= 0) return 0;
+            return Math.round(track.scrollLeft / max * (pages() - 1));
+        }
+        function go(p) {
+            var count = pages();
+            p = (p + count) % count;
+            var target = slides[Math.min(p * perView(), slides.length - 1)];
+            track.scrollTo({ left: target.offsetLeft - track.offsetLeft, behavior: calm ? 'auto' : 'smooth' });
+        }
+
+        function build() {
+            var count = pages();
+            var many = count > 1;
+            prev.hidden = next.hidden = !many;
+            dotsBox.innerHTML = '';
+            dots = [];
+            if (many) {
+                for (var i = 0; i < count; i++) {
+                    (function (i) {
+                        var b = document.createElement('button');
+                        b.type = 'button';
+                        b.className = 'ne-dot';
+                        b.setAttribute('aria-label', 'Show page ' + (i + 1));
+                        b.addEventListener('click', function () { go(i); });
+                        dots.push(b);
+                        dotsBox.appendChild(b);
+                    })(i);
+                }
+            }
+            mark();
+        }
+        function mark() {
+            var current = page();
+            dots.forEach(function (d, i) { d.classList.toggle('active', i === current); });
+            ticking = false;
+        }
+
+        function schedule() {
+            clearInterval(timer);
+            if (calm) return;
+            timer = setInterval(function () {
+                if (paused || document.hidden || pages() < 2) return;
+                go(page() + 1);
+            }, 6000);
+        }
+
+        prev.addEventListener('click', function () { go(page() - 1); });
+        next.addEventListener('click', function () { go(page() + 1); });
+        track.addEventListener('scroll', function () {
+            if (!ticking) { ticking = true; window.requestAnimationFrame(mark); }
+        }, { passive: true });
+        ['mouseenter', 'focusin', 'touchstart'].forEach(function (ev) {
+            root.addEventListener(ev, function () { paused = true; }, { passive: true });
+        });
+        ['mouseleave', 'focusout'].forEach(function (ev) {
+            root.addEventListener(ev, function () { paused = false; });
+        });
+        var resizeWait;
+        window.addEventListener('resize', function () {
+            clearTimeout(resizeWait);
+            resizeWait = setTimeout(build, 200);
+        });
+
+        root.classList.add('is-ready');
+        build();
+        schedule();
+    });
+
     /* ---------- Bootstrap style carousel (faculties) ---------- */
     all('.carousel[data-bs-ride]').forEach(function (root) {
         var items = all('.carousel-item', root);

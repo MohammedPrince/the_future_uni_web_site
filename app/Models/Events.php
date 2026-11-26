@@ -19,6 +19,7 @@ class Events extends Model
         'event_date',
         'event_imgs' ,
         'faculty_id' ,
+        'home_order' ,
         'event_by' ,
         'event_status' ,
     ];
