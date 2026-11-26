@@ -52,8 +52,9 @@ class HomeContentTest extends TestCase
         $html = $this->get('/')->assertOk()->getContent();
 
         $first = HomeSlide::ordered()->where('is_visible', true)->first();
-        $this->assertStringContainsString('<h1 class="hs-title"', $html);
-        $this->assertStringContainsString(e($first->title), $html);
+        $this->assertStringContainsString('<h1 class="fu-hero-title"', $html);
+        // The part after the last comma is shown in orange (<em>), so check the start.
+        $this->assertStringContainsString(e(explode(',', $first->title)[0]), $html);
         $this->assertStringContainsString('rel="preload" as="image" fetchpriority="high" href="' . e($first->src()) . '"', $html);
         $this->assertStringContainsString('Alumni testimonials', $html);
         $this->assertStringContainsString(e(Testimonial::ordered()->where('is_visible', true)->first()->name), $html);
@@ -91,8 +92,8 @@ class HomeContentTest extends TestCase
         $this->assertSame([1600, 1067], [(int) $slide->img_width, (int) $slide->img_height]);
 
         // Order 1 makes it the first slide, with the h1 and the preload.
-        $this->get('/')->assertOk()->assertSee('<h1 class="hs-title" style="color:#ff8d51;">Admission 2027 is open</h1>', false)
-            ->assertSee('href="https://odms.fu.edu.sd/" class="site-btn"', false);
+        $this->get('/')->assertOk()->assertSee('<h1 class="fu-hero-title">Admission 2027 is open', false)
+            ->assertSee('href="https://odms.fu.edu.sd/" class="fu-btn fu-btn-orange"', false);
 
         $this->actingAs($this->admin())->delete("/home_slider/{$slide->id}")->assertRedirect('/home_slider');
         foreach ($slide->widthList() as $w) {

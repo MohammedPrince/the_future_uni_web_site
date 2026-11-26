@@ -41,7 +41,7 @@
             'addressCountry' => 'SD',
         ],
         'hasMap' => $contact['map_url'] ?? '',
-        'sameAs' => array_values(array_filter([$contact['facebook_url'] ?? ''])),
+        'sameAs' => array_values(array_filter([$contact['facebook_url'] ?? '', $contact['instagram_url'] ?? '', $contact['tiktok_url'] ?? ''])),
     ]);
 
     $graph = [$organization];

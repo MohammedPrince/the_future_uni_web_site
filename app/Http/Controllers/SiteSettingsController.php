@@ -19,6 +19,8 @@ class SiteSettingsController extends Controller
         'map_url' => ['nullable', 'url', 'starts_with:https://,http://', 'max:500'],
         'facebook_url' => ['nullable', 'url', 'starts_with:https://,http://', 'max:500'],
         'linkedin_url' => ['nullable', 'url', 'starts_with:https://,http://', 'max:500'],
+        'instagram_url' => ['nullable', 'url', 'starts_with:https://,http://', 'max:500'],
+        'tiktok_url' => ['nullable', 'url', 'starts_with:https://,http://', 'max:500'],
         'admission_url' => ['nullable', 'url', 'starts_with:https://,http://', 'max:500'],
         'elearning_url' => ['nullable', 'url', 'starts_with:https://,http://', 'max:500'],
         'helpdesk_url' => ['nullable', 'url', 'starts_with:https://,http://', 'max:500'],

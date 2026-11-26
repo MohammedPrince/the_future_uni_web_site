@@ -188,6 +188,21 @@ class AdminControlTest extends TestCase
             ->assertDontSee('Go back');
     }
 
+    public function test_header_and_footer_link_to_all_social_pages()
+    {
+        $html = $this->get('/About-FU')->assertOk()->getContent();
+        foreach ([
+            'https://www.facebook.com/TheFutureUniversity/',
+            'https://www.instagram.com/thefutureuniversitysd/',
+            'https://www.tiktok.com/@thefutureuniversitysd',
+        ] as $url) {
+            // Once in the top bar and once in the footer.
+            $this->assertSame(2, substr_count($html, 'href="' . e($url) . '"'), $url);
+        }
+        $this->assertStringContainsString('aria-label="Instagram"', $html);
+        $this->assertStringContainsString('aria-label="TikTok"', $html);
+    }
+
     public function test_public_pages_still_show_the_default_contact_details()
     {
         $this->get('/About-FU')->assertOk()

@@ -126,6 +126,8 @@
                             @foreach ([
                                 'facebook_url' => 'Facebook page',
                                 'linkedin_url' => 'LinkedIn page',
+                                'instagram_url' => 'Instagram page',
+                                'tiktok_url' => 'TikTok page',
                                 'admission_url' => 'Admission portal (top bar)',
                                 'elearning_url' => 'E-Learning (top bar and footer)',
                                 'helpdesk_url' => 'Help Desk (top bar and footer)',

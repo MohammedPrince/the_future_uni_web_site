@@ -13,9 +13,14 @@
     all('.nav-switch').forEach(function (button) {
         button.addEventListener('click', function (e) {
             e.preventDefault();
-            var open = document.querySelector('.main-menu').classList.toggle('is-open');
+            var open = document.querySelector('.fu-menu, .main-menu').classList.toggle('is-open');
             button.setAttribute('aria-expanded', String(open));
         });
+    });
+    document.addEventListener('keydown', function (e) {
+        if (e.key !== 'Escape') return;
+        all('.fu-menu.is-open, .fu-menu > li.is-open').forEach(function (el) { el.classList.remove('is-open'); });
+        all('.nav-switch, .sub-menu-arrow').forEach(function (b) { b.setAttribute('aria-expanded', 'false'); });
     });
 
     /* ---------- Sub menus with keyboard and touch ---------- */
@@ -24,7 +29,7 @@
             e.preventDefault();
             var item = link.parentNode;
             var open = !item.classList.contains('is-open');
-            all('.main-menu > li.is-open').forEach(function (li) {
+            all('.main-menu > li.is-open, .fu-menu > li.is-open').forEach(function (li) {
                 li.classList.remove('is-open');
                 li.querySelector('.sub-menu-arrow').setAttribute('aria-expanded', 'false');
             });
@@ -100,7 +105,7 @@
     }
 
     all('.hero-slider').forEach(function (root) {
-        rotate(root, all('.owl-item', root), 'active', { nav: false });
+        rotate(root, all('.owl-item', root), 'active', { nav: !!root.closest('.fu-hero') });
     });
     all('.testimonial-slider').forEach(function (root) {
         rotate(root, all('.ts-item', root), 'is-active', { nav: true });

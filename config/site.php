@@ -21,6 +21,8 @@ return [
         // Social media
         'facebook_url' => 'https://www.facebook.com/TheFutureUniversity/',
         'linkedin_url' => 'https://www.linkedin.com/school/sudan-civil-aviation-authority',
+        'instagram_url' => 'https://www.instagram.com/thefutureuniversitysd/',
+        'tiktok_url' => 'https://www.tiktok.com/@thefutureuniversitysd',
 
         // Portals
         'admission_url' => 'https://odms.fu.edu.sd/',

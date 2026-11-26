@@ -40,165 +40,120 @@
     @endphp
     <a class="skip-link" href="#main-content">Skip to content</a>
 
+    @php
+        $applyUrl = $site['admission_url'] ?? '' ?: route('Undergraduate-Admission');
+        $is = fn (...$p) => Request::is(...$p);
+        $menu = [
+            ['Home', route('Home'), $is('/'), []],
+            ['About', null, $is('About-FU', 'Fu-Linkages', 'Facts-Figures', 'Fu-Historical-Gallery'), [
+                ['History', route('About-FU')], ['Facts & Figures', route('barChart')],
+                ['Linkages', route('Fu-Linkages')], ['Gallery', route('Fu-Historical-Gallery')],
+            ]],
+            ['News & Events', route('NewsAndEvents'), $is('News-and-Events', 'News-Details/*', 'Event-Details/*'), []],
+            ['Programs', null, $is('Undergraduate-Programs', 'Postgraduates-Programs'), [
+                ['Undergraduate Programs', route('Undergraduate-Programs')], ['Postgraduate Programs', route('Postgraduates-Programs')],
+            ]],
+            ['Admission', null, $is('Undergraduate-Admission', 'Postgraduate-Admission', 'External-Transfer', 'Fee-Structure', 'Scholarships'), [
+                ['Undergraduate Admission', route('Undergraduate-Admission')], ['Postgraduate Admission', route('Postgraduate-Admission')],
+                ['Transfer / Bridging', route('External-Transfer')], ['Fee Structure', route('Fees')], ['Scholarships', route('Scholarships')],
+            ]],
+            ['Students', null, $is('Student-Affairs', 'Students-Gallery'), [
+                ['Students Affairs', route('Student-Affairs')], ['Students Gallery', route('Students-Gallery')],
+            ]],
+            ['Research', null, $is('Fu-Journal'), [
+                ['The Technology Horizon Journal', 'https://thj.fu.edu.sd/'],
+            ]],
+            ['Centers', null, $is('CESD', 'CTS', 'UNESCO', 'ICDL', 'Space-Technology-Center', 'IRDC'), [
+                ['E-Learning & Software Development (CESD)', route('CESD')], ['Technical Services (CTS)', route('CTS')],
+                ['Innovation, Research & Development (IRDC)', route('IRDC')], ['UNESCO', route('UNESCO')],
+                ['Space Technology Research Center', route('Space-Technology-Center')], ['ICDL', route('ICDL')],
+            ]],
+        ];
+        $social = array_filter([
+            'Facebook' => [$site['facebook_url'] ?? '', 'M13.5 21v-7.5h2.5l.4-3h-2.9V8.6c0-.9.3-1.5 1.5-1.5h1.6V4.4c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 4V10.5H8v3h2.4V21h3.1z'],
+            'LinkedIn' => [$site['linkedin_url'] ?? '', 'M5 3.5a2.2 2.2 0 1 1 0 4.4 2.2 2.2 0 0 1 0-4.4zM3.1 9.2h3.8V21H3.1zM9.3 9.2h3.6v1.6h.1c.5-.9 1.7-1.9 3.6-1.9 3.8 0 4.5 2.5 4.5 5.8V21h-3.8v-5.5c0-1.3 0-3-1.8-3s-2.1 1.4-2.1 2.9V21H9.3z'],
+            'Instagram' => [$site['instagram_url'] ?? '', 'M12 2.2c3.2 0 3.6 0 4.8.1 1.2.1 1.8.2 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1 .4 2.2.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 1.2-.2 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1 .4-2.2.4-1.3.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-1.2-.1-1.8-.2-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.8c.1-1.2.2-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1-.4 2.2-.4C8.4 2.2 8.8 2.2 12 2.2zm0 4.7a5.1 5.1 0 1 0 0 10.2 5.1 5.1 0 0 0 0-10.2zm0 8.4a3.3 3.3 0 1 1 0-6.6 3.3 3.3 0 0 1 0 6.6zm5.3-9.8a1.2 1.2 0 1 0 0 2.4 1.2 1.2 0 0 0 0-2.4z'],
+            'TikTok' => [$site['tiktok_url'] ?? '', 'M16.6 2h-3.3v13.4a2.9 2.9 0 1 1-2.9-2.9c.3 0 .6 0 .8.1V9.2a6.3 6.3 0 1 0 5.4 6.2V8.8a7.9 7.9 0 0 0 4.4 1.4V6.9a4.6 4.6 0 0 1-4.4-4.9z'],
+        ], fn ($s) => $s[0] !== '');
+        $portals = array_filter([
+            'Admission' => $site['admission_url'] ?? '',
+            'E-Learning' => $site['elearning_url'] ?? '',
+            'Help Desk' => $site['helpdesk_url'] ?? '',
+        ]);
+    @endphp
+
+    {{-- Announcement (Admin > Site Settings) --}}
     @if (($site['announcement_enabled'] ?? '0') === '1' && !empty($site['announcement_text']))
-        <div class="site-announcement" role="region" aria-label="Announcement"
-            style="background: #fb8b24; color: #fff; text-align: center; padding: 8px 16px; font-size: 15px; line-height: 1.4;">
-            @if (!empty($site['announcement_url']))
-                <a href="{{ $site['announcement_url'] }}" style="color: #fff; text-decoration: underline;">{{ $site['announcement_text'] }}</a>
-            @else
-                {{ $site['announcement_text'] }}
-            @endif
+        <div class="fu-announce" role="region" aria-label="Announcement">
+            <div class="container">
+                <svg class="fu-i" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11v2a1 1 0 0 0 1 1h2l5 4V6L6 10H4a1 1 0 0 0-1 1zM15.5 8.5a5 5 0 0 1 0 7M18.5 5.5a9 9 0 0 1 0 13"/></svg>
+                <span>{{ $site['announcement_text'] }}</span>
+                @if (!empty($site['announcement_url']))
+                    <a class="fu-announce-btn" href="{{ $site['announcement_url'] }}">Learn more &rarr;</a>
+                @endif
+            </div>
         </div>
     @endif
 
-    <header class="header-section">
+    {{-- Contact and portals --}}
+    <div class="fu-util">
         <div class="container">
-
-            <a href="{{ route('Home') }}" class="site-logo"><img src="@img('client/img/fu_logo.png')"
-                    height="100" width="100" alt="The Future University, home"></a>
-            <button type="button" class="nav-switch" aria-label="Menu" aria-expanded="false">
-                <i class="fa fa-bars" aria-hidden="true"></i>
-            </button>
-
-            <div class="header-info" style="margin-top: 20px;float: right;">
-                @if (!empty($site['contact_email']))
-                <div class="hf-item">
-                    <i class="fa fa-envelope"></i>
-                    <a href="mailto:{{ $site['contact_email'] }}" target="_blank" rel="noopener">
-                        <p><span>Email</span>{{ $site['contact_email'] }}</p>
-                    </a>
-                </div>
-                @endif
-                @if (!empty($site['contact_phone']))
-                <div class="hf-item">
-                    <i class="fa fa-phone"></i>
-                    <p><span>Phone:</span>{{ $site['contact_phone'] }}</p>
-                </div>
-                @endif
-            </div>
-        </div>
-    </header>
-
-    <div class="header-top">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3 col-sm-3 col-3 header-top-left no-padding">
-                    <ul class="social-links">
-                        @if (!empty($site['facebook_url']))
-                        <li><a href="{{ $site['facebook_url'] }}" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa fa-facebook-square" aria-hidden="true"></i></a></li>
-                        @endif
-                        @if (!empty($site['linkedin_url']))
-                        <li><a href="{{ $site['linkedin_url'] }}" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a></li>
-                        @endif
-                    </ul>
-                </div>
-                <div class="col-lg-9 col-sm-9 col-9" style="text-align: end;">
-                    {{-- <a href="https://result.fu.edu.sd/" target="_blank" rel="noopener">Students Portal <b
-                            style="color: #fec169;">|</b></a> --}}
-                    @php
-                        $topLinks = array_filter([
-                            'Admission' => $site['admission_url'] ?? '',
-                            'E-Learning' => $site['elearning_url'] ?? '',
-                            'Help Desk' => $site['helpdesk_url'] ?? '',
-                        ]);
-                    @endphp
-                    @foreach ($topLinks as $label => $url)
-                        <a href="{{ $url }}" target="_blank" rel="noopener">{{ $label }}@unless ($loop->last) <b
-                            style="color: #fec169;">|</b>@endunless</a>
-                    @endforeach
-                </div>
-            </div>
+            @if (!empty($site['contact_email']))
+                <a class="fu-util-item fu-hide-md" href="mailto:{{ $site['contact_email'] }}"><svg class="fu-i" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>{{ $site['contact_email'] }}</a>
+            @endif
+            @if (!empty($site['contact_phone']))
+                <a class="fu-util-item" href="tel:{{ preg_replace('/[^0-9+]/', '', $site['contact_phone']) }}"><svg class="fu-i" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg><span dir="ltr">{{ $site['contact_phone'] }}</span></a>
+            @endif
+            <span class="fu-util-space"></span>
+            <span class="fu-util-links fu-hide-md">
+                @foreach ($portals as $label => $url)
+                    <a href="{{ $url }}" target="_blank" rel="noopener">{{ $label }}</a>
+                @endforeach
+            </span>
+            <span class="fu-social">
+                @foreach ($social as $name => [$url, $icon])
+                    <a href="{{ $url }}" target="_blank" rel="noopener" aria-label="{{ $name }}"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="{{ $icon }}"/></svg></a>
+                @endforeach
+            </span>
         </div>
     </div>
 
-    <nav class="nav-section HeaderMainColor" aria-label="Main">
+    {{-- Logo, menu, Apply --}}
+    <header class="fu-header">
         <div class="container">
-            <ul class="main-menu">
-
-                <li class="{{ Request::is('/', 'Home') ? 'ActiveMenuMainColor' : '' }}">
-                    <a href="{{ route('Home') }}">Home</a>
-                </li>
-
-                <li
-                    class="{{ Request::is('About-FU', 'Fu-Linkages', 'Facts-Figures', 'barChart', 'Fu-Historical-Gallery', 'Staff-Directory', 'Staff-Details') ? 'ActiveMenuMainColor' : '' }}">
-                    <a role="button" tabindex="0" aria-haspopup="true" aria-expanded="false" class="sub-menu-arrow">About</a>
-                    <ul class="sub-main-menu">
-                        <li><a href="{{ route('About-FU') }}" style="text-align: left;">History</a></li>
-                        {{-- <li><a href="{{ route('Staff-Directory') }}" style="text-align: left;">Staff Directory</a></li> --}}
-                        <li><a href="{{ route('barChart') }}" style="text-align: left;">Facts & Figures</a></li>
-                        <li><a href="{{ route('Fu-Linkages') }}" style="text-align: left;">Linkages</a></li>
-                        <li><a href="{{ route('Fu-Historical-Gallery') }}" style="text-align: left;">Gallery</a></li>
-                    </ul>
-                </li>
-
-                <li
-                    class="{{ request()->is('News-Details/*') || request()->is('Event-Details/*') || Request::is('News-and-Events') ? 'ActiveMenuMainColor' : '' }}">
-                    <a href="{{ route('NewsAndEvents') }}">News & Events</a>
-                </li>
-
-                <li
-                    class="{{ Request::is('Undergraduate-Programs', 'Postgraduates-Programs') ? 'ActiveMenuMainColor' : '' }}">
-                    <a role="button" tabindex="0" aria-haspopup="true" aria-expanded="false" class="sub-menu-arrow">Programs</a>
-                    <ul class="sub-main-menu">
-                        <li><a href="{{ route('Undergraduate-Programs') }}" style="text-align: left;">Undergraduate
-                                Programs</a></li>
-                        <li><a href="{{ route('Postgraduates-Programs') }}" style="text-align: left;">Postgraduate
-                                Programs</a></li>
-                    </ul>
-                </li>
-
-                <li
-                    class="{{ Request::is('Undergraduate-Admission', 'Postgraduate-Admission', 'External-Transfer', 'Fee-Structure', 'Scholarships') ? 'ActiveMenuMainColor' : '' }}">
-                    <a role="button" tabindex="0" aria-haspopup="true" aria-expanded="false" class="sub-menu-arrow">Admission</a>
-                    <ul class="sub-main-menu">
-                        <li><a href="{{ route('Undergraduate-Admission') }}" style="text-align: left;">Undergraduates
-                                Admission</a></li>
-                        <li><a href="{{ route('Postgraduate-Admission') }}" style="text-align: left;">Postgraduates
-                                Admission</a></li>
-                        <li><a href="{{ route('External-Transfer') }}" style="text-align: left;">External & Internal
-                                Transfer / Bridging</a></li>
-                        <li><a href="{{ route('Fees') }}" style="text-align: left;">Fee Structure</a></li>
-                        <li><a href="{{ route('Scholarships') }}" style="text-align: left;">Scholarships</a></li>
-                    </ul>
-                </li>
-
-                <li class="{{ Request::is('Student-Affairs', 'Students-Gallery') ? 'ActiveMenuMainColor' : '' }}">
-                    <a role="button" tabindex="0" aria-haspopup="true" aria-expanded="false" class="sub-menu-arrow">Students</a>
-                    <ul class="sub-main-menu">
-                        <li><a href="{{ route('Student-Affairs') }}" style="text-align: left;">Students Affairs</a>
+            <a class="fu-brand" href="{{ route('Home') }}">
+                <img src="@img('client/img/fu_logo.png')" width="58" height="58" alt="">
+                <span><b>The Future University</b><small lang="ar">جامعة المستقبل</small></span>
+            </a>
+            <nav class="fu-nav" aria-label="Main">
+                <ul class="fu-menu">
+                    @foreach ($menu as [$label, $url, $active, $children])
+                        <li class="{{ $active ? 'is-active' : '' }} {{ $children ? 'has-sub' : '' }}">
+                            @if ($children)
+                                <a role="button" tabindex="0" aria-haspopup="true" aria-expanded="false" class="sub-menu-arrow">{{ $label }}</a>
+                                <ul class="fu-sub">
+                                    @foreach ($children as [$childLabel, $childUrl])
+                                        <li><a href="{{ $childUrl }}" @if (str_starts_with($childUrl, 'http') && !str_contains($childUrl, 'fu.edu.sd/')) target="_blank" rel="noopener" @endif>{{ $childLabel }}</a></li>
+                                    @endforeach
+                                </ul>
+                            @else
+                                <a href="{{ $url }}" @if ($active) aria-current="page" @endif>{{ $label }}</a>
+                            @endif
                         </li>
-                    </ul>
-                </li>
-
-                <li class="{{ Request::is('Fu-Journal') ? 'ActiveMenuMainColor' : '' }}">
-                    <a role="button" tabindex="0" aria-haspopup="true" aria-expanded="false" class="sub-menu-arrow">Research & Publications</a>
-                    <ul class="sub-main-menu">
-                        <li><a href="https://thj.fu.edu.sd/" target="_blank" rel="noopener" style="text-align: left;">The Technology
-                                Horizon Journal</a></li>
-                    </ul>
-                </li>
-
-                <li
-                    class="{{ Request::is('CESD', 'CTS', 'UNESCO', 'ICDL', 'Space-Technology-Center', 'IRDC') ? 'ActiveMenuMainColor' : '' }}">
-                    <a role="button" tabindex="0" aria-haspopup="true" aria-expanded="false" class="sub-menu-arrow">Centers</a>
-                    <ul class="sub-main-menu">
-                        <li><a href="{{ route('CESD') }}" style="text-align: left;">Center of E-learning and
-                                Software Development</a></li>
-                        <li><a href="{{ route('CTS') }}" style="text-align: left;">Center of Technical
-                                Services</a></li>
-                        <li><a href="{{ route('IRDC') }}" style="text-align: left;">Innovation Research and
-                                Development Center</a></li>
-                        <li><a href="{{ route('UNESCO') }}" style="text-align: left;">UNESCO</a></li>
-                        <li><a href="{{ route('Space-Technology-Center') }}" style="text-align: left;">Space
-                                Technology Research Center</a></li>
-                        <li><a href="{{ route('ICDL') }}" style="text-align: left;">ICDL</a></li>
-                    </ul>
-                </li>
-
-
-            </ul>
+                    @endforeach
+                    <li class="fu-menu-portals">
+                        @foreach ($portals as $label => $url)
+                            <a href="{{ $url }}" target="_blank" rel="noopener">{{ $label }}</a>
+                        @endforeach
+                    </li>
+                </ul>
+            </nav>
+            <a class="fu-apply" href="{{ $applyUrl }}">Apply now</a>
+            <button type="button" class="nav-switch fu-burger" aria-label="Menu" aria-expanded="false">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+            </button>
         </div>
-    </nav>
+    </header>
 
     <!-- main content -->
 
@@ -242,129 +197,102 @@
     </style>
     <!-- Zoom Floating Button End-->
 
-    <footer class="footer-section FooterMainColor">
-        <div class="container footer-top">
-            <div class="row">
+    <footer class="fu-footer">
+        <div class="container">
+            <div class="fu-footer-cta">
+                <div>
+                    <h2>Ready to join The Future University?</h2>
+                    <p>Apply online, or talk to our Admission office. We are happy to help.</p>
+                </div>
+                <div class="fu-footer-cta-btns">
+                    <a class="fu-btn fu-btn-white" href="{{ $applyUrl }}">Apply now &rarr;</a>
+                    @if (!empty($site['helpdesk_url']))
+                        <a class="fu-btn fu-btn-ghost" href="{{ $site['helpdesk_url'] }}" target="_blank" rel="noopener">Ask the Help Desk</a>
+                    @endif
+                </div>
+            </div>
 
-                <div class="col-sm-6 col-lg-3 footer-widget">
-                    <div class="about-widget">
-                        <img src="@img('client/img/fu_logo.png')" alt="The Future University"
-                            width="80" height="80" loading="lazy" style="margin-left: 0px;">
-                        <p>
-                            {{ $site['footer_about'] ?? '' }}
-                        </p>
-
-                    </div>
+            <div class="fu-footer-grid">
+                <div class="fu-footer-brand">
+                    <a class="fu-brand fu-brand-light" href="{{ route('Home') }}">
+                        <img src="@img('client/img/fu_logo.png')" width="58" height="58" alt="" loading="lazy">
+                        <span><b>The Future University</b><small lang="ar">جامعة المستقبل</small></span>
+                    </a>
+                    <p>{{ $site['footer_about'] ?? '' }}</p>
+                    <span class="fu-social">
+                        @foreach ($social as $name => [$url, $icon])
+                            <a href="{{ $url }}" target="_blank" rel="noopener" aria-label="{{ $name }}"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="{{ $icon }}"/></svg></a>
+                        @endforeach
+                    </span>
                 </div>
 
-                <div class="col-sm-6 col-lg-3 footer-widget">
-                    <h6 class="fw-title" role="heading" aria-level="2">USEFUL LINK</h6>
-                    <div class="dobule-link">
-                        <ul>
-                            <li><a href="{{ route('Home') }}">Home</a></li>
-                            @if (!empty($site['elearning_url']))
-                            <li><a href="{{ $site['elearning_url'] }}" target="_blank" rel="noopener">E-Learning</a></li>
-                            @endif
-                            @if (!empty($site['helpdesk_url']))
-                            <li><a href="{{ $site['helpdesk_url'] }}" target="_blank" rel="noopener">Help Desk</a></li>
-                            @endif
-                            @if (!empty($site['students_portal_url']))
-                            <li><a href="{{ $site['students_portal_url'] }}" target="_blank" rel="noopener">Students Portal</a></li>
-                            @endif
-                            <li><a href="{{ route('About-FU') }}">Why FU ?</a></li>
-                        </ul>
-                        <ul>
-                            <li><a href="{{ route('CESD') }}">CESD</a></li>
-                            <li><a href="{{ route('CTS') }}">CTS</a></li>
-                            <li><a href="{{ route('IRDC') }}">IRDC</a></li>
-                            <li><a href="{{ route('Undergraduate-Admission') }}">Admission</a></li>
-                            <li><a href="{{ route('NewsAndEvents') }}">News & Events</a></li>
+                <nav class="fu-footer-col" aria-label="Explore">
+                    <h2>Explore</h2>
+                    <ul>
+                        <li><a href="{{ route('About-FU') }}">About FU</a></li>
+                        <li><a href="{{ route('Undergraduate-Programs') }}">Undergraduate Programs</a></li>
+                        <li><a href="{{ route('Postgraduates-Programs') }}">Postgraduate Programs</a></li>
+                        <li><a href="{{ route('Undergraduate-Admission') }}">Admission</a></li>
+                        <li><a href="{{ route('Fees') }}">Fee Structure</a></li>
+                        <li><a href="{{ route('Scholarships') }}">Scholarships</a></li>
+                        <li><a href="{{ route('NewsAndEvents') }}">News &amp; Events</a></li>
+                    </ul>
+                </nav>
 
-                        </ul>
-                    </div>
-                </div>
+                <nav class="fu-footer-col" aria-label="Portals and centers">
+                    <h2>Portals &amp; Centers</h2>
+                    <ul>
+                        @if (!empty($site['elearning_url']))<li><a href="{{ $site['elearning_url'] }}" target="_blank" rel="noopener">E-Learning</a></li>@endif
+                        @if (!empty($site['helpdesk_url']))<li><a href="{{ $site['helpdesk_url'] }}" target="_blank" rel="noopener">Help Desk</a></li>@endif
+                        @if (!empty($site['students_portal_url']))<li><a href="{{ $site['students_portal_url'] }}" target="_blank" rel="noopener">Students Portal</a></li>@endif
+                        <li><a href="{{ route('CESD') }}">CESD</a></li>
+                        <li><a href="{{ route('CTS') }}">CTS</a></li>
+                        <li><a href="{{ route('IRDC') }}">IRDC</a></li>
+                    </ul>
+                </nav>
 
-                <div class="col-sm-6 col-lg-3 footer-widget">
-                    <h6 class="fw-title" role="heading" aria-level="2">RECENT NEWS</h6>
-                    <ul class="recent-post">
+                <div class="fu-footer-col">
+                    <h2>Recent News</h2>
+                    <ul class="fu-footer-news">
                         @forelse ($footerNews as $recent)
-                        <li>
-                            <a href="{{ route('newsDetails', base64_encode($recent->id)) }}"><p>{{ \Illuminate\Support\Str::limit($recent->news_title, 70) }}</p></a>
-                            <span><i class="fa fa-clock-o SubFooterText"></i>{{ \Illuminate\Support\Carbon::parse($recent->news_date)->format('d M Y') }}</span>
-                        </li>
+                            <li>
+                                <a href="{{ route('newsDetails', base64_encode($recent->id)) }}" dir="auto">{{ \Illuminate\Support\Str::limit($recent->news_title, 70) }}</a>
+                                <small>{{ \Illuminate\Support\Carbon::parse($recent->news_date)->format('d M Y') }}</small>
+                            </li>
                         @empty
-                        <li>
-                            <a href="{{ route('NewsAndEvents') }}"><p>News &amp; Events</p></a>
-                        </li>
+                            <li><a href="{{ route('NewsAndEvents') }}">News &amp; Events</a></li>
                         @endforelse
                     </ul>
                 </div>
 
-                <div class="col-sm-6 col-lg-3 footer-widget">
-                    <h6 class="fw-title" role="heading" aria-level="2">FIND US</h6>
-                    <ul class="contact">
+                <div class="fu-footer-col">
+                    <h2>Get in touch</h2>
+                    <ul class="fu-footer-contact">
                         @if (!empty($site['address']))
-                        <li>
-                            @if (!empty($site['map_url']))
-                            <a href="{{ $site['map_url'] }}" target="_blank" rel="noopener">
-                                <p><i class="fa fa-map-marker"></i> {{ $site['address'] }}</p>
-                            </a>
-                            @else
-                            <p><i class="fa fa-map-marker"></i> {{ $site['address'] }}</p>
-                            @endif
-                        </li>
+                            <li><svg class="fu-i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg>
+                                @if (!empty($site['map_url']))<a href="{{ $site['map_url'] }}" target="_blank" rel="noopener">{{ $site['address'] }}</a>@else<span>{{ $site['address'] }}</span>@endif
+                            </li>
                         @endif
-
                         @if (!empty($site['contact_phone']))
-                        <li>
-                            <p><i class="fa fa-phone"></i> {{ $site['contact_phone'] }}</p>
-                        </li>
+                            <li><svg class="fu-i" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>
+                                <a href="tel:{{ preg_replace('/[^0-9+]/', '', $site['contact_phone']) }}" dir="ltr">{{ $site['contact_phone'] }}</a></li>
                         @endif
-
-                        {{-- <li>
-							<p>Fax:  (+249) 155 182 880</p>
-						</li> --}}
-
                         @if (!empty($site['contact_email']))
-                        <li>
-                            <a href="mailto:{{ $site['contact_email'] }}" target="_blank" rel="noopener">
-                                <p><i class="fa fa-envelope"></i> {{ $site['contact_email'] }}</p>
-                            </a>
-                        </li>
+                            <li><svg class="fu-i" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+                                <a href="mailto:{{ $site['contact_email'] }}">{{ $site['contact_email'] }}</a></li>
                         @endif
-                        @php
-                            $visitorCount = (new \App\Http\Controllers\VisitorController())->getVisitorCount();
-                        @endphp
-                        <li>
-                            <p style="color: #fff;">Visitor Counter: <strong style="color: #fec169">{{ number_format($visitorCount) }}</strong></p>
-                        </li>
-
-                        <li>
-                            <div class="social pt-1">
-                                @if (!empty($site['facebook_url']))
-                                <a href="{{ $site['facebook_url'] }}" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa fa-facebook-square" aria-hidden="true"></i></a>
-                                @endif
-                                @if (!empty($site['linkedin_url']))
-                                <a href="{{ $site['linkedin_url'] }}" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a>
-                                @endif
-
-                            </div>
-                        </li>
+                        @php($visitorCount = (new \App\Http\Controllers\VisitorController())->getVisitorCount())
+                        <li><svg class="fu-i" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>
+                            <span>Visitors: <b>{{ number_format($visitorCount) }}</b></span></li>
                     </ul>
                 </div>
             </div>
         </div>
 
-        <div class="copyright">
+        <div class="fu-footer-bottom">
             <div class="container">
-                <p style="color: #fff;font-size:11px;">
-                    Copyright &copy;
-                    {{ date('Y') }}
-                    All rights reserved for <strong style="color: #fec169">The Future
-                        University.</strong> Designed and Developed by
-                    <a href="{{ route('CESD') }}" target="_blank" rel="noopener" style="color: #fec169"><strong>CESD</strong></a> &
-                    <a href="{{ route('CTS') }}" target="_blank" rel="noopener" style="color: #fec169"><strong>CTS</strong></a>
-                </p>
+                <span>&copy; {{ date('Y') }} The Future University. All rights reserved.</span>
+                <span>Designed and developed by <a href="{{ route('CESD') }}">CESD</a> &amp; <a href="{{ route('CTS') }}">CTS</a></span>
             </div>
         </div>
     </footer>

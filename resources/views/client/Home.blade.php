@@ -3,43 +3,57 @@
     {{-- The first slide is the largest thing on the page: start loading it at once. --}}
     @if ($first = $slides->first())
         <link rel="preload" as="image" fetchpriority="high" href="{{ $first->src() }}"
-            imagesrcset="{{ $first->srcset() }}" imagesizes="(max-width: 767px) 585px, 100vw">
+            imagesrcset="{{ $first->srcset() }}" imagesizes="100vw">
     @endif
 @endsection
 
 @section('main-client-content')
-    {{-- Slides are managed in Admin > Home Slider. --}}
-    <section class="hero-section">
+    @php
+        $applyUrl = \App\Models\Setting::get('admission_url') ?: route('Undergraduate-Admission');
+        $elearningUrl = \App\Models\Setting::get('elearning_url') ?: 'https://elearning.fu.edu.sd/';
+        // "A, B, C." -> the part after the last comma is shown in orange.
+        $splitTitle = function ($title) {
+            $pos = mb_strrpos($title, ',');
+            return $pos === false ? [$title, ''] : [mb_substr($title, 0, $pos + 1), trim(mb_substr($title, $pos + 1))];
+        };
+    @endphp
+
+    {{-- ===== Hero slider (Admin > Home Slider) ===== --}}
+    <section class="hero-section fu-hero">
         <div class="hero-slider owl-carousel">
             <div class="owl-stage-outer">
                 @foreach ($slides as $slide)
+                    @php
+                        [$titleMain, $titleAccent] = $splitTitle($slide->title);
+                    @endphp
                     <div class="owl-item {{ $loop->first ? 'active' : '' }}">
                         <div class="hs-item">
                             @if ($loop->first)
                                 <img class="hs-bg" src="{{ $slide->src() }}" srcset="{{ $slide->srcset() }}"
-                                    sizes="(max-width: 767px) 585px, 100vw" width="{{ $slide->img_width }}" height="{{ $slide->img_height }}"
+                                    sizes="100vw" width="{{ $slide->img_width }}" height="{{ $slide->img_height }}"
                                     alt="{{ $slide->alt ?: $slide->title }}" fetchpriority="high">
                             @else
                                 <img class="hs-bg" data-src="{{ $slide->src() }}" data-srcset="{{ $slide->srcset() }}"
-                                    sizes="(max-width: 767px) 585px, 100vw" width="{{ $slide->img_width }}" height="{{ $slide->img_height }}"
+                                    sizes="100vw" width="{{ $slide->img_width }}" height="{{ $slide->img_height }}"
                                     alt="{{ $slide->alt ?: $slide->title }}">
                             @endif
-                            <div class="hs-text">
+                            <div class="fu-hero-text">
                                 <div class="container">
-                                    <div class="row">
-                                        <div class="col-lg-8">
-                                            @if ($slide->subtitle)
-                                                <div class="hs-subtitle" style="color:#ff8d51;">{{ $slide->subtitle }}</div>
-                                            @endif
-                                            @if ($loop->first)
-                                                <h1 class="hs-title" style="color:#ff8d51;">{{ $slide->title }}</h1>
-                                            @else
-                                                <h2 class="hs-title" style="color:#ff8d51;">{{ $slide->title }}</h2>
-                                            @endif
-                                            @if ($slide->button_text && $slide->button_url)
-                                                <a href="{{ $slide->button_url }}" class="site-btn">{{ $slide->button_text }}</a>
-                                            @endif
-                                        </div>
+                                    @if ($slide->subtitle)
+                                        <span class="fu-hero-eyebrow"><i aria-hidden="true"></i>{{ $slide->subtitle }}</span>
+                                    @endif
+                                    @if ($loop->first)
+                                        <h1 class="fu-hero-title">{{ $titleMain }} @if ($titleAccent)<em>{{ $titleAccent }}</em>@endif</h1>
+                                    @else
+                                        <h2 class="fu-hero-title">{{ $titleMain }} @if ($titleAccent)<em>{{ $titleAccent }}</em>@endif</h2>
+                                    @endif
+                                    <div class="fu-hero-ctas">
+                                        @if ($slide->button_text && $slide->button_url)
+                                            <a href="{{ $slide->button_url }}" class="fu-btn fu-btn-orange">{{ $slide->button_text }} &rarr;</a>
+                                        @else
+                                            <a href="{{ $applyUrl }}" class="fu-btn fu-btn-orange">Apply now &rarr;</a>
+                                        @endif
+                                        <a href="{{ route('Undergraduate-Programs') }}" class="fu-btn fu-btn-ghost">Explore programs</a>
                                     </div>
                                 </div>
                             </div>
@@ -49,91 +63,48 @@
             </div>
         </div>
     </section>
-    <section class="feature-area">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-4">
-                    <div class="single-feature">
-                        <div class="title">
-                            <h4 role="heading" aria-level="2" style="color: #fff;">Embedded Learning</h4>
-                        </div>
-                        <div class="desc-wrap">
-                            <p style="text-align: justify;">
-                                Our university supports embedded learning by integrating real-world applications into
-                                courses, facilitating experiential opportunities like internships and service-learning
-                                projects, and promoting collaborative research partnerships. This commitment ensures that
-                                our students gain practical skills, engage with real-world challenges, and graduate prepared
-                                to make a meaningful impact in their fields.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="single-feature">
-                        <div class="title">
-                            <h4 role="heading" aria-level="2" style="color: #fff;">Sustainability Focus</h4>
-                        </div>
-                        <div class="desc-wrap">
-                            <p style="text-align: justify;">
-                                Sustainability is at the core of our university's mission as we integrate sustainable
-                                practices and environmental stewardship throughout our curriculum, campus operations, and
-                                community engagement initiatives. By fostering a deep understanding of sustainable
-                                development, our students are prepared to tackle the pressing global challenges of our time
-                                and contribute to a more sustainable future.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="single-feature">
-                        <div class="title">
-                            <h4 role="heading" aria-level="2" style="color: #fff;">Global Engagement</h4>
-                        </div>
-                        <div class="desc-wrap">
-                            <p style="text-align: justify;">
-                                Our university fosters a globally-minded community, encouraging students to engage with
-                                diverse perspectives through international exchange programs, virtual collaborations, and
-                                cross-cultural learning opportunities. By cultivating a global mindset, we empower our
-                                graduates to navigate the interconnected world and make a lasting impact on a global scale.
-                            </p>
 
-                        </div>
-                    </div>
-                </div>
+    {{-- ===== Why FU ===== --}}
+    <section class="fu-why">
+        <div class="container fu-why-grid">
+            <div class="fu-why-card">
+                <span class="fu-badge" style="background:#1d5191"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.8-3.8a6 6 0 0 1-7.9 7.9l-6.9 6.9a2.1 2.1 0 0 1-3-3l6.9-6.9a6 6 0 0 1 7.9-7.9l-3.8 3.8z"/></svg></span>
+                <h2>Embedded Learning</h2>
+                <p>Real-world projects, internships and research partnerships built into every course, so you graduate ready to work.</p>
+                <a class="fu-more" href="{{ route('About-FU') }}">Learn more &rarr;</a>
+            </div>
+            <div class="fu-why-card">
+                <span class="fu-badge" style="background:#15803d"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.5 19 2c1 2 2 4.2 2 8 0 5.5-4.8 10-10 10z"/><path d="M2 21c0-3 1.9-5.4 5.1-6.1 2.4-.5 4.9-1.3 6.9-3.9"/></svg></span>
+                <h2>Sustainability Focus</h2>
+                <p>Sustainable practice across curriculum, campus and community, so our students can take on the challenges of our time.</p>
+                <a class="fu-more" href="{{ route('About-FU') }}">Learn more &rarr;</a>
+            </div>
+            <div class="fu-why-card">
+                <span class="fu-badge" style="background:#e2730f"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 4 10 15 15 0 0 1-4 10 15 15 0 0 1-4-10 15 15 0 0 1 4-10z"/></svg></span>
+                <h2>Global Engagement</h2>
+                <p>Exchange programs, virtual collaboration and cross-cultural learning that prepare you for an interconnected world.</p>
+                <a class="fu-more" href="{{ route('Fu-Linkages') }}">Learn more &rarr;</a>
             </div>
         </div>
     </section>
 
-    <section class="counter-section">
+    {{-- ===== E-Learning ===== --}}
+    <section class="fu-el">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-7 col-md-6">
-                    <div class="big-icon">
-                        <i class="fa fa-graduation-cap"></i>
-                    </div>
-                    <div class="counterx-content text-center">
-                        <h5 role="heading" aria-level="3" class="text-center" style="color: #fb8b24;">E-Learning Platform</h5>
-                        <p style="font-size:12px" class="text-center">
-                            Online and Available, No matter what <a
-                                href="https://elearning.fu.edu.sd/" style="color:#fb8b24;" target="_blank" rel="noopener">Check Here <span class="visually-hidden">to open the e-learning platform</span></a>
-                        </p>
+            <div class="fu-el-box">
+                <div class="fu-el-main">
+                    <span class="fu-el-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12v5c3 2 9 2 12 0v-5"/></svg></span>
+                    <div>
+                        <h2>E-Learning Platform</h2>
+                        <p>Your courses, lectures and assignments online. Available anytime, no matter what.</p>
+                        <a class="fu-btn fu-btn-orange" href="{{ $elearningUrl }}" target="_blank" rel="noopener">Open E-Learning &rarr;</a>
                     </div>
                 </div>
-                <div class="col-lg-5 col-md-6">
-                    <div class="counterx">
-                        <div class="counterx-item">
-                            <h4 role="heading" aria-level="2">07</h4>Days
-                        </div>
-                        <div class="counterx-item">
-                            <h4 role="heading" aria-level="2">24</h4>Hrs
-                        </div>
-                        <div class="counterx-item">
-                            <h4 role="heading" aria-level="2">60</h4>Mins
-                        </div>
-                        <div class="counterx-item">
-                            <h4 role="heading" aria-level="2">60</h4>secs
-                        </div>
-                    </div>
+                <div class="fu-el-stats">
+                    <div><b>7</b><span>Days a week</span></div>
+                    <div><b>24</b><span>Hours a day</span></div>
+                    <div><b>100%</b><span>Online</span></div>
+                    <div><b>Any</b><span>Device</span></div>
                 </div>
             </div>
         </div>
@@ -270,7 +241,7 @@
 
             <div class="ne-track" tabindex="0" role="region" aria-label="News and events">
                 @foreach ($homeItems as $item)
-                    @php($d = strtotime($item['date']))
+                    @php $d = strtotime($item['date']); @endphp
                     <article class="ne-slide">
                         <a class="fu-card" href="{{ $item['url'] }}">
                             <span class="fu-card-img">
