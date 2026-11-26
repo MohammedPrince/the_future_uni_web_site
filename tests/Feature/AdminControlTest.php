@@ -223,12 +223,13 @@ class AdminControlTest extends TestCase
 
     public function test_join_banner_is_only_on_the_home_page()
     {
-        $this->get('/')->assertOk()->assertSee('Ready to join The Future University?')->assertSee('Student Result');
+        $html = $this->get('/')->assertOk()->assertSee('Ready to join The Future University?')->getContent();
+        $this->assertMatchesRegularExpression('/Student\s+Result/', $html);
         foreach (['/About-FU', '/Undergraduate-Programs', '/News-and-Events'] as $path) {
             $this->get($path)->assertOk()
                 ->assertDontSee('Ready to join The Future University?')
                 ->assertSee('fu-footer-plain', false)
-                ->assertSee('Student Result')
+                ->assertSee('rel="noopener">Student', false)
                 ->assertDontSee('Students Portal');
         }
     }

@@ -68,7 +68,7 @@
     <section class="fu-why">
         <div class="container fu-why-grid">
             <div class="fu-why-card">
-                <span class="fu-badge" style="background:#1d5191"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.8-3.8a6 6 0 0 1-7.9 7.9l-6.9 6.9a2.1 2.1 0 0 1-3-3l6.9-6.9a6 6 0 0 1 7.9-7.9l-3.8 3.8z"/></svg></span>
+                <span class="fu-badge" style="background:#1d5191"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2M2 13h20M12 12v2"/></svg></span>
                 <h2>Embedded Learning</h2>
                 <p>Real-world projects, internships and research partnerships built into every course, so you graduate ready to work.</p>
                 <a class="fu-more" href="{{ route('About-FU') }}">Learn more &rarr;</a>
