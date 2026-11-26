@@ -24,7 +24,7 @@
                         @foreach (array_slice(explode(',', $event->event_imgs ), 0,1)  as $image)
 
 					    <!-- <img loading="lazy" decoding="async" src="/storage/event_imgs/{{$image}}" alt="Futrue Uinversity" > -->
-					    <img src="@img('storage/event_imgs/' . $image)" alt="{{ $event->event_title }}" fetchpriority="high">
+					    <img class="post-full-img" src="@img('storage/event_imgs/' . $image)" alt="{{ $event->event_title }}" fetchpriority="high" decoding="async">
 
                         <!-- {{ asset('./public/storage/event_imgs/' . $image) }} -->
 
@@ -34,7 +34,6 @@
                             <h3><span>{{ $event->event_title }}</span></h3>
                             <div class="post-meta">
                                 <span class="cusSpan" style="color: black"><i class="fa fa-calendar-o"></i> {{ $event->event_date }}</span>
-                                <span class="cusSpan" style="color: black"><i class="fa fa-user"></i> {{$event_by}}</span>
                                 <span class="cusSpan" style="color: black"><i class="fa fa-home"></i> The Future University</span>
                             </div>
   
@@ -63,6 +62,7 @@
                             </div>
                                 @endif
                             <p></p>
+                            @include('components.client-share', ['title' => $event->event_title])
                             <div class="tag" style="color: black;"><i class="fa fa-tag"></i>Office : {{$event_office}}</div>
                         </div>
                     </div>

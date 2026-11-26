@@ -73,6 +73,28 @@ class ImageUploads
         return 'storage/testimonials/' . $name;
     }
 
+    /**
+     * News and event photos: the whole picture is kept (posters are not cut),
+     * only made smaller when it is bigger than 1600 x 2400. Cards on the lists
+     * crop it for display; the details page shows all of it.
+     */
+    public static function keepWhole($img): void
+    {
+        $img->resize(1600, 2400, function ($c) {
+            $c->aspectRatio();
+            $c->upsize();
+        });
+    }
+
+    /** Saves name.jpg plus name.jpg.webp (used automatically by @img when present). */
+    public static function saveWithWebp($img, string $path): void
+    {
+        $img->save($path, 85, 'jpg');
+        if (function_exists('imagewebp')) {
+            $img->save($path . '.webp', 80, 'webp');
+        }
+    }
+
     public static function deleteSlide(string $image, string $widths, string $ext): void
     {
         if (!str_starts_with($image, 'storage/slides/')) {

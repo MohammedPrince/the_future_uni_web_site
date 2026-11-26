@@ -194,6 +194,27 @@
         schedule();
     });
 
+    /* ---------- Share buttons (news and event pages) ---------- */
+    all('[data-share-copy]').forEach(function (button) {
+        button.addEventListener('click', function () {
+            var done = button.parentNode.querySelector('.share-done');
+            var text = button.getAttribute('data-share-copy');
+            var ok = function () { if (done) { done.textContent = 'Link copied'; setTimeout(function () { done.textContent = ''; }, 2500); } };
+            if (navigator.clipboard && window.isSecureContext) {
+                navigator.clipboard.writeText(text).then(ok, function () { window.prompt('Copy this link:', text); });
+            } else {
+                window.prompt('Copy this link:', text);
+            }
+        });
+    });
+    all('[data-share-native]').forEach(function (button) {
+        if (!navigator.share) return;
+        button.hidden = false;
+        button.addEventListener('click', function () {
+            navigator.share({ title: button.getAttribute('data-title'), url: button.getAttribute('data-url') }).catch(function () {});
+        });
+    });
+
     /* ---------- Bootstrap style carousel (faculties) ---------- */
     all('.carousel[data-bs-ride]').forEach(function (root) {
         var items = all('.carousel-item', root);

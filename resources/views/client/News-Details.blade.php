@@ -23,7 +23,7 @@
                         @foreach (array_slice(explode(',', $news->news_imgs), 0, 1) as $image)
                             <!-- <img loading="lazy" decoding="async" src="@img('storage/news_imgs/' . $image)" alt="Futrue Uinversity"> -->
                             <!-- <img loading="lazy" decoding="async" src="@img('storage/news_imgs/$image')" alt="Futrue Uinversity"> -->
-                            <img src="@img('storage/news_imgs/' . $image)" alt="{{ $news->news_title }}" fetchpriority="high">
+                            <img class="post-full-img" src="@img('storage/news_imgs/' . $image)" alt="{{ $news->news_title }}" fetchpriority="high" decoding="async">
 
                         @endforeach
 
@@ -64,6 +64,7 @@
                                 </div>
                             @endif
                             <p></p>
+                            @include('components.client-share', ['title' => $news->news_title])
                             <div class="tag" style="color: black;"><i class="fa fa-tag"></i>Office : {{ $news_office }}
                             </div>
                         </div>

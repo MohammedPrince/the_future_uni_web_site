@@ -75,28 +75,25 @@ class NewsController extends Controller
     }
 
 
-    public function NewsAndEvents(){
+    /** News & Events page: news and events together, newest first, 10 per page. */
+    public function NewsAndEvents(Request $request){
 
-        $news='';
-        $events='';
-        $event_value = false;
-        $news_value = false;
+        $all = \App\Support\NewsFeed::newestFirst();
+        $perPage = 10;
+        $page = max(1, (int) $request->query('page', 1));
+        $items = new \Illuminate\Pagination\LengthAwarePaginator(
+            $all->forPage($page, $perPage)->values(),
+            $all->count(),
+            $perPage,
+            $page,
+            ['path' => route('NewsAndEvents')]
+        );
 
-       if (News::getNews()!= null ){
-
-        $news_value = true ;
-        //$news = News::getNews() ;
-        $news = News::published()->orderByDesc('news_date')->orderByDesc('id')->paginate(2);
-    
-       }
-
-       if (Events :: getEvents() != null ){
-            $event_value = true ;
-            //$events = Events::getEvents() ;
-            $events = Events::published()->orderByDesc('event_date')->orderByDesc('id')->paginate(2);
+        if ($page > 1 && $items->isEmpty()) {
+            abort(404);
         }
 
-        return view("client.News-and-Events" ,compact('events'), ['news'=>$news,'events'=>$events,'news_value' =>$news_value,'event_value' =>$event_value]);
+        return view('client.News-and-Events', ['items' => $items]);
     }
 
     public function viewNews(News $news){
@@ -148,8 +145,8 @@ class NewsController extends Controller
                 $name = \Illuminate\Support\Str::random(32).'.jpg';
                 $destinationPathThumbnail = public_path('/storage/news_imgs');
                 $img = Image::make($image->path());
-                $img->fit(570, 320);
-                $img->save($destinationPathThumbnail.'/'.$name, 85, 'jpg');
+                \App\Support\ImageUploads::keepWhole($img); // whole picture, no cropping
+                \App\Support\ImageUploads::saveWithWebp($img, $destinationPathThumbnail.'/'.$name);
                 $data[] = $name;  
                 $fileNameToStore = implode (",", $data);
             }
@@ -220,8 +217,8 @@ class NewsController extends Controller
                         $name = \Illuminate\Support\Str::random(32).'.jpg';
                         $destinationPathThumbnail = public_path('/storage/news_imgs');
                         $img = Image::make($image->path());
-                        $img->fit(570, 320);
-                        $img->save($destinationPathThumbnail.'/'.$name, 85, 'jpg');
+                        \App\Support\ImageUploads::keepWhole($img); // whole picture, no cropping
+                        \App\Support\ImageUploads::saveWithWebp($img, $destinationPathThumbnail.'/'.$name);
                         $data[] = $name;
                         $fileNameToStore = implode (",", $data);
 
@@ -231,6 +228,7 @@ class NewsController extends Controller
                             // SECURITY: basename() blocks ../ path traversal deletes.
                             $image_path = public_path().'/storage/news_imgs/'.basename($image);
                            File::delete($image_path);
+                           File::delete($image_path . '.webp');
                         }
                     }
                 }
@@ -259,6 +257,7 @@ class NewsController extends Controller
             foreach($images as $image){
                 $image_path = public_path().'/storage/news_imgs/'.basename($image);
                 $del = File::delete($image_path);
+                File::delete($image_path . '.webp');
              }
 
              if($del){

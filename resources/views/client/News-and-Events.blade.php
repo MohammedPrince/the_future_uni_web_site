@@ -19,86 +19,35 @@
 
 
 
-                    @if ($news_value)
+                    {{-- News and events together, newest first (App\Support\NewsFeed). --}}
+                    @if ($items->isNotEmpty())
                         <hr class="new4">
-                      
-
-                        @foreach ($news as $newz)
+                        @foreach ($items as $item)
                             <div class="post-item">
-                                @foreach (array_slice(explode(',', $newz->news_imgs), 0, 1) as $image)
+                                <a href="{{ $item['url'] }}" tabindex="-1" aria-hidden="true">
                                     <div class="post-thumb set-bg"
-                                        style="background-image:url('@img('storage/news_imgs/' . $image)')"></div>
-                                @endforeach
+                                        style="background-image:url('@img($item['image'] ?: 'client/img/fu_logo.png')');background-position:center;{{ $item['image'] ? '' : 'background-size:contain;background-repeat:no-repeat;' }}"></div>
+                                </a>
                                 <div class="post-content">
-                                    <!-- <h3><a href="News-Details/{{ $newz->id }}">{{ $newz->news_title }}</a></h3> -->
-                                    <h3><a
-                                            href="{{ route('newsDetails', base64_encode($newz->id)) }}">{{ $newz->news_title }}</a>
-                                    </h3>
-
-
+                                    <h3><a href="{{ $item['url'] }}">{{ $item['title'] }}</a></h3>
                                     <div class="post-meta">
-                                        <span><i class="fa fa-calendar-o"></i> {{ $newz->news_date }}</span>
+                                        <span class="ne-type">{{ $item['type'] }}</span>
+                                        <span><i class="fa fa-calendar-o"></i> {{ $item['date'] }}</span>
                                         <span><i class="fa fa-home"></i> The Future University</span>
                                     </div>
-
                                     <p>
-										{{ \App\Support\RichText::excerpt($newz->news_desc, 50) }}<a
-											style="color: #ef7e22"
-											href="{{ route('newsDetails', base64_encode($newz->id)) }}">Read More <span class="visually-hidden">about {{ $newz->news_title }}</span></a>
-									</p>
-                                </div>
-                            </div>
-                        @endforeach
-
-
-                        <div class="site-pageination">
-                            {{ $news->links() }}
-                        </div>
-                    @endif
-
-
-                    {{-- @if ($event_value)
-                        <h5>Fu Events</h5>
-                        <p></p>
-
-                        @foreach ($events as $event)
-                            <div class="post-item">
-
-                                @foreach (array_slice(explode(',', $event->event_imgs), 0, 1) as $image)
-                                    <!-- <div class="post-thumb set-bg" style="background-image:url('@img('storage/event_imgs/' . $image)')"></div> -->
-                                    <div class="post-thumb set-bg"
-                                        style="background-image:url('@img('storage/event_imgs/' . $image)')"></div>
-
-                                    <!-- {{ asset('./public/storage/event_imgs/' . $image) }} -->
-                                @endforeach
-
-                                <div class="post-content">
-                                    <h3><a
-                                            href="{{ route('eventDetails', base64_encode($event->id)) }}">{{ $event->event_title }}</a>
-                                    </h3>
-
-                                    <div class="post-meta">
-                                        <span style="color:black"><i class="fa fa-calendar-o"></i>
-                                            {{ $event->event_date }}</span>
-                                        <span style="color:black"><i class="fa fa-home"></i> The Future University</span>
-                                    </div>
-
-                                    <p style="font-size:17px;">
-                                        {{ \App\Support\RichText::excerpt($event->event_desc, 3) }}
-                                        <!-- <span><a href="Event-Details/{{ $event->id }}" style="color:#d1291f; font-size:16px;" >Read More</a></span> -->
-                                        <span><a href="{{ route('eventDetails', base64_encode($event->id)) }}"
-                                                style="color:#d1291f; font-size:16px;">Read More</a></span>
-
+                                        {{ $item['excerpt'] }}<a style="color: #ef7e22" href="{{ $item['url'] }}">Read More <span
+                                                class="visually-hidden">about {{ $item['title'] }}</span></a>
                                     </p>
-
                                 </div>
                             </div>
                         @endforeach
-
                         <div class="site-pageination">
-                            {{ $events->links() }}
+                            {{ $items->links() }}
                         </div>
-                    @endif --}}
+                    @else
+                        <p class="text-muted">No news or events yet.</p>
+                    @endif
 
                 </div>
 

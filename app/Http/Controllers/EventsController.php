@@ -116,8 +116,8 @@ class EventsController extends Controller
                 $destinationPathThumbnail = public_path('/storage/event_imgs');
                 $img = Image::make($image->path());
 
-                $img->fit(570, 320);
-                $img->save($destinationPathThumbnail.'/'.$img_name, 85, 'jpg');
+                \App\Support\ImageUploads::keepWhole($img); // whole picture, no cropping
+                \App\Support\ImageUploads::saveWithWebp($img, $destinationPathThumbnail.'/'.$img_name);
                 $data[] = $img_name;  
                 $fileNameToStore = implode (",", $data);
             }
@@ -148,6 +148,7 @@ class EventsController extends Controller
             foreach($images as $image){
                 $image_path = public_path().'/storage/event_imgs/'.basename($image);
                 $del = File::delete($image_path);
+                File::delete($image_path . '.webp');
              }
 
              if($del){
@@ -209,8 +210,8 @@ class EventsController extends Controller
                 $name = \Illuminate\Support\Str::random(32).'.jpg';
                 $destinationPathThumbnail = public_path('/storage/event_imgs');
                 $img = Image::make($image->path());
-                $img->fit(570, 320);
-                $img->save($destinationPathThumbnail.'/'.$name, 85, 'jpg');
+                \App\Support\ImageUploads::keepWhole($img); // whole picture, no cropping
+                \App\Support\ImageUploads::saveWithWebp($img, $destinationPathThumbnail.'/'.$name);
                 $data[] = $name;
             }
 
@@ -221,6 +222,7 @@ class EventsController extends Controller
                     $image_path = public_path('/storage/event_imgs/'.basename($oldImage));
                     if (File::exists($image_path)) {
                         File::delete($image_path);
+                        File::delete($image_path . '.webp');
                     }
                 }
             }
