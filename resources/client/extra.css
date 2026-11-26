@@ -456,3 +456,127 @@ body { height: auto; min-height: 100%; }
 /* Pages without the "Ready to join" banner (all except home) */
 .fu-footer-plain { margin-top: 0; }
 .fu-footer-plain .fu-footer-grid { padding-top: 56px; }
+
+/* ======================================================================
+   Inner pages (2026 redesign). Only under body.fu-inner, so the home page
+   is not affected. Restyles the old building blocks the pages share.
+   ====================================================================== */
+
+/* Page banner */
+.fu-page-hero { position: relative; overflow: hidden; padding: 56px 0 60px; background: linear-gradient(120deg, #12345f, #1d5191); color: #fff; }
+.fu-page-hero::after { content: ""; position: absolute; right: -120px; top: -140px; width: 420px; height: 420px; border-radius: 50%; background: rgba(251, 139, 36, .12); }
+.fu-page-hero .container { position: relative; z-index: 1; }
+.fu-crumbs { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-bottom: 14px; font-size: 14px; color: rgba(255, 255, 255, .7); }
+.fu-crumbs a { color: #ffc27a; font-weight: 500; }
+.fu-crumbs a:hover { color: #fff; }
+.fu-page-hero h1 { max-width: 880px; margin: 0 0 10px; font-size: 42px; line-height: 1.2; font-weight: 700; color: #fff; }
+.fu-page-hero p { max-width: 720px; margin: 0; font-size: 17px; color: rgba(255, 255, 255, .82); }
+@media (max-width: 767px) {
+    .fu-page-hero { padding: 36px 0 40px; }
+    .fu-page-hero h1 { font-size: 28px; }
+    .fu-page-hero p { font-size: 15px; }
+}
+.fu-inner main .site-breadcrumb { display: none; }
+
+/* Calm, readable text */
+.fu-inner main { color: #1f2430; }
+.fu-inner main p, .fu-inner main li { font-size: 15.5px; line-height: 1.8; color: #4a5263; }
+.fu-inner main [style*="justify"] { text-align: start !important; }
+.fu-inner main .spad { padding-top: 60px; padding-bottom: 60px; }
+.fu-inner main .pt-0 { padding-top: 40px !important; }
+.fu-inner main h3, .fu-inner main h4, .fu-inner main h5 { color: #1f2430; }
+
+/* Section headings ("About", "Services", "Team" ...) */
+.fu-inner main .hr-sect { display: block; margin: 54px 0 22px; border: 0; font-size: 28px; line-height: 1.25; font-weight: 700; text-align: center; color: #1f2430; }
+.fu-inner main .hr-sect:first-child { margin-top: 10px; }
+.fu-inner main .hr-sect::before { display: none; }
+.fu-inner main .hr-sect::after { content: ""; display: block; flex: none; width: 56px; height: 4px; margin: 12px auto 0; border: 0; border-radius: 4px; background: #fb8b24; }
+.fu-inner main .section-title { margin-bottom: 30px; }
+.fu-inner main .section-title h3 { font-size: 28px; font-weight: 700; color: #1f2430; text-transform: none; }
+.fu-inner main hr.new4, .fu-inner main hr.new6 { border: 0; border-top: 1px solid #e6e9ef; opacity: 1; }
+
+/* Mission / Vision / value boxes */
+.fu-inner main .single-feature { height: calc(100% - 30px); margin-bottom: 30px; overflow: hidden; text-align: left; background: #fff; border-top: 4px solid #fb8b24; border-radius: 18px; box-shadow: 0 14px 34px rgba(16, 24, 40, .09); }
+.fu-inner main .single-feature .title { padding: 26px 28px 4px; background: none; }
+.fu-inner main .single-feature .title h4 { margin: 0; font-size: 20px; font-weight: 700; letter-spacing: .5px; color: #1d5191; }
+.fu-inner main .single-feature .title h4::before { content: ""; display: inline-block; width: 10px; height: 10px; margin-right: 10px; border-radius: 3px; background: #fb8b24; vertical-align: 2px; }
+.fu-inner main .single-feature .desc-wrap { padding: 10px 28px 28px; background: none; box-shadow: none; }
+.fu-inner main .single-feature .desc-wrap p { margin: 0; }
+
+/* Tabs (programs, galleries, board) */
+.fu-inner main .tab { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; overflow: visible; margin-bottom: 26px; padding: 0; border: 0; background: none; }
+.fu-inner main .tab button { float: none; display: inline-flex; align-items: center; justify-content: center; min-height: 44px; margin: 0; padding: 8px 18px; border: 1px solid #e6e9ef; border-radius: 999px; background: #fff; color: #1f2430; font-size: 15px; font-weight: 500; line-height: 1.3; box-shadow: 0 2px 6px rgba(16, 24, 40, .05); transition: .2s; }
+.fu-inner main .tab button::after { display: none; }
+.fu-inner main .tab button:hover { border-color: #fb8b24; color: #c25f05; background: #fff; }
+.fu-inner main .tab button.active { border-color: #1d5191; background: #1d5191; color: #fff; }
+.fu-inner main .tab-container { overflow: visible; }
+.fu-inner main .tabcontent { padding: 26px 0 0; border: 0; animation: none; }
+
+/* Steps (admission pages) */
+.fu-inner main .container_newenrollprocess { max-width: 1140px; padding: 50px 15px; }
+.fu-inner main .enrollment-steps { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+.fu-inner main .step { align-items: flex-start; gap: 18px; padding: 26px; border: 1px solid #e6e9ef; border-radius: 18px; box-shadow: 0 6px 18px rgba(16, 24, 40, .05); }
+.fu-inner main .step:hover { border-color: #fb8b24; transform: none; }
+.fu-inner main .step-number { flex: none; display: grid; place-items: center; width: 46px; height: 46px; margin: 0; border-radius: 50%; background: #fb8b24; color: #fff; font-size: 18px; box-shadow: 0 0 0 6px rgba(251, 139, 36, .15); }
+.fu-inner main .step-content h3 { margin: 4px 0 8px; font-size: 18px; font-weight: 700; }
+.fu-inner main .step-content p { margin: 0; }
+.fu-inner main .step-content a { color: #c25f05 !important; }
+@media (max-width: 767px) { .fu-inner main .enrollment-steps { grid-template-columns: minmax(0, 1fr); } }
+
+/* Team members */
+.fu-inner main .member { overflow: hidden; margin-bottom: 30px; padding-bottom: 18px; text-align: center; background: #fff; border-radius: 18px; box-shadow: 0 10px 26px rgba(16, 24, 40, .08); }
+.fu-inner main .member-pic { border-radius: 0; }
+.fu-inner main .member h5 { margin: 16px 12px 4px; font-size: 16px; font-weight: 700; color: #1f2430; }
+.fu-inner main .member p { margin: 0 12px; font-size: 13.5px; color: #c25f05; }
+
+/* Service bars -> brand pills */
+.fu-inner main .progress { height: auto; margin-bottom: 12px; overflow: visible; border-radius: 14px; background: none; }
+.fu-inner main .progress-bar { justify-content: center; min-height: 52px; padding: 0 22px; border-radius: 14px; background: linear-gradient(110deg, #12345f, #1d5191) !important; box-shadow: 0 6px 16px rgba(29, 81, 145, .18); }
+.fu-inner main .progress-bar .skill { display: flex; justify-content: space-between; align-items: center; width: 100%; font-size: 15px; font-weight: 500; color: #fff; text-transform: none; }
+.fu-inner main .progress-bar .val { font-style: normal; color: #ffb469; }
+
+/* Tables */
+.fu-inner main table.table { width: 100%; overflow: hidden; border: 1px solid #e6e9ef; border-collapse: separate; border-spacing: 0; border-radius: 14px; background: #fff; }
+.fu-inner main table.table th { padding: 14px 16px; border: 0; background: #1d5191; color: #fff; font-size: 14.5px; font-weight: 500; }
+.fu-inner main table.table td { padding: 13px 16px; border: 0; border-top: 1px solid #eef1f5; font-size: 15px; color: #1f2430; }
+.fu-inner main table.table tr:nth-child(even) td { background: #f7f8fb; }
+.fu-inner main table.table tr:hover td { background: #fff4e8; }
+.fu-inner main .table-container { margin-bottom: 30px; }
+
+/* News list and details */
+.fu-inner main .post-item { overflow: hidden; margin-bottom: 30px; background: #fff; border-radius: 18px; box-shadow: 0 8px 24px rgba(16, 24, 40, .07); }
+.fu-inner main .post-item .post-thumb { margin-bottom: 0; }
+.fu-inner main .post-item .post-content { padding: 24px 26px 28px; }
+.fu-inner main .post-item .post-content h3 { font-size: 23px; font-weight: 700; line-height: 1.5; }
+.fu-inner main .post-item .post-content h3 a { color: #1f2430; }
+.fu-inner main .post-item .post-content h3 a:hover { color: #c25f05; }
+.fu-inner main .post-details { padding: 0 0 10px; }
+.fu-inner main .post-details .post-full-img { margin-bottom: 0; border-radius: 0; }
+.fu-inner main .post-details .post-content > h3 { display: none; }
+.fu-inner main .post-details blockquote { margin: 18px 0; padding: 22px 26px; border-left: 4px solid #fb8b24; border-radius: 0 14px 14px 0; background: #f7f8fb; box-shadow: none; font-size: 16px; }
+.fu-inner main hr.new4 { margin: 0 0 30px; }
+
+/* Sidebar */
+.fu-inner main .sidebar .widget { margin-bottom: 26px; padding: 24px; background: #fff; border: 1px solid #e6e9ef; border-radius: 18px; }
+.fu-inner main .sidebar .widget .widget-title, .fu-inner main .sidebar h4 { font-size: 18px; font-weight: 700; }
+.fu-inner main .search-widget input { border-radius: 999px; }
+
+/* Pictures and galleries */
+.fu-inner main .swiper, .fu-inner main .gallery-item, .fu-inner main .about-img img { overflow: hidden; border-radius: 16px; }
+.fu-inner main .swiper-slide img { border-radius: 16px; }
+
+/* Banner and footer keep their own colours, whatever the page content does. */
+.fu-inner .fu-page-hero p { color: rgba(255, 255, 255, .85); }
+.fu-inner .fu-page-hero h1 { color: #fff; }
+.fu-footer .fu-footer-brand p, .fu-footer .fu-footer-col li, .fu-footer .fu-footer-col li span { color: rgba(255, 255, 255, .78); }
+.fu-footer .fu-footer-contact b, .fu-footer .fu-footer-news small { color: #ffb469; }
+
+/* Old pastel panels (Student Affairs, UNESCO, IRDC labs) -> white cards with a coloured top */
+.fu-inner main .row > .col[style*="background-color"] { margin: 0 10px 20px; padding: 26px 22px; border-top: 5px solid #fb8b24; border-radius: 18px; background: #fff !important; box-shadow: 0 10px 26px rgba(16, 24, 40, .08); text-align: left; }
+.fu-inner main .row > .col[style*="background-color"]:nth-child(4n+2) { border-top-color: #1d5191; }
+.fu-inner main .row > .col[style*="background-color"]:nth-child(4n+3) { border-top-color: #15803d; }
+.fu-inner main .row > .col[style*="background-color"]:nth-child(4n+4) { border-top-color: #c25f05; }
+.fu-inner main .row > .col[style*="background-color"] .hr-sect { margin: 0 0 14px; font-size: 20px; text-align: left; }
+.fu-inner main .row > .col[style*="background-color"] .hr-sect::after { margin: 10px 0 0; width: 40px; }
+.fu-inner main .row > .col[style*="background-color"] p { color: #4a5263 !important; text-align: left !important; }
+@media (max-width: 767px) { .fu-inner main .row > .col[style*="background-color"] { flex: 0 0 100%; margin: 0 0 16px; } }

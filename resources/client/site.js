@@ -21,6 +21,15 @@
         a.setAttribute('rel', rel.join(' ').trim());
     });
 
+    /* ---------- Tabs on inner pages: show the first one when none is open ---------- */
+    window.addEventListener('load', function () {
+        all('main .tab').forEach(function (tabs) {
+            if (tabs.querySelector('.tablinks.active')) return;
+            var first = tabs.querySelector('.tablinks');
+            if (first) first.click();
+        });
+    });
+
     /* ---------- Mobile menu ---------- */
     all('.nav-switch').forEach(function (button) {
         button.addEventListener('click', function (e) {
