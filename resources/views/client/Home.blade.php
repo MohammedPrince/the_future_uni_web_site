@@ -139,663 +139,217 @@
         </div>
     </section>
 
-    <div class="Faculties-Desktop-View">
-        <section class="service-section spad">
-            <div class="container services">
-                <div class="section-title text-center">
-                    <h4 role="heading" aria-level="2">OUR Faculties</h4>
-                    <p>We provide the opportunity to prepare for life</p>
-                </div>
-                <div id="facultyCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <div class="row">
-                                <!-- Faculty 1 -->
-                                <div class="col-lg-4 col-sm-6 course-item">
-                                    <div class="service-icon">
-                                        <img loading="lazy" decoding="async" src="@img('client/img/main_imgs/faculites/engineering.jpg')"
-                                            alt="Faculty of Engineering" width="100" height="100">
-                                    </div>
-                                    <div class="service-content course-item">
-                                        <h6 role="heading" aria-level="3">Faculty of Engineering</h6>
-                                    </div>
-                                </div>
-                                <!-- Faculty 2 -->
-                                <div class="col-lg-4 col-sm-6 course-item">
-                                    <div class="service-icon">
-                                        <img loading="lazy" decoding="async" src="@img('client/img/main_imgs/faculites/cs.jpg')"
-                                            alt="Faculty of Computer Science" width="100" height="100">
-                                    </div>
-                                    <div class="service-content course-item">
-                                        <h6 role="heading" aria-level="3">Faculty of Computer Science</h6>
-                                    </div>
-                                </div>
-                                <!-- Faculty 3 -->
-                                <div class="col-lg-4 col-sm-6 course-item">
-                                    <div class="service-icon">
-                                        <img loading="lazy" decoding="async" src="@img('client/img/main_imgs/faculites/it.jpg')"
-                                            alt="Faculty of Information Technology" width="100" height="100">
-                                    </div>
-                                    <div class="service-content course-item">
-                                        <h6 role="heading" aria-level="3">Faculty of Information Technology</h6>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="carousel-item">
-                            <div class="row">
-                                <!-- Faculty 4 -->
-                                <div class="col-lg-4 col-sm-6 course-item">
-                                    <div class="service-icon">
-                                        <img loading="lazy" decoding="async" src="@img('client/img/main_imgs/faculites/tcom.jpg')"
-                                            alt="Faculty of Telecommunication Engineering" width="100" height="100">
-                                    </div>
-                                    <div class="service-content course-item">
-                                        <h6 role="heading" aria-level="3">Faculty of Telecommunication Engineering</h6>
-                                    </div>
-                                </div>
-                                <!-- Faculty 5 -->
-                                <div class="col-lg-4 col-sm-6 course-item">
-                                    <div class="service-icon">
-                                        <img loading="lazy" decoding="async" src="@img('client/img/main_imgs/faculites/arch.jpg')"
-                                            alt="Faculty of Architecture Engineering" width="100" height="100">
-                                    </div>
-                                    <div class="service-content course-item">
-                                        <h6 role="heading" aria-level="3">Faculty of Architecture Engineering</h6>
-                                    </div>
-                                </div>
-                                <!-- Faculty 6 -->
-                                <div class="col-lg-4 col-sm-6 course-item">
-                                    <div class="service-icon">
-                                        <img loading="lazy" decoding="async" src="@img('client/img/main_imgs/faculites/fad.jpg')"
-                                            alt="Faculty of Fine Arts" width="100" height="100">
-                                    </div>
-                                    <div class="service-content course-item">
-                                        <h6 role="heading" aria-level="3">Faculty of Fine Arts and Design</h6>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="carousel-item">
-                            <div class="row">
-                                <!-- Faculty 7 -->
-                                <div class="col-lg-4 col-sm-6 course-item">
-                                    <div class="service-icon">
-                                        <img loading="lazy" decoding="async" src="@img('client/img/main_imgs/faculites/geo.jpg')"
-                                            alt="Faculty of Geoinformatics" width="100" height="100">
-                                    </div>
-                                    <div class="service-content course-item">
-                                        <h6 role="heading" aria-level="3">Faculty of Geoinformatics</h6>
-                                    </div>
-                                </div>
-                                <!-- Faculty 8 -->
-                                <div class="col-lg-4 col-sm-6 course-item">
-                                    <div class="service-icon">
-                                        <img loading="lazy" decoding="async" src="@img('client/img/main_imgs/faculites/ba.jpg')"
-                                            alt="Faculty of Business Administration" width="100" height="100">
-                                    </div>
-                                    <div class="service-content course-item">
-                                        <h6 role="heading" aria-level="3">Faculty of Business Administration</h6>
-                                    </div>
-                                </div>
-                                <!-- Faculty 9 -->
-                                <div class="col-lg-4 col-sm-6 course-item">
-                                    <div class="service-icon">
-                                        <img loading="lazy" decoding="async" src="@img('client/img/main_imgs/faculites/post.jpg')"
-                                            alt="Faculty of Postgraduate Studies" width="100" height="100">
-                                    </div>
-                                    <div class="service-content course-item">
-                                        <h6 role="heading" aria-level="3">Faculty of Postgraduate Studies</h6>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+    @php
+        $faculties = [
+            ['Faculty of Engineering', 'engineering.jpg', 'Undergraduate-Programs'],
+            ['Faculty of Computer Science', 'cs.jpg', 'Undergraduate-Programs'],
+            ['Faculty of Information Technology', 'it.jpg', 'Undergraduate-Programs'],
+            ['Faculty of Telecommunication Engineering', 'tcom.jpg', 'Undergraduate-Programs'],
+            ['Faculty of Architecture Engineering', 'arch.jpg', 'Undergraduate-Programs'],
+            ['Faculty of Fine Arts and Design', 'fad.jpg', 'Undergraduate-Programs'],
+            ['Faculty of Geoinformatics', 'geo.jpg', 'Undergraduate-Programs'],
+            ['Faculty of Business Administration', 'ba.jpg', 'Undergraduate-Programs'],
+            ['Faculty of Postgraduate Studies', 'post.jpg', 'Postgraduates-Programs'],
+        ];
+        $helpdesk = \App\Models\Setting::get('helpdesk_url') ?: 'https://hdesk.fu.edu.sd/';
+    @endphp
 
-
-            </div>
-    </div>
-    </section>
-    </div>
-
-    <div class="Faculties-Mobile-View">
-        <section class="testimonial-section spad">
-            <div class="container">
-                <div class="section-title text-center">
-                    <h4 role="heading" aria-level="2">Our Faculties</h4>
-                    <p>We provide the opportunity to prepare for life</p>
-                </div>
-                <div class="testimonial-slider owl-carousel">
-                    <div class="ts-item">
-                        <div class="row">
-                            <div class="col-md-3">
-                                <div class="ts-author-pic set-bg"
-                                    style="background-image:url('@img('client/img/main_imgs/faculites/engineering.jpg')')">
-                                </div>
-                            </div>
-                            <div class="col-md-9 ts-text">
-                                <h6 role="heading" aria-level="3">Faculty of Engineering</h6>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="ts-item">
-                        <div class="row">
-                            <div class="col-md-3">
-                                <div class="ts-author-pic set-bg"
-                                    style="background-image:url('@img('client/img/main_imgs/faculites/cs.jpg')')">
-                                </div>
-                            </div>
-                            <div class="col-md-9 ts-text">
-                                <h6 role="heading" aria-level="3">Faculty of Computer Science</h6>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="ts-item">
-                        <div class="row">
-                            <div class="col-md-3">
-                                <div class="ts-author-pic set-bg"
-                                    style="background-image:url('@img('client/img/main_imgs/faculites/it.jpg')')">
-                                </div>
-                            </div>
-                            <div class="col-md-9 ts-text">
-                                <h6 role="heading" aria-level="3">Faculty of Information Technology</h6>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="ts-item">
-                        <div class="row">
-                            <div class="col-md-3">
-                                <div class="ts-author-pic set-bg"
-                                    style="background-image:url('@img('client/img/main_imgs/faculites/tcom.jpg')')">
-                                </div>
-                            </div>
-                            <div class="col-md-9 ts-text">
-                                <h6 role="heading" aria-level="3">Faculty of Telecommunication Engineering</h6>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="ts-item">
-                        <div class="row">
-                            <div class="col-md-3">
-                                <div class="ts-author-pic set-bg"
-                                    style="background-image:url('@img('client/img/main_imgs/faculites/arch.jpg')')">
-                                </div>
-                            </div>
-                            <div class="col-md-9 ts-text">
-                                <h6 role="heading" aria-level="3">Faculty of Architecture Engineering</h6>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="ts-item">
-                        <div class="row">
-                            <div class="col-md-3">
-                                <div class="ts-author-pic set-bg"
-                                    style="background-image:url('@img('client/img/main_imgs/faculites/geo.jpg')')">
-                                </div>
-                            </div>
-                            <div class="col-md-9 ts-text">
-                                <h6 role="heading" aria-level="3">Faculty of Geoinformatics</h6>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="ts-item">
-                        <div class="row">
-                            <div class="col-md-3">
-                                <div class="ts-author-pic set-bg"
-                                    style="background-image:url('@img('client/img/main_imgs/faculites/ba.jpg')')">
-                                </div>
-                            </div>
-                            <div class="col-md-9 ts-text">
-                                <h6 role="heading" aria-level="3">Faculty of Business Administration</h6>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="ts-item">
-                        <div class="row">
-                            <div class="col-md-3">
-                                <div class="ts-author-pic set-bg"
-                                    style="background-image:url('@img('client/img/main_imgs/faculites/post.jpg')')">
-                                </div>
-                            </div>
-                            <div class="col-md-9 ts-text">
-                                <h6 role="heading" aria-level="3">Faculty of Postgraduate Studies</h6>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </div>
-
-    <div class="Admission-Desktop">
-        <section class="enroll-section overlay">
-            <div class="container">
-                <div class="row mt-5">
-                    <div class="col-lg-5">
-                        <div class="section-title text-white">
-                            <h6 role="heading" aria-level="3">External & Internal Transfer / Bridging</h6>
-                            <p>Below are the steps to join us ...</p>
-                        </div>
-                        <div class="enroll-list text-white">
-                            <div class="enroll-list-item">
-                                <span>1</span>
-                                <h5 role="heading" aria-level="3">Fill Up the external transfer form </h5>
-                                <p>Apply through our helpdesk <strong><a href="https://hdesk.fu.edu.sd/"
-                                            target="_blank" rel="noopener">form</a></strong></p>
-                            </div>
-                            <div class="enroll-list-item">
-                                <span>2</span>
-                                <h5 role="heading" aria-level="3">Admission & Registration</h5>
-                                <p>Admission and registration to confirm the eligibility.</p>
-                            </div>
-                            <div class="enroll-list-item">
-                                <span>3</span>
-                                <h5 role="heading" aria-level="3">Faculty</h5>
-                                <p>Evaluate the transcript and identify the credit transfer subjects.</p>
-                            </div>
-                            <div class="enroll-list-item">
-                                <span>4</span>
-                                <h5 role="heading" aria-level="3">Finance Unit and Fees Payment</h5>
-                                <p>Complete the payment process through the acceptable means.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-7">
-                        </br>
-                        <div class="enroll-list text-white">
-                            <div class="enroll-list-item">
-                                <span>5</span>
-                                <h5 role="heading" aria-level="3">Admission and registration</h5>
-                                <p>Obtain your new Ministry and university index number.</p>
-                            </div>
-                            <div class="enroll-list-item">
-                                <span>6</span>
-                                <h5 role="heading" aria-level="3">E-Learning Profile</h5>
-                                <p>The technical services will create your e-learning profile.
-                                </p>
-                            </div>
-                            <div class="enroll-list-item">
-                                <span>7</span>
-                                <h5 role="heading" aria-level="3">Student ID and Profile</h5>
-                                <p>Obtain your student ID info through tracking your application from the helpdesk <a
-                                        href="https://hdesk.fu.edu.sd/" target="_blank" rel="noopener">form</a></strong></p>
-                            </div>
-                            <div class="enroll-list-item">
-                                <span>8</span>
-                                <h5 role="heading" aria-level="3">Welcome to the Future University</h5>
-                                <p>You are now part of our family.</p>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </div>
-
-    <div class="Admission-Mobile">
-        <section class="enroll-section">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-5">
-                        <div class="section-title text-white mt-5">
-                            <h4 role="heading" aria-level="2" style="color: #fff;">External & Internal Transfer / Bridging</h4>
-                            <p>Below are the steps to join us ...</p>
-                        </div>
-                        <div class="enroll-list text-white">
-                            <div class="enroll-list-item">
-                                <span>1</span>
-                                <h5 role="heading" aria-level="3">Fill Up the external transfer form </h5>
-                                <p>Apply through our helpdesk <strong><a href="https://hdesk.fu.edu.sd/"
-                                            target="_blank" rel="noopener">form</a></strong></p>
-                            </div>
-                            <div class="enroll-list-item">
-                                <span>2</span>
-                                <h5 role="heading" aria-level="3">Admission & Registration</h5>
-                                <p>Admission and registration to confirm the eligibility.</p>
-                            </div>
-                            <div class="enroll-list-item">
-                                <span>3</span>
-                                <h5 role="heading" aria-level="3">Faculty</h5>
-                                <p>Evaluate the transcript and identify the credit transfer subjects.</p>
-                            </div>
-                            <div class="enroll-list-item">
-                                <span>4</span>
-                                <h5 role="heading" aria-level="3">Finance Unit and Fees Payment</h5>
-                                <p>Complete the payment process through the acceptable means.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-7">
-                        </br>
-                        <div class="enroll-list text-white">
-                            <div class="enroll-list-item">
-                                <span>5</span>
-                                <h5 role="heading" aria-level="3">Admission and registration</h5>
-                                <p>Obtain your new Ministry and university index number.</p>
-                            </div>
-                            <div class="enroll-list-item">
-                                <span>6</span>
-                                <h5 role="heading" aria-level="3">E-Learning Profile</h5>
-                                <p>The technical services will create your e-learning profile.
-                                </p>
-                            </div>
-                            <div class="enroll-list-item">
-                                <span>7</span>
-                                <h5 role="heading" aria-level="3">Student ID and Profile</h5>
-                                <p>Obtain your student ID info through tracking your application from the helpdesk <a
-                                        href="https://hdesk.fu.edu.sd/" target="_blank" rel="noopener">form</a></strong></p>
-                            </div>
-                            <div class="enroll-list-item">
-                                <span>8</span>
-                                <h5 role="heading" aria-level="3">Welcome to the Future University</h5>
-                                <p>You are now part of our family.</p>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </div>
-
-    <div class="HideDiv">
-        <section class="fact-section spad set-bg">
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-6 col-lg-3 fact">
-                        <div class="fact-icon">
-                            <i class="ti-search"></i>
-                        </div>
-                        <div class="fact-text">
-                            <h2>1991</h2>
-                            <p>ESTABLISHED</p>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-lg-3 fact">
-                        <div class="fact-icon">
-                            <i class="ti-briefcase"></i>
-                        </div>
-                        <div class="fact-text">
-                            <h2>35</h2>
-                            <p>PROGRAMS</p>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-lg-3 fact">
-                        <div class="fact-icon">
-                            <i class="ti-user"></i>
-                        </div>
-                        <div class="fact-text">
-                            <h2>2000+</h2>
-                            <p>ACTIVE STUDENTS</p>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-lg-3 fact">
-                        <div class="fact-icon">
-                            <i class="ti-crown"></i>
-                        </div>
-                        <div class="fact-text">
-                            <h2>8000+</h2>
-                            <p>GRADUATES</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </div>
-
-    <section class="courses-section spad">
+    {{-- ===== Our Faculties ===== --}}
+    <section class="fu-sec fu-bg">
         <div class="container">
-            <div class="section-title text-center">
-                <h4 role="heading" aria-level="2">Our Centers</h4>
-                    <p>Know more about our technical Centers</p>
+            <div class="fu-head">
+                <span class="fu-eyebrow">Academics</span>
+                <h2>Our Faculties</h2>
+                <p>Nine faculties, one goal: preparing you for life and work.</p>
             </div>
-            <div class="row">
-                <div class="container">
-                    <div class="carousel slide">
-                        <div class="carousel-inner">
-                            <div class="carousel-item active">
-                                <div class="row">
-                                    <!-- Center 1 -->
-                                    <div class="col-lg-4 col-sm-6 course-item" style="margin-bottom:10px;">
-                                        <div class="service-content course-item">
-                                            <p class="text-center"><strong style="color: #ef7e22;">Center of
-                                                    E-Learning and Software Development<br>CESD</strong>
-                                            </p>
-                                            <p>
-                                                The Center of E-Learning and Software Development is a cutting-edge hub
-                                                that harnesses the
-                                                power
-                                                of technology to transform education and drive digital innovation. By
-                                                developing innovative
-                                                e-learning platforms and cutting-edge software solutions, the center
-                                                empowers students and
-                                                professionals to thrive in the digital age<a style="color: #ef7e22"
-                                                    href="{{ route('CESD') }}">...Read More <span class="visually-hidden">about CESD</span></a>
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <!-- Center 2 -->
-                                    <div class="col-lg-4 col-sm-6 course-item" style="margin-bottom:10px;">
-                                        <div class="service-content course-item">
-                                            <p class="text-center"><strong style="color: #ef7e22;">Center of
-                                                    Technological Services<br>CTS</strong></p>
-                                            <p>
-                                                The Center of Technological Services is a comprehensive resource hub
-                                                that provides
-                                                state-of-the-art facilities and specialized support to students,
-                                                faculty, and researchers.
-                                                From
-                                                advanced computing infrastructure to cutting-edge prototyping tools, the
-                                                center enables
-                                                innovation and discovery across disciplines<a style="color: #ef7e22"
-                                                    href="{{ route('CTS') }}">...Read More <span class="visually-hidden">about CTS</span></a>
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <!-- Center 3 -->
-                                    <div class="col-lg-4 col-sm-6 course-item" style="margin-bottom:10px;">
-                                        <div class="service-content course-item">
-                                            <p class="text-center"><strong style="color: #ef7e22;">Innovation Research
-                                                    and Development Center<br>IRDC</strong>
-                                            </p>
-                                            <p>
-                                                The Innovation Research and Development Center is a dynamic hub where
-                                                pioneering ideas
-                                                come
-                                                to
-                                                life. By fostering cross-disciplinary collaboration and providing access
-                                                to cutting-edge
-                                                resources, the center empowers researchers and innovators to push the
-                                                boundaries of
-                                                knowledge<a style="color: #ef7e22" href="{{ route('IRDC') }}">...Read More <span class="visually-hidden">about IRDC</span></a>
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div class="fu-fac-grid">
+                @foreach ($faculties as [$name, $logo, $route])
+                    <a class="fu-fac" href="{{ route($route) }}">
+                        <img src="@img('client/img/main_imgs/faculites/' . $logo)" width="72" height="72" alt="" loading="lazy" decoding="async">
+                        <span class="fu-fac-text"><strong>{{ $name }}</strong><small>View programs</small></span>
+                        <span class="fu-go" aria-hidden="true">&rsaquo;</span>
+                    </a>
+                @endforeach
             </div>
         </div>
     </section>
+
+    {{-- ===== Steps to join ===== --}}
+    <section class="fu-sec fu-steps">
+        <div class="container">
+            <div class="fu-head fu-light">
+                <span class="fu-eyebrow">External &amp; Internal Transfer / Bridging</span>
+                <h2>Eight steps to join us</h2>
+                <p>From the transfer form to your first day: here is the whole path.</p>
+            </div>
+            <ol class="fu-timeline">
+                <li><span class="fu-n">1</span><h3>Fill up the transfer form</h3><p>Apply through our <a href="{{ $helpdesk }}" target="_blank" rel="noopener">Help Desk</a>.</p></li>
+                <li><span class="fu-n">2</span><h3>Admission &amp; Registration</h3><p>Admission and registration confirm your eligibility.</p></li>
+                <li><span class="fu-n">3</span><h3>Faculty review</h3><p>Your transcript is evaluated and credit transfer subjects identified.</p></li>
+                <li><span class="fu-n">4</span><h3>Finance &amp; fees</h3><p>Complete the payment through the accepted means.</p></li>
+                <li><span class="fu-n">5</span><h3>Index number</h3><p>Obtain your new Ministry and university index number.</p></li>
+                <li><span class="fu-n">6</span><h3>E-Learning profile</h3><p>Technical services create your e-learning account.</p></li>
+                <li><span class="fu-n">7</span><h3>Student ID &amp; profile</h3><p>Track your application on the <a href="{{ $helpdesk }}" target="_blank" rel="noopener">Help Desk</a> to get your ID.</p></li>
+                <li class="fu-last"><span class="fu-n" aria-hidden="true">&#10003;</span><h3>Welcome to FU!</h3><p>You are now part of our family.</p></li>
+            </ol>
+            <div class="fu-cta">
+                <a class="fu-btn fu-btn-orange" href="{{ $helpdesk }}" target="_blank" rel="noopener">Start on the Help Desk &rarr;</a>
+                <a class="fu-btn fu-btn-white" href="{{ route('Fees') }}">Fee Structure</a>
+            </div>
+        </div>
+    </section>
+
+    {{-- ===== Facts ===== --}}
+    <section class="fu-facts" aria-label="Facts and figures">
+        <div class="container">
+            <div class="fu-fact-row">
+                <div class="fu-fact"><span class="fu-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 21h18M5 21V9l7-5 7 5v12M9 21v-6h6v6"/></svg></span><span><b>1991</b><small>Established</small></span></div>
+                <div class="fu-fact"><span class="fu-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V3H6.5A2.5 2.5 0 0 0 4 5.5v14zM4 19.5A2.5 2.5 0 0 0 6.5 22H20v-5"/></svg></span><span><b>35</b><small>Programs</small></span></div>
+                <div class="fu-fact"><span class="fu-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="4"/><path d="M2 21c0-4 3-6 7-6s7 2 7 6M17 11a3 3 0 1 0 0-6M22 21c0-3-2-5-5-5.5"/></svg></span><span><b>2000+</b><small>Active students</small></span></div>
+                <div class="fu-fact"><span class="fu-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12v5c3 2 9 2 12 0v-5"/></svg></span><span><b>8000+</b><small>Graduates</small></span></div>
+            </div>
+        </div>
+    </section>
+
+    {{-- ===== Our Centers ===== --}}
+    <section class="fu-sec">
+        <div class="container">
+            <div class="fu-head">
+                <span class="fu-eyebrow">Beyond the classroom</span>
+                <h2>Our Centers</h2>
+                <p>Technical centers that build, support and innovate.</p>
+            </div>
+            <div class="fu-center-grid">
+                <a class="fu-center" href="{{ route('CESD') }}">
+                    <span class="fu-badge" style="background:#1d5191"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4M9 9l-2 1.5L9 12M15 9l2 1.5-2 1.5"/></svg></span>
+                    <span class="fu-tag">CESD</span>
+                    <h3>Center of E-Learning and Software Development</h3>
+                    <p>A hub that harnesses technology to transform education: e-learning platforms and software solutions that help students and professionals thrive in the digital age.</p>
+                    <span class="fu-more">Learn more &rarr;</span>
+                </a>
+                <a class="fu-center" href="{{ route('CTS') }}">
+                    <span class="fu-badge" style="background:#e2730f"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="7" rx="1.5"/><rect x="3" y="14" width="18" height="7" rx="1.5"/><path d="M7 6.5h.01M7 17.5h.01"/></svg></span>
+                    <span class="fu-tag">CTS</span>
+                    <h3>Center of Technological Services</h3>
+                    <p>State-of-the-art facilities and specialised support for students, faculty and researchers, from computing infrastructure to prototyping tools.</p>
+                    <span class="fu-more">Learn more &rarr;</span>
+                </a>
+                <a class="fu-center" href="{{ route('IRDC') }}">
+                    <span class="fu-badge" style="background:#15803d"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12.7V17h8v-2.3A7 7 0 0 0 12 2z"/></svg></span>
+                    <span class="fu-tag">IRDC</span>
+                    <h3>Innovation Research and Development Center</h3>
+                    <p>Where pioneering ideas come to life: cross-disciplinary collaboration and access to cutting-edge resources for researchers and innovators.</p>
+                    <span class="fu-more">Learn more &rarr;</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
     <!-- /////////////////////// -->
+    {{-- ===== News & Events (order: Admin > Manage News / Events > "Order on the home page") ===== --}}
     @if ($homeItems->isNotEmpty())
-        <hr>
-        <section class="service-section">
-            <div class="container services">
-                <div class="section-title text-center">
-                    <h4 role="heading" aria-level="2">News & Events</h4>
-                    <p>Stay updated with our latest news and events!</p>
+    <section class="fu-sec fu-bg">
+        <div class="container" data-ne-slider>
+            <div class="fu-head-row">
+                <div class="fu-head">
+                    <span class="fu-eyebrow">Stay updated</span>
+                    <h2>News &amp; Events</h2>
                 </div>
-
-                <div class="widget">
-                    <div class="search-widget">
-                        <input type="text" id="search-input" class="form-control"
-                            placeholder="Search for News and Events">
-                        <button type="button" aria-label="Search"><i class="ti-search" aria-hidden="true"></i></button>
-                    </div>
-                    <div class="text-center" id="search-results" style="margin-top: 20px;"></div>
-                </div>
-
-                {{-- Order: Admin > Manage News / Manage Events > "Order on the home page". --}}
-                <div class="ne-slider" data-ne-slider>
-                    <div class="ne-track" tabindex="0" role="region" aria-label="News and events">
-                        @foreach ($homeItems as $item)
-                            <div class="ne-slide event-item">
-                                <div class="event-thumb">
-                                    <div class="service-icon">
-                                        @if ($item['image'])
-                                            <img loading="lazy" decoding="async" src="@img($item['image'])"
-                                                width="570" height="320" alt="{{ $item['title'] }}"
-                                                style="border-radius:20px;object-fit:cover;">
-                                        @else
-                                            <img loading="lazy" decoding="async" src="@img('client/img/fu_logo.png')"
-                                                width="570" height="320" alt="The Future University"
-                                                style="border-radius:20px;object-fit:contain;">
-                                        @endif
-                                    </div>
-                                    <div class="event-date">
-                                        <span> {{ $item['date'] }} </span>
-                                    </div>
-                                </div>
-                                <div class="service-content course-item">
-                                    <h4 role="heading" aria-level="2" style="color:#ef7e22;"><a
-                                            href="{{ $item['url'] }}" style="color: #ef7e22">{{ $item['title'] }}</a></h4>
-                                    <div class="post-meta">
-                                        <span class="cusSpan" style="color: #281e32;">
-                                            <span class="ne-type">{{ $item['type'] }}</span>
-                                            <i class="fa fa-clock-o"></i>
-                                            {{ $item['meta'] }}
-                                        </span>
-                                    </div>
-                                    <p>
-                                        {{ $item['excerpt'] }}<a style="color: #ef7e22" href="{{ $item['url'] }}">Read More <span
-                                                class="visually-hidden">about {{ $item['title'] }}</span></a>
-                                    </p>
-                                </div>
-                            </div>
-                        @endforeach
+                <div class="fu-news-tools">
+                    <div class="widget fu-search">
+                        <div class="search-widget">
+                            <input type="text" id="search-input" class="form-control" placeholder="Search news and events" aria-label="Search news and events">
+                            <button type="button" aria-label="Search"><i class="ti-search" aria-hidden="true"></i></button>
+                        </div>
                     </div>
                     <button type="button" class="ne-arrow ne-prev" aria-label="Previous news" hidden><i class="fa fa-angle-left" aria-hidden="true"></i></button>
                     <button type="button" class="ne-arrow ne-next" aria-label="Next news" hidden><i class="fa fa-angle-right" aria-hidden="true"></i></button>
-                    <div class="ne-dots"></div>
-                </div>
-                <div class="text-center" style="margin: 10px 0 60px;">
-                    <a href="{{ route('NewsAndEvents') }}" class="site-btn">All News &amp; Events</a>
                 </div>
             </div>
-        </section>
+            <div class="text-center" id="search-results"></div>
+
+            <div class="ne-track" tabindex="0" role="region" aria-label="News and events">
+                @foreach ($homeItems as $item)
+                    @php($d = strtotime($item['date']))
+                    <article class="ne-slide">
+                        <a class="fu-card" href="{{ $item['url'] }}">
+                            <span class="fu-card-img">
+                                <img loading="lazy" decoding="async" src="@img($item['image'] ?: 'client/img/fu_logo.png')" width="570" height="356"
+                                    alt="" @unless ($item['image']) style="object-fit:contain;padding:30px" @endunless>
+                                <span class="fu-type {{ $item['type'] === 'Event' ? 'is-event' : '' }}">{{ $item['type'] }}</span>
+                                <span class="fu-date"><b>{{ date('d', $d) }}</b>{{ date('M Y', $d) }}</span>
+                            </span>
+                            <span class="fu-card-body" dir="auto">
+                                <h3 dir="auto">{{ $item['title'] }}</h3>
+                                <p dir="auto">{{ \Illuminate\Support\Str::words($item['excerpt'], 28, '...') }}</p>
+                                <span class="fu-more">Read more <span class="visually-hidden">about {{ $item['title'] }}</span>&rarr;</span>
+                            </span>
+                        </a>
+                    </article>
+                @endforeach
+            </div>
+            <div class="ne-dots"></div>
+            <div class="fu-cta">
+                <a class="fu-btn fu-btn-line" href="{{ route('NewsAndEvents') }}">All News &amp; Events &rarr;</a>
+            </div>
+        </div>
+    </section>
     @endif
 
-    {{-- Managed in Admin > Testimonials. --}}
+    {{-- ===== Alumni testimonials (Admin > Testimonials) ===== --}}
     @if ($testimonials->isNotEmpty())
-    <section class="testimonial-section spad">
-        <div class="container">
-            <div class="section-title text-center">
-                <h4 role="heading" aria-level="2">ALUMNI TESTIMONIALS</h4>
-                <p>1991-Now</p>
+    <section class="fu-sec">
+        <div class="container fu-tm-wrap">
+            <div>
+                <div class="fu-head fu-left">
+                    <span class="fu-eyebrow">Alumni testimonials &middot; 1991 - now</span>
+                    <h2>Our graduates lead across the region</h2>
+                    <p>Hear it from the people who studied here.</p>
+                </div>
+                <div class="fu-faces" aria-hidden="true">
+                    @foreach ($testimonials->take(6) as $t)
+                        <img src="@img($t->photo ?: 'client/img/fu_logo.png')" width="52" height="52" alt="" loading="lazy">
+                    @endforeach
+                </div>
             </div>
-            <div class="testimonial-slider owl-carousel">
+            <div class="fu-tm">
+                <span class="fu-mark" aria-hidden="true">&ldquo;</span>
                 @foreach ($testimonials as $t)
-                    <div class="ts-item">
-                        <div class="row">
-                            <div class="col-md-3">
-                                <div class="ts-author-pic set-bg"
-                                    style="background-image:url('@img($t->photo ?: 'client/img/fu_logo.png')')">
-                                </div>
-                            </div>
-                            <div class="col-md-9 ts-text">
-                                <p>“ {{ $t->quote }} ”</p>
-                                <h5 role="heading" aria-level="3">{{ $t->name }}</h5>
-                                @if ($t->position)
-                                    <span>{{ $t->position }}</span>
-                                @endif
-                            </div>
-                        </div>
-                    </div>
+                    <figure class="fu-tm-item">
+                        <blockquote>{{ $t->quote }}</blockquote>
+                        <figcaption class="fu-who">
+                            <img src="@img($t->photo ?: 'client/img/fu_logo.png')" width="64" height="64" alt="" loading="lazy">
+                            <span><b>{{ $t->name }}</b>@if ($t->position)<small>{{ $t->position }}</small>@endif</span>
+                        </figcaption>
+                    </figure>
                 @endforeach
             </div>
         </div>
     </section>
     @endif
-    <section class="team-section spad">
 
+    {{-- ===== Partners ===== --}}
+    <section class="fu-sec fu-bg">
         <div class="container">
-
-            <div class="section-title text-center">
-                <h4 role="heading" aria-level="2">Our Partners</h4>
-                <p>Future University professional partners</p>
+            <div class="fu-head">
+                <span class="fu-eyebrow">Working together</span>
+                <h2>Our Partners</h2>
+                <p>Universities and institutions we learn and grow with.</p>
             </div>
-
-            <div class="container">
-                <div class="row text-center">
-
-                    <div class="col">
-                        <div class="col" style="background-color: rgba(255, 255, 255, 0.51);">
-                            <img src="@img('client/img/main_imgs/members/mmu.png')" height="150" width="150"
-                                alt="Multimedia University logo" loading="lazy">
-
-                            <a href="https://mmu.edu.my/" target="_blank" rel="noopener">
-                                <h6 role="heading" aria-level="3" class="text-center" style="margin-top: 10px"><strong>Multimedia University</strong>
-                                </h6>
-                            </a>
-
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="col" style="background-color: rgba(255, 255, 255, 0.51);">
-                            <img src="@img('client/img/main_imgs/members/sudan-airways.png')" height="150" width="150" alt="Sudan Airways logo" loading="lazy">
-
-                            <a href="https://www.sudanair.com/" target="_blank" rel="noopener">
-                                <h6 role="heading" aria-level="3" class="text-center" style="margin-top: 10px"><strong>Sudan Airways</strong>
-                                </h6>
-                            </a>
-
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="col" style="background-color: rgba(255, 255, 255, 0.51);">
-                            <img src="@img('client/img/main_imgs/members/nic.png')" height="150" width="150"
-                                alt="National Information Center logo" loading="lazy">
-
-                            <a href="https://www.facebook.com/nicsudan.sd/" target="_blank" rel="noopener">
-                                <h6 role="heading" aria-level="3" class="text-center" style="margin-top: 10px"><strong>National Information
-                                        Center</strong></h6>
-                            </a>
-
-                        </div>
-                    </div>
-
-                    <div class="col">
-                        <div class="col" style="background-color: rgba(255, 255, 255, 0.51);">
-                            <img src="@img('client/img/main_imgs/members/nottingham_university.png')" height="150" width="150" alt="University of Nottingham logo" loading="lazy">
-
-                            <a href="https://www.nottingham.ac.uk/" target="_blank" rel="noopener">
-                                <h6 role="heading" aria-level="3" class="text-center" style="margin-top: 10px"><strong>University of Nottingham</strong>
-                                </h6>
-                            </a>
-
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="col" style="background-color: rgba(255, 255, 255, 0.51);">
-                            <img src="@img('client/img/main_imgs/members/uni_of_ini.png')" height="150" width="150"
-                                alt="Universitas Islam Indonesia logo" loading="lazy">
-
-                            <a href="https://www.uii.ac.id/" target="_blank" rel="noopener">
-                                <h6 role="heading" aria-level="3" class="text-center" style="margin-top: 10px"><strong>Universitas Islam
-                                        Indonesia</strong></h6>
-                            </a>
-                        </div>
-                    </div>
-                </div>
+            <div class="fu-partners">
+                @foreach ([
+                    ['Multimedia University', 'mmu.png', 'https://mmu.edu.my/'],
+                    ['Sudan Airways', 'sudan-airways.png', 'https://www.sudanair.com/'],
+                    ['National Information Center', 'nic.png', 'https://www.facebook.com/nicsudan.sd/'],
+                    ['University of Nottingham', 'nottingham_university.png', 'https://www.nottingham.ac.uk/'],
+                    ['Universitas Islam Indonesia', 'uni_of_ini.png', 'https://www.uii.ac.id/'],
+                ] as [$name, $logo, $url])
+                    <a class="fu-partner" href="{{ $url }}" target="_blank" rel="noopener">
+                        <span class="fu-partner-logo"><img src="@img('client/img/main_imgs/members/' . $logo)" width="150" height="150" alt="{{ $name }} logo" loading="lazy" decoding="async"></span>
+                        <span>{{ $name }}</span>
+                    </a>
+                @endforeach
             </div>
         </div>
-
     </section>
-
-
 @endsection

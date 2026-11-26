@@ -55,7 +55,7 @@ class HomeContentTest extends TestCase
         $this->assertStringContainsString('<h1 class="hs-title"', $html);
         $this->assertStringContainsString(e($first->title), $html);
         $this->assertStringContainsString('rel="preload" as="image" fetchpriority="high" href="' . e($first->src()) . '"', $html);
-        $this->assertStringContainsString('ALUMNI TESTIMONIALS', $html);
+        $this->assertStringContainsString('Alumni testimonials', $html);
         $this->assertStringContainsString(e(Testimonial::ordered()->where('is_visible', true)->first()->name), $html);
         $this->assertStringContainsString('data-ne-slider', $html);
     }
@@ -68,7 +68,7 @@ class HomeContentTest extends TestCase
 
         $this->get('/')->assertOk()
             ->assertDontSee('Hidden slide title')
-            ->assertDontSee('ALUMNI TESTIMONIALS');
+            ->assertDontSee('Alumni testimonials');
     }
 
     public function test_admin_uploads_a_slide_in_several_sizes()
@@ -132,7 +132,7 @@ class HomeContentTest extends TestCase
         [$w, $h] = getimagesize(public_path($t->photo));
         $this->assertSame([240, 240], [$w, $h]);
 
-        $this->get('/')->assertSee('“ FU changed my life. ”', false);
+        $this->get('/')->assertSee('<blockquote>FU changed my life.</blockquote>', false);
 
         $this->actingAs($admin)->put("/testimonials/{$t->id}", ['name' => 'Sara Test', 'quote' => 'Updated.', 'remove_photo' => '1', 'is_visible' => '1'])
             ->assertRedirect('/testimonials');

@@ -105,6 +105,9 @@
     all('.testimonial-slider').forEach(function (root) {
         rotate(root, all('.ts-item', root), 'is-active', { nav: true });
     });
+    all('.fu-tm').forEach(function (root) {
+        rotate(root, all('.fu-tm-item', root), 'is-active', { nav: true });
+    });
 
     /* ---------- News & Events slider (home) ----------
        A row that scrolls sideways (works by swipe even without this code).
@@ -133,7 +136,7 @@
             var count = pages();
             p = (p + count) % count;
             var target = slides[Math.min(p * perView(), slides.length - 1)];
-            track.scrollTo({ left: target.offsetLeft - track.offsetLeft, behavior: calm ? 'auto' : 'smooth' });
+            track.scrollTo({ left: target.offsetLeft - slides[0].offsetLeft, behavior: calm ? 'auto' : 'smooth' });
         }
 
         function build() {
