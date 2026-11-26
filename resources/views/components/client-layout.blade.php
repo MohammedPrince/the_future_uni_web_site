@@ -357,7 +357,8 @@
                             <li><a href="{{ $site['helpdesk_url'] }}" target="_blank" rel="noopener">Help Desk</a></li>
                         @endif
                         @if (!empty($site['students_portal_url']))
-                            <li><a href="{{ $site['students_portal_url'] }}" target="_blank" rel="noopener">Student Result</a></li>
+                            <li><a href="{{ $site['students_portal_url'] }}" target="_blank" rel="noopener">Student
+                                    Result</a></li>
                         @endif
                         <li><a href="{{ route('CESD') }}">CESD</a></li>
                         <li><a href="{{ route('CTS') }}">CTS</a></li>
@@ -424,8 +425,7 @@
         <div class="fu-footer-bottom">
             <div class="container">
                 <span>&copy; {{ date('Y') }} The Future University. All rights reserved.</span>
-                <span>Designed and developed by <a href="{{ route('CESD') }}">CESD</a> &amp; <a
-                        href="{{ route('CTS') }}">CTS</a></span>
+                <span>Designed and developed by <a href="{{ route('CESD') }}">CESD</a></span>
             </div>
         </div>
     </footer>
