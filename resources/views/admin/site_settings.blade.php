@@ -131,7 +131,7 @@
                                 'admission_url' => 'Admission portal (top bar)',
                                 'elearning_url' => 'E-Learning (top bar and footer)',
                                 'helpdesk_url' => 'Help Desk (top bar and footer)',
-                                'students_portal_url' => 'Students Portal (footer)',
+                                'students_portal_url' => 'Student Result (footer)',
                                 'support_url' => 'Live technical support button (Zoom)',
                             ] as $key => $label)
                                 <div class="col-12 col-lg-6 mb-3">

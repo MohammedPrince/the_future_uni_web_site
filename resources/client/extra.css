@@ -452,3 +452,7 @@ body { height: auto; min-height: 100%; }
     .zoom-float { width: 58px !important; height: 58px !important; right: 12px !important; bottom: 20px !important; }
     .zoom-float img { width: 44px; height: 44px; }
 }
+
+/* Pages without the "Ready to join" banner (all except home) */
+.fu-footer-plain { margin-top: 0; }
+.fu-footer-plain .fu-footer-grid { padding-top: 56px; }

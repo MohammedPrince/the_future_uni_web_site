@@ -49,9 +49,9 @@
                                     @endif
                                     <div class="fu-hero-ctas">
                                         @if ($slide->button_text && $slide->button_url)
-                                            <a href="{{ $slide->button_url }}" class="fu-btn fu-btn-orange">{{ $slide->button_text }} &rarr;</a>
+                                            <a href="{{ $slide->button_url }}" @ext($slide->button_url) class="fu-btn fu-btn-orange">{{ $slide->button_text }} &rarr;</a>
                                         @else
-                                            <a href="{{ $applyUrl }}" class="fu-btn fu-btn-orange">Apply now &rarr;</a>
+                                            <a href="{{ $applyUrl }}" @ext($applyUrl) class="fu-btn fu-btn-orange">Apply now &rarr;</a>
                                         @endif
                                         <a href="{{ route('Undergraduate-Programs') }}" class="fu-btn fu-btn-ghost">Explore programs</a>
                                     </div>

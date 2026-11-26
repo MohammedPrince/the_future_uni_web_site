@@ -93,7 +93,7 @@ class HomeContentTest extends TestCase
 
         // Order 1 makes it the first slide, with the h1 and the preload.
         $this->get('/')->assertOk()->assertSee('<h1 class="fu-hero-title">Admission 2027 is open', false)
-            ->assertSee('href="https://odms.fu.edu.sd/" class="fu-btn fu-btn-orange"', false);
+            ->assertSee('href="https://odms.fu.edu.sd/"  target="_blank" rel="noopener" class="fu-btn fu-btn-orange"', false);
 
         $this->actingAs($this->admin())->delete("/home_slider/{$slide->id}")->assertRedirect('/home_slider');
         foreach ($slide->widthList() as $w) {

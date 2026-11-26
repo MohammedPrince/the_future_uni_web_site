@@ -9,6 +9,18 @@
         return Array.prototype.slice.call((root || document).querySelectorAll(selector));
     }
 
+    /* ---------- Links to other websites open in a new tab ----------
+       (odms, elearning, hdesk, Facebook, links inside news text ...).
+       Same host = same tab; mailto:, tel: and #anchors are left alone. */
+    all('a[href]').forEach(function (a) {
+        if (a.target || !/^https?:$/.test(a.protocol)) return;
+        if (a.hostname === location.hostname) return;
+        a.target = '_blank';
+        var rel = (a.getAttribute('rel') || '').split(/\s+/);
+        if (rel.indexOf('noopener') < 0) rel.push('noopener');
+        a.setAttribute('rel', rel.join(' ').trim());
+    });
+
     /* ---------- Mobile menu ---------- */
     all('.nav-switch').forEach(function (button) {
         button.addEventListener('click', function (e) {

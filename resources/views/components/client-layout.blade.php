@@ -89,7 +89,7 @@
                 <svg class="fu-i" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11v2a1 1 0 0 0 1 1h2l5 4V6L6 10H4a1 1 0 0 0-1 1zM15.5 8.5a5 5 0 0 1 0 7M18.5 5.5a9 9 0 0 1 0 13"/></svg>
                 <span>{{ $site['announcement_text'] }}</span>
                 @if (!empty($site['announcement_url']))
-                    <a class="fu-announce-btn" href="{{ $site['announcement_url'] }}">Learn more &rarr;</a>
+                    <a class="fu-announce-btn" href="{{ $site['announcement_url'] }}" @ext($site['announcement_url'])>Learn more &rarr;</a>
                 @endif
             </div>
         </div>
@@ -133,7 +133,7 @@
                                 <a role="button" tabindex="0" aria-haspopup="true" aria-expanded="false" class="sub-menu-arrow">{{ $label }}</a>
                                 <ul class="fu-sub">
                                     @foreach ($children as [$childLabel, $childUrl])
-                                        <li><a href="{{ $childUrl }}" @if (str_starts_with($childUrl, 'http') && !str_contains($childUrl, 'fu.edu.sd/')) target="_blank" rel="noopener" @endif>{{ $childLabel }}</a></li>
+                                        <li><a href="{{ $childUrl }}" @ext($childUrl)>{{ $childLabel }}</a></li>
                                     @endforeach
                                 </ul>
                             @else
@@ -148,7 +148,7 @@
                     </li>
                 </ul>
             </nav>
-            <a class="fu-apply" href="{{ $applyUrl }}">Apply now</a>
+            <a class="fu-apply" href="{{ $applyUrl }}" @ext($applyUrl)>Apply now</a>
             <button type="button" class="nav-switch fu-burger" aria-label="Menu" aria-expanded="false">
                 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
             </button>
@@ -197,20 +197,23 @@
     </style>
     <!-- Zoom Floating Button End-->
 
-    <footer class="fu-footer">
+    <footer class="fu-footer {{ Request::is('/') ? '' : 'fu-footer-plain' }}">
         <div class="container">
+            {{-- "Ready to join" banner: home page only. --}}
+            @if (Request::is('/'))
             <div class="fu-footer-cta">
                 <div>
                     <h2>Ready to join The Future University?</h2>
                     <p>Apply online, or talk to our Admission office. We are happy to help.</p>
                 </div>
                 <div class="fu-footer-cta-btns">
-                    <a class="fu-btn fu-btn-white" href="{{ $applyUrl }}">Apply now &rarr;</a>
+                    <a class="fu-btn fu-btn-white" href="{{ $applyUrl }}" @ext($applyUrl)>Apply now &rarr;</a>
                     @if (!empty($site['helpdesk_url']))
                         <a class="fu-btn fu-btn-ghost" href="{{ $site['helpdesk_url'] }}" target="_blank" rel="noopener">Ask the Help Desk</a>
                     @endif
                 </div>
             </div>
+            @endif
 
             <div class="fu-footer-grid">
                 <div class="fu-footer-brand">
@@ -244,7 +247,7 @@
                     <ul>
                         @if (!empty($site['elearning_url']))<li><a href="{{ $site['elearning_url'] }}" target="_blank" rel="noopener">E-Learning</a></li>@endif
                         @if (!empty($site['helpdesk_url']))<li><a href="{{ $site['helpdesk_url'] }}" target="_blank" rel="noopener">Help Desk</a></li>@endif
-                        @if (!empty($site['students_portal_url']))<li><a href="{{ $site['students_portal_url'] }}" target="_blank" rel="noopener">Students Portal</a></li>@endif
+                        @if (!empty($site['students_portal_url']))<li><a href="{{ $site['students_portal_url'] }}" target="_blank" rel="noopener">Student Result</a></li>@endif
                         <li><a href="{{ route('CESD') }}">CESD</a></li>
                         <li><a href="{{ route('CTS') }}">CTS</a></li>
                         <li><a href="{{ route('IRDC') }}">IRDC</a></li>

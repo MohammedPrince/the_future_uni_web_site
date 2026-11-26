@@ -33,6 +33,9 @@ class AppServiceProvider extends ServiceProvider
         // @img('client/img/x.jpg') prints the fastest available URL of that file.
         Blade::directive('img', fn ($path) => "<?php echo e(\\App\\Support\\Media::url({$path})); ?>");
 
+        // <a href="{{ $url }}" @ext($url)> opens links to other websites in a new tab.
+        Blade::directive('ext', fn ($url) => "<?php echo \\App\\Support\\Links::target({$url}); ?>");
+
         if ($this->app->environment('production')) {
             URL::forceScheme('https');
         }
