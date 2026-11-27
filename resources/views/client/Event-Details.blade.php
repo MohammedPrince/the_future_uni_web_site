@@ -62,7 +62,7 @@
                             </div>
                                 @endif
                             <p></p>
-                            @include('components.client-share', ['title' => $event->event_title])
+                            @include('components.client-share', ['title' => $event->event_title, 'short' => 'e/' . $event->id])
                             <div class="tag" style="color: black;"><i class="fa fa-tag"></i>Office : {{$event_office}}</div>
                         </div>
                     </div>

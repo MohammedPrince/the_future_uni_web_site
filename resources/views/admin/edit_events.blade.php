@@ -100,31 +100,18 @@
                                                 @enderror
                                             </div>
 
-                                            <input type="hidden" value="{{ $event->event_imgs }}" name="event_imgs_old">
-
                                             @include('admin.partials.faculty_order_fields', ['item' => $event])
 
                                             <div class="card-header">
                                                 <h5 class="card-title mb-0">Current Images</h5>
+                                                <p class="text-muted mb-0">Tick "Remove" under an image to delete it when you save.</p>
                                             </div>
-                                            <div class="card-body col-6 col-lg-6">
-                                                @include('admin.partials.current_images', ['folder' => 'event_imgs', 'images' => $event->event_imgs])
+                                            <div class="card-body col-12">
+                                                @include('admin.partials.current_images', ['folder' => 'event_imgs', 'images' => $event->event_imgs, 'removeName' => 'event_imgs_remove'])
                                             </div>
 
-                                            <div class="card-header">
-                                                <h5 class="card-title mb-0">Upload New Images</h5>
-                                                <p class="text-muted mb-0">Uploading new images replaces the current ones.</p>
-                                            </div>
-                                            <div class="card-body col-6 col-lg-6">
-                                                <input type="file" name="event_imgs[]" multiple  class="form-control" placeholder="Select Event Images">
-                                                @error('event_imgs')
-                                                    <div class="alert error text-center">
-                                                        <p class="inner">{{ $message }}</p>
-                                                    </div>
-                                                @enderror
-                                            </div>
-                                            
-                                           
+                                            @include('admin.partials.image_upload', ['name' => 'event_imgs', 'editing' => true])
+
                                             <div class="text-center">
 
                                                 <button class="btn btn btn-success">Edit Event</button>

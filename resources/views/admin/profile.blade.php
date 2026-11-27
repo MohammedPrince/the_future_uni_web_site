@@ -166,6 +166,49 @@
 
 
                                 </div>
+
+                                {{-- Change Password --}}
+                                <div class="col-12 col-lg-6">
+                                    <div class="card" id="password">
+                                        <div class="card-header">
+                                            <h5 class="card-title mb-0">Change Password</h5>
+                                            <p class="text-muted mb-0">At least 10 characters, with letters and numbers.</p>
+                                        </div>
+                                        <form action="{{ route('profile.password') }}" method="POST" class="card-body" autocomplete="off">
+                                            @csrf
+                                            @method('PUT')
+                                            <input type="text" name="username" value="{{ $user->username }}" autocomplete="username" hidden>
+
+                                            <label class="form-label" for="current_password">Current password</label>
+                                            <input type="password" id="current_password" name="current_password" class="form-control mb-1"
+                                                autocomplete="current-password" required>
+                                            @error('current_password')
+                                                <div class="alert error text-center"><p class="inner">{{ $message }}</p></div>
+                                            @enderror
+
+                                            <label class="form-label mt-3" for="new_password">New password</label>
+                                            <input type="password" id="new_password" name="password" class="form-control mb-1"
+                                                autocomplete="new-password" minlength="10" required>
+                                            @error('password')
+                                                <div class="alert error text-center"><p class="inner">{{ $message }}</p></div>
+                                            @enderror
+
+                                            <label class="form-label mt-3" for="password_confirmation">Repeat the new password</label>
+                                            <input type="password" id="password_confirmation" name="password_confirmation" class="form-control mb-1"
+                                                autocomplete="new-password" minlength="10" required>
+
+                                            <label class="form-check mt-2">
+                                                <input class="form-check-input" type="checkbox"
+                                                    onclick="document.querySelectorAll('#password input[autocomplete$=password]').forEach(function (i) { i.type = this.checked ? 'text' : 'password'; }, this)">
+                                                <span class="form-check-label">Show passwords</span>
+                                            </label>
+
+                                            <div class="text-center mt-3">
+                                                <button class="btn btn-primary">Change Password</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
                             </div>
 
                         </div>

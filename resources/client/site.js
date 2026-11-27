@@ -223,6 +223,88 @@
         schedule();
     });
 
+    /* ---------- News cards with several images ----------
+       The image changes every few seconds, only while the card is on screen.
+       The next image is downloaded first, so nothing flashes. */
+    var photoCards = all('[data-photos]');
+    if (photoCards.length && !calm && 'IntersectionObserver' in window) {
+        var seen = new IntersectionObserver(function (entries) {
+            entries.forEach(function (e) { e.target._visible = e.isIntersecting; });
+        });
+        photoCards.forEach(function (card, n) {
+            var photos;
+            try { photos = JSON.parse(card.getAttribute('data-photos')); } catch (err) { return; }
+            var img = card.querySelector('img');
+            var counter = card.querySelector('[data-photo-n]');
+            var index = 0, busy = false;
+            if (!img || !photos || photos.length < 2) return;
+            seen.observe(card);
+            setTimeout(function () {
+                setInterval(function () {
+                    if (busy || !card._visible || document.hidden) return;
+                    busy = true;
+                    var next = (index + 1) % photos.length;
+                    var loader = new Image();
+                    loader.onload = function () {
+                        img.classList.add('is-fading');
+                        setTimeout(function () {
+                            img.src = photos[next];
+                            img.style.objectFit = '';
+                            img.style.padding = '';
+                            img.classList.remove('is-fading');
+                            index = next;
+                            if (counter) counter.textContent = String(index + 1);
+                            busy = false;
+                        }, 350);
+                    };
+                    loader.onerror = function () { index = next; busy = false; };
+                    loader.src = photos[next];
+                }, 4000);
+            }, 1500 + (n % 4) * 900); // cards do not all change at the same moment
+        });
+    }
+
+    /* ---------- Service bars (CESD, CTS ...) ----------
+       Each bar fills from the left when it scrolls into view, one after the
+       other, and its number counts up. Without this code they are simply full. */
+    var barLists = all('main .skills-content');
+    if (barLists.length && !calm && 'IntersectionObserver' in window) {
+        var countUp = function (el) {
+            var end = parseInt(el.textContent, 10);
+            if (isNaN(end)) return;
+            var start = null;
+            el.textContent = '0%';
+            function step(t) {
+                if (start === null) start = t;
+                var p = Math.min(1, (t - start) / 1100);
+                el.textContent = Math.round(end * (1 - Math.pow(1 - p, 3))) + '%';
+                if (p < 1) window.requestAnimationFrame(step);
+            }
+            window.requestAnimationFrame(step);
+            // The number always ends right, even where frames are paused.
+            setTimeout(function () { el.textContent = end + '%'; }, 1300);
+        };
+        var barSeen = new IntersectionObserver(function (entries) {
+            entries.forEach(function (e) {
+                if (!e.isIntersecting) return;
+                barSeen.unobserve(e.target);
+                var row = e.target;
+                setTimeout(function () {
+                    row.classList.add('is-in');
+                    var val = row.querySelector('.val');
+                    if (val) countUp(val);
+                }, (row._order || 0) * 140);
+            });
+        }, { threshold: 0.3 });
+        barLists.forEach(function (list) {
+            list.classList.add('fu-bars');
+            all('.progress', list).forEach(function (row, i) {
+                row._order = i;
+                barSeen.observe(row);
+            });
+        });
+    }
+
     /* ---------- Share buttons (news and event pages) ---------- */
     all('[data-share-copy]').forEach(function (button) {
         button.addEventListener('click', function () {

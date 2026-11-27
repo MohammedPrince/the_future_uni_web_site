@@ -106,36 +106,15 @@ class EventsController extends Controller
         // New events are published at once unless "Publish now" is unticked.
         $incomingFields['event_status'] = $request->boolean('publish', true) ? 1 : 0;
 
-        foreach($request->file('event_imgs') as $image)
-            {
-                // SECURITY: never trust the client filename; re-encode as JPEG.
-                // (Also fixes a bug: the file was saved under the client name but
-                // the DB recorded $img_name, so the image never displayed.)
-                $img_name = \Illuminate\Support\Str::random(32).'.jpg';
-
-                $destinationPathThumbnail = public_path('/storage/event_imgs');
-                $img = Image::make($image->path());
-
-                \App\Support\ImageUploads::keepWhole($img); // whole picture, no cropping
-                \App\Support\ImageUploads::saveWithWebp($img, $destinationPathThumbnail.'/'.$img_name);
-                $data[] = $img_name;  
-                $fileNameToStore = implode (",", $data);
-            }
-
-            $incomingFields['event_imgs'] = $fileNameToStore ;
+        // SECURITY: never trust the client filename; images are re-encoded as JPEG.
+        $incomingFields['event_imgs'] = implode(',', \App\Support\PostImages::store($request->file('event_imgs'), 'event_imgs'));
 
         if (Events::create(collect($incomingFields)->map(fn ($v, $k) => is_string($v) && $k !== 'event_desc' ? strip_tags($v) : $v)->all())){
 
-            return redirect('/add_event')->with('success','Event '.$incomingFields['event_title']. ' Created Successfully !');
+            return redirect()->route('news_events.manage', ['tab' => 'event'])->with('success','Event '.$incomingFields['event_title']. ' Created Successfully !');
         }else{
-            return redirect('/add_event')->with('failure','Error While Creating '.$incomingFields['event_title']. ' Event !');
+            return redirect()->route('news_events.manage', ['tab' => 'event'])->with('failure','Error While Creating '.$incomingFields['event_title']. ' Event !');
         }
-    }
-
-    public function showEvents(){
-        // All events that are not deleted, published or hidden. (Before, new events
-        // were saved hidden and this list showed only published ones, so they vanished.)
-        return view("admin.add_events" , ['events' => Events::forAdmin()]);
     }
 
     public function deleteEvent($event_id){
@@ -152,21 +131,21 @@ class EventsController extends Controller
              }
 
              if($del){
-                    return redirect('/add_event')->with('success','Event Deleted Successfully !');
+                    return redirect()->route('news_events.manage', ['tab' => 'event'])->with('success','Event Deleted Successfully !');
             }else{
-                    return redirect('/add_event')->with('failure','File Not exists or already deleted !');
+                    return redirect()->route('news_events.manage', ['tab' => 'event'])->with('failure','File Not exists or already deleted !');
                 }
         }else{
-            return redirect('/add_event')->with('failure','Error While Deleting Event !');
+            return redirect()->route('news_events.manage', ['tab' => 'event'])->with('failure','Error While Deleting Event !');
         }
     }
 
     public function eventStatus($event_id , $event_status){
 
             if (Events::where('id', $event_id)->update(['event_status' => $event_status === '1' ? 1 : 0])){
-                return redirect('/add_event')->with('success','Event status successfully updated!');
+                return redirect()->route('news_events.manage', ['tab' => 'event'])->with('success','Event status successfully updated!');
             }else{
-                return redirect('/add_event')->with('failure','Error while updating event status !');
+                return redirect()->route('news_events.manage', ['tab' => 'event'])->with('failure','Error while updating event status !');
             }
     }
 
@@ -184,7 +163,8 @@ class EventsController extends Controller
             'event_date' => ['required'],
             'faculty_id' => ['required', 'string', \Illuminate\Validation\Rule::in(array_map('strval', array_keys(\App\Models\MainApp::facultyCodes())))],
             'home_order' => ['nullable', 'integer', 'min:1', 'max:99'],
-            'event_imgs_old' => ['nullable', 'string'],
+            'event_imgs_remove' => ['nullable', 'array'],
+            'event_imgs_remove.*' => ['string'],
             'event_imgs' => ['nullable', 'array', 'max:20'],
             'event_imgs.*' => ['image', 'mimes:jpg,jpeg,png,webp', 'max:10000'],
         ], [
@@ -203,40 +183,25 @@ class EventsController extends Controller
         $incomingFields['event_desc'] = \App\Support\RichText::clean($incomingFields['event_desc']);
         // Faculty / department chosen in the form (validated above).
     
-        // Handle image uploads
-        if ($request->hasFile('event_imgs')) {
-            $data = [];
-            foreach ($incomingFields['event_imgs'] as $image) {
-                $name = \Illuminate\Support\Str::random(32).'.jpg';
-                $destinationPathThumbnail = public_path('/storage/event_imgs');
-                $img = Image::make($image->path());
-                \App\Support\ImageUploads::keepWhole($img); // whole picture, no cropping
-                \App\Support\ImageUploads::saveWithWebp($img, $destinationPathThumbnail.'/'.$name);
-                $data[] = $name;
-            }
-
-            // Delete old images if new images are uploaded
-            if (!empty($incomingFields['event_imgs_old'])) {
-                foreach (explode(',', $incomingFields['event_imgs_old']) as $oldImage) {
-                    // SECURITY: basename() blocks ../ path traversal deletes.
-                    $image_path = public_path('/storage/event_imgs/'.basename($oldImage));
-                    if (File::exists($image_path)) {
-                        File::delete($image_path);
-                        File::delete($image_path . '.webp');
-                    }
-                }
-            }
-    
-            $incomingFields['event_imgs'] = implode(",", $data);
-        } else {
-            $incomingFields['event_imgs'] = $incomingFields['event_imgs_old'];
+        // Images: keep the current ones (from the database, not the form) except the
+        // ticked ones, and add the new uploads after them.
+        $remove = $incomingFields['event_imgs_remove'] ?? [];
+        $uploads = $request->file('event_imgs', []);
+        if (count(\App\Support\PostImages::list($event->event_imgs)) - count($remove) + count($uploads) > \App\Support\PostImages::MAX) {
+            return back()->withInput()->withErrors(['event_imgs' => 'An event can have up to ' . \App\Support\PostImages::MAX . ' images.']);
         }
+        $images = \App\Support\PostImages::update($event->event_imgs, $remove, $uploads, 'event_imgs');
+        if ($images === null) {
+            return back()->withInput()->withErrors(['event_imgs_remove' => 'Keep at least one image, or upload a new one.']);
+        }
+        $incomingFields['event_imgs'] = $images;
+        unset($incomingFields['event_imgs_remove']);
     
         // Update event
         if ($event->update($incomingFields)) {
-            return redirect('/add_event')->with('success', 'Event Successfully Updated!');
+            return redirect()->route('news_events.manage', ['tab' => 'event'])->with('success', 'Event Successfully Updated!');
         } else {
-            return redirect('/add_event')->with('failure', 'Error While Updating Event!');
+            return redirect()->route('news_events.manage', ['tab' => 'event'])->with('failure', 'Error While Updating Event!');
         }
     }
 

@@ -64,7 +64,7 @@
                                 </div>
                             @endif
                             <p></p>
-                            @include('components.client-share', ['title' => $news->news_title])
+                            @include('components.client-share', ['title' => $news->news_title, 'short' => 'n/' . $news->id])
                             <div class="tag" style="color: black;"><i class="fa fa-tag"></i>Office : {{ $news_office }}
                             </div>
                         </div>

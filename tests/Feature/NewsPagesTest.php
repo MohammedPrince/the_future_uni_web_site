@@ -62,11 +62,12 @@ class NewsPagesTest extends TestCase
         }
 
         foreach ([
-            '/News-Details/' . base64_encode($news->id) => optional($news->users)->user_fullname,
-            '/Event-Details/' . base64_encode($event->id) => optional($event->users)->user_fullname,
-        ] as $path => $author) {
+            '/News-Details/' . base64_encode($news->id) => [optional($news->users)->user_fullname, '/n/' . $news->id],
+            '/Event-Details/' . base64_encode($event->id) => [optional($event->users)->user_fullname, '/e/' . $event->id],
+        ] as $path => [$author, $short]) {
             $html = $this->get($path)->assertOk()->getContent();
-            $url = rawurlencode('https://fu.edu.sd' . $path);
+            // The short address is shared (it opens the full page).
+            $url = rawurlencode('https://fu.edu.sd' . $short);
 
             $this->assertStringContainsString('https://www.facebook.com/sharer/sharer.php?u=' . $url, $html, $path);
             $this->assertStringContainsString('https://wa.me/?text=', $html, $path);

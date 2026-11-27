@@ -1,10 +1,10 @@
 {{--
     Share buttons for a news item or event. Plain links: no Facebook or other
     scripts are loaded, so the page stays fast and visitors are not tracked.
-    Expects $title.
+    Expects $title; $short (e.g. "n/12") shares the short address instead of the long one.
 --}}
 @php
-    $shareUrl = config('seo.url') . '/' . ltrim(request()->path(), '/');
+    $shareUrl = config('seo.url') . '/' . ltrim($short ?? request()->path(), '/');
     $u = rawurlencode($shareUrl);
     $t = rawurlencode($title);
     $networks = [

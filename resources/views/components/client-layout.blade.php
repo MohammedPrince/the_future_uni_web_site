@@ -12,6 +12,11 @@
     <link rel="apple-touch-icon" href="@img('client/img/apple-touch-icon.png')">
 
     @yield('preload')
+    {{-- The three text fonts are needed for the first screen: start them now,
+         not after the CSS has been read (Lighthouse "network dependency tree"). --}}
+    @foreach ([400, 500, 700] as $weight)
+        <link rel="preload" href="{{ asset('public/client/fonts/ubuntu-' . $weight . '-latin.woff2') }}" as="font" type="font/woff2" crossorigin>
+    @endforeach
     @php $homeCss = Request::is('/') ? \App\Support\Media::inlineCss('client/dist/home.min.css') : ''; @endphp
     @if ($homeCss !== '')
         <style>
@@ -19,8 +24,6 @@
         </style>
         <link rel="prefetch" href="@img('client/dist/site.min.css')" as="style">
     @else
-        <link rel="preload" href="{{ asset('public/client/fonts/ubuntu-400-latin.woff2') }}" as="font" type="font/woff2"
-            crossorigin>
         <link rel="stylesheet" href="@img('client/dist/site.min.css')">
     @endif
 
@@ -180,7 +183,7 @@
     <header class="fu-header">
         <div class="container">
             <a class="fu-brand" href="{{ route('Home') }}">
-                <img src="@img('client/img/fu_logo.png')" width="58" height="58" alt="">
+                <img src="@img('client/img/fu_logo-120.png')" width="58" height="58" alt="">
                 <span><b>The Future University</b><small lang="ar">جامعة المستقبل</small></span>
             </a>
             <nav class="fu-nav" aria-label="Main">
@@ -320,7 +323,7 @@
             <div class="fu-footer-grid">
                 <div class="fu-footer-brand">
                     <a class="fu-brand fu-brand-light" href="{{ route('Home') }}">
-                        <img src="@img('client/img/fu_logo.png')" width="58" height="58" alt="" loading="lazy">
+                        <img src="@img('client/img/fu_logo-120.png')" width="58" height="58" alt="" loading="lazy">
                         <span><b>The Future University</b><small lang="ar">جامعة المستقبل</small></span>
                     </a>
                     <p>{{ $site['footer_about'] ?? '' }}</p>

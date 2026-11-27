@@ -42,7 +42,7 @@ class AdminControlTest extends TestCase
 
     public function test_admin_pages_open()
     {
-        foreach (['/dashboard', '/site_settings', '/fee_structure', '/add_news', '/add_event'] as $path) {
+        foreach (['/dashboard', '/site_settings', '/fee_structure', '/manage_news_events', '/profile'] as $path) {
             $this->actingAs($this->admin())->get($path)->assertOk();
         }
     }

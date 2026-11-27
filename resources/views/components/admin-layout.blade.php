@@ -88,17 +88,9 @@
                     </li>
                  
 
-                    <li class="sidebar-item '@if ( (Request::is('add_event')) || (Request::is('edit_event'))  ) active @endif ' ">
-                        <a class='sidebar-link' href='{{route("add_event")}}'>
-                        {{--<!-- {{route("add_event")}} --> --}}
-                            <i class="align-middle" data-feather="globe"></i> <span class="align-middle">Manage Events</span>
-                        </a>
-                    </li>
-
-                    <li class="sidebar-item '@if ( (Request::is('add_news')) || (Request::is('edit_news'))  ) active @endif ' ">
-                        <a class='sidebar-link' href='{{route("add_news")}}'>
-                            {{-- {{route("add_news")}} --}}
-                            <i class="align-middle" data-feather="paperclip"></i> <span class="align-middle">Manage News</span>
+                    <li class="sidebar-item @if (Request::is('manage_news_events', 'edit_news*', 'edit_event*')) active @endif">
+                        <a class='sidebar-link' href='{{ route("news_events.manage") }}'>
+                            <i class="align-middle" data-feather="globe"></i> <span class="align-middle">News &amp; Events</span>
                         </a>
                     </li>
                     <li class="sidebar-item @if (Request::is('home_slider*')) active @endif">
@@ -304,6 +296,37 @@ const contactMDE = new EasyMDE({
                 });
             };
             document.head.appendChild(script);
+        });
+    </script>
+    {{-- Image uploads: show the chosen images before saving. --}}
+    <script>
+        document.querySelectorAll('input[type=file][data-image-preview]').forEach(function (input) {
+            var list = input.parentNode.querySelector('[data-image-preview-list]');
+            if (!list) return;
+            input.addEventListener('change', function () {
+                list.innerHTML = '';
+                Array.prototype.forEach.call(input.files, function (file, i) {
+                    if (!/^image\//.test(file.type)) return;
+                    var box = document.createElement('figure');
+                    box.className = 'text-center m-0';
+                    var img = document.createElement('img');
+                    img.src = URL.createObjectURL(file);
+                    img.alt = '';
+                    img.style.cssText = 'width:110px;height:90px;object-fit:cover;border:1px solid #dee2e6;border-radius:6px';
+                    var cap = document.createElement('figcaption');
+                    cap.className = 'small text-muted';
+                    cap.textContent = (i === 0 && !input.form.querySelector('[name$="_imgs_remove[]"]')) ? 'Cover' : 'Image ' + (i + 1);
+                    box.appendChild(img);
+                    box.appendChild(cap);
+                    list.appendChild(box);
+                });
+                if (input.files.length) {
+                    var note = document.createElement('p');
+                    note.className = 'w-100 small text-success mb-0';
+                    note.textContent = input.files.length + (input.files.length === 1 ? ' image chosen' : ' images chosen');
+                    list.appendChild(note);
+                }
+            });
         });
     </script>
     <script src="{{asset('./public/admin/js/datatables.js')}}"></script>

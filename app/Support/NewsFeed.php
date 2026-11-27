@@ -9,7 +9,7 @@ use Illuminate\Support\Collection;
 /**
  * Published news and events as one list of cards, for the home page slider
  * and the News & Events page. Every card is an array:
- * type, title, date, meta, image, excerpt, url, order, sort.
+ * type, title, date, meta, image (the cover), images (all), excerpt, url, order, sort.
  */
 class NewsFeed
 {
@@ -42,6 +42,7 @@ class NewsFeed
             'date' => (string) $n->news_date,
             'meta' => date('d-M-Y | h:i A', strtotime($n->created_at)),
             'image' => self::firstImage('storage/news_imgs/', $n->news_imgs),
+            'images' => self::images('storage/news_imgs/', $n->news_imgs),
             'excerpt' => RichText::excerpt($n->news_desc, 50),
             'url' => route('newsDetails', base64_encode($n->id)),
             'order' => $n->home_order,
@@ -55,6 +56,7 @@ class NewsFeed
             'meta' => date('d-M-Y', strtotime($e->event_date))
                 . (strtotime((string) $e->event_time) ? ' | ' . date('h:i A', strtotime($e->event_time)) : ''),
             'image' => self::firstImage('storage/event_imgs/', $e->event_imgs),
+            'images' => self::images('storage/event_imgs/', $e->event_imgs),
             'excerpt' => RichText::excerpt($e->event_desc, 50),
             'url' => route('eventDetails', base64_encode($e->id)),
             'order' => $e->home_order,
@@ -62,6 +64,11 @@ class NewsFeed
         ]);
 
         return $news->concat($events)->values();
+    }
+
+    private static function images(string $folder, ?string $images): array
+    {
+        return array_map(fn ($f) => $folder . $f, PostImages::list($images));
     }
 
     private static function firstImage(string $folder, ?string $images): ?string

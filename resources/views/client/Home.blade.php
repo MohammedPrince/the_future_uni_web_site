@@ -68,19 +68,16 @@
     <section class="fu-why">
         <div class="container fu-why-grid">
             <div class="fu-why-card">
-                <span class="fu-badge" style="background:#1d5191"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2M2 13h20M12 12v2"/></svg></span>
                 <h2>Embedded Learning</h2>
                 <p>Real-world projects, internships and research partnerships built into every course, so you graduate ready to work.</p>
                 <a class="fu-more" href="{{ route('About-FU') }}">Learn more &rarr;</a>
             </div>
             <div class="fu-why-card">
-                <span class="fu-badge" style="background:#15803d"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.5 19 2c1 2 2 4.2 2 8 0 5.5-4.8 10-10 10z"/><path d="M2 21c0-3 1.9-5.4 5.1-6.1 2.4-.5 4.9-1.3 6.9-3.9"/></svg></span>
                 <h2>Sustainability Focus</h2>
                 <p>Sustainable practice across curriculum, campus and community, so our students can take on the challenges of our time.</p>
                 <a class="fu-more" href="{{ route('About-FU') }}">Learn more &rarr;</a>
             </div>
             <div class="fu-why-card">
-                <span class="fu-badge" style="background:#e2730f"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 4 10 15 15 0 0 1-4 10 15 15 0 0 1-4-10 15 15 0 0 1 4-10z"/></svg></span>
                 <h2>Global Engagement</h2>
                 <p>Exchange programs, virtual collaboration and cross-cultural learning that prepare you for an interconnected world.</p>
                 <a class="fu-more" href="{{ route('Fu-Linkages') }}">Learn more &rarr;</a>
@@ -136,7 +133,7 @@
             <div class="fu-fac-grid">
                 @foreach ($faculties as [$name, $logo, $route])
                     <a class="fu-fac" href="{{ route($route) }}">
-                        <img src="@img('client/img/main_imgs/faculites/' . $logo)" width="72" height="72" alt="" loading="lazy" decoding="async">
+                        <img src="@img('client/img/main_imgs/faculites/sm/' . $logo)" width="72" height="72" alt="" loading="lazy" decoding="async">
                         <span class="fu-fac-text"><strong>{{ $name }}</strong><small>View programs</small></span>
                         <span class="fu-go" aria-hidden="true">&rsaquo;</span>
                     </a>
@@ -241,14 +238,21 @@
 
             <div class="ne-track" tabindex="0" role="region" aria-label="News and events">
                 @foreach ($homeItems as $item)
-                    @php $d = strtotime($item['date']); @endphp
+                    @php
+                        $d = strtotime($item['date']);
+                        // More than one image: the card shows them in turn (site.js, [data-photos]).
+                        $photos = array_map(fn ($p) => \App\Support\Media::url($p), array_slice($item['images'] ?? [], 0, 8));
+                    @endphp
                     <article class="ne-slide">
                         <a class="fu-card" href="{{ $item['url'] }}">
-                            <span class="fu-card-img">
+                            <span class="fu-card-img" @if (count($photos) > 1) data-photos="{{ json_encode($photos) }}" @endif>
                                 <img loading="lazy" decoding="async" src="@img($item['image'] ?: 'client/img/fu_logo.png')" width="570" height="356"
                                     alt="" @unless ($item['image']) style="object-fit:contain;padding:30px" @endunless>
                                 <span class="fu-type {{ $item['type'] === 'Event' ? 'is-event' : '' }}">{{ $item['type'] }}</span>
                                 <span class="fu-date"><b>{{ date('d', $d) }}</b>{{ date('M Y', $d) }}</span>
+                                @if (count($photos) > 1)
+                                    <span class="fu-photos" aria-label="{{ count($photos) }} photos"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h3l2-3h6l2 3h3a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1z"/><circle cx="12" cy="13" r="4"/></svg><span data-photo-n>1</span>/{{ count($photos) }}</span>
+                                @endif
                             </span>
                             <span class="fu-card-body" dir="auto">
                                 <h3 dir="auto">{{ $item['title'] }}</h3>

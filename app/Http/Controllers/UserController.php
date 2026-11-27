@@ -107,6 +107,31 @@ class UserController extends Controller
         return view("admin.profile" , ['user' => $user]);
     }
 
+    /** Profile > Change Password: the signed-in user changes their own password. */
+    public function updatePassword(Request $request)
+    {
+        $user = $request->user();
+
+        $request->validate([
+            'current_password' => ['required', 'current_password'],
+            'password' => ['required', 'confirmed', 'different:current_password',
+                \Illuminate\Validation\Rules\Password::min(10)->letters()->numbers()],
+        ], [
+            'current_password.current_password' => 'The current password is not correct.',
+            'password.different' => 'The new password must be different from the current one.',
+            'password.confirmed' => 'The two new passwords do not match.',
+        ]);
+
+        $user->forceFill([
+            'password' => \Illuminate\Support\Facades\Hash::make($request->input('password')),
+        ])->save();
+
+        // New session id, so an old stolen session cookie stops working here.
+        $request->session()->regenerate();
+
+        return redirect()->route('profile')->with('success', 'Your password has been changed.');
+    }
+
     public function editUser(Request $request , User $user){
 
         $validate = Validator::make($request->all(), [

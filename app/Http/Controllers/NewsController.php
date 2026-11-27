@@ -139,42 +139,26 @@ class NewsController extends Controller
         // New news is published at once unless "Publish now" is unticked.
         $incomingFields['news_status'] = $request->boolean('publish', true) ? 1 : 0;
 
-        foreach($request->file('news_imgs') as $image)
-            {
-                // SECURITY: never trust the client filename; re-encode as JPEG.
-                $name = \Illuminate\Support\Str::random(32).'.jpg';
-                $destinationPathThumbnail = public_path('/storage/news_imgs');
-                $img = Image::make($image->path());
-                \App\Support\ImageUploads::keepWhole($img); // whole picture, no cropping
-                \App\Support\ImageUploads::saveWithWebp($img, $destinationPathThumbnail.'/'.$name);
-                $data[] = $name;  
-                $fileNameToStore = implode (",", $data);
-            }
+        // SECURITY: never trust the client filename; images are re-encoded as JPEG.
+        $incomingFields['news_imgs'] = implode(',', \App\Support\PostImages::store($request->file('news_imgs'), 'news_imgs'));
 
-            $incomingFields['news_imgs'] = $fileNameToStore ;
-
-            $news = News::create($incomingFields);
+        $news = News::create($incomingFields);
 
         if ($news){
-            return redirect('/add_news')->with('success',''.$incomingFields['news_title']. ' Created Successfully !');
+            return redirect()->route('news_events.manage', ['tab' => 'news'])->with('success',''.$incomingFields['news_title']. ' Created Successfully !');
         }else{
-            return redirect('/add_news')->with('failure','Error While Creating '.$incomingFields['news_title']. ' !');
+            return redirect()->route('news_events.manage', ['tab' => 'news'])->with('failure','Error While Creating '.$incomingFields['news_title']. ' !');
         }
 
 
     }
-    public function showNews(){
-        // All news that is not deleted, published or hidden, so admins can manage every item.
-        return view("admin.add_news" , ['news' => News::forAdmin()]);
-    }
-
     public function newsStatus($news_id , $news_status){
 
         if (News::where('id', $news_id)->where('del', 0)->update(['news_status' => $news_status === '1' ? 1 : 0])){
-            return redirect('/add_news')->with('success', $news_status === '1' ? 'News published.' : 'News hidden from the website.');
+            return redirect()->route('news_events.manage', ['tab' => 'news'])->with('success', $news_status === '1' ? 'News published.' : 'News hidden from the website.');
         }
 
-        return redirect('/add_news')->with('failure','Error while updating news status !');
+        return redirect()->route('news_events.manage', ['tab' => 'news'])->with('failure','Error while updating news status !');
     }
 
     public function showEditForm(News $news){
@@ -190,7 +174,8 @@ class NewsController extends Controller
             'news_date' => ['required'],
             'faculty_id' => ['required', 'string', \Illuminate\Validation\Rule::in(array_map('strval', array_keys(\App\Models\MainApp::facultyCodes())))],
             'home_order' => ['nullable', 'integer', 'min:1', 'max:99'],
-            'news_imgs_old'=>['nullable','string'],
+            'news_imgs_remove'=>['nullable','array'],
+            'news_imgs_remove.*'=>['string'],
             'news_imgs'=>['nullable','array','max:20'],
             'news_imgs.*'=>['image','mimes:jpg,jpeg,png,webp','max:10000'],
         ],[
@@ -209,41 +194,25 @@ class NewsController extends Controller
         $incomingFields['news_desc'] = \App\Support\RichText::clean($incomingFields['news_desc']);
         // Faculty / department chosen in the form (validated above).
 
-            if ($request->hasFile('news_imgs')) {
+        // Images: keep the current ones (from the database, not the form) except the
+        // ticked ones, and add the new uploads after them.
+        $remove = $incomingFields['news_imgs_remove'] ?? [];
+        $uploads = $request->file('news_imgs', []);
+        if (count(\App\Support\PostImages::list($news->news_imgs)) - count($remove) + count($uploads) > \App\Support\PostImages::MAX) {
+            return back()->withInput()->withErrors(['news_imgs' => 'A news item can have up to ' . \App\Support\PostImages::MAX . ' images.']);
+        }
+        $images = \App\Support\PostImages::update($news->news_imgs, $remove, $uploads, 'news_imgs');
+        if ($images === null) {
+            return back()->withInput()->withErrors(['news_imgs_remove' => 'Keep at least one image, or upload a new one.']);
+        }
+        $incomingFields['news_imgs'] = $images;
+        unset($incomingFields['news_imgs_remove']);
 
-                foreach($incomingFields['news_imgs']  as $image)
-                    {
-
-                        $name = \Illuminate\Support\Str::random(32).'.jpg';
-                        $destinationPathThumbnail = public_path('/storage/news_imgs');
-                        $img = Image::make($image->path());
-                        \App\Support\ImageUploads::keepWhole($img); // whole picture, no cropping
-                        \App\Support\ImageUploads::saveWithWebp($img, $destinationPathThumbnail.'/'.$name);
-                        $data[] = $name;
-                        $fileNameToStore = implode (",", $data);
-
-                   if(!empty($incomingFields['news_imgs_old'])) {
-
-                        foreach(explode(',', $incomingFields['news_imgs_old']) as $image){
-                            // SECURITY: basename() blocks ../ path traversal deletes.
-                            $image_path = public_path().'/storage/news_imgs/'.basename($image);
-                           File::delete($image_path);
-                           File::delete($image_path . '.webp');
-                        }
-                    }
-                }
-    
-                $incomingFields['news_imgs'] = $fileNameToStore ;
-            }else{
-                $incomingFields['news_imgs'] = $incomingFields['news_imgs_old'] ;
-            }
-            
-            // strip_tags($incomingFields) ;
             if(  $news ->update($incomingFields)){
 
-                return redirect('/add_news')->with('success','News Successfully Updated !');
+                return redirect()->route('news_events.manage', ['tab' => 'news'])->with('success','News Successfully Updated !');
             }else{
-                return redirect('/add_news')->with('failure','Error While Update News !');
+                return redirect()->route('news_events.manage', ['tab' => 'news'])->with('failure','Error While Update News !');
             }
     }
 
@@ -261,12 +230,12 @@ class NewsController extends Controller
              }
 
              if($del){
-                    return redirect('/add_news')->with('success','News Deleted Successfully !');
+                    return redirect()->route('news_events.manage', ['tab' => 'news'])->with('success','News Deleted Successfully !');
             }else{
-                    return redirect('/add_news')->with('failure','File Not exists or already deleted !');
+                    return redirect()->route('news_events.manage', ['tab' => 'news'])->with('failure','File Not exists or already deleted !');
                 }
         }else{
-            return redirect('/add_news')->with('failure','Error While Deleting News !');
+            return redirect()->route('news_events.manage', ['tab' => 'news'])->with('failure','Error While Deleting News !');
         }
     }
 

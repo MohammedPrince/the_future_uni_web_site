@@ -143,7 +143,7 @@ class HomeContentTest extends TestCase
     public function test_news_and_event_forms_have_faculty_and_home_order()
     {
         $admin = $this->admin();
-        foreach (['/add_news', '/add_event'] as $path) {
+        foreach (['/manage_news_events?tab=news', '/manage_news_events?tab=event'] as $path) {
             $this->actingAs($admin)->get($path)->assertOk()
                 ->assertSee('name="faculty_id"', false)
                 ->assertSee('Academic Affairs')

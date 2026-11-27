@@ -5,6 +5,7 @@ use App\Http\Controllers\NewsController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ChartController;
 use App\Http\Controllers\EventsController;
+use App\Http\Controllers\NewsEventsAdminController;
 use App\Http\Controllers\LinkageController;
 use App\Http\Controllers\FeeController;
 use App\Http\Controllers\DashboardController;
@@ -58,10 +59,15 @@ Route::middleware(['adminType', 'same.site'])->group(function () {
     Route::put('/edit_user/{user}', [UserController::class, "editUser"])->name('editsubmit');
     Route::get('/add_user/{user:id}/edit', [UserController::class, "showUser"]);
     Route::get('/profile', [UserController::class, "user_profile"])->name('profile');
+    // Own password: needs the current one; a few tries per minute.
+    Route::put('/profile/password', [UserController::class, 'updatePassword'])->middleware('throttle:6,1')->name('profile.password');
     Route::get('/new_edit_user/{id}/edit/', [UserController::class, "newPage"]);
 
-    //Events//
-    Route::get('/add_event', [EventsController::class, "showEvents"])->name('add_event');
+    // News & Events: add either one and manage both on one page.
+    Route::get('/manage_news_events', [NewsEventsAdminController::class, 'index'])->name('news_events.manage');
+
+    //Events// (the old page opens News & Events)
+    Route::get('/add_event', fn () => redirect()->route('news_events.manage', ['tab' => 'event']))->name('add_event');
     Route::post('/add_event', [EventsController::class, "addEvent"]);
     Route::get('/add_event/{event}/delete/', [EventsController::class, "deleteEvent"]);
     Route::get('/add_event/{event}/status/{event_status}', [EventsController::class, "eventStatus"]);
@@ -69,7 +75,7 @@ Route::middleware(['adminType', 'same.site'])->group(function () {
     Route::post('/edit_event/{event}', [EventsController::class, "editEvent"])->name('eventsubmit');
 
     //News//
-    Route::get('/add_news', [NewsController::class, "showNews"])->name('add_news');
+    Route::get('/add_news', fn () => redirect()->route('news_events.manage', ['tab' => 'news']))->name('add_news');
     Route::post('/add_news', [NewsController::class, "addNews"]);
     Route::get('/add_news/{news}/status/{news_status}', [NewsController::class, "newsStatus"]);
     Route::get('/edit_news/{news}/edit/', [NewsController::class, "showEditForm"]);
@@ -305,6 +311,10 @@ Route::middleware(['site.maintenance', 'visitor', 'page.cache'])->withoutMiddlew
     Route::get('/Event-Details/{event}', [EventsController::class, "eventDetails"])->name('eventDetails');
     Route::get('/News-Details/{news}', [NewsController::class, "newsDetails"])->name('newsDetails');
     Route::get('/News-and-Events', [NewsController::class, "NewsAndEvents"])->name('NewsAndEvents');
+
+    // Short links for sharing (fu.edu.sd/n/12, fu.edu.sd/e/5) -> the full page.
+    Route::get('/n/{id}', fn (int $id) => redirect()->route('newsDetails', base64_encode($id), 301))->whereNumber('id')->name('news.short');
+    Route::get('/e/{id}', fn (int $id) => redirect()->route('eventDetails', base64_encode($id), 301))->whereNumber('id')->name('event.short');
     Route::get('/Facts-Figures', [ChartController::class, 'barChart'])->name('barChart');
 });
 
