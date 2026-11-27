@@ -225,4 +225,20 @@ class NewsEventsAdminTest extends TestCase
             $this->assertStringContainsString($rule, $css, 'Chart heights must survive the CSS build.');
         }
     }
+    public function test_details_pages_use_the_new_layout()
+    {
+        $news = News::published()->first();
+        $event = Events::published()->first();
+        if (!$news || !$event) {
+            $this->markTestSkipped('Needs a published news item and event in the local database.');
+        }
+        foreach ([route('newsDetails', base64_encode($news->id)), route('eventDetails', base64_encode($event->id))] as $url) {
+            $html = $this->get($url)->assertOk()->getContent();
+            foreach (['fu-post-grid"', 'class="fu-post-meta"', 'class="fu-post-text" dir="auto"', 'Latest News &amp; Events', 'id="search-input"', 'class="share-box"'] as $part) {
+                $this->assertStringContainsString($part, $html, $url);
+            }
+            // The page itself is not listed under "Latest".
+            $this->assertStringNotContainsString('class="fu-side-post" href="' . $url . '"', $html);
+        }
+    }
 }

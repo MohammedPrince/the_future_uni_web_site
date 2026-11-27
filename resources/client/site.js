@@ -305,6 +305,26 @@
         });
     }
 
+    /* ---------- News / event details: a thumbnail shows that image above ---------- */
+    var postMain = document.querySelector('[data-post-main]');
+    if (postMain) {
+        var postLink = document.querySelector('[data-post-full]');
+        var postN = document.querySelector('[data-post-n]');
+        var thumbs = all('[data-post-thumb]');
+        thumbs.forEach(function (button, i) {
+            button.addEventListener('click', function () {
+                var src = button.getAttribute('data-post-thumb');
+                thumbs.forEach(function (b) { b.classList.toggle('is-active', b === button); });
+                if (postN) postN.textContent = String(i + 1);
+                if (postLink) postLink.href = src;
+                postMain.style.opacity = '0.4';
+                var next = new Image();
+                next.onload = next.onerror = function () { postMain.src = src; postMain.style.opacity = ''; };
+                next.src = src;
+            });
+        });
+    }
+
     /* ---------- Share buttons (news and event pages) ---------- */
     all('[data-share-copy]').forEach(function (button) {
         button.addEventListener('click', function () {

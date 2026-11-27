@@ -50,28 +50,13 @@ class NewsController extends Controller
 
     public function newsDetails($news_id){
 
-        $events='';
-
-        $event_value = false;
-        $new_news_id  = (int) base64_decode($news_id);
         // Unknown or deleted news gives a 404 page (was a 500 error).
-        $news = News::published()->findOrFail($new_news_id);
+        $news = News::published()->findOrFail((int) base64_decode($news_id));
 
-        $faculty_id = News :: GetNewsColumn('faculty_id',$new_news_id);
-        $event_by_id = News :: GetNewsColumn('news_by',$new_news_id);
-
-        $news_office = MainApp::getFacultiesAndOffices($faculty_id) ;
-
-        $user_name = MainApp::GetUserDetails('user_fullname',$event_by_id);
-
-    //    strip_tags(Str::markdown($news));
-
-        if (Events :: getEvents() != null ){
-                $event_value = true ;
-                $events = Events::getEvents() ;
-        }
-      
-        return view("client.News-Details" , compact('news'),['news_office'=>$news_office,'news_by'=>$user_name,'events'=>$events,'event_value' =>$event_value]);
+        return view('client.News-Details', [
+            'news' => $news,
+            'news_office' => MainApp::getFacultiesAndOffices($news->faculty_id),
+        ]);
     }
 
 

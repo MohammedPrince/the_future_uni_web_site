@@ -51,29 +51,12 @@ class EventsController extends Controller
 
     public function eventDetails($event_id){
 
-        $news='';
-        $news_faculty_id='';
-        $news_value = false;
-        $new_event_id = (int) base64_decode($event_id);
-        $event = Events::published()->findOrFail($new_event_id);
+        $event = Events::published()->findOrFail((int) base64_decode($event_id));
 
-        $faculty_id = Events :: GetEventColumn('faculty_id',$new_event_id);
-        $event_by_id = Events :: GetEventColumn('event_by',$new_event_id);
-
-        $event_office = MainApp::getFacultiesAndOffices($faculty_id) ;
-
-        $user_name = MainApp::GetUserDetails('user_fullname',$event_by_id);
-
-       ///strip_tags(Str::markdown($event));
-
-       if (News :: getNews() != null ){
-            $news_value = true ;
-            $news = News::getNews() ;
-
-
-       }
-      
-        return view("client.Event-Details" , compact('event'),['event_office'=>$event_office,'event_by'=>$user_name,'news'=>$news,'news_value' =>$news_value]);
+        return view('client.Event-Details', [
+            'event' => $event,
+            'event_office' => MainApp::getFacultiesAndOffices($event->faculty_id),
+        ]);
     }
 
     public function addEvent(Request $request){
