@@ -245,10 +245,25 @@ body { height: auto; min-height: 100%; }
 .fu-btn-ghost:hover { background: #fff; color: #1d5191; }
 
 /* Announcement */
-.fu-announce { background: linear-gradient(90deg, #e2730f, #fb8b24); color: #fff; font-size: 14px; }
+/* Stays at the top with the header on every page; the header sits right under it.
+   site.js sets --fu-ann-h to the bar's real height (it can wrap on phones). */
+.fu-announce { position: -webkit-sticky; position: sticky; top: 0; z-index: 1001; background: linear-gradient(90deg, #e2730f, #fb8b24); color: #fff; font-size: 14px; }
+.fu-announce ~ .fu-header { top: var(--fu-ann-h, 42px); }
+.fu-announce ~ .fu-header .fu-menu { max-height: calc(100vh - 100px - var(--fu-ann-h, 42px)); }
+.fu-announce ~ * .fu-post-side { top: calc(100px + var(--fu-ann-h, 42px)); }
 .fu-announce .container { display: flex; align-items: center; justify-content: center; gap: 12px; min-height: 42px; padding-top: 6px; padding-bottom: 6px; text-align: center; }
 .fu-announce-btn { flex: none; padding: 3px 12px; border-radius: 99px; background: #fff; color: #c25f05; font-size: 12.5px; font-weight: 700; white-space: nowrap; }
 .fu-announce-btn:hover { color: #1d5191; }
+@media (max-width: 767px) {
+    .fu-announce { font-size: 13px; }
+    .fu-announce .container { gap: 8px; min-height: 38px; padding-top: 4px; padding-bottom: 4px; line-height: 1.35; }
+    .fu-announce .fu-i { display: none; }
+    /* Long text: 2 lines on phones so the bar never covers much of the screen; tap shows all. */
+    .fu-announce span { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden; text-align: start; }
+    .fu-announce.is-long span { cursor: pointer; }
+    .fu-announce.is-open span { display: block; -webkit-line-clamp: none; }
+    .fu-announce-btn { padding: 3px 10px; font-size: 12px; }
+}
 
 /* Contact bar */
 .fu-util { background: #12345f; color: rgba(255, 255, 255, .85); font-size: 13.5px; }

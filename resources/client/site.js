@@ -9,6 +9,29 @@
         return Array.prototype.slice.call((root || document).querySelectorAll(selector));
     }
 
+    /* ---------- Announcement bar: the sticky header sits right under it ---------- */
+    (function () {
+        var bar = document.querySelector('.fu-announce');
+        if (!bar) return;
+        // On phones long text is cut to 2 lines; a tap on it shows the rest.
+        var text = bar.querySelector('span');
+        function fit() {
+            document.documentElement.style.setProperty('--fu-ann-h', bar.offsetHeight + 'px');
+            if (text && !bar.classList.contains('is-open')) {
+                bar.classList.toggle('is-long', text.scrollHeight > text.clientHeight + 1);
+            }
+        }
+        if (text) text.addEventListener('click', function () {
+            if (bar.classList.contains('is-long') || bar.classList.contains('is-open')) {
+                bar.classList.toggle('is-open');
+                fit();
+            }
+        });
+        fit();
+        if (window.ResizeObserver) new ResizeObserver(fit).observe(bar);
+        else window.addEventListener('resize', fit);
+    })();
+
     /* ---------- Links to other websites open in a new tab ----------
        (odms, elearning, hdesk, Facebook, links inside news text ...).
        Same host = same tab; mailto:, tel: and #anchors are left alone. */

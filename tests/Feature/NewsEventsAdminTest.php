@@ -210,6 +210,17 @@ class NewsEventsAdminTest extends TestCase
             $this->get($path)->assertOk()->assertSee('class="skills-content"', false);
         }
     }
+
+    public function test_announcement_bar_stays_on_top_with_the_header()
+    {
+        foreach (['site.min.css', 'home.min.css'] as $file) {
+            $css = file_get_contents(public_path('client/dist/' . $file));
+            $this->assertStringContainsString('.fu-announce{position:-webkit-sticky;position:sticky;top:0', $css);
+            $this->assertStringContainsString('.fu-announce~.fu-header{top:var(--fu-ann-h,42px)}', $css);
+        }
+        $this->assertStringContainsString('--fu-ann-h', file_get_contents(public_path('client/dist/site.min.js')));
+    }
+
     public function test_facts_and_figures_page_has_cards_charts_and_tables()
     {
         $html = $this->get('/Facts-Figures')->assertOk()
