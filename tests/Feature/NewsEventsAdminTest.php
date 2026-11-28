@@ -177,6 +177,34 @@ class NewsEventsAdminTest extends TestCase
             User::whereKey($user->id)->delete();
         }
     }
+
+    public function test_admin_logs_in_and_out_with_the_login_form()
+    {
+        $user = User::create([
+            'username' => 'login' . random_int(1000, 9999), 'user_fullname' => 'Login Test', 'user_phone' => '0912345678',
+            'user_email' => 'login' . uniqid() . '@example.test', 'isAdmin' => '1', 'user_faculty' => '07',
+            'password' => Hash::make('LoginPassword123'),
+        ]);
+        try {
+            $this->get('/admin_panel')->assertOk();
+
+            // Wrong password: back to the login page, not signed in.
+            $this->post('/login', ['loginusername' => $user->username, 'loginpassword' => 'wrong'])->assertRedirect('/admin_panel');
+            $this->assertGuest();
+
+            $this->post('/login', ['loginusername' => $user->username, 'loginpassword' => 'LoginPassword123'])->assertRedirect('/dashboard');
+            $this->assertAuthenticatedAs($user->fresh());
+            $this->get('/dashboard')->assertOk();
+            $this->assertTrue(Hash::check('LoginPassword123', $user->fresh()->password));
+
+            $this->get('/logout');
+            $this->assertGuest();
+            $this->get('/dashboard')->assertForbidden();
+        } finally {
+            User::whereKey($user->id)->delete();
+        }
+    }
+
     public function test_share_buttons_use_a_short_link()
     {
         $news = News::published()->first();

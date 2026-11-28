@@ -5,7 +5,8 @@ namespace App\Support;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
-use Intervention\Image\Facades\Image;
+use Intervention\Image\ImageManager;
+use Intervention\Image\Interfaces\ImageInterface;
 
 /**
  * Turns admin uploads into small, fast web images. The original upload is
@@ -15,6 +16,12 @@ use Intervention\Image\Facades\Image;
 class ImageUploads
 {
     public const SLIDE_WIDTHS = [640, 1024, 1600, 2200];
+
+    /** Opens an upload with GD (photos taken sideways on phones are turned upright). */
+    public static function read(string $path): ImageInterface
+    {
+        return ImageManager::gd()->read($path);
+    }
 
     /**
      * Home slider image in several widths, e.g. storage/slides/<name>-640.webp.
@@ -27,7 +34,7 @@ class ImageUploads
 
         $name = Str::random(20);
         $ext = function_exists('imagewebp') ? 'webp' : 'jpg';
-        $original = Image::make($file->getRealPath());
+        $original = self::read($file->getRealPath());
         $origWidth = $original->width();
         $origHeight = $original->height();
 
@@ -38,12 +45,12 @@ class ImageUploads
         }
 
         foreach ($widths as $width) {
-            $copy = clone $original;
-            $copy->resize($width, null, fn ($c) => $c->aspectRatio());
-            $copy->save("{$dir}/{$name}-{$width}.{$ext}", $ext === 'webp' ? 78 : 82, $ext);
-            $copy->destroy();
+            $copy = (clone $original)->scaleDown(width: $width);
+            $encoded = $ext === 'webp' ? $copy->toWebp(quality: 78) : $copy->toJpeg(quality: 82);
+            $encoded->save("{$dir}/{$name}-{$width}.{$ext}");
+            unset($copy, $encoded);
         }
-        $original->destroy();
+        unset($original);
 
         $largest = max($widths);
 
@@ -63,12 +70,8 @@ class ImageUploads
         File::ensureDirectoryExists($dir);
 
         $name = Str::random(20) . '.jpg';
-        $image = Image::make($file->getRealPath())->fit(240, 240);
-        $image->save("{$dir}/{$name}", 85, 'jpg');
-        if (function_exists('imagewebp')) {
-            $image->save("{$dir}/{$name}.webp", 80, 'webp');
-        }
-        $image->destroy();
+        $image = self::read($file->getRealPath())->cover(240, 240);
+        self::saveWithWebp($image, "{$dir}/{$name}");
 
         return 'storage/testimonials/' . $name;
     }
@@ -78,20 +81,17 @@ class ImageUploads
      * only made smaller when it is bigger than 1600 x 2400. Cards on the lists
      * crop it for display; the details page shows all of it.
      */
-    public static function keepWhole($img): void
+    public static function keepWhole(ImageInterface $img): void
     {
-        $img->resize(1600, 2400, function ($c) {
-            $c->aspectRatio();
-            $c->upsize();
-        });
+        $img->scaleDown(1600, 2400);
     }
 
     /** Saves name.jpg plus name.jpg.webp (used automatically by @img when present). */
-    public static function saveWithWebp($img, string $path): void
+    public static function saveWithWebp(ImageInterface $img, string $path): void
     {
-        $img->save($path, 85, 'jpg');
+        $img->toJpeg(quality: 85)->save($path);
         if (function_exists('imagewebp')) {
-            $img->save($path . '.webp', 80, 'webp');
+            $img->toWebp(quality: 80)->save($path . '.webp');
         }
     }
 
