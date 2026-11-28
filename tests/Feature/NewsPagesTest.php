@@ -7,7 +7,7 @@ use App\Models\News;
 use App\Support\ImageUploads;
 use App\Support\NewsFeed;
 use Illuminate\Support\Facades\Cache;
-use Intervention\Image\Facades\Image;
+use Intervention\Image\ImageManager;
 use Tests\TestCase;
 
 /**
@@ -85,12 +85,12 @@ class NewsPagesTest extends TestCase
     public function test_uploaded_pictures_are_kept_whole()
     {
         // A tall poster stays a tall poster (it used to be cut to 570 x 320).
-        $poster = Image::canvas(1273, 1281, '#1d5191');
+        $poster = ImageManager::gd()->create(1273, 1281)->fill('#1d5191');
         ImageUploads::keepWhole($poster);
         $this->assertSame([1273, 1281], [$poster->width(), $poster->height()]);
 
         // A huge photo is only made smaller, with the same shape.
-        $big = Image::canvas(4000, 2000, '#fb8b24');
+        $big = ImageManager::gd()->create(4000, 2000)->fill('#fb8b24');
         ImageUploads::keepWhole($big);
         $this->assertSame([1600, 800], [$big->width(), $big->height()]);
     }

@@ -217,11 +217,11 @@ php artisan test --filter=AdminControlTest
 
 With root access to WHM, use **Software > EasyApache 4 > Customize**:
 
-1. **PHP 8.2** (`ea-php82`) with `opcache`, `gd`, `mbstring`, `fileinfo`, `curl`, `mysqlnd`, `xml`, `zip` and `bcmath`. Laravel 9 supports PHP 8.0 to 8.2, so do not choose 8.3 or newer yet.
+1. **PHP 8.4** (`ea-php84`) with `opcache`, `gd`, `mbstring`, `fileinfo`, `curl`, `mysqlnd`, `xml`, `zip`, `posix` and `bcmath`. The site runs Laravel 13 and its packages are locked to PHP 8.4, so do not switch to 8.5 until `composer.json` is updated for it.
 2. **HTTP/2** (`mod_http2`), which also needs the `event` MPM and PHP-FPM.
 3. **Brotli** (`mod_brotli`).
 
-Then, in **MultiPHP Manager**, set the domain to `ea-php82` and turn PHP-FPM on.
+Then, in **MultiPHP Manager**, set the domain to `ea-php84` and turn PHP-FPM on.
 
 **DNS and CDN (the biggest remaining gain).** Measured on 22 November 2026, a DNS lookup of `fu.edu.sd` took 1 to 3.4 seconds through Google and Cloudflare resolvers. Every new visitor can wait for that. Moving DNS to the free Cloudflare plan solves it and also adds HTTP/3, Brotli and servers near the visitors:
 
@@ -238,7 +238,7 @@ Open GitHub > **Actions** > the red run > **Deploy to Server**.
 | Message | What to do |
 |---|---|
 | `project folder with a complete .env not found` | Correct the folder in `.github/workflows/deploy.yml`, or complete `.env` |
-| `PHP 8.0.2 - 8.2 not found` | Install `ea-php82` in EasyApache 4 |
+| `PHP 8.4 not found` | Install `ea-php84` in EasyApache 4 |
 | `composer not found` | Install Composer or correct its path |
 | `'artisan migrate' failed` | The code is live; read the **Database** part of the log, then use **Migration status** in Server Tools |
 
@@ -249,7 +249,7 @@ If you do, use the same folder as the deployment. Its path is in the deployment 
 ```bash
 APP=/path/from/the/deployment/log
 OWNER=$(stat -c %U "$APP")
-sudo -u "$OWNER" /opt/cpanel/ea-php82/root/usr/bin/php "$APP/artisan" migrate:status
+sudo -u "$OWNER" /opt/cpanel/ea-php84/root/usr/bin/php "$APP/artisan" migrate:status
 ```
 
 `Access denied for user 'forge'@'localhost'` means that the folder has no database settings: the `.env` file is missing or incomplete, so it is probably not the live folder.
@@ -280,6 +280,6 @@ sudo -u "$OWNER" /opt/cpanel/ea-php82/root/usr/bin/php "$APP/artisan" migrate:st
 
 ### Plan
 
-- **Upgrade Laravel 9.** It no longer receives security fixes. Move to PHP 8.2 or later and a supported Laravel version. Some package warnings cannot be solved before this.
+- **Keep Laravel up to date.** The site runs Laravel 13 (security fixes until about March 2028) on PHP 8.4. Plan the move to Laravel 14 within a year of its release.
 - Change the delete links in the admin panel into forms.
 - Add two-step login for administrators.

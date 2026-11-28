@@ -5,7 +5,6 @@ namespace App\Support;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
-use Intervention\Image\Facades\Image;
 
 /**
  * The images of a news item or an event: a comma separated list of file
@@ -31,7 +30,7 @@ class PostImages
                 continue;
             }
             $name = Str::random(32) . '.jpg';
-            $img = Image::make($file->path());
+            $img = ImageUploads::read($file->path());
             ImageUploads::keepWhole($img);
             ImageUploads::saveWithWebp($img, public_path('storage/' . $folder . '/' . $name));
             $names[] = $name;

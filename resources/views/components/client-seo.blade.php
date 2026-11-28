@@ -78,6 +78,9 @@
             'publisher' => ['@id' => config('seo.url') . '/#organization'],
         ]);
     }
+    // Built in this PHP block on purpose: since Laravel 13 the schema.org
+    // "context" key, written in the template part, is read as a Blade directive.
+    $jsonLd = json_encode(['@context' => 'https://schema.org', '@graph' => $graph], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_HEX_TAG);
 @endphp
 <title>{{ $title }}</title>
 <meta name="description" content="{{ $description }}">
@@ -98,4 +101,4 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:locale:alternate" content="ar_AR">
 <meta name="twitter:card" content="summary_large_image">
-<script type="application/ld+json">{!! json_encode(['@context' => 'https://schema.org', '@graph' => $graph], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_HEX_TAG) !!}</script>
+<script type="application/ld+json">{!! $jsonLd !!}</script>
