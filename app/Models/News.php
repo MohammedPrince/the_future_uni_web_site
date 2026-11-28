@@ -18,6 +18,7 @@ class News extends Model
         'news_date',
         'news_imgs',
         'faculty_id' ,
+        'home_order' ,
         'news_by' ,
         'news_status' ,
     ];

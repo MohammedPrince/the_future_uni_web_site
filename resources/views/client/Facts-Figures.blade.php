@@ -1,190 +1,128 @@
 @extends('components.client-layout')
 @section('main-client-content')
-    <div class="site-breadcrumb">
+    @php
+        $charts = [
+            ['id' => 'ffIntake', 'title' => 'New Intake from 2015', 'sub' => 'Freshman admission per year', 'data' => $intake,
+                'type' => 'column', 'color' => '#1d5191', 'head' => ['Year', 'New students']],
+            ['id' => 'ffEnrolment', 'title' => 'Total Enrolment from 2015', 'sub' => 'All enrolled students per year', 'data' => $enrolment,
+                'type' => 'column', 'color' => '#c25f05', 'head' => ['Year', 'Students']],
+            ['id' => 'ffCountries', 'title' => 'Foreign Students Intakes', 'sub' => 'Students by country', 'data' => $countries,
+                'type' => 'row', 'color' => '#1d5191', 'head' => ['Country', 'Students']],
+            ['id' => 'ffFaculties', 'title' => 'Foreign Students Faculty Wise', 'sub' => 'Total enrolment by faculty', 'data' => $faculties,
+                'type' => 'row', 'color' => '#c25f05', 'head' => ['Faculty', 'Students']],
+        ];
+    @endphp
+
+    <section class="fu-ff">
         <div class="container">
-            <a href="{{ route('Home') }}"><i class="fa fa-home"></i> Home</a> <i class="fa fa-angle-right"></i>
-            <span style="color: #fb8b24;">Fu Facts & Figures</span>
-        </div>
-    </div>
+            <p class="fu-ff-intro">The Facts &amp; Figures show the admission and enrollment of The Future University.</p>
 
-    <div class="container">
+            <div class="fu-ff-stats">
+                @foreach ($stats as $stat)
+                    <div class="fu-ff-stat"><b>{{ $stat['value'] }}</b><span>{{ $stat['label'] }}</span></div>
+                @endforeach
+            </div>
 
-        <div class="post-item post-details" style="padding-top: 0px;">
-            <div class="section-title ">
-                <div class="post-content">
-                    <p>
-                    <blockquote class="text-center" style="background-color: whitesmoke;">
-                        <span style="font-size: 18px;">
-                            The Fact & Figures shows the admission and enrollment
-                        </span>
-                    </blockquote>
-                    </p>
-                </div>
+            <div class="fu-ff-grid">
+                @foreach ($charts as $chart)
+                    <figure class="fu-ff-card">
+                        <figcaption>
+                            <h2>{{ $chart['title'] }}</h2>
+                            <p>{{ $chart['sub'] }}</p>
+                        </figcaption>
+                        <div class="fu-ff-chart {{ $chart['type'] === 'row' ? 'fu-ff-row' : 'fu-ff-column' }}" style="--rows: {{ count($chart['data']) }}">
+                            <canvas id="{{ $chart['id'] }}" role="img"
+                                aria-label="{{ $chart['title'] }}: {{ collect($chart['data'])->map(fn ($v, $k) => $k . ' ' . $v)->implode(', ') }}"></canvas>
+                        </div>
+                        <details class="fu-ff-table">
+                            <summary>Show the numbers</summary>
+                            <table>
+                                <thead><tr><th>{{ $chart['head'][0] }}</th><th>{{ $chart['head'][1] }}</th></tr></thead>
+                                <tbody>
+                                    @foreach ($chart['data'] as $label => $value)
+                                        <tr><td>{{ $label }}</td><td>{{ number_format($value) }}</td></tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </details>
+                    </figure>
+                @endforeach
             </div>
         </div>
-    </div>
-
-    <section class="about-section">
-
-        <div class="container text-center" style="display: flex;">
-
-            <div class="container" style="flex: 1;">
-                <div class="row">
-                    <div class="col-lg-8">
-                        <div class="hr-sect new4"><span>New Intake from 2015</span></div>
-                        <p></p>
-                        <strong>Freshman Admission</strong><br>
-                        <p></p>
-                        <canvas id="barChart01"></canvas>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-lg-8">
-                        <div class="hr-sect new4"><span>Total Enrolment from 2015</span></div>
-                        <p></p>
-                        <strong>Total Enrollment</strong><br>
-                        <p></p>
-
-                        <canvas id="barChart02"></canvas>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <hr class="new4">
-        <p></p>
-
-        <div class="container text-center" style="display: flex;">
-            <div class="container" style="flex: 1;">
-                <div class="row">
-                    <div class="col">
-
-                        <div class="hr-sect new4"><span>Foreign Students Intakes</span></div>
-                        <p></p>
-                        <strong>Countries</strong><br>
-                        <p></p>  
-                        <p></p>
-                        <canvas id="pieChart01"></canvas>
-
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <div class="hr-sect new4"><span>Foreign Students Faculty Wise</span></div>
-                        <p></p>
-                        <strong>Total enrolment by faculty</strong><br>
-                        <p></p>
-                        <p></p>
-                        <canvas id="pieChart02"></canvas>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <hr class="new4">
-     
     </section>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-        // Get the canvas element for barChart01 -- BarCharts --
-        var ctx = document.getElementById('barChart01').getContext('2d');
-        var barChart01 = new Chart(ctx, {
-            type: 'bar',
-            data: {
-                labels: @json($data['labels']),
-                datasets: [{
-                    label: 'New Intake',
-                    data: @json($data['data']),
-                    backgroundColor: 'rgba(8, 14, 44, 0.2)',
-                    borderColor: 'rgba(8, 14, 44, 1)',
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                scales: {
-                    y: {
-                        beginAtZero: true
-                    }
+        document.addEventListener('DOMContentLoaded', function () {
+            if (!window.Chart) return;
+            var charts = @json($charts);
+            var ink = '#5b6475', grid = '#eef1f5';
+            var font = { family: "Ubuntu, 'Ubuntu Fallback', Arial, sans-serif", size: 12 };
+
+            // Writes each value at the end of its bar, so the numbers can be read without hovering.
+            var valueLabels = {
+                id: 'valueLabels',
+                afterDatasetsDraw: function (chart) {
+                    var ctx = chart.ctx, horizontal = chart.options.indexAxis === 'y';
+                    ctx.save();
+                    ctx.font = '500 12px ' + font.family;
+                    ctx.fillStyle = '#1f2430';
+                    chart.getDatasetMeta(0).data.forEach(function (bar, i) {
+                        var text = Number(chart.data.datasets[0].data[i]).toLocaleString('en');
+                        if (horizontal) {
+                            ctx.textAlign = 'left'; ctx.textBaseline = 'middle';
+                            ctx.fillText(text, bar.x + 6, bar.y);
+                        } else {
+                            ctx.textAlign = 'center'; ctx.textBaseline = 'bottom';
+                            ctx.fillText(text, bar.x, bar.y - 4);
+                        }
+                    });
+                    ctx.restore();
                 }
-            }
-        });
-        // Get the canvas element for barChart02
-        var ctx = document.getElementById('barChart02').getContext('2d');
-        // Define the chart data
-        var chartData = {
-            labels: ['2015', '2016', '2017', '2018', '2019', '2020', '2021', '2022'],
-            datasets: [{
-                label: 'Total enrollment',
-                data: [513,516,594, 541, 690, 686, 1122, 1008],
-                backgroundColor: 'rgba(255, 0, 0, 0.2)',
-                borderColor: 'rgba(255, 0, 0, 1)',
-                borderWidth: 1,
-            }]
-        };
+            };
 
-        // Create the chart
-        var barChart02 = new Chart(ctx, {
-            type: 'bar',
-            data: chartData,
-            options: {
-                responsive: true
-            }
-        });
-
-        // Get the canvas element for pieChart01
-        var ctx = document.getElementById('pieChart01').getContext('2d');
-        // Define the chart data
-        var chartData = {
-            labels: ['Nigeria', 'South Sudan', 'Somalia', 'Tanzania', 'Iraq', 'United Kingdom',
-                'United States of America', 'Morocco', 'India', 'Others'
-            ],
-            datasets: [{
-                label: 'Intake: ',
-                data: [21, 3, 3, 1, 1, 1, 1, 1, 1, 3],
-                backgroundColor: ['rgba( 255, 99, 71, 0.9)', 'rgba(54, 162, 235, 0.9)',
-                    'rgba(255, 205, 86, 0.9)', 'rgba(75, 192, 192, 0.9)', 'rgba(153, 102, 255, 0.9)',
-                    'rgba(255, 159, 64, 0.9)'
-                ],
-            }]
-        };
-        // Create the chart
-        var pieChart01 = new Chart(ctx, {
-            type: 'pie',
-            data: chartData,
-            options: {
-                responsive: true
-            }
-        });
-
-        // Get the canvas element for pieChart02
-        var ctx = document.getElementById('pieChart02').getContext('2d');
-        // Define the chart data
-        var chartData = {
-            labels: ['Faculty of Engineering', 'Faculty of Telecommunication', 'Faculty of Architecture',
-                'Faculty of Information Technology',
-                'Faculty of Computer Science', 'Faculty of Art & Design', 'Faculty of Geoinformatics',
-                'Faculty of Business Administration'
-            ],
-            datasets: [{
-                label: 'Faculty: ',
-                data: [246, 42, 59, 292, 58, 104, 10, 197],
-                backgroundColor: ['rgba( 255, 99, 71, 0.9)', 'rgba(54, 162, 235, 0.9)',
-                    'rgba(255, 205, 86, 0.9)', 'rgba(75, 192, 192, 0.9)', 'rgba(153, 102, 255, 0.9)',
-                    'rgba(255, 159, 64, 0.9)'
-                ],
-            }]
-        };
-        // Create the chart
-        var pieChart02 = new Chart(ctx, {
-            type: 'pie',
-            data: chartData,
-            options: {
-                responsive: true
-            }
-        });
+            charts.forEach(function (c) {
+                var horizontal = c.type === 'row';
+                var values = Object.values(c.data);
+                var max = Math.max.apply(null, values);
+                new Chart(document.getElementById(c.id), {
+                    type: 'bar',
+                    plugins: [valueLabels],
+                    data: {
+                        labels: Object.keys(c.data),
+                        datasets: [{
+                            label: c.head[1],
+                            data: values,
+                            backgroundColor: c.color,
+                            hoverBackgroundColor: c.color + 'cc',
+                            borderRadius: 4,
+                            borderSkipped: 'start',
+                            maxBarThickness: horizontal ? 22 : 46,
+                            categoryPercentage: horizontal ? 0.75 : 0.7
+                        }]
+                    },
+                    options: {
+                        indexAxis: horizontal ? 'y' : 'x',
+                        maintainAspectRatio: false,
+                        layout: { padding: horizontal ? { right: 44 } : { top: 22 } },
+                        plugins: {
+                            legend: { display: false },
+                            tooltip: {
+                                backgroundColor: '#1f2430', padding: 10, cornerRadius: 8, displayColors: false,
+                                titleFont: font, bodyFont: font,
+                                callbacks: { label: function (item) { return item.formattedValue + ' students'; } }
+                            }
+                        },
+                        scales: {
+                            x: horizontal
+                                ? { beginAtZero: true, suggestedMax: max * 1.08, grid: { color: grid }, border: { display: false }, ticks: { color: ink, font: font, maxTicksLimit: 5 } }
+                                : { grid: { display: false }, border: { color: '#d7dce4' }, ticks: { color: ink, font: font } },
+                            y: horizontal
+                                ? { grid: { display: false }, border: { color: '#d7dce4' }, ticks: { color: '#1f2430', font: font, autoSkip: false } }
+                                : { beginAtZero: true, grid: { color: grid }, border: { display: false }, ticks: { color: ink, font: font, maxTicksLimit: 6 } }
+                        }
+                    }
+                });
+            });
         });
     </script>
 @endsection

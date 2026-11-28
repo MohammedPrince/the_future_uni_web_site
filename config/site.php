@@ -6,6 +6,11 @@
 */
 return [
 
+    // Admin > Database Backups lists, downloads and deletes the files in this folder.
+    // Default: public_html/databases, two levels above this app
+    // (/home/fuedusd/public_html/repositories/the_future_uni_web_site -> /home/fuedusd/public_html/databases).
+    'db_backups_path' => env('DB_BACKUPS_PATH', dirname(base_path(), 2) . DIRECTORY_SEPARATOR . 'databases'),
+
     'defaults' => [
         // Contact
         'contact_email' => 'info@fu.edu.sd',
@@ -16,6 +21,8 @@ return [
         // Social media
         'facebook_url' => 'https://www.facebook.com/TheFutureUniversity/',
         'linkedin_url' => 'https://www.linkedin.com/school/sudan-civil-aviation-authority',
+        'instagram_url' => 'https://www.instagram.com/thefutureuniversitysd/',
+        'tiktok_url' => 'https://www.tiktok.com/@thefutureuniversitysd',
 
         // Portals
         'admission_url' => 'https://odms.fu.edu.sd/',

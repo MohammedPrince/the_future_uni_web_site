@@ -5,10 +5,14 @@ use App\Http\Controllers\NewsController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ChartController;
 use App\Http\Controllers\EventsController;
+use App\Http\Controllers\NewsEventsAdminController;
 use App\Http\Controllers\LinkageController;
 use App\Http\Controllers\FeeController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\SiteSettingsController;
+use App\Http\Controllers\DatabaseBackupsController;
+use App\Http\Controllers\HomeSlidesController;
+use App\Http\Controllers\TestimonialsController;
 use App\Http\Controllers\StaffInformationController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\SecurityScanController;
@@ -55,10 +59,15 @@ Route::middleware(['adminType', 'same.site'])->group(function () {
     Route::put('/edit_user/{user}', [UserController::class, "editUser"])->name('editsubmit');
     Route::get('/add_user/{user:id}/edit', [UserController::class, "showUser"]);
     Route::get('/profile', [UserController::class, "user_profile"])->name('profile');
+    // Own password: needs the current one; a few tries per minute.
+    Route::put('/profile/password', [UserController::class, 'updatePassword'])->middleware('throttle:6,1')->name('profile.password');
     Route::get('/new_edit_user/{id}/edit/', [UserController::class, "newPage"]);
 
-    //Events//
-    Route::get('/add_event', [EventsController::class, "showEvents"])->name('add_event');
+    // News & Events: add either one and manage both on one page.
+    Route::get('/manage_news_events', [NewsEventsAdminController::class, 'index'])->name('news_events.manage');
+
+    //Events// (the old page opens News & Events)
+    Route::get('/add_event', fn () => redirect()->route('news_events.manage', ['tab' => 'event']))->name('add_event');
     Route::post('/add_event', [EventsController::class, "addEvent"]);
     Route::get('/add_event/{event}/delete/', [EventsController::class, "deleteEvent"]);
     Route::get('/add_event/{event}/status/{event_status}', [EventsController::class, "eventStatus"]);
@@ -66,7 +75,7 @@ Route::middleware(['adminType', 'same.site'])->group(function () {
     Route::post('/edit_event/{event}', [EventsController::class, "editEvent"])->name('eventsubmit');
 
     //News//
-    Route::get('/add_news', [NewsController::class, "showNews"])->name('add_news');
+    Route::get('/add_news', fn () => redirect()->route('news_events.manage', ['tab' => 'news']))->name('add_news');
     Route::post('/add_news', [NewsController::class, "addNews"]);
     Route::get('/add_news/{news}/status/{news_status}', [NewsController::class, "newsStatus"]);
     Route::get('/edit_news/{news}/edit/', [NewsController::class, "showEditForm"]);
@@ -98,6 +107,21 @@ Route::middleware(['adminType', 'same.site'])->group(function () {
     Route::post('/site_settings/maintenance', [SiteSettingsController::class, 'maintenance'])->name('site_settings.maintenance');
     Route::get('/site_settings/preview', [SiteSettingsController::class, 'preview'])->name('site_settings.preview');
 
+    // Home page: top slider and alumni testimonials.
+    Route::get('/home_slider', [HomeSlidesController::class, 'index'])->name('slides.index');
+    Route::post('/home_slider', [HomeSlidesController::class, 'store'])->name('slides.store');
+    Route::get('/home_slider/{slide}/edit', [HomeSlidesController::class, 'edit'])->name('slides.edit');
+    Route::put('/home_slider/{slide}', [HomeSlidesController::class, 'update'])->name('slides.update');
+    Route::post('/home_slider/{slide}/toggle', [HomeSlidesController::class, 'toggle'])->name('slides.toggle');
+    Route::delete('/home_slider/{slide}', [HomeSlidesController::class, 'destroy'])->name('slides.destroy');
+
+    Route::get('/testimonials', [TestimonialsController::class, 'index'])->name('testimonials.index');
+    Route::post('/testimonials', [TestimonialsController::class, 'store'])->name('testimonials.store');
+    Route::get('/testimonials/{testimonial}/edit', [TestimonialsController::class, 'edit'])->name('testimonials.edit');
+    Route::put('/testimonials/{testimonial}', [TestimonialsController::class, 'update'])->name('testimonials.update');
+    Route::post('/testimonials/{testimonial}/toggle', [TestimonialsController::class, 'toggle'])->name('testimonials.toggle');
+    Route::delete('/testimonials/{testimonial}', [TestimonialsController::class, 'destroy'])->name('testimonials.destroy');
+
     // Staff information
     Route::get('/staff', [StaffInformationController::class, "index"])->name('staff');
     Route::post('/add_staff', [StaffInformationController::class, "store"]);
@@ -126,6 +150,17 @@ Route::middleware(['adminType'])->prefix('server_tools')->group(function () {
     Route::post('/unlock', [ServerToolsController::class, 'unlock'])->middleware('throttle:5,10')->name('tools.unlock');
     Route::post('/lock', [ServerToolsController::class, 'lock'])->name('tools.lock');
     Route::post('/run', [ServerToolsController::class, 'run'])->middleware('throttle:20,1')->name('tools.run');
+});
+
+// Database backup files (admin + own password again).
+Route::middleware(['adminType'])->prefix('db_backups')->group(function () {
+    Route::get('/', [DatabaseBackupsController::class, 'index'])->name('backups.index');
+    Route::post('/unlock', [DatabaseBackupsController::class, 'unlock'])->middleware('throttle:5,10')->name('backups.unlock');
+    Route::post('/lock', [DatabaseBackupsController::class, 'lock'])->name('backups.lock');
+    Route::get('/file/{file}', [DatabaseBackupsController::class, 'download'])->where('file', '[^/\\\\]+')->name('backups.download');
+    Route::post('/zip', [DatabaseBackupsController::class, 'downloadZip'])->name('backups.zip');
+    Route::post('/delete', [DatabaseBackupsController::class, 'delete'])->middleware('throttle:20,1')->name('backups.delete');
+    Route::post('/protect', [DatabaseBackupsController::class, 'protect'])->name('backups.protect');
 });
 
 Route::get('/logout', [UserController::class, "logout"]);
@@ -276,6 +311,10 @@ Route::middleware(['site.maintenance', 'visitor', 'page.cache'])->withoutMiddlew
     Route::get('/Event-Details/{event}', [EventsController::class, "eventDetails"])->name('eventDetails');
     Route::get('/News-Details/{news}', [NewsController::class, "newsDetails"])->name('newsDetails');
     Route::get('/News-and-Events', [NewsController::class, "NewsAndEvents"])->name('NewsAndEvents');
+
+    // Short links for sharing (fu.edu.sd/n/12, fu.edu.sd/e/5) -> the full page.
+    Route::get('/n/{id}', fn (int $id) => redirect()->route('newsDetails', base64_encode($id), 301))->whereNumber('id')->name('news.short');
+    Route::get('/e/{id}', fn (int $id) => redirect()->route('eventDetails', base64_encode($id), 301))->whereNumber('id')->name('event.short');
     Route::get('/Facts-Figures', [ChartController::class, 'barChart'])->name('barChart');
 });
 

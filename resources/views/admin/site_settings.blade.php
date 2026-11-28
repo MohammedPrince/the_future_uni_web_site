@@ -126,10 +126,12 @@
                             @foreach ([
                                 'facebook_url' => 'Facebook page',
                                 'linkedin_url' => 'LinkedIn page',
+                                'instagram_url' => 'Instagram page',
+                                'tiktok_url' => 'TikTok page',
                                 'admission_url' => 'Admission portal (top bar)',
                                 'elearning_url' => 'E-Learning (top bar and footer)',
                                 'helpdesk_url' => 'Help Desk (top bar and footer)',
-                                'students_portal_url' => 'Students Portal (footer)',
+                                'students_portal_url' => 'Student Result (footer)',
                                 'support_url' => 'Live technical support button (Zoom)',
                             ] as $key => $label)
                                 <div class="col-12 col-lg-6 mb-3">

@@ -10,67 +10,52 @@ class MainApp extends Model
 {
     use HasFactory;
 
+    /**
+     * Faculties and offices that news and events can belong to (fu_news.faculty_id,
+     * fu_events.faculty_id). The codes are the ones already saved in the database.
+     */
+    public const FACULTIES_AND_OFFICES = [
+        'Faculties' => [
+            '1' => 'Faculty of Engineering',
+            '2' => 'Faculty of Computer Science',
+            '3' => 'Faculty of Information Technology',
+            '4' => 'Faculty of Telecommunication Engineering',
+            '5' => 'Faculty of Architecture Engineering',
+            '7' => 'Faculty of Fine Arts and Design',
+            '14' => 'Faculty of Geoinformatics',
+            '21' => 'Faculty of Basic Sciences',
+            '22' => 'Faculty of Postgraduate Studies',
+            '23' => 'Faculty of Business Administration',
+        ],
+        'Centers and Offices' => [
+            '0' => 'Administration',
+            '07' => 'Academic Affairs',
+            '05' => 'Admission and Registration',
+            '08' => 'Students Affairs',
+            '06' => 'Marketing',
+            '01' => 'CESD',
+            '02' => 'CTS',
+            '04' => 'IRDC',
+        ],
+    ];
+
+    /** Every code => name, for validation and lookups. */
+    public static function facultyCodes(): array
+    {
+        $all = [];
+        foreach (self::FACULTIES_AND_OFFICES as $group) {
+            $all += $group;
+        }
+
+        return $all;
+    }
+
     public static function getFacultiesAndOffices($id){
-        $value ='';
-
-        if($id =='0'){
-            $value = 'Admin';
-        }
-        if($id =='1'){
-            $value = 'Faculty of Engineering';
-        }
-        if($id =='2'){
-            $value = 'Faculty of Computer Science';
-        }
-        if($id =='3'){
-            $value = 'Faculty of Information Technology';
-        }
-        if($id =='4'){
-            $value = 'Faculty of Telecommunication Engineering';
-        }
-        if($id =='5'){
-            $value = 'Faculty of Faculty of Architecture Engineering';
-        }
-        if($id =='7'){
-            $value = 'Faculty of Faculty of Fine Arts and Design';
-        }
-        if($id=='14'){
-            $value = 'Faculty of Faculty of Geoinformatics';
-        }
-        if($id=='21'){
-            $value = 'Faculty of Faculty of Basic Sciences';
-        }
-        if($id=='23'){
-            $value = 'Faculty of Faculty of Business Administration';
-        }
-        //Officess//
-        if($id=='01'){
-            $value = 'CESD';
-        }
-        if($id=='02'){
-            $value = 'CTS';
-        }
-        if($id=='04'){
-            $value = 'IRDC';
-        }
-        if($id=='05'){
-            $value = 'Admission and Registration';
-        }
-        if($id=='06'){
-            $value = 'Marketing';
-        }
-        if($id=='07'){
-            $value = 'Academic Affairs';
-        }
-        if($id=='08'){
-            $value = ' Students Affairs';
-        }
-
-        return $value ;
+        return self::facultyCodes()[(string) $id] ?? '';
     }
 
     public static function GetUserDetails($column_name,$id){
-        
+
         $res = DB::table('users')->where('id', $id)->select($column_name)->pluck($column_name)->first();
         return $res ;
     }

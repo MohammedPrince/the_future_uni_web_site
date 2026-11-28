@@ -18,7 +18,9 @@ return [
 
     // Page cache: on in production, off while developing.
     'page_cache' => env('PAGE_CACHE', env('APP_ENV') === 'production'),
-    'page_cache_seconds' => 600,
+    // Long on purpose: every admin change and every deploy clears it at once, and a
+    // short life meant most visitors of a quiet hour waited for a fresh page (slow TTFB).
+    'page_cache_seconds' => 21600,
     'hosts' => ['fu.edu.sd', 'www.fu.edu.sd', 'localhost', '127.0.0.1'],
 
     'default_description' => 'The Future University, Khartoum, Sudan: bachelor, diploma and master programs in engineering, computer science, IT, telecommunication, architecture, design and business.',

@@ -90,28 +90,18 @@
                                                 @enderror
                                             </div>
 
-                                            <input type="hidden" value="{{ $news->news_imgs }}" name="news_imgs_old">
+                                            @include('admin.partials.faculty_order_fields', ['item' => $news])
 
                                             <div class="card-header">
                                                 <h5 class="card-title mb-0">Current Images</h5>
+                                                <p class="text-muted mb-0">Tick "Remove" under an image to delete it when you save.</p>
                                             </div>
-                                        <div class="card-body col-6 col-lg-6">
+                                            <div class="card-body col-12">
+                                                @include('admin.partials.current_images', ['folder' => 'news_imgs', 'images' => $news->news_imgs, 'removeName' => 'news_imgs_remove'])
+                                            </div>
 
-                                            @include('admin.partials.current_images', ['folder' => 'news_imgs', 'images' => $news->news_imgs])
-                                        </div>
+                                            @include('admin.partials.image_upload', ['name' => 'news_imgs', 'editing' => true])
 
-                                            <div class="card-header">
-                                                <h5 class="card-title mb-0">Upload News Images</h5>
-                                            </div>
-                                            <div class="card-body col-6 col-lg-6">
-                                                <input type="file" name="news_imgs[]" multiple  class="form-control" placeholder="Select News Images">
-                                                @error('news_imgs')
-                                                    <div class="alert error text-center">
-                                                        <p class="inner">{{ $message }}</p>
-                                                    </div>
-                                                @enderror
-                                            </div>
-                                           
                                             <div class="text-center">
 
                                                 <button class="btn btn btn-success">Edit News</button>

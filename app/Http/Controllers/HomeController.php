@@ -1,97 +1,33 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\News;
-use App\Models\Events;
 
-
-
-use Illuminate\Http\Request;
+use App\Models\HomeSlide;
+use App\Models\Testimonial;
+use App\Support\NewsFeed;
+use Illuminate\Support\Collection;
 
 class HomeController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index(Request $request)
-    {
+    /** Cards in the News & Events slider on the home page. */
+    private const HOME_ITEMS = 9;
 
-        $news = News::published()->orderByDesc('news_date')->orderByDesc('id')->take(3)->get();
-        $events = Events::published()->orderByDesc('event_date')->orderByDesc('id')->take(3)->get();
+    public function index()
+    {
+        $items = NewsFeed::homeOrder(NewsFeed::all())->take(self::HOME_ITEMS)->values();
 
         return view('client.Home', [
-            'news' => $news,
-            'events' => $events,
-            'news_value' => $news->isNotEmpty(),
-            'event_value' => $events->isNotEmpty(),
+            'slides' => rescue(fn () => HomeSlide::ordered()->where('is_visible', true)->get(), collect(), false),
+            'testimonials' => rescue(fn () => Testimonial::ordered()->where('is_visible', true)->get(), collect(), false),
+            'homeItems' => $items,
+            'news_value' => $items->isNotEmpty(),
+            'event_value' => false,
         ]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    /** Items with a home order first (1, 2, 3 ...), then the rest, newest first. */
+    public static function homeOrder(Collection $items): Collection
     {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+        return NewsFeed::homeOrder($items);
     }
 }

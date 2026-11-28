@@ -93,9 +93,13 @@ After login the admin panel opens on the **Dashboard**: website status, counts, 
 | Dashboard | Overview. Shows a red warning while maintenance mode is on |
 | Site Settings > Maintenance mode | Closes the public website. Visitors see a "We will be back soon" page (status 503, so Google keeps the pages). The admin panel keeps working. **Preview the site** lets your own browser see the website meanwhile |
 | Site Settings > Announcement bar | An orange line at the top of every public page, with an optional link |
-| Site Settings > Contact details and Links | Email, phone, address, map, Facebook, LinkedIn, Admission, E-Learning, Help Desk, Students Portal and the support button. An empty field hides that item |
+| Site Settings > Contact details and Links | Email, phone, address, map, Facebook, LinkedIn, Admission, E-Learning, Help Desk, Student Result and the support button. An empty field hides that item |
 | Site Settings > Texts | Footer "about" text and a line above the fee tables |
 | Manage News / Manage Events | Add, edit, delete, and **Publish / Hide**. "Publish now" is ticked by default; untick it to prepare an item and publish it later. The description has an HTML editor: headings, bold, lists, links, alignment and right-to-left paragraphs for Arabic. Colors and fonts from pasted text are dropped, so the site style stays the same; scripts and unsafe code are always removed |
+| Database Backups | Lists the backup files in `DB_BACKUPS_PATH` (default `public_html/databases`, two folders above the app: `/home/fuedusd/public_html/databases`) with size and date. Download one file, the ticked files or all (as one ZIP), and delete one, the ticked files or all. Needs your password again and locks after 15 minutes. Every download and delete is written to `storage/logs/db-backups.log`. If the folder is inside `public_html` and open to the web, the page shows a red warning with **Block web access** |
+| Home Slider | The big pictures at the top of the home page: photo, small text, title, optional button, order, show/hide. Each photo is saved as WebP in up to four widths (640, 1024, 1600, 2200 px) so phones download a small file; the first slide is preloaded and the others load only when shown. The last visible slide cannot be hidden or deleted |
+| Testimonials | The Alumni Testimonials section: name, job, quote, photo (cut to a 240 px square), order, show/hide. With none shown, the section is hidden |
+| News / Events: Faculty and home order | Every news item and event has a Faculty / Department and an optional "Order on the home page" (1 first). The home page shows up to 9 news and events in a slider: ordered ones first, then the newest |
 | Fee Structure | The tables on the public Fee Structure page: add, edit, hide, reorder or delete programs and whole tables. Amounts accept `2000000` or `2,000,000` |
 
 The footer "Recent News" shows the two newest published news items automatically.
@@ -213,11 +217,11 @@ php artisan test --filter=AdminControlTest
 
 With root access to WHM, use **Software > EasyApache 4 > Customize**:
 
-1. **PHP 8.2** (`ea-php82`) with `opcache`, `gd`, `mbstring`, `fileinfo`, `curl`, `mysqlnd`, `xml`, `zip` and `bcmath`. Laravel 9 supports PHP 8.0 to 8.2, so do not choose 8.3 or newer yet.
+1. **PHP 8.4** (`ea-php84`) with `opcache`, `gd`, `mbstring`, `fileinfo`, `curl`, `mysqlnd`, `xml`, `zip`, `posix` and `bcmath`. The site runs Laravel 13 and its packages are locked to PHP 8.4, so do not switch to 8.5 until `composer.json` is updated for it.
 2. **HTTP/2** (`mod_http2`), which also needs the `event` MPM and PHP-FPM.
 3. **Brotli** (`mod_brotli`).
 
-Then, in **MultiPHP Manager**, set the domain to `ea-php82` and turn PHP-FPM on.
+Then, in **MultiPHP Manager**, set the domain to `ea-php84` and turn PHP-FPM on.
 
 **DNS and CDN (the biggest remaining gain).** Measured on 22 November 2026, a DNS lookup of `fu.edu.sd` took 1 to 3.4 seconds through Google and Cloudflare resolvers. Every new visitor can wait for that. Moving DNS to the free Cloudflare plan solves it and also adds HTTP/3, Brotli and servers near the visitors:
 
@@ -234,7 +238,7 @@ Open GitHub > **Actions** > the red run > **Deploy to Server**.
 | Message | What to do |
 |---|---|
 | `project folder with a complete .env not found` | Correct the folder in `.github/workflows/deploy.yml`, or complete `.env` |
-| `PHP 8.0.2 - 8.2 not found` | Install `ea-php82` in EasyApache 4 |
+| `PHP 8.4 not found` | Install `ea-php84` in EasyApache 4 |
 | `composer not found` | Install Composer or correct its path |
 | `'artisan migrate' failed` | The code is live; read the **Database** part of the log, then use **Migration status** in Server Tools |
 
@@ -245,7 +249,7 @@ If you do, use the same folder as the deployment. Its path is in the deployment 
 ```bash
 APP=/path/from/the/deployment/log
 OWNER=$(stat -c %U "$APP")
-sudo -u "$OWNER" /opt/cpanel/ea-php82/root/usr/bin/php "$APP/artisan" migrate:status
+sudo -u "$OWNER" /opt/cpanel/ea-php84/root/usr/bin/php "$APP/artisan" migrate:status
 ```
 
 `Access denied for user 'forge'@'localhost'` means that the folder has no database settings: the `.env` file is missing or incomplete, so it is probably not the live folder.
@@ -276,6 +280,6 @@ sudo -u "$OWNER" /opt/cpanel/ea-php82/root/usr/bin/php "$APP/artisan" migrate:st
 
 ### Plan
 
-- **Upgrade Laravel 9.** It no longer receives security fixes. Move to PHP 8.2 or later and a supported Laravel version. Some package warnings cannot be solved before this.
+- **Keep Laravel up to date.** The site runs Laravel 13 (security fixes until about March 2028) on PHP 8.4. Plan the move to Laravel 14 within a year of its release.
 - Change the delete links in the admin panel into forms.
 - Add two-step login for administrators.

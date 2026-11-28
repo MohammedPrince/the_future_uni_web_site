@@ -155,4 +155,17 @@ class PublicSiteTest extends TestCase
         $this->get('/search?term=%25')->assertOk()->assertDontSee('News-Details');
         $this->get('/search?term[]=x')->assertOk();
     }
+
+    /** Structured data for Google must be valid JSON (Blade must not read "@context" as a directive). */
+    public function test_structured_data_is_valid_json()
+    {
+        foreach (['/', '/About-FU', '/News-and-Events'] as $path) {
+            $html = $this->get($path)->assertOk()->getContent();
+            $this->assertSame(1, preg_match('#<script type="application/ld\+json">(.*?)</script>#s', $html, $m), $path);
+            $data = json_decode($m[1], true);
+            $this->assertIsArray($data, $path);
+            $this->assertSame('https://schema.org', $data['@context'], $path);
+            $this->assertSame('CollegeOrUniversity', $data['@graph'][0]['@type'], $path);
+        }
+    }
 }

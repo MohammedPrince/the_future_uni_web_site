@@ -42,7 +42,7 @@ class AdminControlTest extends TestCase
 
     public function test_admin_pages_open()
     {
-        foreach (['/dashboard', '/site_settings', '/fee_structure', '/add_news', '/add_event'] as $path) {
+        foreach (['/dashboard', '/site_settings', '/fee_structure', '/manage_news_events', '/profile'] as $path) {
             $this->actingAs($this->admin())->get($path)->assertOk();
         }
     }
@@ -186,6 +186,52 @@ class AdminControlTest extends TestCase
             ->assertSee('We will be back soon')
             ->assertSee('Closed for a short update.')
             ->assertDontSee('Go back');
+    }
+
+    public function test_header_and_footer_link_to_all_social_pages()
+    {
+        $html = $this->get('/About-FU')->assertOk()->getContent();
+        foreach ([
+            'https://www.facebook.com/TheFutureUniversity/',
+            'https://www.instagram.com/thefutureuniversitysd/',
+            'https://www.tiktok.com/@thefutureuniversitysd',
+        ] as $url) {
+            // Once in the top bar and once in the footer.
+            $this->assertSame(2, substr_count($html, 'href="' . e($url) . '"'), $url);
+        }
+        $this->assertStringContainsString('aria-label="Instagram"', $html);
+        $this->assertStringContainsString('aria-label="TikTok"', $html);
+    }
+
+    public function test_links_to_other_websites_open_in_a_new_tab()
+    {
+        foreach (['https://odms.fu.edu.sd/', 'https://thj.fu.edu.sd/', 'https://www.facebook.com/x', 'http://example.com'] as $url) {
+            $this->assertTrue(\App\Support\Links::isExternal($url), $url);
+        }
+        foreach (['/Fee-Structure', 'https://fu.edu.sd/About-FU', 'https://www.fu.edu.sd/', 'mailto:info@fu.edu.sd', '#top', null] as $url) {
+            $this->assertFalse(\App\Support\Links::isExternal($url), (string) $url);
+        }
+
+        $html = $this->get('/')->assertOk()->getContent();
+        // Apply now (admission portal), the journal in the menu, the portals in the top bar.
+        $this->assertMatchesRegularExpression('#class="fu-apply" href="https://odms\.fu\.edu\.sd/"\s+target="_blank" rel="noopener"#', $html);
+        $this->assertMatchesRegularExpression('#href="https://thj\.fu\.edu\.sd/"\s+target="_blank"#', $html);
+        $this->assertMatchesRegularExpression('#href="https://elearning\.fu\.edu\.sd/" target="_blank"#', $html);
+        // Pages of this site stay in the same tab.
+        $this->assertDoesNotMatchRegularExpression('#href="' . preg_quote(route('Fees'), '#') . '"\s+target=#', $html);
+    }
+
+    public function test_join_banner_is_only_on_the_home_page()
+    {
+        $html = $this->get('/')->assertOk()->assertSee('Ready to join The Future University?')->getContent();
+        $this->assertMatchesRegularExpression('/Student\s+Result/', $html);
+        foreach (['/About-FU', '/Undergraduate-Programs', '/News-and-Events'] as $path) {
+            $this->get($path)->assertOk()
+                ->assertDontSee('Ready to join The Future University?')
+                ->assertSee('fu-footer-plain', false)
+                ->assertSee('rel="noopener">Student', false)
+                ->assertDontSee('Students Portal');
+        }
     }
 
     public function test_public_pages_still_show_the_default_contact_details()

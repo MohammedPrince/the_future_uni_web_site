@@ -40,17 +40,18 @@ jobs:
             cd "$APP"
             echo "== Folder: $APP"
 
-            # --- PHP 8.0.2 to 8.2 (Laravel 9). The default "php" on cPanel can
-            #     be another version, so look for the cPanel ones too. ---
+            # --- PHP 8.4 (Laravel 13; composer.json is locked to 8.4). The default
+            #     "php" on cPanel can be another version, so look for ea-php84 too.
+            #     The website itself must also be on PHP 8.4 (WHM/cPanel > MultiPHP Manager). ---
             PHP=""
-            for bin in php /opt/cpanel/ea-php82/root/usr/bin/php /opt/cpanel/ea-php81/root/usr/bin/php /opt/cpanel/ea-php80/root/usr/bin/php; do
+            for bin in /opt/cpanel/ea-php84/root/usr/bin/php php; do
               if command -v "$bin" >/dev/null 2>&1 && \
-                 "$bin" -r 'exit(PHP_SAPI === "cli" && PHP_VERSION_ID >= 80002 && PHP_VERSION_ID < 80300 ? 0 : 1);' >/dev/null 2>&1; then
+                 "$bin" -r 'exit(PHP_SAPI === "cli" && PHP_VERSION_ID >= 80400 && PHP_VERSION_ID < 80500 ? 0 : 1);' >/dev/null 2>&1; then
                 PHP="$(command -v "$bin")"; break
               fi
             done
             if [ -z "$PHP" ]; then
-              echo "STOP: PHP 8.0.2 - 8.2 not found. Default php is: $(php -v 2>&1 | head -n 1)"; exit 1
+              echo "STOP: PHP 8.4 not found (install ea-php84 in WHM > EasyApache 4). Default php is: $(php -v 2>&1 | head -n 1)"; exit 1
             fi
             echo "== PHP: $PHP $("$PHP" -r 'echo PHP_VERSION;')"
 
