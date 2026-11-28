@@ -179,41 +179,6 @@
         </div>
     </section>
 
-    {{-- ===== Our Centers ===== --}}
-    <section class="fu-sec">
-        <div class="container">
-            <div class="fu-head">
-                <span class="fu-eyebrow">Beyond the classroom</span>
-                <h2>Our Centers</h2>
-                <p>Technical centers that build, support and innovate.</p>
-            </div>
-            <div class="fu-center-grid">
-                <a class="fu-center" href="{{ route('CESD') }}">
-                    <span class="fu-badge" style="background:#1d5191"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4M9 9l-2 1.5L9 12M15 9l2 1.5-2 1.5"/></svg></span>
-                    <span class="fu-tag">CESD</span>
-                    <h3>Center of E-Learning and Software Development</h3>
-                    <p>A hub that harnesses technology to transform education: e-learning platforms and software solutions that help students and professionals thrive in the digital age.</p>
-                    <span class="fu-more">Learn more &rarr;</span>
-                </a>
-                <a class="fu-center" href="{{ route('CTS') }}">
-                    <span class="fu-badge" style="background:#e2730f"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="7" rx="1.5"/><rect x="3" y="14" width="18" height="7" rx="1.5"/><path d="M7 6.5h.01M7 17.5h.01"/></svg></span>
-                    <span class="fu-tag">CTS</span>
-                    <h3>Center of Technological Services</h3>
-                    <p>State-of-the-art facilities and specialised support for students, faculty and researchers, from computing infrastructure to prototyping tools.</p>
-                    <span class="fu-more">Learn more &rarr;</span>
-                </a>
-                <a class="fu-center" href="{{ route('IRDC') }}">
-                    <span class="fu-badge" style="background:#15803d"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12.7V17h8v-2.3A7 7 0 0 0 12 2z"/></svg></span>
-                    <span class="fu-tag">IRDC</span>
-                    <h3>Innovation Research and Development Center</h3>
-                    <p>Where pioneering ideas come to life: cross-disciplinary collaboration and access to cutting-edge resources for researchers and innovators.</p>
-                    <span class="fu-more">Learn more &rarr;</span>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- /////////////////////// -->
     {{-- ===== News & Events (order: Admin > Manage News / Events > "Order on the home page") ===== --}}
     @if ($homeItems->isNotEmpty())
     <section class="fu-sec fu-bg">
@@ -271,9 +236,43 @@
     </section>
     @endif
 
+    {{-- ===== Our Centers ===== --}}
+    <section class="fu-sec">
+        <div class="container">
+            <div class="fu-head">
+                <span class="fu-eyebrow">Beyond the classroom</span>
+                <h2>Our Centers</h2>
+                <p>Technical centers that build, support and innovate.</p>
+            </div>
+            <div class="fu-center-grid">
+                <a class="fu-center" href="{{ route('CESD') }}">
+                    <span class="fu-badge" style="background:#1d5191"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4M9 9l-2 1.5L9 12M15 9l2 1.5-2 1.5"/></svg></span>
+                    <span class="fu-tag">CESD</span>
+                    <h3>Center of E-Learning and Software Development</h3>
+                    <p>A hub that harnesses technology to transform education: e-learning platforms and software solutions that help students and professionals thrive in the digital age.</p>
+                    <span class="fu-more">Learn more &rarr;</span>
+                </a>
+                <a class="fu-center" href="{{ route('CTS') }}">
+                    <span class="fu-badge" style="background:#e2730f"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="7" rx="1.5"/><rect x="3" y="14" width="18" height="7" rx="1.5"/><path d="M7 6.5h.01M7 17.5h.01"/></svg></span>
+                    <span class="fu-tag">CTS</span>
+                    <h3>Center of Technological Services</h3>
+                    <p>State-of-the-art facilities and specialised support for students, faculty and researchers, from computing infrastructure to prototyping tools.</p>
+                    <span class="fu-more">Learn more &rarr;</span>
+                </a>
+                <a class="fu-center" href="{{ route('IRDC') }}">
+                    <span class="fu-badge" style="background:#15803d"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12.7V17h8v-2.3A7 7 0 0 0 12 2z"/></svg></span>
+                    <span class="fu-tag">IRDC</span>
+                    <h3>Innovation Research and Development Center</h3>
+                    <p>Where pioneering ideas come to life: cross-disciplinary collaboration and access to cutting-edge resources for researchers and innovators.</p>
+                    <span class="fu-more">Learn more &rarr;</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
     {{-- ===== Alumni testimonials (Admin > Testimonials) ===== --}}
     @if ($testimonials->isNotEmpty())
-    <section class="fu-sec">
+    <section class="fu-sec fu-bg">
         <div class="container fu-tm-wrap">
             <div>
                 <div class="fu-head fu-left">
@@ -304,7 +303,7 @@
     @endif
 
     {{-- ===== Partners ===== --}}
-    <section class="fu-sec fu-bg">
+    <section class="fu-sec">
         <div class="container">
             <div class="fu-head">
                 <span class="fu-eyebrow">Working together</span>
